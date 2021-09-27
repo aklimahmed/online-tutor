@@ -1,9 +1,11 @@
 import path from 'path'
 import express from 'express'
 import dotenv from 'dotenv'
+import connectDB from './config/db.js'
 
 dotenv.config()
-
+connectDB()
+// najjtechnologies123
 const app = express()
 
 app.use(express.json())
