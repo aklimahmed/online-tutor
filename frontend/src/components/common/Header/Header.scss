@@ -1,0 +1,26 @@
+@import"../../../Asset/Color/Color.scss";
+
+
+.header{
+    background-color: $header_color;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+}
+
+
+.header-logo{
+    height: 50px;
+}
+
+
+.navStyle{
+    margin-left: 50px;
+}
+
+
+.nav-title{
+    font-size: medium;
+    color: $primaryColor;
+    font-weight: 500;
+}
