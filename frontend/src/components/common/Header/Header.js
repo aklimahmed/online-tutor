@@ -6,7 +6,7 @@ import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
 const header = () => {
   return (
     <div className="header">
-      <Navbar className="container" expand="lg">
+      <Navbar className="container-fluid" expand="lg">
         <Container fluid>
           <img className="header-logo" src={logo} alt="" />
           <Navbar.Toggle aria-controls="navbarScroll" />
@@ -16,7 +16,7 @@ const header = () => {
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
-              <NavDropdown title="CLASSES" id="navbarScrollingDropdown">
+              <NavDropdown className="nav-title" title="CLASSES" id="navbarScrollingDropdown">
                 <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
                 <NavDropdown.Item href="#action4">
                   Another action
@@ -26,7 +26,7 @@ const header = () => {
                   Something else here
                 </NavDropdown.Item>
               </NavDropdown>
-              <NavDropdown title="SUBJECTS" id="navbarScrollingDropdown">
+              <NavDropdown className="nav-title" title="SUBJECTS" id="navbarScrollingDropdown">
                 <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
                 <NavDropdown.Item href="#action4">
                   Another action
