@@ -4,6 +4,7 @@ import { Container } from 'react-bootstrap'
 import Header from './components/common/Header/Header'
 import LoginScreen from './screens/LoginScreen/LoginScreen'
 import RegisterScreen from './screens/RegisterScreen/RegisterScreen'
+import TutorsProfile from './screens/TutorsProfile/TutorsProfile'
 // awElJHf1SwmAYanM
 
 const App = () => {
@@ -14,6 +15,7 @@ const App = () => {
         <Container>
           <Route path='/login' component={LoginScreen} />
           <Route path='/register' component={RegisterScreen} />
+          <Route path='/tutorsprofile/:id' component={TutorsProfile} />
          
         </Container>
       </main>
