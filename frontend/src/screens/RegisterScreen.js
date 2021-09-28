@@ -54,7 +54,7 @@ const RegisterScreen = ({ location, history }) => {
         type='radio'
         id='inline-radio'
         value={role}
-        onChange={() => setRole(1)}
+        onChange={() => setRole('student')}
       />
       <Form.Check
         inline
@@ -63,7 +63,7 @@ const RegisterScreen = ({ location, history }) => {
         type='radio'
         id='inline-radio'
         value={role}
-        onChange={() => setRole(2)}
+        onChange={() => setRole('parent')}
       />
       <Form.Check
         inline
@@ -72,7 +72,7 @@ const RegisterScreen = ({ location, history }) => {
         type='radio'
         id='inline-radio'
         value={role}
-        onChange={() => setRole(3)}
+        onChange={() => setRole('tutor')}
       />
       </Form.Group>
 
