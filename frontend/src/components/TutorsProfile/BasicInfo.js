@@ -2,6 +2,7 @@ import React from "react";
 import FormContainer from "../common/FormContainer";
 import { Row, Col, Form } from "react-bootstrap";
 
+
 const presentdistrict = [
     {
         "district": "Select District"
@@ -89,45 +90,45 @@ const locallanguage = [
 const BasicInfo = () => {
   return (
     <div style={{border: '1px solid rgba(153, 150, 150, 0.671)', paddingTop: '60px', paddingBottom: '20px', backgroundColor: '#E8E8E8'}}>
+        <h6>Basic Info</h6>
         <FormContainer>
         <Form>
       <Row style={{padding: '0px', display: 'flex', justifyContent: 'space-between'}}>
         <Col md={6}>
-              <Form.Group className="mb-3" controlId="formBasicName">
+              <Form.Group className="mb-3" controlId="formBasicName" style={{padding: '0px'}}>
                 <Form.Label>Name:</Form.Label>
-                <Form.Control
+                <input
                   style={{
                     backgroundColor: "white",
                     border: "1px solid grey",
                     borderRadius: "5px",
                     width: '100%',
                     height: '50px',
+                    padding: '15px',
                     color: '#B8B8B8'
                   }}
                   type="name"
                   placeholder="eg. Mr. Tareq"
                 />
               </Form.Group>
-
               <Form.Group className="mb-3" controlId="formBasicPhone">
                 <Form.Label>Phone:</Form.Label>
-                <Form.Control
+                <input
                   style={{
                     backgroundColor: "white",
                     border: "1px solid grey",
                     borderRadius: "5px",
                     width: '100%',
                     height: '50px',
+                    padding: '15px',
                     color: '#B8B8B8'
                   }}
                   type="tel"
                   placeholder="+8801836765672"
                 />
               </Form.Group>
-
-              <Form.Group>
-                <label for="gender">Select gender</label>
-                <br />
+              <Form.Group className="mb-3" controlId="formBasicGender">
+              <Form.Label>Gender:</Form.Label>
                 <select style={{
                     backgroundColor: "white",
                     border: "1px solid grey",
@@ -142,10 +143,8 @@ const BasicInfo = () => {
                   <option value="other">Other</option>
                 </select>
               </Form.Group>
-
-              <Form.Group>
-              <label for="start">Start date:</label>
-
+              <Form.Group className="mb-3" controlId="formBasicDob">
+              <Form.Label>Date of Birth:</Form.Label>
             <input style={{
                     backgroundColor: "white",
                     border: "1px solid grey",
@@ -162,9 +161,8 @@ const BasicInfo = () => {
         
 
         <Col md={6}>
-        <Form.Group>
-                <label for="presentdistrict">Present</label>
-                <br />
+        <Form.Group className="mb-3" controlId="formBasicDistrict">
+                <Form.Label>Present District:</Form.Label>
                 <select style={{
                     backgroundColor: "white",
                     border: "1px solid grey",
@@ -180,9 +178,8 @@ const BasicInfo = () => {
                 </select>
               </Form.Group>
 
-              <Form.Group>
-                <label for="experience">Teaching</label>
-                <br />
+              <Form.Group className="mb-3" controlId="formBasicExperience">
+               <Form.Label>Experience:</Form.Label>
                 <select style={{
                     backgroundColor: "white",
                     border: "1px solid grey",
@@ -198,9 +195,8 @@ const BasicInfo = () => {
                 </select>
               </Form.Group>
 
-              <Form.Group>
-                <label for="languages">Can Speak?</label>
-                <br />
+              <Form.Group className="mb-3" controlId="formBasicLanguage">
+                <Form.Label>Can Speak?</Form.Label>
                 <select style={{
                     backgroundColor: "white",
                     border: "1px solid grey",
@@ -215,10 +211,8 @@ const BasicInfo = () => {
                     )) }
                 </select>
               </Form.Group>
-
-              <Form.Group>
-                <label for="locallanguage">Understand</label>
-                <br />
+              <Form.Group className="mb-3" controlId="formBasicLocalLanguage">
+              <Form.Label>Local languages:</Form.Label>
                 <select style={{
                     backgroundColor: "white",
                     border: "1px solid grey",
