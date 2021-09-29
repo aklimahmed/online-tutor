@@ -1,0 +1,45 @@
+@import"../../../style/Color.scss";
+@import"../../../style/FontSize.scss";
+
+.logo{
+    height: 80px;
+}
+
+.header_button{
+    border-radius: 30px;
+    padding: 10px;
+}
+
+.dropdown_style{
+    padding: 0;
+    margin: 0;
+}
+
+.header_text{
+    font-size: $headerText;
+    font-weight: $headerWeight;
+    text-transform: none;
+    letter-spacing: 0px;
+}
+
+.nav-link {
+    display: inline;
+}
+
+.effect:after {
+    content: '';
+    display: block;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #0087ca;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.effect:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
