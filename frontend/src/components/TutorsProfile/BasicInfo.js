@@ -1,7 +1,8 @@
 import React from "react";
 import FormContainer from "../common/FormContainer";
 import { Row, Col, Form } from "react-bootstrap";
-
+import "./BasicInfo.scss"
+//  style={{border: '1px solid rgba(153, 150, 150, 0.671)', paddingTop: '60px', paddingBottom: '20px', backgroundColor: '#F9F9F9', paddingLeft: '100px', paddingRight: '100px', borderRadius: '10px'}}
 
 const presentdistrict = [
     {
@@ -89,55 +90,34 @@ const locallanguage = [
 
 const BasicInfo = () => {
   return (
-    <div style={{border: '1px solid rgba(153, 150, 150, 0.671)', paddingTop: '60px', paddingBottom: '20px', backgroundColor: '#E8E8E8'}}>
-        <h6>Basic Info</h6>
-        <FormContainer>
-        <Form>
-      <Row style={{padding: '0px', display: 'flex', justifyContent: 'space-between'}}>
+    <div className="basic-info-body weeklyTime_div">
+        <h6 className="time_heading">Basic info</h6>
+      <Row>
         <Col md={6}>
-              <Form.Group className="mb-3" controlId="formBasicName" style={{padding: '0px'}}>
+              <Form.Group className="mb-3" controlId="formBasicName">
                 <Form.Label>Name:</Form.Label>
+                <br />
                 <input
-                  style={{
-                    backgroundColor: "white",
-                    border: "1px solid grey",
-                    borderRadius: "5px",
-                    width: '100%',
-                    height: '50px',
-                    padding: '15px',
-                    color: '#B8B8B8'
-                  }}
-                  type="name"
-                  placeholder="eg. Mr. Tareq"
+                className="input-field"
+                type="name"
+               placeholder="eg. Mr. Tareq"
                 />
               </Form.Group>
               <Form.Group className="mb-3" controlId="formBasicPhone">
                 <Form.Label>Phone:</Form.Label>
+                <br />
                 <input
-                  style={{
-                    backgroundColor: "white",
-                    border: "1px solid grey",
-                    borderRadius: "5px",
-                    width: '100%',
-                    height: '50px',
-                    padding: '15px',
-                    color: '#B8B8B8'
-                  }}
+                  className="input-field"
                   type="tel"
                   placeholder="+8801836765672"
                 />
               </Form.Group>
               <Form.Group className="mb-3" controlId="formBasicGender">
               <Form.Label>Gender:</Form.Label>
-                <select style={{
-                    backgroundColor: "white",
-                    border: "1px solid grey",
-                    borderRadius: "5px",
-                    width: '100%',
-                    height: '50px',
-                    padding: '15px',
-                    color: '#B8B8B8'
-                  }} name="gender" id="gender">
+              <br />
+                <select 
+                className="input-field"
+                name="gender" id="gender">
                   <option value="male">Male</option>
                   <option value="female">Female</option>
                   <option value="other">Other</option>
@@ -145,15 +125,10 @@ const BasicInfo = () => {
               </Form.Group>
               <Form.Group className="mb-3" controlId="formBasicDob">
               <Form.Label>Date of Birth:</Form.Label>
-            <input style={{
-                    backgroundColor: "white",
-                    border: "1px solid grey",
-                    borderRadius: "5px",
-                    width: '100%',
-                    height: '50px',
-                    padding: '15px',
-                    color: '#B8B8B8'
-                  }} type="date" id="start" name="trip-start"
+              <br />
+            <input 
+            className="input-field"
+            type="date" id="start" name="trip-start"
             value="2001-07-22"
             min="2001-01-01" max="2001-12-31"></input>
             </Form.Group>
@@ -163,15 +138,10 @@ const BasicInfo = () => {
         <Col md={6}>
         <Form.Group className="mb-3" controlId="formBasicDistrict">
                 <Form.Label>Present District:</Form.Label>
-                <select style={{
-                    backgroundColor: "white",
-                    border: "1px solid grey",
-                    borderRadius: "5px",
-                    width: '100%',
-                    height: '50px',
-                    padding: '15px',
-                    color: '#B8B8B8'
-                  }} name="presentdistrict" id="presentdistrict">
+                <br />
+                <select 
+                className="input-field"
+                name="presentdistrict" id="presentdistrict">
                     {presentdistrict.map(d => (
                         <option value={d.district}>{d.district}</option>
                     )) }
@@ -180,15 +150,10 @@ const BasicInfo = () => {
 
               <Form.Group className="mb-3" controlId="formBasicExperience">
                <Form.Label>Experience:</Form.Label>
-                <select style={{
-                    backgroundColor: "white",
-                    border: "1px solid grey",
-                    borderRadius: "5px",
-                    width: '100%',
-                    height: '50px',
-                    padding: '15px',
-                    color: '#B8B8B8'
-                  }} name="experience" id="experience">
+               <br />
+                <select 
+                className="input-field"
+                name="experience" id="experience">
                     {experience.map(e => (
                         <option value={e.year}>{e.year}</option>
                     )) }
@@ -197,15 +162,10 @@ const BasicInfo = () => {
 
               <Form.Group className="mb-3" controlId="formBasicLanguage">
                 <Form.Label>Can Speak?</Form.Label>
-                <select style={{
-                    backgroundColor: "white",
-                    border: "1px solid grey",
-                    borderRadius: "5px",
-                    width: '100%',
-                    height: '50px',
-                    padding: '15px',
-                    color: '#B8B8B8'
-                  }} name="languages" id="languages">
+                <br />
+                <select 
+                className="input-field"
+                name="languages" id="languages">
                     {languages.map(e => (
                         <option value={e.languages}>{e.languages}</option>
                     )) }
@@ -213,25 +173,19 @@ const BasicInfo = () => {
               </Form.Group>
               <Form.Group className="mb-3" controlId="formBasicLocalLanguage">
               <Form.Label>Local languages:</Form.Label>
-                <select style={{
-                    backgroundColor: "white",
-                    border: "1px solid grey",
-                    borderRadius: "5px",
-                    width: '100%',
-                    height: '50px',
-                    padding: '15px',
-                    color: '#B8B8B8'
-                  }} name="locallanguage" id="locallanguage">
+              <br />
+                <select 
+                className="input-field"
+                name="locallanguage" id="locallanguage">
                     {locallanguage.map(e => (
                         <option value={e.locallanguage}>{e.locallanguage}</option>
                     )) }
                 </select>
               </Form.Group>
         </Col>
-       
       </Row>
-      </Form>
-        </FormContainer>
+
+     
     </div>
   );
 };

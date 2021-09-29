@@ -37,7 +37,7 @@ const WeeklyTime = () => {
   };
   return (
     <div className="weeklyTime_div">
-      <h6 className="time_heading">Weekly Time Avilablity for Teaching:</h6>
+      <h6 className="time_heading">Weekly Time Avilablity for Teaching</h6>
       <div>
         <table>
           <thead>
