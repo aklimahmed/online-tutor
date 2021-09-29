@@ -1,6 +1,6 @@
 import React from 'react'
 import BasicInfo from '../../components/TutorsProfile/BasicInfo'
-import WeeklyTime from './../../components/WeeklyTime/WeeklyTime';
+import WeeklyTime from '../../components/TutorsProfile/WeeklyTime';
 
 const TutorsProfile = () => {
     return (
