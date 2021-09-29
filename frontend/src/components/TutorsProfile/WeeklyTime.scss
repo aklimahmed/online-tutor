@@ -13,12 +13,9 @@ body {
 }
 
 table {
-  border: 1px solid #ccc;
-  border-collapse: collapse;
   padding: 0;
   width: 100%;
   table-layout: fixed;
-  box-shadow: 2px 5px 4px rgb(68, 63, 63);
   margin-right: auto;
 }
 
@@ -46,8 +43,9 @@ table th {
   background-color: $TableHeading;
   color: $TableText;
   font-size: 0.85em;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  border-left: 1px solid $BorderCollpase;
+  border-right: 1px solid $BorderCollpase;
+  border-collapse: collapse;
 }
 
 .point:hover {
@@ -74,6 +72,7 @@ table th {
   border: 1px solid $BoderRadius;
   border-radius: 10px;
 }
+
 
 @media screen and (max-width: 600px) {
   table {

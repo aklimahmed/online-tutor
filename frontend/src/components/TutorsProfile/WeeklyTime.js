@@ -4,7 +4,9 @@ import "./WeeklyTime.scss";
 const WeeklyTime = () => {
   const [addMoreTime, setAddMoreTime] = useState(
     `<tr>
-      <td data-label="Time">Select time slot</td>
+      <td>
+        <input className="form-control" type="time" />
+      </td>
       <td data-label="Sat">
         <input type="checkbox" />
       </td>
@@ -52,7 +54,9 @@ const WeeklyTime = () => {
           </thead>
           <tbody id="addMoreTime">
             <tr>
-              <td data-label="Time">Select time slot</td>
+              <td>
+                <input className="form-control" type="time" />
+              </td>
               <td data-label="Sat">
                 <input type="checkbox" />
               </td>
