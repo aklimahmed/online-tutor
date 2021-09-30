@@ -88,6 +88,10 @@ const locallanguage = [
 ]
 
 const BasicInfo = () => {
+
+  const dateInput = event => {
+      event.preventDefault();
+  }
   return (
     <div className="basic-info-body weeklyTime_div">
         <h6 className="time_heading">Basic info</h6>
@@ -128,8 +132,8 @@ const BasicInfo = () => {
             <input 
             className="input-field"
             type="date" id="start" name="trip-start"
-            value="2001-07-22"
-            min="2001-01-01" max="2001-12-31"></input>
+            onChange={dateInput}
+            min="1901-01-01" max="2015-12-31"></input>
             </Form.Group>
         </Col>
         
