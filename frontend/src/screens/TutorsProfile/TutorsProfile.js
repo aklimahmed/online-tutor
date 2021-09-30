@@ -6,6 +6,7 @@ import WeeklyTime from '../../components/TutorsProfile/WeeklyTime';
 import AcademicQualification from '../../components/TutorsProfile/AcademicQualification'
 import LessonInclude from '../../components/TutorsProfile/LessonInclude';
 import ExtraActivities from '../../components/TutorsProfile/ExtraActivities';
+import AboutMe from '../../components/TutorsProfile/AboutMe';
 
 const TutorsProfile = () => {
     return (
@@ -17,6 +18,7 @@ const TutorsProfile = () => {
             <TeachesAndFees/>
             <LessonInclude />
             <ExtraActivities />
+            <AboutMe />
         </div>
     )
 }
