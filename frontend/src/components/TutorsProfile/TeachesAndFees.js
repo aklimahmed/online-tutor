@@ -1,9 +1,9 @@
-import { React, useState } from "react";
+import React from "react";
 
 const TeachesAndFees = () => {
   const subject = [{ sub: "Physics" }, { sub: "Math" }, { sub: "English" }];
 
-  const [createMore, setCreateMore] = useState(
+  const createMore =
     `
     <tr>
             <td data-label="Curriculum">
@@ -38,7 +38,6 @@ const TeachesAndFees = () => {
             </td>
           </tr>
     `
-  );
 
   const addMore = () => {
     const addNew = document.getElementById("addMore");

@@ -1,5 +1,4 @@
 import React from "react";
-import FormContainer from "../common/FormContainer";
 import { Row, Col, Form } from "react-bootstrap";
 import "./BasicInfo.scss"
 //  style={{border: '1px solid rgba(153, 150, 150, 0.671)', paddingTop: '60px', paddingBottom: '20px', backgroundColor: '#F9F9F9', paddingLeft: '100px', paddingRight: '100px', borderRadius: '10px'}}
