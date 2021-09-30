@@ -7,31 +7,31 @@ const TeachesAndFees = () => {
     `
     <tr>
             <td data-label="Curriculum">
-              <select id="Select" className="form-select">
+              <select id="Select" class='form-select'>
                 <option style={{ display: "none" }}>Select Curriculum</option>
-                {subject.map((sub) => (
-                  <option value={sub.sub}>{sub.sub}</option>
+                ${subject.map((sub) => (
+                  `<option value=${sub.sub}>${sub.sub}</option>`
                 ))}
               </select>
             </td>
             <td data-label="Class">
-              <select id="Select" className="form-select">
+              <select id="Select" class="form-select">
                 <option style={{ display: "none" }}>Select Class</option>
-                {subject.map((sub) => (
-                  <option value={sub.sub}>{sub.sub}</option>
+                ${subject.map((sub) => (
+                  `<option value=${sub.sub}>${sub.sub}</option>`
                 ))}
               </select>
             </td>
             <td data-label="Batch/Group">
               <input
-                className="form-control"
+                class="form-control"
                 type="text"
                 placeholder="Enter Amount e.g 120"
               />
             </td>
             <td data-label="One-on-One">
               <input
-                className="form-control"
+                class="form-control"
                 type="text"
                 placeholder="Enter Amount e.g 350"
               />
