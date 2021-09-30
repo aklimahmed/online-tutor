@@ -4,8 +4,11 @@ import "./WeeklyTime.scss";
 const WeeklyTime = () => {
   const [addMoreTime, setAddMoreTime] = useState(
     `<tr>
-      <td>
-        <input className="form-control" type="time" />
+       <td data-label="From">
+         <input class="form-control" type="time" />
+       </td>
+       <td data-label="To">
+         <input class="form-control" type="time" />
       </td>
       <td data-label="Sat">
         <input type="checkbox" />
@@ -42,19 +45,28 @@ const WeeklyTime = () => {
         <table>
           <thead>
             <tr>
-              <th scope="col">Time</th>
-              <th scope="col">Sat</th>
-              <th scope="col">Sun</th>
-              <th scope="col">Mon</th>
-              <th scope="col">Tue</th>
-              <th scope="col">Wed</th>
-              <th scope="col">Thu</th>
-              <th scope="col">Fri</th>
+              <th colSpan="2" scope="col">
+                Time
+              </th>
+              <th rowSpan="2">Sat</th>
+              <th rowSpan="2">Sun</th>
+              <th rowSpan="2">Mon</th>
+              <th rowSpan="2">Tue</th>
+              <th rowSpan="2">Wed</th>
+              <th rowSpan="2">Thu</th>
+              <th rowSpan="2">Fri</th>
+            </tr>
+            <tr>
+              <th>From</th>
+              <th>To</th>
             </tr>
           </thead>
           <tbody id="addMoreTime">
             <tr>
-              <td>
+              <td data-label="From">
+                <input className="form-control" type="time" />
+              </td>
+              <td data-label="To">
                 <input className="form-control" type="time" />
               </td>
               <td data-label="Sat">
