@@ -1,0 +1,13 @@
+@import "../../style/Color.scss";
+
+.close_button {
+  margin-top: 35px;
+}
+
+
+@media screen and (max-width: 600px) {
+  .close_button {
+    margin-top: 35px;
+    margin-left: 20px;
+  }
+}

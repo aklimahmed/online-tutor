@@ -58,6 +58,7 @@ console.log(inputFields);
 
   return (
     <div className="weeklyTime_div">
+      <h6 className="time_heading">Weekly Time Availability for Teaching:</h6>
       <table>
         <thead>
           <tr>
@@ -144,7 +145,7 @@ console.log(inputFields);
                   type="checkbox"
                   name="fri"
                   onChange={(event) => handleChangeInput(inputField.id, event)}
-                />
+                />                                                          
               </td>
               <td data-label="Action">
                 <button
