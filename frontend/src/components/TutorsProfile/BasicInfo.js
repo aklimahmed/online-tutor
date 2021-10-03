@@ -5,9 +5,6 @@ import "./BasicInfo.scss"
 
 const presentdistrict = [
     {
-        "district": "Select District"
-    },
-    {
         "district": "Dhaka"
     },
     {
@@ -101,16 +98,16 @@ const BasicInfo = () => {
                 <Form.Label>Name:</Form.Label>
                 <br />
                 <input
-                className="input-field"
-                type="name"
-               placeholder="eg. Mr. Tareq"
-                />
+                className="form-control"
+                type="text"
+                placeholder="Azizul Hakim Tareq"
+              />
               </Form.Group>
               <Form.Group className="mb-3" controlId="formBasicPhone">
                 <Form.Label>Phone:</Form.Label>
                 <br />
                 <input
-                  className="input-field"
+                  className="form-control"
                   type="tel"
                   placeholder="+8801836765672"
                 />
@@ -119,8 +116,9 @@ const BasicInfo = () => {
               <Form.Label>Gender:</Form.Label>
               <br />
                 <select 
-                className="input-field"
+                className="form-select"
                 name="gender" id="gender">
+                  <option style={{ display: "none" }}>Select Gender</option>
                   <option value="male">Male</option>
                   <option value="female">Female</option>
                   <option value="other">Other</option>
@@ -130,7 +128,7 @@ const BasicInfo = () => {
               <Form.Label>Date of Birth:</Form.Label>
               <br />
             <input 
-            className="input-field"
+            className="form-control"
             type="date" id="start" name="trip-start"
             onChange={dateInput}
             min="1901-01-01" max="2015-12-31"></input>
@@ -143,8 +141,9 @@ const BasicInfo = () => {
                 <Form.Label>Present District:</Form.Label>
                 <br />
                 <select 
-                className="input-field"
+                className="form-select"
                 name="presentdistrict" id="presentdistrict">
+                    <option style={{ display: "none" }}>Select district name</option>
                     {presentdistrict.map(d => (
                         <option value={d.district}>{d.district}</option>
                     )) }
@@ -155,30 +154,36 @@ const BasicInfo = () => {
                <Form.Label>Experience:</Form.Label>
                <br />
                 <select 
-                className="input-field"
+                className="form-select"
                 name="experience" id="experience">
+                    <option style={{ display: "none" }}>Select total years of teaching experience</option>
                     {experience.map(e => (
                         <option value={e.year}>{e.year}</option>
                     )) }
                 </select>
               </Form.Group>
 
+              
+
               <Form.Group className="mb-3" controlId="formBasicLanguage">
                 <Form.Label>Can Speak?</Form.Label>
                 <br />
                 <select 
-                className="input-field"
+                className="form-select"
                 name="languages" id="languages">
                     {languages.map(e => (
                         <option value={e.languages}>{e.languages}</option>
                     )) }
                 </select>
               </Form.Group>
+
+
+
               <Form.Group className="mb-3" controlId="formBasicLocalLanguage">
               <Form.Label>Local languages:</Form.Label>
               <br />
                 <select 
-                className="input-field"
+                className="form-select"
                 name="locallanguage" id="locallanguage">
                     {locallanguage.map(e => (
                         <option value={e.locallanguage}>{e.locallanguage}</option>

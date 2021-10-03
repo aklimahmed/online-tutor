@@ -9,6 +9,7 @@ const DocumentsUpload = () => {
       <Row className="document1">
         <Col md={4} className="document-upload document">
           <Card style={{ width: "18rem" }}>
+          <Card.Header className="card-header">Highest Academic Certificate</Card.Header>
             <Card.Body>
               <Card.Text className="instruction-text">
                 Upload the highest academic certificate. <br />
@@ -35,6 +36,7 @@ const DocumentsUpload = () => {
 
         <Col md={4} className="document-upload document1">
           <Card style={{ width: "18rem" }}>
+          <Card.Header className="card-header">Current ID Card (Student/job)</Card.Header>
             <Card.Body>
               <Card.Text className="instruction-text">
                 Upload the highest academic certificate. <br />
@@ -61,10 +63,11 @@ const DocumentsUpload = () => {
 
         <Col md={4} className="document2">
           <Card style={{ width: "18rem" }}>
+          <Card.Header className="card-header">Legal ID/Photo Validation</Card.Header>
             <Card.Body>
               <Card.Text className="instruction-text">
                 Upload the highest academic certificate. <br />
-                <br />
+                <br/>
                 If you are a student of Post-graduation, upload the graduation
                 certificate.
               </Card.Text>
