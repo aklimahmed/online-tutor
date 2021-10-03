@@ -1,14 +1,14 @@
 import React from "react";
-import { Row, Col, Card } from "react-bootstrap";
+import { Row, Col, Card, Container } from "react-bootstrap";
 import "./DocumentUpload.scss";
 
 const DocumentsUpload = () => {
   return (
-    <div className="weeklyTime_div">
+    <Container className="weeklyTime_div">
              <h6 className="time_heading">Basic info</h6>
-      <Row className="document1">
-        <Col md={4} className="document-upload document">
-          <Card style={{ width: "18rem" }}>
+      <Row>
+        <Col md={4}>
+          <Card style={{ width: "100%" }}>
           <Card.Header className="card-header">Highest Academic Certificate</Card.Header>
             <Card.Body>
               <Card.Text className="instruction-text">
@@ -34,8 +34,8 @@ const DocumentsUpload = () => {
           </Card>
         </Col>
 
-        <Col md={4} className="document-upload document1">
-          <Card style={{ width: "18rem" }}>
+        <Col md={4}>
+          <Card style={{ width: "100%" }}>
           <Card.Header className="card-header">Current ID Card (Student/job)</Card.Header>
             <Card.Body>
               <Card.Text className="instruction-text">
@@ -61,8 +61,8 @@ const DocumentsUpload = () => {
           </Card>
         </Col>
 
-        <Col md={4} className="document2">
-          <Card style={{ width: "18rem" }}>
+        <Col md={4}>
+          <Card style={{ width: "100%" }}>
           <Card.Header className="card-header">Legal ID/Photo Validation</Card.Header>
             <Card.Body>
               <Card.Text className="instruction-text">
@@ -88,7 +88,7 @@ const DocumentsUpload = () => {
           </Card>
         </Col>
       </Row>
-    </div>
+    </Container>
   );
 };
 

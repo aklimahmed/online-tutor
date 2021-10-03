@@ -8,6 +8,7 @@ import LessonInclude from '../../components/TutorsProfile/LessonInclude';
 import ExtraActivities from '../../components/TutorsProfile/ExtraActivities';
 import AboutMe from '../../components/TutorsProfile/AboutMe';
 import DocumentsUpload from '../../components/TutorsProfile/DocumentsUpload';
+import VideoUpload from '../../components/TutorsProfile/VideoUpload';
 
 const TutorsProfile = () => {
     return (
@@ -21,6 +22,7 @@ const TutorsProfile = () => {
             <ExtraActivities />
             <AboutMe />
             <DocumentsUpload />
+            <VideoUpload />
         </div>
     )
 }
