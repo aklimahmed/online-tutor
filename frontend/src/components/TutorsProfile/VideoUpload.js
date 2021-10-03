@@ -46,11 +46,6 @@ const VideoUpload = () => {
               
               <br />
               <Row style={{ textAlign: "center" }}>
-                <label for="files">
-                  <Card.Title className="click-for-upload">
-                    Click for upload
-                  </Card.Title>
-                </label>
                 <input
                   id="files"
                   style={{ visibility: "hidden", textAlign: "center" }}
