@@ -88,6 +88,7 @@ const BasicInfo = () => {
 
   const dateInput = event => {
       event.preventDefault();
+      console.log(event.target.value)
   }
   return (
     <div className="basic-info-body weeklyTime_div">
@@ -98,6 +99,7 @@ const BasicInfo = () => {
                 <Form.Label>Name:</Form.Label>
                 <br />
                 <input
+                onChange={handleChange}
                 className="form-control"
                 type="text"
                 placeholder="Azizul Hakim Tareq"
@@ -107,6 +109,7 @@ const BasicInfo = () => {
                 <Form.Label>Phone:</Form.Label>
                 <br />
                 <input
+                onChange={handleChange}
                   className="form-control"
                   type="tel"
                   placeholder="+8801836765672"
@@ -116,6 +119,7 @@ const BasicInfo = () => {
               <Form.Label>Gender:</Form.Label>
               <br />
                 <select 
+                onChange={handleChange}
                 className="form-select"
                 name="gender" id="gender">
                   <option style={{ display: "none" }}>Select Gender</option>
@@ -128,9 +132,9 @@ const BasicInfo = () => {
               <Form.Label>Date of Birth:</Form.Label>
               <br />
             <input 
+            onChange={handleChange}
             className="form-control"
             type="date" id="start" name="trip-start"
-            onChange={dateInput}
             min="1901-01-01" max="2015-12-31"></input>
             </Form.Group>
         </Col>
@@ -141,6 +145,7 @@ const BasicInfo = () => {
                 <Form.Label>Present District:</Form.Label>
                 <br />
                 <select 
+                onChange={handleChange}
                 className="form-select"
                 name="presentdistrict" id="presentdistrict">
                     <option style={{ display: "none" }}>Select district name</option>
@@ -154,6 +159,7 @@ const BasicInfo = () => {
                <Form.Label>Experience:</Form.Label>
                <br />
                 <select 
+                onChange={handleChange}
                 className="form-select"
                 name="experience" id="experience">
                     <option style={{ display: "none" }}>Select total years of teaching experience</option>
@@ -169,6 +175,7 @@ const BasicInfo = () => {
                 <Form.Label>Can Speak?</Form.Label>
                 <br />
                 <select 
+                onChange={handleChange}
                 className="form-select"
                 name="languages" id="languages">
                     {languages.map(e => (
@@ -183,6 +190,7 @@ const BasicInfo = () => {
               <Form.Label>Local languages:</Form.Label>
               <br />
                 <select 
+                onChange={handleChange}
                 className="form-select"
                 name="locallanguage" id="locallanguage">
                     {locallanguage.map(e => (
