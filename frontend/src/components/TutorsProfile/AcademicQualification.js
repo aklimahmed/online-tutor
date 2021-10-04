@@ -9,18 +9,22 @@ const AcademicQualification = () => {
       sscPassingYear: 0,
       sscResult: "",
       sscInstitution: "",
+      sscStatus: "",
       hscDegree: "",
       hscPassingYear: 0,
       hscResult: "",
       hscInstitution: "",
+      hscStatus: "",
       graduationDegree: "",
       graduationPassingYear: 0,
       graduationResult: "",
       graduationInstitution: "",
+      graduationStatus: "",
       postGraduationDegree: "",
       postGraduationPassingYear: 0,
       postGraduationResult: "",
       postGraduationInstitution: "",
+      postGraduationStatus: ""
     });
   
     const handleBlur = (event) => {
@@ -46,6 +50,7 @@ const AcademicQualification = () => {
               className="form-control"
               type="text"
               placeholder="Enter degree and subject"
+              onBlur={handleBlur}
             />
           </Form.Group>
         </Col>
@@ -58,6 +63,7 @@ const AcademicQualification = () => {
               className="form-control"
               type="Number"
               placeholder="Passing year"
+              onBlur={handleBlur}
             />
           </Form.Group>
         </Col>
@@ -70,6 +76,7 @@ const AcademicQualification = () => {
               className="form-control"
               type="name"
               placeholder="Enter result or grade"
+              onBlur={handleBlur}
             />
           </Form.Group>
         </Col>
@@ -82,6 +89,7 @@ const AcademicQualification = () => {
               className="form-control"
               type="name"
               placeholder="Enter institute name"
+              onBlur={handleBlur}
             />
           </Form.Group>
         </Col>
@@ -93,9 +101,10 @@ const AcademicQualification = () => {
               className="mb-3 container-step1"
             >
               <select
+                name="sscStatus"
                 id="select"
-                name="status"
                 className="form-select"
+                onBlur={handleBlur}
               >
                 <option style={{ display: "none" }}>Select status</option>
                 <option>Completed</option>
@@ -111,9 +120,11 @@ const AcademicQualification = () => {
           <Form.Group className="mb-3" controlId="formBasicName">
             <br />
             <input
+              name="hscDegree"
               className="form-control"
-              type="name"
+              type="text"
               placeholder="Enter degree and subject"
+              onBlur={handleBlur}
             />
           </Form.Group>
         </Col>
@@ -122,9 +133,11 @@ const AcademicQualification = () => {
           <Form.Group className="mb-3" controlId="formBasicName">
             <br />
             <input
+              name="hscPassingYear"
               className="form-control"
-              type="name"
+              type="number"
               placeholder="Passing year"
+              onBlur={handleBlur}
             />
           </Form.Group>
         </Col>
@@ -132,14 +145,25 @@ const AcademicQualification = () => {
         <Col md={2}>
           <Form.Group className="mb-3" controlId="formBasicName">
             <br />
-            <input className="form-control" type="name" placeholder="Enter result or grade" />
+            <input className="form-control" 
+            name="hscResult"
+            type="number"
+            placeholder="Enter result or grade"
+            onBlur={handleBlur} 
+            />
+
           </Form.Group>
         </Col>
 
         <Col md={3}>
           <Form.Group className="mb-3" controlId="formBasicName">
             <br />
-            <input className="form-control" type="name" placeholder="Enter institute name" />
+            <input className="form-control" 
+            name="hscInstitution"
+            type="text" 
+            placeholder="Enter institute name"
+            onBlur={handleBlur} 
+            />
           </Form.Group>
         </Col>
 
@@ -148,11 +172,11 @@ const AcademicQualification = () => {
               controlId="formBasicCheckbox"
               style={{ paddingTop: "20px" }}
               className="mb-3 container-step1"
-            >
+        >
               <select
-                id="select"
-                name="status"
+                name="hscStatus"
                 className="form-select"
+                onBlur={handleBlur}
               >
                 <option style={{ display: "none" }}>Select status</option>
                 <option>Completed</option>
@@ -167,28 +191,48 @@ const AcademicQualification = () => {
         <Col md={3}>
           <Form.Group className="mb-3" controlId="formBasicName">
             <br />
-            <input className="form-control" type="name" placeholder="Enter degree and subject" />
+            <input className="form-control" 
+            name="graduationDegree"
+            type="text" 
+            placeholder="Enter degree and subject"
+            onBlur={handleBlur}
+             />
           </Form.Group>
         </Col>
 
         <Col md={2}>
           <Form.Group className="mb-3" controlId="formBasicName">
             <br />
-            <input className="form-control" type="name" placeholder="Passing year" />
+            <input className="form-control"
+            name="graduationPassingYear"
+            type="number" 
+            placeholder="Passing year"
+            onBlur={handleBlur} 
+            />
           </Form.Group>
         </Col>
 
         <Col md={2}>
           <Form.Group className="mb-3" controlId="formBasicName">
             <br />
-            <input className="form-control" type="name" placeholder="Enter result or grade" />
+            <input className="form-control" 
+            name="graduationResult"
+            type="number" 
+            placeholder="Enter result or grade" 
+            onBlur={handleBlur}
+            />
           </Form.Group>
         </Col>
 
         <Col md={3}>
           <Form.Group className="mb-3" controlId="formBasicName">
             <br />
-            <input className="form-control" type="name" placeholder="Enter institute name" />
+            <input className="form-control" 
+            name="graduationInstitution"
+            type="text"
+            placeholder="Enter institute name"
+            onBlur={handleBlur}
+            />
           </Form.Group>
         </Col>
 
@@ -200,8 +244,9 @@ const AcademicQualification = () => {
             >
               <select
                 id="select"
-                name="status"
+                name="graduationStatus"
                 className="form-select"
+                onBlur={handleBlur}
               >
                 <option style={{ display: "none" }}>Select status</option>
                 <option>Completed</option>
@@ -216,28 +261,48 @@ const AcademicQualification = () => {
         <Col md={3}>
           <Form.Group className="mb-3" controlId="formBasicName">
             <br />
-            <input className="form-control" type="name" placeholder="Enter degree and subject" />
+            <input className="form-control" 
+            type="text" 
+            name="postGraduationDegree"
+            placeholder="Enter degree and subject"
+            onBlur={handleBlur} 
+            />
           </Form.Group>
         </Col>
 
         <Col md={2}>
           <Form.Group className="mb-3" controlId="formBasicName">
             <br />
-            <input className="form-control" type="name" placeholder="Passing year" />
+            <input className="form-control" 
+            name="postGraduationPassingYear"
+            type="number" 
+            placeholder="Passing year"
+            onBlur={handleBlur}
+            />
           </Form.Group>
         </Col>
 
         <Col md={2}>
           <Form.Group className="mb-3" controlId="formBasicName">
             <br />
-            <input className="form-control" type="name" placeholder="Enter result or grade" />
+            <input className="form-control" 
+            name="postGraduationResult"
+            type="number" 
+            placeholder="Enter result or grade"
+            onBlur={handleBlur} 
+            />
           </Form.Group>
         </Col>
 
         <Col md={3}>
           <Form.Group className="mb-3" controlId="formBasicName">
             <br />
-            <input className="form-control" type="name" placeholder="Enter institute name" />
+            <input className="form-control" 
+            name="postGraduationInstitution"
+            type="text" 
+            placeholder="Enter institute name" 
+            onBlur={handleBlur} 
+            />
           </Form.Group>
         </Col>
 
@@ -248,9 +313,10 @@ const AcademicQualification = () => {
               className="mb-3 container-step1"
             >
               <select
-                id="select"
-                name="status"
+                name="postGraduationStatus"
+                type="text"
                 className="form-select"
+                onBlur={handleBlur} 
               >
                 <option style={{ display: "none" }}>Select status</option>
                 <option>Completed</option>

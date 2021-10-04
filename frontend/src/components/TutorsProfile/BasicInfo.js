@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import Select from "react-select";
+import makeAnimated from "react-select/animated";
 import { Row, Col, Form } from "react-bootstrap";
 import "./BasicInfo.scss";
 
@@ -52,40 +54,43 @@ const experience = [
 
 const languages = [
   {
-    languages: "Bangla",
-    id: 1,
+    value: "Bangla",
+    label: "Bangla",
   },
   {
-    languages: "English",
-    id: 2,
+    value: "English",
+    label: "English",
   },
   {
-    languages: "Hindi",
-    id: 3,
+    value: "Hindi",
+    label: "Hindi",
   },
   {
-    languages: "Arabic",
-    id: 4,
+    value: "Arabic",
+    label: "Arabic",
   },
 ];
 
 const locallanguage = [
   {
-    locallanguage: "Chittagong local",
+    value: "Chittagonian",
+    label: "Chittagonian",
   },
   {
-    locallanguage: "Sylhet local",
+    value: "Sylheti",
+    label: "Sylheti",
   },
   {
-    locallanguage: "Noakhali local",
+    value: "Rangpuri",
+    label: "Rangpuri",
   },
   {
-    locallanguage: "Rajshahi local",
+    value: "Noakhailla",
+    label: "Noakhailla",
   },
 ];
 
 const BasicInfo = () => {
-
   const [tutorInfo, setTutorInfo] = useState({
     name: "",
     phone: "",
@@ -93,8 +98,8 @@ const BasicInfo = () => {
     birthDate: "",
     presentDistrict: "",
     experience: 0,
-    languages: '',
-    locallanguage: '',
+    languages: "",
+    locallanguage: "",
   });
 
   const handleBlur = (event) => {
@@ -103,6 +108,8 @@ const BasicInfo = () => {
     setTutorInfo(newTutorInfo);
     console.log(tutorInfo);
   };
+
+  const animatedComponents = makeAnimated();
 
   return (
     <div className="basic-info-body weeklyTime_div">
@@ -117,7 +124,7 @@ const BasicInfo = () => {
               name="name"
               className="form-control"
               type="text"
-              placeholder="Azizul Hakim Tareq"
+              placeholder="Aklim Ahmed"
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicPhone">
@@ -196,36 +203,32 @@ const BasicInfo = () => {
             </select>
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formBasicLanguage">
-          <Form.Label>Can Speak?</Form.Label>
+          <Form.Group className="mb-3" controlId="formBasicLocalLanguage">
+            <Form.Label>Local languages:</Form.Label>
             <br />
-            <select
+            <Select
+              name="locallanguage"
               onBlur={handleBlur}
-              className="form-select"
-              name="languages"
-              id="languages"
-            >
-                <option style={{ display: "none" }}>Select language</option>
-              {languages.map((e) => (
-                <option value={e.languages}>{e.languages}</option>
-              ))}
-            </select>
+              closeMenuOnSelect={false}
+              components={animatedComponents}
+              isMulti
+              options={languages}
+              
+            />
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicLocalLanguage">
             <Form.Label>Local languages:</Form.Label>
             <br />
-            <select
+            <Select
+              name="locallanguage"
               onBlur={handleBlur}
-              className="form-select"
-              name="localLanguage"
-              id="locallanguage"
-            >
-              <option style={{ display: "none" }}>Select local language</option>
-              {locallanguage.map((e) => (
-                <option value={e.locallanguage}>{e.locallanguage}</option>
-              ))}
-            </select>
+              closeMenuOnSelect={false}
+              components={animatedComponents}
+              isMulti
+              options={locallanguage}
+              
+            />
           </Form.Group>
         </Col>
       </Row>
