@@ -1,6 +1,5 @@
-import React, { useState } from "react";
-import Select from "react-select";
-import makeAnimated from "react-select/animated";
+import React, { useState, useEffect } from "react";
+import { MultiSelect } from "react-multi-select-component";
 import { Row, Col, Form } from "react-bootstrap";
 import "./BasicInfo.scss";
 
@@ -91,6 +90,10 @@ const locallanguage = [
 ];
 
 const BasicInfo = () => {
+  const [local, setLocal] = useState([]);
+
+  const [language, setLanguage] = useState([]);
+
   const [tutorInfo, setTutorInfo] = useState({
     name: "",
     phone: "",
@@ -98,8 +101,8 @@ const BasicInfo = () => {
     birthDate: "",
     presentDistrict: "",
     experience: 0,
-    languages: "",
-    locallanguage: "",
+    languages: [],
+    locallanguage: [],
   });
 
   const handleBlur = (event) => {
@@ -109,7 +112,23 @@ const BasicInfo = () => {
     console.log(tutorInfo);
   };
 
-  const animatedComponents = makeAnimated();
+  useEffect(() => {
+    tutorInfo.locallanguage = [];
+    const hold = [...local];
+    hold.map((data) => {
+      tutorInfo.locallanguage.push(data.value);
+    });
+  }, [local]);
+
+  useEffect(() => {
+    tutorInfo.languages = [];
+    const hold = [...language];
+    hold.map((data) => {
+      tutorInfo.languages.push(data.value);
+    });
+  }, [language]);
+
+  console.log(tutorInfo);
 
   return (
     <div className="basic-info-body weeklyTime_div">
@@ -206,28 +225,23 @@ const BasicInfo = () => {
           <Form.Group className="mb-3" controlId="formBasicLocalLanguage">
             <Form.Label>Local languages:</Form.Label>
             <br />
-            <Select
-              name="locallanguage"
-              onBlur={handleBlur}
-              closeMenuOnSelect={false}
-              components={animatedComponents}
-              isMulti
+            <MultiSelect
               options={languages}
-              
+              value={language}
+              onChange={setLanguage}
+              labelledBy="Select"
             />
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicLocalLanguage">
             <Form.Label>Local languages:</Form.Label>
             <br />
-            <Select
-              name="locallanguage"
-              onBlur={handleBlur}
-              closeMenuOnSelect={false}
-              components={animatedComponents}
-              isMulti
+            <MultiSelect
+            className="multiSelect"
               options={locallanguage}
-              
+              value={local}
+              onChange={setLocal}
+              labelledBy="Select"
             />
           </Form.Group>
         </Col>

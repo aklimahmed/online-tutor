@@ -2,7 +2,7 @@ import { React, useState, useEffect } from "react";
 import { MultiSelect } from "react-multi-select-component";
 import { Row, Col } from "react-bootstrap";
 
-const SubJectTeaches = () => {
+const SubjectTeaches = () => {
   const subject = [{ sub: "Physics" }, { sub: "Math" }, { sub: "English" }];
   const options = [
     { value: "Physics", label: "Physics" },
@@ -70,4 +70,4 @@ const SubJectTeaches = () => {
   );
 };
 
-export default SubJectTeaches;
+export default SubjectTeaches;
