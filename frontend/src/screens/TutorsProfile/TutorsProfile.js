@@ -1,4 +1,3 @@
-
 import React from "react";
 import BasicInfo from "../../components/TutorsProfile/BasicInfo";
 import SubJectTeaches from "../../components/TutorsProfile/SubJectTeaches";

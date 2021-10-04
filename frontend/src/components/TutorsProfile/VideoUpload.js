@@ -60,4 +60,4 @@ const VideoUpload = () => {
     )
 }
 
-export default VideoUpload
+export default VideoUpload;
