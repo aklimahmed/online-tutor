@@ -68,6 +68,18 @@ const languages = [
     value: "Arabic",
     label: "Arabic",
   },
+  {
+    value: "Chinese",
+    label: "Chinese",
+  },
+  {
+    value: "Spanish",
+    label: "Spanish",
+  },
+  {
+    value: "French",
+    label: "French",
+  },
 ];
 
 const locallanguage = [
@@ -86,6 +98,22 @@ const locallanguage = [
   {
     value: "Noakhailla",
     label: "Noakhailla",
+  },
+  {
+    value: "Chakma",
+    label: "Chakma",
+  },
+  {
+    value: "Bishnupriya",
+    label: "Bishnupriya",
+  },
+  {
+    value: "Hajong",
+    label: "Hajong",
+  },
+  {
+    value: "Rohingya",
+    label: "Rohingya",
   },
 ];
 
@@ -223,7 +251,7 @@ const BasicInfo = () => {
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicLocalLanguage">
-            <Form.Label>Local languages:</Form.Label>
+            <Form.Label>Can Speak?</Form.Label>
             <br />
             <MultiSelect
               options={languages}
@@ -234,10 +262,10 @@ const BasicInfo = () => {
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicLocalLanguage">
-            <Form.Label>Local languages:</Form.Label>
+            <Form.Label>Understand local language:</Form.Label>
             <br />
             <MultiSelect
-            className="multiSelect"
+              className="multiSelect"
               options={locallanguage}
               value={local}
               onChange={setLocal}

@@ -1,44 +1,10 @@
 @import "../../style/Color.scss";
 @import "../../style/FontSize.scss";
 
-.basic-info-input {
-  background-color: white;
-  border: 1px solid #b8b8b8;
-  border-radius: 5px;
-  width: 80%;
-  height: 50px;
-  padding: 15px;
-  color: #b8b8b8;
-}
-
-.basic-info-body {
-  border: 1px solid #e8e8e8;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  background-color: #f9f9f9;
-  padding-left: 10%;
-  padding-right: 10%;
-  border-radius: 10px;
-}
-
-.input-field {
-  background-color: white;
-  border: 1px solid #b8b8b8;
-  border-radius: 5px;
-  width: 100%;
-  height: 50px;
-  padding: 15px;
-  color: #b8b8b8;
-}
-
 .rmsc {
   --rmsc-h: 36px !important;
 }
 
-.form-control {
-  color: $select;
-}
-
-.form-select {
-  color: $select;
-}
+select option:first-child{
+    color:$select;
+  }

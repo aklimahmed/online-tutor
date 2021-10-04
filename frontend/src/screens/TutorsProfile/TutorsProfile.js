@@ -10,6 +10,7 @@ import AboutMe from "../../components/TutorsProfile/AboutMe";
 import DocumentsUpload from "../../components/TutorsProfile/DocumentsUpload";
 import ExtraQualifications from "../../components/TutorsProfile/ExtraQualifications";
 import WorkExperience from "../../components/TutorsProfile/WorkExperience";
+import VideoUpload from "../../components/TutorsProfile/VideoUpload";
 
 const TutorsProfile = () => {
   return (
@@ -25,9 +26,9 @@ const TutorsProfile = () => {
       <ExtraActivities />
       <AboutMe />
       <DocumentsUpload />
+      <VideoUpload />
     </div>
   );
 };
-
 
 export default TutorsProfile;

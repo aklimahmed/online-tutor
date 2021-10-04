@@ -95,14 +95,14 @@ const WorkExperience = () => {
               className="mb-3 justify-content-end"
               controlId="formBasicCheckbox"
             >
-              <Form.Label>Status :</Form.Label>
+              <Form.Label>Select status :</Form.Label>
               <select
                 id="Select"
                 className="form-select"
                 name="status"
                 onChange={(event) => handleChangeInput(inputField.id, event)}
               >
-                <option style={{ display: "none" }}>Status</option>
+                <option style={{ display: "none", color: "white" }}>Status</option>
                 <option>completed</option>
                 <option>on going</option>
               </select>
