@@ -55,14 +55,21 @@ const AcademicQualification = () => {
         </Col>
 
         <Col md={2}>
-          <Form.Group className="mb-3" controlId="formBasicCheckbox">
-            <Form.Check
-              style={{ paddingTop: "40px" }}
-              className="container-step1"
-              type="checkbox"
-              label="Studying now"
-            />
-          </Form.Group>
+        <Form.Group
+              controlId="formBasicCheckbox"
+              style={{ paddingTop: "20px" }}
+              className="mb-3 container-step1"
+            >
+              <select
+                id="select"
+                name="status"
+                className="form-select"
+              >
+                <option style={{ display: "none" }}>Select status</option>
+                <option>completed</option>
+                <option>on going</option>
+              </select>
+            </Form.Group>
         </Col>
       </Row>
 
@@ -105,14 +112,21 @@ const AcademicQualification = () => {
         </Col>
 
         <Col md={2}>
-          <Form.Group className="mb-3" controlId="formBasicCheckbox">
-            <Form.Check
-              style={{ paddingTop: "40px" }}
-              className="container-step1"
-              type="checkbox"
-              label="Studying now"
-            />
-          </Form.Group>
+        <Form.Group
+              controlId="formBasicCheckbox"
+              style={{ paddingTop: "20px" }}
+              className="mb-3 container-step1"
+            >
+              <select
+                id="select"
+                name="status"
+                className="form-select"
+              >
+                <option style={{ display: "none" }}>Select status</option>
+                <option>completed</option>
+                <option>on going</option>
+              </select>
+            </Form.Group>
         </Col>
       </Row>
 
@@ -147,14 +161,21 @@ const AcademicQualification = () => {
         </Col>
 
         <Col md={2}>
-          <Form.Group className="mb-3" controlId="formBasicCheckbox">
-            <Form.Check
-              style={{ paddingTop: "30px" }}
-              className="container-step1"
-              type="checkbox"
-              label="Studying now"
-            />
-          </Form.Group>
+        <Form.Group
+              controlId="formBasicCheckbox"
+              style={{ paddingTop: "20px" }}
+              className="mb-3 container-step1"
+            >
+              <select
+                id="select"
+                name="status"
+                className="form-select"
+              >
+                <option style={{ display: "none" }}>Select status</option>
+                <option>completed</option>
+                <option>on going</option>
+              </select>
+            </Form.Group>
         </Col>
       </Row>
 
@@ -189,14 +210,21 @@ const AcademicQualification = () => {
         </Col>
 
         <Col md={2}>
-          <Form.Group className="mb-3" controlId="formBasicCheckbox">
-            <Form.Check
-              style={{ paddingTop: "30px" }}
-              className="container-step1"
-              type="checkbox"
-              label="Studying now"
-            />
-          </Form.Group>
+        <Form.Group
+              controlId="formBasicCheckbox"
+              style={{ paddingTop: "20px" }}
+              className="mb-3 container-step1"
+            >
+              <select
+                id="select"
+                name="status"
+                className="form-select"
+              >
+                <option style={{ display: "none" }}>Select status</option>
+                <option>completed</option>
+                <option>on going</option>
+              </select>
+            </Form.Group>
         </Col>
       </Row>
     </div>
