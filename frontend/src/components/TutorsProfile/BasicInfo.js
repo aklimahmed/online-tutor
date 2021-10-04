@@ -98,8 +98,8 @@ const BasicInfo = () => {
     birthDate: "",
     presentDistrict: "",
     experience: 0,
-    languages: "",
-    locallanguage: "",
+    languages: [],
+    locallanguage: [],
   });
 
   const handleBlur = (event) => {
@@ -108,6 +108,7 @@ const BasicInfo = () => {
     setTutorInfo(newTutorInfo);
     console.log(tutorInfo);
   };
+  
 
   const animatedComponents = makeAnimated();
 
@@ -208,11 +209,11 @@ const BasicInfo = () => {
             <br />
             <Select
               name="locallanguage"
-              onBlur={handleBlur}
               closeMenuOnSelect={false}
               components={animatedComponents}
               isMulti
               options={languages}
+              value={languages.value}
               
             />
           </Form.Group>
@@ -222,12 +223,11 @@ const BasicInfo = () => {
             <br />
             <Select
               name="locallanguage"
-              onBlur={handleBlur}
               closeMenuOnSelect={false}
               components={animatedComponents}
               isMulti
               options={locallanguage}
-              
+              value={locallanguage.value}
             />
           </Form.Group>
         </Col>
