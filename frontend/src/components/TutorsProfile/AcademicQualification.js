@@ -1,8 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import { Row, Col, Form } from "react-bootstrap";
 import "./AcademicQualification.scss";
 
 const AcademicQualification = () => {
+
+    const [tutorInfo, setTutorInfo] = useState({
+      sscDegree: "",
+      sscPassingYear: 0,
+      sscResult: "",
+      sscInstitution: "",
+      hscDegree: "",
+      hscPassingYear: 0,
+      hscResult: "",
+      hscInstitution: "",
+      graduationDegree: "",
+      graduationPassingYear: 0,
+      graduationResult: "",
+      graduationInstitution: "",
+      postGraduationDegree: "",
+      postGraduationPassingYear: 0,
+      postGraduationResult: "",
+      postGraduationInstitution: "",
+    });
+  
+    const handleBlur = (event) => {
+      const newTutorInfo = { ...tutorInfo };
+      newTutorInfo[event.target.name] = event.target.value;
+      setTutorInfo(newTutorInfo);
+      console.log(tutorInfo);
+    };
+
+
   return (
     <div className="basic-info-body weeklyTime_div">
       <h6 className="time_heading">Academic Qualification</h6>
@@ -14,8 +42,9 @@ const AcademicQualification = () => {
           <Form.Group className="mb-3" controlId="formBasicName">
             <br />
             <input
+              name="sscDegree"
               className="form-control"
-              type="name"
+              type="text"
               placeholder="Enter degree and subject"
             />
           </Form.Group>
@@ -25,8 +54,9 @@ const AcademicQualification = () => {
           <Form.Group className="mb-3" controlId="formBasicName">
             <br />
             <input
+              name="sscPassingYear"
               className="form-control"
-              type="name"
+              type="Number"
               placeholder="Passing year"
             />
           </Form.Group>
@@ -36,6 +66,7 @@ const AcademicQualification = () => {
           <Form.Group className="mb-3" controlId="formBasicName">
             <br />
             <input
+              name="sscResult"
               className="form-control"
               type="name"
               placeholder="Enter result or grade"
@@ -47,6 +78,7 @@ const AcademicQualification = () => {
           <Form.Group className="mb-3" controlId="formBasicName">
             <br />
             <input
+              name="sscInstitution"
               className="form-control"
               type="name"
               placeholder="Enter institute name"
@@ -66,8 +98,8 @@ const AcademicQualification = () => {
                 className="form-select"
               >
                 <option style={{ display: "none" }}>Select status</option>
-                <option>completed</option>
-                <option>on going</option>
+                <option>Completed</option>
+                <option>On going</option>
               </select>
             </Form.Group>
         </Col>
@@ -123,8 +155,8 @@ const AcademicQualification = () => {
                 className="form-select"
               >
                 <option style={{ display: "none" }}>Select status</option>
-                <option>completed</option>
-                <option>on going</option>
+                <option>Completed</option>
+                <option>On going</option>
               </select>
             </Form.Group>
         </Col>
@@ -172,8 +204,8 @@ const AcademicQualification = () => {
                 className="form-select"
               >
                 <option style={{ display: "none" }}>Select status</option>
-                <option>completed</option>
-                <option>on going</option>
+                <option>Completed</option>
+                <option>On going</option>
               </select>
             </Form.Group>
         </Col>
@@ -221,8 +253,8 @@ const AcademicQualification = () => {
                 className="form-select"
               >
                 <option style={{ display: "none" }}>Select status</option>
-                <option>completed</option>
-                <option>on going</option>
+                <option>Completed</option>
+                <option>On going</option>
               </select>
             </Form.Group>
         </Col>
