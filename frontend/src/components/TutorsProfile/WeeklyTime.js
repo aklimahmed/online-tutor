@@ -8,20 +8,24 @@ const WeeklyTime = () => {
       id: uuidv4(),
       from: "",
       to: "",
-      sat: "",
-      sun: "",
-      mon: "",
-      tue: "",
-      wed: "",
-      thu: "",
-      fri: "",
+      sat: false,
+      sun: false,
+      mon: false,
+      tue: false,
+      wed: false,
+      thu: false,
+      fri: false,
     },
   ]);
-console.log(inputFields);
+  console.log(inputFields);
   const handleChangeInput = (id, event) => {
     const newInputFields = inputFields.map((i) => {
       if (id === i.id) {
-        i[event.target.name] = event.target.value;
+        if (event.target.name === "from" || event.target.name === "to") {
+          i[event.target.name] = event.target.value;
+        } else {
+          i[event.target.name] = event.target.checked;
+        }
       }
       return i;
     });
@@ -36,13 +40,13 @@ console.log(inputFields);
         id: uuidv4(),
         from: "",
         to: "",
-        sat: "",
-        sun: "",
-        mon: "",
-        tue: "",
-        wed: "",
-        thu: "",
-        fri: "",
+        sat: false,
+        sun: false,
+        mon: false,
+        tue: false,
+        wed: false,
+        thu: false,
+        fri: false,
       },
     ]);
   };
@@ -145,7 +149,7 @@ console.log(inputFields);
                   type="checkbox"
                   name="fri"
                   onChange={(event) => handleChangeInput(inputField.id, event)}
-                />                                                          
+                />
               </td>
               <td data-label="Action">
                 <button
