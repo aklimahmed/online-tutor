@@ -2,7 +2,32 @@ import { React, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 const TeachesAndFees = () => {
-  const subject = [{ sub: "Physics" }, { sub: "Math" }, { sub: "English" }];
+  const curriculum = [
+    { curriculum: "National Curriculum (Bangla Ver)" },
+    { curriculum: "National Curriculum (English Ver)" },
+    { curriculum: "English Medium (Cambridge) " },
+    { curriculum: "English Medium (Edexcel) " },
+    { curriculum: "Vocational" },
+  ];
+
+const classes = [
+  { class: "Class-3" },
+  { class: "Class-4" },
+  { class: "Class-5" },
+  { class: "Class-6" },
+  { class: "Class-7"},
+  { class: "Class-8" },
+  { class: "Class-9" },
+  { class: "Class-10" },
+  { class: "Class-11" },
+  { class: "Class-12"},
+  { class: "PSC" },
+  { class: "JSC" },
+  { class: "SSC" },
+  { class: "HSC" },
+  { class: "O Level"},
+  { class: "A Level"},
+];
 
   const [inputFields, setInputFields] = useState([
     {
@@ -57,7 +82,9 @@ const TeachesAndFees = () => {
             <th colSpan="2" scope="col">
               Fess per hour/session
             </th>
-            <th rowSpan="2"  style={{width: '10%'}}>Action</th>
+            <th rowSpan="2" style={{ width: "10%" }}>
+              Action
+            </th>
           </tr>
           <tr>
             <th>Batch/Group</th>
@@ -76,8 +103,8 @@ const TeachesAndFees = () => {
                   onChange={(event) => handleChangeInput(inputField.id, event)}
                 >
                   <option style={{ display: "none" }}>Select Curriculum</option>
-                  {subject.map((sub) => (
-                    <option value={sub.sub}>{sub.sub}</option>
+                  {curriculum.map((curr) => (
+                    <option value={curr.curriculum}>{curr.curriculum}</option>
                   ))}
                 </select>
               </td>
@@ -90,8 +117,8 @@ const TeachesAndFees = () => {
                   onChange={(event) => handleChangeInput(inputField.id, event)}
                 >
                   <option style={{ display: "none" }}>Select Class</option>
-                  {subject.map((sub) => (
-                    <option value={sub.sub}>{sub.sub}</option>
+                  {classes.map((val) => (
+                    <option value={val.class}>{val.class}</option>
                   ))}
                 </select>
               </td>

@@ -68,7 +68,7 @@ const ExtraQualifications = () => {
           </Col>
           <Col md={2}>
             <Form.Group className="mb-3">
-              <Form.Label>Duration :</Form.Label>
+              <Form.Label>Duration(In Days) :</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Enter duration"
@@ -107,14 +107,14 @@ const ExtraQualifications = () => {
               className="mb-3 justify-content-end"
               controlId="formBasicCheckbox"
             >
-              <Form.Label>Status :</Form.Label>
+              <Form.Label>Select status :</Form.Label>
               <select
                 id="Select"
                 className="form-select"
                 name="status"
                 onChange={(event) => handleChangeInput(inputField.id, event)}
               >
-                <option style={{ display: "none" }}>Status</option>
+                <option style={{ display: "none" }}>status</option>
                 <option>completed</option>
                 <option>on going</option>
               </select>

@@ -1,6 +1,5 @@
-import React, { useState } from "react";
-import Select from "react-select";
-import makeAnimated from "react-select/animated";
+import React, { useState, useEffect } from "react";
+import { MultiSelect } from "react-multi-select-component";
 import { Row, Col, Form } from "react-bootstrap";
 import "./BasicInfo.scss";
 
@@ -69,6 +68,18 @@ const languages = [
     value: "Arabic",
     label: "Arabic",
   },
+  {
+    value: "Chinese",
+    label: "Chinese",
+  },
+  {
+    value: "Spanish",
+    label: "Spanish",
+  },
+  {
+    value: "French",
+    label: "French",
+  },
 ];
 
 const locallanguage = [
@@ -88,9 +99,29 @@ const locallanguage = [
     value: "Noakhailla",
     label: "Noakhailla",
   },
+  {
+    value: "Chakma",
+    label: "Chakma",
+  },
+  {
+    value: "Bishnupriya",
+    label: "Bishnupriya",
+  },
+  {
+    value: "Hajong",
+    label: "Hajong",
+  },
+  {
+    value: "Rohingya",
+    label: "Rohingya",
+  },
 ];
 
 const BasicInfo = () => {
+  const [local, setLocal] = useState([]);
+
+  const [language, setLanguage] = useState([]);
+
   const [tutorInfo, setTutorInfo] = useState({
     name: "",
     phone: "",
@@ -110,7 +141,23 @@ const BasicInfo = () => {
   };
   
 
-  const animatedComponents = makeAnimated();
+  useEffect(() => {
+    tutorInfo.locallanguage = [];
+    const hold = [...local];
+    hold.map((data) => {
+      tutorInfo.locallanguage.push(data.value);
+    });
+  }, [local]);
+
+  useEffect(() => {
+    tutorInfo.languages = [];
+    const hold = [...language];
+    hold.map((data) => {
+      tutorInfo.languages.push(data.value);
+    });
+  }, [language]);
+
+  console.log(tutorInfo);
 
   return (
     <div className="basic-info-body weeklyTime_div">
@@ -205,8 +252,9 @@ const BasicInfo = () => {
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicLocalLanguage">
-            <Form.Label>Local languages:</Form.Label>
+            <Form.Label>Can Speak?</Form.Label>
             <br />
+<<<<<<< HEAD
             <Select
               name="locallanguage"
               closeMenuOnSelect={false}
@@ -215,12 +263,20 @@ const BasicInfo = () => {
               options={languages}
               value={languages.value}
               
+=======
+            <MultiSelect
+              options={languages}
+              value={language}
+              onChange={setLanguage}
+              labelledBy="Select"
+>>>>>>> b4418e4ae597e9f9edeab1450a2d68223125d50c
             />
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicLocalLanguage">
-            <Form.Label>Local languages:</Form.Label>
+            <Form.Label>Understand local language:</Form.Label>
             <br />
+<<<<<<< HEAD
             <Select
               name="locallanguage"
               closeMenuOnSelect={false}
@@ -228,6 +284,14 @@ const BasicInfo = () => {
               isMulti
               options={locallanguage}
               value={locallanguage.value}
+=======
+            <MultiSelect
+              className="multiSelect"
+              options={locallanguage}
+              value={local}
+              onChange={setLocal}
+              labelledBy="Select"
+>>>>>>> b4418e4ae597e9f9edeab1450a2d68223125d50c
             />
           </Form.Group>
         </Col>
