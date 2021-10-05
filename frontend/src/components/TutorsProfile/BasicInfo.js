@@ -2,120 +2,10 @@ import React, { useState, useEffect } from "react";
 import { MultiSelect } from "react-multi-select-component";
 import { Row, Col, Form } from "react-bootstrap";
 import "./BasicInfo.scss";
-
-const presentdistrict = [
-  {
-    district: "Dhaka",
-  },
-  {
-    district: "Chattogram",
-  },
-  {
-    district: "Sylhet",
-  },
-  {
-    district: "Khulna",
-  },
-];
-
-const experience = [
-  {
-    year: 1,
-  },
-  {
-    year: 2,
-  },
-  {
-    year: 3,
-  },
-  {
-    year: 4,
-  },
-  {
-    year: 5,
-  },
-  {
-    year: 6,
-  },
-  {
-    year: 7,
-  },
-  {
-    year: 8,
-  },
-  {
-    year: 9,
-  },
-  {
-    year: 10,
-  },
-];
-
-const languages = [
-  {
-    value: "Bangla",
-    label: "Bangla",
-  },
-  {
-    value: "English",
-    label: "English",
-  },
-  {
-    value: "Hindi",
-    label: "Hindi",
-  },
-  {
-    value: "Arabic",
-    label: "Arabic",
-  },
-  {
-    value: "Chinese",
-    label: "Chinese",
-  },
-  {
-    value: "Spanish",
-    label: "Spanish",
-  },
-  {
-    value: "French",
-    label: "French",
-  },
-];
-
-const locallanguage = [
-  {
-    value: "Chittagonian",
-    label: "Chittagonian",
-  },
-  {
-    value: "Sylheti",
-    label: "Sylheti",
-  },
-  {
-    value: "Rangpuri",
-    label: "Rangpuri",
-  },
-  {
-    value: "Noakhailla",
-    label: "Noakhailla",
-  },
-  {
-    value: "Chakma",
-    label: "Chakma",
-  },
-  {
-    value: "Bishnupriya",
-    label: "Bishnupriya",
-  },
-  {
-    value: "Hajong",
-    label: "Hajong",
-  },
-  {
-    value: "Rohingya",
-    label: "Rohingya",
-  },
-];
+import { languages } from './../../jsonData/Language';
+import { presentdistrict } from "../../jsonData/PresentDistrict";
+import { experience } from "../../jsonData/Experience";
+import { locallanguage } from "../../jsonData/LocalLanguage";
 
 const BasicInfo = () => {
   const [local, setLocal] = useState([]);
@@ -143,17 +33,17 @@ const BasicInfo = () => {
   useEffect(() => {
     tutorInfo.locallanguage = [];
     const hold = [...local];
-    hold.map((data) => {
-      tutorInfo.locallanguage.push(data.value);
-    });
+    hold.map((data) => (
+      tutorInfo.locallanguage.push(data.value)
+    ));
   }, [local]);
 
   useEffect(() => {
     tutorInfo.languages = [];
     const hold = [...language];
-    hold.map((data) => {
-      tutorInfo.languages.push(data.value);
-    });
+    hold.map((data) => (
+      tutorInfo.languages.push(data.value)
+    ));
   }, [language]);
 
   console.log(tutorInfo);
@@ -227,7 +117,7 @@ const BasicInfo = () => {
             >
               <option style={{ display: "none" }}>Select district name</option>
               {presentdistrict.map((d) => (
-                <option value={d.district}>{d.district}</option>
+                <option value={d.name}>{d.name}</option>
               ))}
             </select>
           </Form.Group>
