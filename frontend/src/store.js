@@ -7,9 +7,12 @@ import {
   userRegisterReducer
 } from './reducers/userReducers'
 
+import { tutorFormReducer } from './reducers/tutorReducers'
+
 const reducer = combineReducers({
   userLogin: userLoginReducer,
   userRegister: userRegisterReducer,
+  tutorForm: tutorFormReducer
 })
 
 const userInfoFromStorage = localStorage.getItem('userInfo')
