@@ -36,7 +36,7 @@ const BasicInfo = () => {
     hold.map((data) => (
       tutorInfo.locallanguage.push(data.value)
     ));
-  }, [local]);
+  });
 
   useEffect(() => {
     tutorInfo.languages = [];
@@ -44,7 +44,7 @@ const BasicInfo = () => {
     hold.map((data) => (
       tutorInfo.languages.push(data.value)
     ));
-  }, [language]);
+  });
 
   console.log(tutorInfo);
 

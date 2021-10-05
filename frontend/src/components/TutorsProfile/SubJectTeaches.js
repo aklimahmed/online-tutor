@@ -18,7 +18,7 @@ const SubjectTeaches = () => {
     hold.map((data) => (
       input.secondarySubjects.push(data.value)
     ));
-  }, [selected]);
+  });
 
   const handleChangeInput = (event) => {
     const usereInputs = { ...input };
