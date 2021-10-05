@@ -39,7 +39,7 @@ const AcademicQualification = () => {
 
   return (
     <div className="basic-info-body weeklyTime_div">
-      <h6 className="time_heading">Academic Qualification</h6>
+      <h6 className="time_heading">Academic Qualification:</h6>
       <Row Row className="mb-3">
         <Form.Label>
           SSC or equivalent info:

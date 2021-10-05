@@ -1,0 +1,104 @@
+@import "../../style/Color.scss";
+@import "../../style/FontSize.scss";
+
+.sign {
+  text-decoration: none;
+  color: $login;
+}
+
+.ul-style {
+  padding-left: 0;
+}
+
+.ul-style li {
+  list-style: none;
+}
+
+.ul-style Button {
+  text-align: start;
+  width: 215px;
+}
+
+.form_heading{
+    color: $formHeading;
+    font-weight: $formHeadingSize;
+    font-size: 13px;
+}
+
+.google {
+  background-color: $googleButton;
+  border-color: $googleButton;
+}
+
+.google:hover {
+  background-color: $googleButton;
+  border-color: $googleButton;
+}
+
+.facebook {
+  background-color: $facebookButton;
+  border-color: $facebookButton;
+}
+.facebook:hover {
+  background-color: $facebookButton;
+  border-color: $facebookButton;
+}
+.linkedIn {
+  background-color: $linkedInButton;
+  border-color: $linkedInButton;
+}
+.linkedIn:hover {
+  background-color: $linkedInButton;
+  border-color: $linkedInButton;
+}
+.new_sign {
+  color: $forgotSign;
+  border-color: $forgotSign;
+}
+.submit_button {
+  margin-top: 30px;
+  background-color: $submit;
+  border-color: $submit;
+  width: 150px;
+  float: right;
+}
+.submit_button:hover {
+  background-color: $submit;
+  border-color: $submit;
+}
+.main_login {
+  border: 1px solid $BoderRadius;
+  padding: 5%;
+  border-radius: 10px;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.hr-padding {
+  margin-left: 10px;
+}
+.lining-mobile {
+  display: none;
+}
+@media screen and (max-width: 600px) {
+  .main_login {
+    width: 90%;
+  }
+  .lining {
+    display: none;
+  }
+  .lining-mobile {
+    display: block;
+  }
+}
+@media all and (device-width: 768px) and (device-height: 1024px) {
+  .main_login {
+    width: 95%;
+  }
+}
+
+@media only screen and (min-width: 1024px) and (max-height: 1366px) and (-webkit-min-device-pixel-ratio: 1.5) and (hover: none) {
+  .main_login {
+    width: 85%;
+  }
+}
