@@ -4,6 +4,13 @@ import { Row, Col, Card, Container, Form } from "react-bootstrap";
 const VideoUpload = () => {
   return (
     <Container className="weeklyTime_div">
+      <h6 className="time_heading">
+        Video{" "}
+        <small small className="text-regular">
+          (upload your introductory video for better appearance to students and
+          parents):
+        </small>
+      </h6>
       <Row>
         <Col md={6} className="card-align">
           <Card style={{ width: "100%", height: "100%" }}>

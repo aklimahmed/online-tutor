@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { MultiSelect } from "react-multi-select-component";
 import { Row, Col, Form } from "react-bootstrap";
 import "./BasicInfo.scss";
-import { languages } from './../../jsonData/Language';
+import { languages } from "./../../jsonData/Language";
 import { presentdistrict } from "../../jsonData/PresentDistrict";
 import { experience } from "../../jsonData/Experience";
 import { locallanguage } from "../../jsonData/LocalLanguage";
@@ -33,24 +33,20 @@ const BasicInfo = () => {
   useEffect(() => {
     tutorInfo.locallanguage = [];
     const hold = [...local];
-    hold.map((data) => (
-      tutorInfo.locallanguage.push(data.value)
-    ));
+    hold.map((data) => tutorInfo.locallanguage.push(data.value));
   });
 
   useEffect(() => {
     tutorInfo.languages = [];
     const hold = [...language];
-    hold.map((data) => (
-      tutorInfo.languages.push(data.value)
-    ));
+    hold.map((data) => tutorInfo.languages.push(data.value));
   });
 
   console.log(tutorInfo);
 
   return (
     <div className="basic-info-body weeklyTime_div">
-      <h6 className="time_heading">Basic info</h6>
+      <h6 className="time_heading">Basic info:</h6>
       <Row>
         <Col md={6}>
           <Form.Group className="mb-3" controlId="formBasicName">

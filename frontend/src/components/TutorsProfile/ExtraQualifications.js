@@ -68,7 +68,7 @@ const ExtraQualifications = () => {
           </Col>
           <Col md={2}>
             <Form.Group className="mb-3">
-              <Form.Label>Duration(In Days) :</Form.Label>
+              <Form.Label>Duration (in days) :</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Enter duration"

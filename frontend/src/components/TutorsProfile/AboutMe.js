@@ -31,7 +31,7 @@ const AboutMe = () => {
       </Row>
 
       <Row className="weeklyTime_div">
-        <h6 className="time_heading">About my session</h6>
+        <h6 className="time_heading">About my session:</h6>
         <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
           <Form.Control
             type="text"

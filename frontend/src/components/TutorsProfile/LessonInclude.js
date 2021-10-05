@@ -23,7 +23,7 @@ const LessonInclude = () => {
   console.log(inputFields);
   return (
     <div className="weeklyTime_div">
-      <h6 className="time_heading">Lesson Include</h6>
+      <h6 className="time_heading">Lesson Include:</h6>
       <Row className="lesson-body">
         <Col md={3}>
           <Form.Group className="mb-3" controlId="formBasicCheckbox">
