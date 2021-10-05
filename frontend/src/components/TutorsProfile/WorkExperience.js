@@ -45,10 +45,6 @@ const WorkExperience = () => {
     setInputFields(values);
   };
 
-  const handleCheck = () => {
-    console.log("trur");
-  };
-
   return (
     <div className="weeklyTime_div">
       <h6 className="time_heading">Work Experience:</h6>

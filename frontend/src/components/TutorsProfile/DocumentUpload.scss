@@ -30,17 +30,14 @@
 }
 
 .document1 {
-    display: flex;
     justify-content: center;
 }
 
 .document {
-    display: flex;
     justify-content: start;
 }
 
 .document2 {
-    display: flex;
     justify-content: end;
 }
 
@@ -50,17 +47,14 @@
         padding-bottom: 30px;
     }
     .document1 {
-        display: flex;
         justify-content: center;
     }
     
     .document {
-        display: flex;
         justify-content: center;
     }
     
     .document2 {
-        display: flex;
         justify-content: center;
     }
 }

@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import { Row, Col, Card, Container } from "react-bootstrap";
 
 import "./DocumentUpload.scss";
