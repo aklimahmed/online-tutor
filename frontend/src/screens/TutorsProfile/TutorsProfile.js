@@ -7,11 +7,10 @@ import AcademicQualification from "../../components/TutorsProfile/AcademicQualif
 import LessonInclude from "../../components/TutorsProfile/LessonInclude";
 import ExtraActivities from "../../components/TutorsProfile/ExtraActivities";
 import AboutMe from "../../components/TutorsProfile/AboutMe";
+import DocumentsUpload from "../../components/TutorsProfile/DocumentsUpload";
 import ExtraQualifications from "../../components/TutorsProfile/ExtraQualifications";
 import WorkExperience from "../../components/TutorsProfile/WorkExperience";
-
-import VideoUpload from "../../components/TutorsProfile/VideoUpload"
-
+import VideoUpload from "../../components/TutorsProfile/VideoUpload";
 
 const TutorsProfile = () => {
   return (
@@ -26,6 +25,7 @@ const TutorsProfile = () => {
       <LessonInclude />
       <ExtraActivities />
       <AboutMe />
+      <DocumentsUpload />
       <VideoUpload />
     </div>
   );

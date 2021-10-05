@@ -31,7 +31,7 @@ const VideoUpload = () => {
 
         <Col md={6}>
           <Card style={{ width: "100%", height: '100%' }}>
-          <Card.Header className="card-header">Upload video from YouTube or others</Card.Header>
+          <Card.Header className="card-header">Provide a YouTube video link which describe you</Card.Header>
             <Card.Body>
             <Card.Text className="instruction-text">
                 Input URL:

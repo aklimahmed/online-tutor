@@ -15,7 +15,7 @@ const App = () => {
         <Container>
           <Route path='/login' component={LoginScreen} />
           <Route path='/register' component={RegisterScreen} />
-          <Route path='/tutorsprofile/:id' component={TutorsProfile} />
+          <Route path='/tutorsprofileform/:id' component={TutorsProfile} />
          
         </Container>
       </main>
