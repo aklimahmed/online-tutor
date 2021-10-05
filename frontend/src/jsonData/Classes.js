@@ -1,0 +1,18 @@
+export const classes = [
+    { class: "Class-3" },
+    { class: "Class-4" },
+    { class: "Class-5" },
+    { class: "Class-6" },
+    { class: "Class-7"},
+    { class: "Class-8" },
+    { class: "Class-9" },
+    { class: "Class-10" },
+    { class: "Class-11" },
+    { class: "Class-12"},
+    { class: "PSC" },
+    { class: "JSC" },
+    { class: "SSC" },
+    { class: "HSC" },
+    { class: "O Level"},
+    { class: "A Level"},
+  ];
