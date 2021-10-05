@@ -4,7 +4,7 @@ import { classes } from "../../jsonData/Classes";
 import { curriculum } from "../../jsonData/Curriculum";
 
 const TeachesAndFees = () => {
-  const [inputFields, setInputFields] = useState([
+  const [TeachesAndFees, setTeachesAndFees] = useState([
     {
       id: uuidv4(),
       curriculum: "",
@@ -13,21 +13,21 @@ const TeachesAndFees = () => {
       single: "",
     },
   ]);
-  console.log(inputFields);
+  console.log(TeachesAndFees);
   const handleChangeInput = (id, event) => {
-    const newInputFields = inputFields.map((i) => {
+    const newTeachesAndFees = TeachesAndFees.map((i) => {
       if (id === i.id) {
         i[event.target.name] = event.target.value;
       }
       return i;
     });
 
-    setInputFields(newInputFields);
+    setTeachesAndFees(newTeachesAndFees);
   };
 
   const handleAddFields = () => {
-    setInputFields([
-      ...inputFields,
+    setTeachesAndFees([
+      ...TeachesAndFees,
       {
         id: uuidv4(),
         curriculum: "",
@@ -39,12 +39,12 @@ const TeachesAndFees = () => {
   };
 
   const handleRemoveFields = (id) => {
-    const values = [...inputFields];
+    const values = [...TeachesAndFees];
     values.splice(
       values.findIndex((value) => value.id === id),
       1
     );
-    setInputFields(values);
+    setTeachesAndFees(values);
   };
   return (
     <div className="weeklyTime_div">
@@ -67,7 +67,7 @@ const TeachesAndFees = () => {
           </tr>
         </thead>
         <tbody id="addMore">
-          {inputFields.map((inputField) => (
+          {TeachesAndFees.map((inputField) => (
             <tr key={inputField.id}>
               <td data-label="Curriculum">
                 <select
@@ -121,7 +121,7 @@ const TeachesAndFees = () => {
                 <button
                   type="button"
                   class="btn-close"
-                  disabled={inputFields.length === 1}
+                  disabled={TeachesAndFees.length === 1}
                   aria-label="Close"
                   onClick={() => handleRemoveFields(inputField.id)}
                 ></button>

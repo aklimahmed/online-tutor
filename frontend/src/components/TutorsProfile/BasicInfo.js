@@ -12,7 +12,7 @@ const BasicInfo = () => {
 
   const [language, setLanguage] = useState([]);
 
-  const [tutorInfo, setTutorInfo] = useState({
+  const [BasicInfo, setBasicInfo] = useState({
     name: "",
     phone: "",
     gender: "",
@@ -24,25 +24,25 @@ const BasicInfo = () => {
   });
 
   const handleBlur = (event) => {
-    const newTutorInfo = { ...tutorInfo };
-    newTutorInfo[event.target.name] = event.target.value;
-    setTutorInfo(newTutorInfo);
-    console.log(tutorInfo);
+    const newBasicInfo = { ...BasicInfo };
+    newBasicInfo[event.target.name] = event.target.value;
+    setBasicInfo(newBasicInfo);
+    console.log(BasicInfo);
   };
 
   useEffect(() => {
-    tutorInfo.locallanguage = [];
+    BasicInfo.locallanguage = [];
     const hold = [...local];
-    hold.map((data) => tutorInfo.locallanguage.push(data.value));
+    hold.map((data) => BasicInfo.locallanguage.push(data.value));
   });
 
   useEffect(() => {
-    tutorInfo.languages = [];
+    BasicInfo.languages = [];
     const hold = [...language];
-    hold.map((data) => tutorInfo.languages.push(data.value));
+    hold.map((data) => BasicInfo.languages.push(data.value));
   });
 
-  console.log(tutorInfo);
+  console.log(BasicInfo);
 
   return (
     <div className="basic-info-body weeklyTime_div">

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Row, Col, Form } from "react-bootstrap";
 
 const AcademicQualification = () => {
-  const [tutorInfo, setTutorInfo] = useState({
+  const [AcademicQualification, setAcademicQualification] = useState({
     sscDegree: "",
     sscPassingYear: 0,
     sscResult: "",
@@ -31,10 +31,10 @@ const AcademicQualification = () => {
   });
 
   const handleBlur = (event) => {
-    const newTutorInfo = { ...tutorInfo };
-    newTutorInfo[event.target.name] = event.target.value;
-    setTutorInfo(newTutorInfo);
-    console.log(tutorInfo);
+    const newAcademicQualification = { ...AcademicQualification };
+    newAcademicQualification[event.target.name] = event.target.value;
+    setAcademicQualification(newAcademicQualification);
+    console.log(AcademicQualification);
   };
 
   return (

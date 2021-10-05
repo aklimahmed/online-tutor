@@ -3,7 +3,7 @@ import { Row, Col, Form } from "react-bootstrap";
 import "./LessonInclude.scss";
 
 const LessonInclude = () => {
-  const [inputFields, setInputFields] = useState({
+  const [LessonInclude, setLessonInclude] = useState({
     curriculum: false,
     proficiency: false,
     homework: false,
@@ -15,12 +15,12 @@ const LessonInclude = () => {
   });
 
   const handleChangeInput = (event) => {
-    const inputs = { ...inputFields };
+    const inputs = { ...LessonInclude };
     inputs[event.target.name] = event.target.checked;
-    setInputFields(inputs);
+    setLessonInclude(inputs);
   };
 
-  console.log(inputFields);
+  console.log(LessonInclude);
   return (
     <div className="weeklyTime_div">
       <h6 className="time_heading">Lesson Include:</h6>

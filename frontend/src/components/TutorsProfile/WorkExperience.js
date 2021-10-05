@@ -2,7 +2,7 @@ import { React, useState } from "react";
 import { Col, Form, Row } from "react-bootstrap";
 import { v4 as uuidv4 } from "uuid";
 const WorkExperience = () => {
-  const [inputFields, setInputFields] = useState([
+  const [WorkExperience, setWorkExperience] = useState([
     {
       id: uuidv4(),
       institute: "",
@@ -11,21 +11,21 @@ const WorkExperience = () => {
       status: "",
     },
   ]);
-  console.log(inputFields);
+  console.log(WorkExperience);
   const handleChangeInput = (id, event) => {
-    const newInputFields = inputFields.map((i) => {
+    const newWorkExperience = WorkExperience.map((i) => {
       if (id === i.id) {
         i[event.target.name] = event.target.value;
       }
       return i;
     });
 
-    setInputFields(newInputFields);
+    setWorkExperience(newWorkExperience);
   };
 
   const handleAddFields = () => {
-    setInputFields([
-      ...inputFields,
+    setWorkExperience([
+      ...WorkExperience,
       {
         id: uuidv4(),
         institute: "",
@@ -37,18 +37,18 @@ const WorkExperience = () => {
   };
 
   const handleRemoveFields = (id) => {
-    const values = [...inputFields];
+    const values = [...WorkExperience];
     values.splice(
       values.findIndex((value) => value.id === id),
       1
     );
-    setInputFields(values);
+    setWorkExperience(values);
   };
 
   return (
     <div className="weeklyTime_div">
       <h6 className="time_heading">Work Experience:</h6>
-      {inputFields.map((inputField) => (
+      {WorkExperience.map((inputField) => (
         <Row key={inputField.id}>
           <Col md={4}>
             <Form.Group className="mb-3">
@@ -106,7 +106,7 @@ const WorkExperience = () => {
             <button
               type="button"
               class="btn-close px-2 close_button"
-              disabled={inputFields.length === 1}
+              disabled={WorkExperience.length === 1}
               aria-label="Close"
               onClick={() => handleRemoveFields(inputField.id)}
             ></button>

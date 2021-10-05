@@ -2,18 +2,18 @@ import { React, useState } from "react";
 import { Row, Form, Container } from "react-bootstrap";
 
 const AboutMe = () => {
-  const [inputFields, setInputFields] = useState({
+  const [AboutMe, setAboutMe] = useState({
     aboutMe: "",
     aboutSession: "",
   });
 
   const handleChangeInput = (event) => {
-    const inputs = { ...inputFields };
+    const inputs = { ...AboutMe };
     inputs[event.target.name] = event.target.value;
-    setInputFields(inputs);
+    setAboutMe(inputs);
   };
 
-  console.log(inputFields);
+  console.log(AboutMe);
 
   return (
     <Container>

@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 import "./WeeklyTime.scss";
 
 const WeeklyTime = () => {
-  const [inputFields, setInputFields] = useState([
+  const [WeeklyTime, setWeeklyTime] = useState([
     {
       id: uuidv4(),
       from: "",
@@ -17,9 +17,9 @@ const WeeklyTime = () => {
       fri: false,
     },
   ]);
-  console.log(inputFields);
+  console.log(WeeklyTime);
   const handleChangeInput = (id, event) => {
-    const newInputFields = inputFields.map((i) => {
+    const newWeeklyTime = WeeklyTime.map((i) => {
       if (id === i.id) {
         if (event.target.name === "from" || event.target.name === "to") {
           i[event.target.name] = event.target.value;
@@ -30,12 +30,12 @@ const WeeklyTime = () => {
       return i;
     });
 
-    setInputFields(newInputFields);
+    setWeeklyTime(newWeeklyTime);
   };
 
   const handleAddFields = () => {
-    setInputFields([
-      ...inputFields,
+    setWeeklyTime([
+      ...WeeklyTime,
       {
         id: uuidv4(),
         from: "",
@@ -52,12 +52,12 @@ const WeeklyTime = () => {
   };
 
   const handleRemoveFields = (id) => {
-    const values = [...inputFields];
+    const values = [...WeeklyTime];
     values.splice(
       values.findIndex((value) => value.id === id),
       1
     );
-    setInputFields(values);
+    setWeeklyTime(values);
   };
 
   return (
@@ -84,7 +84,7 @@ const WeeklyTime = () => {
           </tr>
         </thead>
         <tbody id="addMoreTime">
-          {inputFields.map((inputField) => (
+          {WeeklyTime.map((inputField) => (
             <tr key={inputField.id}>
               <td colSpan="2" data-label="From">
                 <input
@@ -155,7 +155,7 @@ const WeeklyTime = () => {
                 <button
                   type="button"
                   class="btn-close"
-                  disabled={inputFields.length === 1}
+                  disabled={WeeklyTime.length === 1}
                   aria-label="Close"
                   onClick={() => handleRemoveFields(inputField.id)}
                 ></button>

@@ -7,26 +7,26 @@ const SubjectTeaches = () => {
  
 
   const [selected, setSelected] = useState([]);
-  const [input, setinput] = useState({
+  const [SubjectTeaches, setSubjectTeaches] = useState({
     primarySubject: "",
     secondarySubjects: [],
   });
 
   useEffect(() => {
-    input.secondarySubjects = [];
+    SubjectTeaches.secondarySubjects = [];
     const hold = [...selected];
     hold.map((data) => (
-      input.secondarySubjects.push(data.value)
+      SubjectTeaches.secondarySubjects.push(data.value)
     ));
   });
 
-  const handleChangeInput = (event) => {
-    const usereInputs = { ...input };
-    usereInputs[event.target.name] = event.target.value;
-    setinput(usereInputs);
+  const handleChangeSubjectTeaches = (event) => {
+    const usereSubjectTeachess = { ...SubjectTeaches };
+    usereSubjectTeachess[event.target.name] = event.target.value;
+    setSubjectTeaches(usereSubjectTeachess);
   };
 
-  console.log(input);
+  console.log(SubjectTeaches);
 
   return (
     <div className="weeklyTime_div">
@@ -40,7 +40,7 @@ const SubjectTeaches = () => {
             id="Select"
             className="form-select"
             name="primarySubject"
-            onBlur={handleChangeInput}
+            onBlur={handleChangeSubjectTeaches}
           >
             <option style={{ display: "none" }}>
               Select primary subject of teaching

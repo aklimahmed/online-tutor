@@ -2,7 +2,7 @@ import { React, useState } from "react";
 import { Row, Col, Form } from "react-bootstrap";
 
 const ExtraActivities = () => {
-  const [inputFields, setInputFields] = useState({
+  const [ExtraActivities, setExtraActivities] = useState({
     foreignLanguages: false,
     Volunteering: false,
     studentCouncil: false,
@@ -14,12 +14,12 @@ const ExtraActivities = () => {
   });
 
   const handleChangeInput = (event) => {
-    const inputs = { ...inputFields };
+    const inputs = { ...ExtraActivities };
     inputs[event.target.name] = event.target.checked;
-    setInputFields(inputs);
+    setExtraActivities(inputs);
   };
 
-  console.log(inputFields);
+  console.log(ExtraActivities);
 
   return (
     <div className="weeklyTime_div">
