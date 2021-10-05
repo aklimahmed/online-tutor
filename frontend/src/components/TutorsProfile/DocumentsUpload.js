@@ -4,19 +4,6 @@ import { Row, Col, Card, Container } from "react-bootstrap";
 import "./DocumentUpload.scss";
 
 const DocumentsUpload = () => {
-  const [image, setImage] = useState(null);
-  
-  const handleChange = e => {
-    if(e.target.files[0]) {
-      setImage(e.target.files[0])
-    }
-  }
-
-  const handleUpload = () => {
-    
-  }
-
-  console.log("image: ", image)
 
   return (
     <Container className="weeklyTime_div">
@@ -36,14 +23,12 @@ const DocumentsUpload = () => {
               <Row style={{ textAlign: "center" }}>
                 <label for="files">
                   <Card.Title className="click-for-upload"
-                  onClick={handleUpload}
                   >
                     Click for upload
                   </Card.Title>
                 </label>
                 <input
                   id="files"
-                  onChange={handleChange}
                   style={{ visibility: "hidden", textAlign: "center" }}
                   type="file"
                 />
