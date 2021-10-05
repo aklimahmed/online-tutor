@@ -139,7 +139,6 @@ const BasicInfo = () => {
     setTutorInfo(newTutorInfo);
     console.log(tutorInfo);
   };
-  
 
   useEffect(() => {
     tutorInfo.locallanguage = [];
@@ -254,44 +253,23 @@ const BasicInfo = () => {
           <Form.Group className="mb-3" controlId="formBasicLocalLanguage">
             <Form.Label>Can Speak?</Form.Label>
             <br />
-<<<<<<< HEAD
-            <Select
-              name="locallanguage"
-              closeMenuOnSelect={false}
-              components={animatedComponents}
-              isMulti
-              options={languages}
-              value={languages.value}
-              
-=======
             <MultiSelect
               options={languages}
               value={language}
               onChange={setLanguage}
               labelledBy="Select"
->>>>>>> b4418e4ae597e9f9edeab1450a2d68223125d50c
             />
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicLocalLanguage">
             <Form.Label>Understand local language:</Form.Label>
             <br />
-<<<<<<< HEAD
-            <Select
-              name="locallanguage"
-              closeMenuOnSelect={false}
-              components={animatedComponents}
-              isMulti
-              options={locallanguage}
-              value={locallanguage.value}
-=======
             <MultiSelect
               className="multiSelect"
               options={locallanguage}
               value={local}
               onChange={setLocal}
               labelledBy="Select"
->>>>>>> b4418e4ae597e9f9edeab1450a2d68223125d50c
             />
           </Form.Group>
         </Col>
