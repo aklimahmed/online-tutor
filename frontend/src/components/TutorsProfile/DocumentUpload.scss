@@ -2,60 +2,28 @@
 @import "../../style/FontSize.scss";
 
 .click-for-upload {
-    font-size: $clickUpload;
-    text-align: center;
-    font-weight: $boldValue;
-    color: $UploadText;
-    cursor: pointer;
-    bottom: 2px;
+  font-size: $clickUpload;
+  text-align: center;
+  font-weight: $boldValue;
+  color: $UploadText;
+  cursor: pointer;
+  bottom: 2px;
 }
-
-.sub-header {
-    font-size: small;
-    font-weight: normal;
-}
-
 .card-header {
-    font-size: 13px;
-    text-align: center;
-    font-weight: bold;
-    color: #6B6B6B;
-
+  font-size: 13px;
+  text-align: center;
+  font-weight: bold;
+  color: #6b6b6b;
 }
 
 .instruction-text {
-    text-align: center;
-    font-size: 15px;
-    color: $InstructionClickUpload;
+  text-align: center;
+  font-size: 15px;
+  color: $InstructionClickUpload;
 }
-
-.document1 {
-    justify-content: center;
-}
-
-.document {
-    justify-content: start;
-}
-
-.document2 {
-    justify-content: end;
-}
-
 
 @media screen and (max-width: 600px) {
-    .document-upload {
-        padding-bottom: 30px;
-    }
-    .document1 {
-        justify-content: center;
-    }
-    
-    .document {
-        justify-content: center;
-    }
-    
-    .document2 {
-        justify-content: center;
-    }
+  .card-align {
+      margin-bottom: 30px;
+  }
 }
-

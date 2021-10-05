@@ -9,7 +9,7 @@ const DocumentsUpload = () => {
     <Container className="weeklyTime_div">
              <h6 className="time_heading">Basic info</h6>
       <Row>
-        <Col md={4}>
+        <Col md={4} className="card-align">
           <Card style={{ width: "100%" }}>
           <Card.Header className="card-header">Highest Academic Certificate</Card.Header>
             <Card.Body>
@@ -37,7 +37,7 @@ const DocumentsUpload = () => {
           </Card>
         </Col>
 
-        <Col md={4}>
+        <Col md={4} className="card-align">
           <Card style={{ width: "100%" }}>
           <Card.Header className="card-header">Current ID Card (Student/job)</Card.Header>
             <Card.Body>
@@ -64,7 +64,7 @@ const DocumentsUpload = () => {
           </Card>
         </Col>
 
-        <Col md={4}>
+        <Col md={4} className="card-align">
           <Card style={{ width: "100%" }}>
           <Card.Header className="card-header">Legal ID/Photo Validation</Card.Header>
             <Card.Body>
