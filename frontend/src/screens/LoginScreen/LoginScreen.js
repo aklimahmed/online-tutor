@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 import { Form, Button, Row, Col } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import Message from "../../components/common/Message";
-import Loader from "../../components/common/Loader";
-import FormContainer from "../../components/common/FormContainer";
 import { login } from "../../actions/userActions";
 import { FaGooglePlusG, FaFacebookF, FaLinkedinIn } from "react-icons/fa";
 import "./LoginScreen.scss";
@@ -57,11 +55,11 @@ const LoginScreen = ({ location, history }) => {
   return (
     <div className="mt-5">
       <div className="d-flex justify-content-center">
-        <Link className="sign" to="/login">
+        <Link className="sign underline" to="/login">
           SIGN IN
         </Link>
         <p className="px-2 sign">|</p>
-        <Link className="sign" to="/register">
+        <Link className="sign underline" to="/register">
           SIGN UP
         </Link>
       </div>

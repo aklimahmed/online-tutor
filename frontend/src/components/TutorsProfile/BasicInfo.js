@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react";
 import { MultiSelect } from "react-multi-select-component";
 import { Row, Col, Form } from "react-bootstrap";
 import "./BasicInfo.scss";
+import { useDispatch, useSelector } from "react-redux";
 import { languages } from "./../../jsonData/Language";
 import { presentdistrict } from "../../jsonData/PresentDistrict";
 import { experience } from "../../jsonData/Experience";
 import { locallanguage } from "../../jsonData/LocalLanguage";
+import { createTutor } from "./../../actions/tutorActions";
 
 const BasicInfo = () => {
   const [local, setLocal] = useState([]);
@@ -22,6 +24,15 @@ const BasicInfo = () => {
     languages: [],
     locallanguage: [],
   });
+
+  // const dispatch = useDispatch();
+
+  // const tutorForm = useSelector((state) => state.tutorForm);
+  // const { loading, error, tutorInfo } = tutorForm;
+
+  // useEffect(() => {
+  //   dispatch(createTutor, BasicInfo);
+  // }, [BasicInfo]);
 
   const handleBlur = (event) => {
     const newBasicInfo = { ...BasicInfo };
@@ -41,8 +52,6 @@ const BasicInfo = () => {
     const hold = [...language];
     hold.map((data) => BasicInfo.languages.push(data.value));
   });
-
-  console.log(BasicInfo);
 
   return (
     <div className="basic-info-body weeklyTime_div">
