@@ -4,6 +4,8 @@
 .sign {
   text-decoration: none;
   color: $login;
+  display: inline-block;
+  position: relative;
 }
 
 .ul-style {
@@ -19,10 +21,10 @@
   width: 215px;
 }
 
-.form_heading{
-    color: $formHeading;
-    font-weight: $formHeadingSize;
-    font-size: 13px;
+.form_heading {
+  color: $formHeading;
+  font-weight: $formHeadingSize;
+  font-size: 13px;
 }
 
 .google {
@@ -80,6 +82,25 @@
 .lining-mobile {
   display: none;
 }
+
+.underline:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 12px;
+  left: 0;
+  background-color: #0087ca;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.underline:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
 @media screen and (max-width: 600px) {
   .main_login {
     width: 90%;

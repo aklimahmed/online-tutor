@@ -3,11 +3,16 @@ import { MultiSelect } from "react-multi-select-component";
 import { Row, Col, Form } from "react-bootstrap";
 import { useDispatch, useSelector } from 'react-redux'
 import "./BasicInfo.scss";
+import { useDispatch, useSelector } from "react-redux";
 import { languages } from "./../../jsonData/Language";
 import { presentdistrict } from "../../jsonData/PresentDistrict";
 import { experience } from "../../jsonData/Experience";
 import { locallanguage } from "../../jsonData/LocalLanguage";
+<<<<<<< HEAD
 import { createTutor } from '../../actions/tutorActions'
+=======
+import { createTutor } from "./../../actions/tutorActions";
+>>>>>>> be372080a4dde29d1af77a351725d66f9f20a9d4
 
 const BasicInfo = () => {
   const [local, setLocal] = useState([]);
@@ -24,8 +29,19 @@ const BasicInfo = () => {
     locallanguage: [],
   });
 
+<<<<<<< HEAD
   
 
+=======
+  // const dispatch = useDispatch();
+
+  // const tutorForm = useSelector((state) => state.tutorForm);
+  // const { loading, error, tutorInfo } = tutorForm;
+
+  // useEffect(() => {
+  //   dispatch(createTutor, BasicInfo);
+  // }, [BasicInfo]);
+>>>>>>> be372080a4dde29d1af77a351725d66f9f20a9d4
 
   const handleBlur = (event) => {
     const newBasicInfo = { ...BasicInfo };
@@ -45,8 +61,6 @@ const BasicInfo = () => {
     const hold = [...language];
     hold.map((data) => BasicInfo.languages.push(data.value));
   });
-
-  console.log(BasicInfo);
 
   return (
     <div className="basic-info-body weeklyTime_div">
