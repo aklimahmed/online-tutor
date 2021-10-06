@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { MultiSelect } from "react-multi-select-component";
 import { Row, Col, Form } from "react-bootstrap";
+import { useDispatch, useSelector } from 'react-redux'
 import "./BasicInfo.scss";
 import { languages } from "./../../jsonData/Language";
 import { presentdistrict } from "../../jsonData/PresentDistrict";
 import { experience } from "../../jsonData/Experience";
 import { locallanguage } from "../../jsonData/LocalLanguage";
+import { createTutor } from '../../actions/tutorActions'
 
 const BasicInfo = () => {
   const [local, setLocal] = useState([]);
-
   const [language, setLanguage] = useState([]);
 
   const [BasicInfo, setBasicInfo] = useState({
@@ -22,6 +23,9 @@ const BasicInfo = () => {
     languages: [],
     locallanguage: [],
   });
+
+  
+
 
   const handleBlur = (event) => {
     const newBasicInfo = { ...BasicInfo };
