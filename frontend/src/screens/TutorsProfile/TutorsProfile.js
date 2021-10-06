@@ -11,8 +11,11 @@ import ExtraQualifications from "../../components/TutorsProfile/ExtraQualificati
 import WorkExperience from "../../components/TutorsProfile/WorkExperience";
 import VideoUpload from "../../components/TutorsProfile/VideoUpload";
 import DocumentsUpload from "../../components/TutorsProfile/DocumentsUpload";
+import { useDispatch, useSelector } from 'react-redux'
+import { Form, Button } from 'react-bootstrap'
 
 const TutorsProfile = () => {
+
   return (
     <div>
       <BasicInfo />

@@ -11,7 +11,7 @@ import {
       case TUTOR_FORM_REQUEST:
         return { loading: true }
       case TUTOR_FORM_SUCCESS:
-        return { loading: false, userInfo: action.payload }
+        return { loading: false, tutorInfo: action.payload }
       case TUTOR_FORM_FAIL:
         return { loading: false, error: action.payload }
       default:
