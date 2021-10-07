@@ -2,10 +2,8 @@ import {
     TUTOR_FORM_FAIL,
     TUTOR_FORM_REQUEST,
     TUTOR_FORM_SUCCESS,
-  
   } from '../constants/tutorConstants'
 
-  
   export const tutorFormReducer = (state = {}, action) => {
     switch (action.type) {
       case TUTOR_FORM_REQUEST:

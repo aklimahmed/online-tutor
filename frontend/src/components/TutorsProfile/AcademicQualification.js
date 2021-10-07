@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Row, Col, Form } from "react-bootstrap";
+import { useDispatch, useSelector } from 'react-redux'
+import { createTutor } from '../../actions/tutorActions'
 
 const AcademicQualification = () => {
   const [AcademicQualification, setAcademicQualification] = useState({
@@ -29,6 +31,16 @@ const AcademicQualification = () => {
     doctorateInstitution: "",
     doctorateStatus: "",
   });
+
+  const dispatch = useDispatch();
+
+  // const tutorForm = useSelector((state) => state.tutorForm);
+  // const { loading, error, tutorInfo } = tutorForm;
+
+  useEffect(() => {
+   dispatch(createTutor(AcademicQualification));
+  }, [AcademicQualification]);
+
 
   const handleBlur = (event) => {
     const newAcademicQualification = { ...AcademicQualification };

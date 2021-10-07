@@ -8,43 +8,43 @@ const tutorSchema = mongoose.Schema(
     },
      AcademicQualification: {
         type: Object,
-        required: true
+        //required: true
     },
       extraQualification: {
         type: Object,
-        required: true
+        // required: true
     },
       WorkExperience: {
           type: Object,
-          required: true
+          // required: true
       },
       WeeklyTime: {
           type: Object,
-          required: true
+          // required: true
       },
       SubjectTeaches: {
         type: Object,
-        required: true
+        // required: true
     },
       TeachesAndFees: {
         type: Object,
-        required: true
+        // required: true
     },
       LessonInclude: {
         type: Object,
-        required: true
+        // required: true
     },
       ExtraActivities: {
         type: Object,
-        required: true
+        // required: true
     },
       AboutMe: {
         type: Object,
-        required: true
+        // required: true
     },
       DocumentUpload: {
         type: Object,
-        required: true
+        // required: true
     },
       VideoUpload: {
         type: String,

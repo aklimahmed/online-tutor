@@ -1,18 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { MultiSelect } from "react-multi-select-component";
 import { Row, Col, Form } from "react-bootstrap";
-import { useDispatch, useSelector } from 'react-redux'
 import "./BasicInfo.scss";
 import { languages } from "./../../jsonData/Language";
 import { presentdistrict } from "../../jsonData/PresentDistrict";
 import { experience } from "../../jsonData/Experience";
 import { locallanguage } from "../../jsonData/LocalLanguage";
-import { createTutor } from '../../actions/tutorActions'
+import { useDispatch, useSelector } from 'react-redux';
+import { createTutor } from '../../actions/tutorActions';
 
 const BasicInfo = () => {
   const [local, setLocal] = useState([]);
   const [language, setLanguage] = useState([]);
-
   const [BasicInfo, setBasicInfo] = useState({
     name: "",
     phone: "",
@@ -26,13 +25,12 @@ const BasicInfo = () => {
 
   const dispatch = useDispatch();
 
-  const tutorForm = useSelector((state) => state.tutorForm);
-  const { loading, error, tutorInfo } = tutorForm;
+  // const tutorForm = useSelector((state) => state.tutorForm);
+  // const { loading, error, tutorInfo } = tutorForm;
 
-  // useEffect(() => {
-  //   dispatch(createTutor, BasicInfo);
-  // }, [BasicInfo]);
-
+  useEffect(() => {
+   dispatch(createTutor(BasicInfo));
+  }, [BasicInfo]);
 
   const handleBlur = (event) => {
     const newBasicInfo = { ...BasicInfo };
