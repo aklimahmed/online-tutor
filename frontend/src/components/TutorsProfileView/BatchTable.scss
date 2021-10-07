@@ -1,0 +1,94 @@
+@import "../../style/Color.scss";
+
+.free_class {
+  background-color: $freeClass;
+}
+
+.classText {
+  color: $freeClassText;
+  font-family: Segoe UI;
+  font-weight: bold;
+}
+
+.total_class {
+  color: $freeClass;
+  background-color: $freeClassText;
+  padding: 20%;
+  border-radius: 50%;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.upcomingText {
+  color: $upcomingText;
+  font-weight: bold;
+}
+.upcomingClass {
+  background-color: $upcomingCLass;
+}
+.upcoming_class {
+  color: $upcomingText;
+  background-color: $freeClassText;
+  padding: 20%;
+  border-radius: 50%;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.row {
+  margin-right: 0;
+  margin-left: 0;
+}
+@media (min-width: 768px) {
+  .col-md-3 {
+    flex: 0 0 auto;
+    width: 24.5%;
+  }
+}
+.batch_table {
+  table-layout: auto;
+  width: 100%;
+}
+
+@media all and (device-width: 768px) and (device-height: 1024px){
+    .col-md-3 {
+        flex: 0 0 auto;
+        width: 49.5%;
+      }
+}
+
+@media all and (device-width: 768px) and (device-height: 1024px) {
+  .batch_table {
+    border: 0;
+  }
+  .batch_table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  .batch_table tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: 0.625em;
+  }
+  .batch_table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: 0.8em;
+    text-align: right;
+  }
+  .batch_table td::before {
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  .batch_table td:last-child {
+    border-bottom: 0;
+  }
+}

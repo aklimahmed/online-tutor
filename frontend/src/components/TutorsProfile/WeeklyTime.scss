@@ -14,10 +14,8 @@ body {
 }
 
 table {
-  padding: 0;
   width: 100%;
   table-layout: fixed;
-  margin-right: auto;
 }
 
 table caption {
@@ -73,14 +71,6 @@ table th {
   border: 1px solid $BoderRadius;
   border-radius: 10px;
 }
-
-.form-control {
-  color: $select;
-}
-
-// .option_color {
-//   color: $select !important;
-// }
 
 @media screen and (max-width: 600px) {
   table {

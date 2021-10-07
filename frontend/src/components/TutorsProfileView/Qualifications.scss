@@ -1,0 +1,51 @@
+.qualification_table {
+  table-layout: auto;
+  width: 70%;
+}
+.qtext {
+  color: #ff7d48;
+}
+
+@media all and (device-width: 768px) and (device-height: 1024px) {
+  .qualification_table {
+    border: 0;
+    width: 100%;
+  }
+  .qualification_table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  .qualification_table tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: 0.625em;
+  }
+  .qualification_table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: 0.8em;
+    text-align: right;
+  }
+  .qualification_table td::before {
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  .qualification_table td:last-child {
+    border-bottom: 0;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .qualification_table {
+    border: 0;
+    width: 100%;
+  }
+}

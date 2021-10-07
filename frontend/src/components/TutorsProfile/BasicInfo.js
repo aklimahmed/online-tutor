@@ -2,15 +2,16 @@ import React, { useState, useEffect } from "react";
 import { MultiSelect } from "react-multi-select-component";
 import { Row, Col, Form } from "react-bootstrap";
 import "./BasicInfo.scss";
+import { useDispatch, useSelector } from "react-redux";
 import { languages } from "./../../jsonData/Language";
 import { presentdistrict } from "../../jsonData/PresentDistrict";
 import { experience } from "../../jsonData/Experience";
 import { locallanguage } from "../../jsonData/LocalLanguage";
-import { useDispatch, useSelector } from 'react-redux';
-import { createTutor } from '../../actions/tutorActions';
+import { createTutor } from '../../actions/tutorActions'
 
 const BasicInfo = () => {
   const [local, setLocal] = useState([]);
+
   const [language, setLanguage] = useState([]);
   const [BasicInfo, setBasicInfo] = useState({
     name: "",
@@ -24,19 +25,17 @@ const BasicInfo = () => {
   });
 
   const dispatch = useDispatch();
-
-  // const tutorForm = useSelector((state) => state.tutorForm);
+  // const tutorInfo = useSelector((state) => state.tutorForm);
   // const { loading, error, tutorInfo } = tutorForm;
 
   useEffect(() => {
-   dispatch(createTutor(BasicInfo));
+    dispatch(createTutor(BasicInfo));
   }, [BasicInfo]);
 
   const handleBlur = (event) => {
     const newBasicInfo = { ...BasicInfo };
     newBasicInfo[event.target.name] = event.target.value;
     setBasicInfo(newBasicInfo);
-    console.log(BasicInfo);
   };
 
   useEffect(() => {
@@ -57,8 +56,7 @@ const BasicInfo = () => {
       <Row>
         <Col md={6}>
           <Form.Group className="mb-3" controlId="formBasicName">
-            <Form.Label>Name:</Form.Label>
-            <br />
+            <Form.Label>Name:</Form.Label> 
             <input
               onBlur={handleBlur}
               name="name"
@@ -87,7 +85,7 @@ const BasicInfo = () => {
               name="gender"
               id="gender"
             >
-              <option style={{ display: "none" }}>Select Gender</option>
+              <option value ="" selected disabled hidden>Select Gender</option>
               <option value="male">Male</option>
               <option value="female">Female</option>
               <option value="other">Other</option>
