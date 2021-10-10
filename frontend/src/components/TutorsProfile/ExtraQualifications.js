@@ -28,7 +28,8 @@ const ExtraQualifications = () => {
     setInput(newinput);
   };
 
-  const handleAddFields = () => {
+  const handleAddFields = (e) => {
+    e.preventDefault();
     setInput([
       ...input,
       {
