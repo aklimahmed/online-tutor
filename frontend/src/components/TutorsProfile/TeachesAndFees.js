@@ -1,9 +1,13 @@
-import { React, useState } from "react";
+import { React, useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { classes } from "../../jsonData/Classes";
 import { curriculum } from "../../jsonData/Curriculum";
+import { useDispatch } from "react-redux";
+import { TeachesAndFeesForm } from "../../actions/tutorActions";
 
 const TeachesAndFees = () => {
+  const dispatch = useDispatch();
+
   const [TeachesAndFees, setTeachesAndFees] = useState([
     {
       id: uuidv4(),
@@ -13,7 +17,6 @@ const TeachesAndFees = () => {
       single: "",
     },
   ]);
-  console.log(TeachesAndFees);
   const handleChangeInput = (id, event) => {
     const newTeachesAndFees = TeachesAndFees.map((i) => {
       if (id === i.id) {
@@ -46,6 +49,11 @@ const TeachesAndFees = () => {
     );
     setTeachesAndFees(values);
   };
+
+  useEffect(() => {
+    dispatch(TeachesAndFeesForm(TeachesAndFees));
+  });
+
   return (
     <div className="weeklyTime_div">
       <h6 className="time_heading">Class Teaches and Fees:</h6>

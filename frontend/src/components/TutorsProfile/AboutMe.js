@@ -1,7 +1,11 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import { Row, Form, Container } from "react-bootstrap";
+import { AboutMeForm } from "../../actions/tutorActions";
+import { useDispatch } from 'react-redux';
 
 const AboutMe = () => {
+
+  const dispatch = useDispatch();
   const [AboutMe, setAboutMe] = useState({
     aboutMe: "",
     aboutSession: "",
@@ -13,7 +17,9 @@ const AboutMe = () => {
     setAboutMe(inputs);
   };
 
-  console.log(AboutMe);
+  useEffect(() => {
+    dispatch(AboutMeForm(AboutMe));
+  });
 
   return (
     <Container>

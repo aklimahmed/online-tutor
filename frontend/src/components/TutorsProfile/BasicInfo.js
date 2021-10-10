@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import { MultiSelect } from "react-multi-select-component";
 import { Row, Col, Form } from "react-bootstrap";
 import "./BasicInfo.scss";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 import { languages } from "./../../jsonData/Language";
 import { presentdistrict } from "../../jsonData/PresentDistrict";
 import { experience } from "../../jsonData/Experience";
 import { locallanguage } from "../../jsonData/LocalLanguage";
-import { createTutor } from "./../../actions/tutorActions";
+import { basicInfoForm } from "./../../actions/tutorActions";
 
 const BasicInfo = () => {
   const [local, setLocal] = useState([]);
@@ -30,10 +30,6 @@ const BasicInfo = () => {
   // const tutorInfo = useSelector((state) => state.tutorForm);
   // const { loading, error, tutorInfo } = tutorForm;
 
-  useEffect(() => {
-    dispatch(createTutor(BasicInfo));
-  }, [BasicInfo]);
-
   const handleBlur = (event) => {
     const newBasicInfo = { ...BasicInfo };
     newBasicInfo[event.target.name] = event.target.value;
@@ -50,6 +46,10 @@ const BasicInfo = () => {
     BasicInfo.languages = [];
     const hold = [...language];
     hold.map((data) => BasicInfo.languages.push(data.value));
+  });
+
+  useEffect(() => {
+    dispatch(basicInfoForm(BasicInfo));
   });
 
   return (

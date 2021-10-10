@@ -6,21 +6,21 @@ import Tutor from '../models/tutorModel.js'
 // @route   POST /api/users
 // @access  Public
 const createTutor = asyncHandler(async (req, res) => {
-    const { BasicInfo, AcademicQualification, extraQualification, WorkExperience, WeeklyTime, 
+    const { basic, academic, exQualification, WorkExperience, WeeklyTime, 
         SubjectTeaches, TeachesAndFees, LessonInclude, ExtraActivities, AboutMe, DocumentUpload, VideoUpload
     } = req.body
      
   
     const tutor = await Tutor.create({
-        BasicInfo, AcademicQualification, extraQualification, WorkExperience, WeeklyTime, 
+        basic, academic, exQualification, WorkExperience, WeeklyTime, 
         SubjectTeaches, TeachesAndFees, LessonInclude, ExtraActivities, AboutMe, DocumentUpload, VideoUpload
     })
   
     if (tutor) {
       res.status(201).json({
-        BasicInfo: tutor.BasicInfo,
-        AcademicQualification: tutor.AcademicQualification,
-        extraQualification: tutor.extraQualification,
+        basic: tutor.basic,
+        academic: tutor.academic,
+        exQualification: tutor.exQualification,
         WorkExperience: tutor.WorkExperience,
         WeeklyTime: tutor.WeeklyTime,
         SubjectTeaches: tutor.SubjectTeaches,

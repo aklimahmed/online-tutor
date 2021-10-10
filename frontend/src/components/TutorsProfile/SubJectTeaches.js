@@ -2,9 +2,13 @@ import { React, useState, useEffect } from "react";
 import { MultiSelect } from "react-multi-select-component";
 import { Row, Col } from "react-bootstrap";
 import { subjects } from "../../jsonData/Subjects";
+import { useDispatch } from 'react-redux';
+import { SubjectTeachesForm } from "../../actions/tutorActions";
 
 const SubjectTeaches = () => {
  
+
+  const dispatch = useDispatch();
 
   const [selected, setSelected] = useState([]);
   const [SubjectTeaches, setSubjectTeaches] = useState({
@@ -26,7 +30,9 @@ const SubjectTeaches = () => {
     setSubjectTeaches(usereSubjectTeachess);
   };
 
-  console.log(SubjectTeaches);
+  useEffect(() => {
+    dispatch(SubjectTeachesForm(SubjectTeaches));
+  });
 
   return (
     <div className="weeklyTime_div">

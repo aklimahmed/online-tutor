@@ -1,8 +1,12 @@
-import { React, useState } from "react";
+import { React, useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import "./WeeklyTime.scss";
+import { useDispatch } from "react-redux";
+import { weeklyTimeForm } from './../../actions/tutorActions';
 
 const WeeklyTime = () => {
+  const dispatch = useDispatch();
+
   const [WeeklyTime, setWeeklyTime] = useState([
     {
       id: uuidv4(),
@@ -17,7 +21,6 @@ const WeeklyTime = () => {
       fri: false,
     },
   ]);
-  console.log(WeeklyTime);
   const handleChangeInput = (id, event) => {
     const newWeeklyTime = WeeklyTime.map((i) => {
       if (id === i.id) {
@@ -59,6 +62,10 @@ const WeeklyTime = () => {
     );
     setWeeklyTime(values);
   };
+
+  useEffect(() => {
+    dispatch(weeklyTimeForm(WeeklyTime));
+  });
 
   return (
     <div className="weeklyTime_div">

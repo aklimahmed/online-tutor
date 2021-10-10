@@ -1,7 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Row, Col, Form } from "react-bootstrap";
+import { useDispatch } from "react-redux";
+import { academicQualificationForm } from "./../../actions/tutorActions";
 
 const AcademicQualification = () => {
+  const dispatch = useDispatch();
+
   const [AcademicQualification, setAcademicQualification] = useState({
     sscDegree: "",
     sscPassingYear: 0,
@@ -34,16 +38,17 @@ const AcademicQualification = () => {
     const newAcademicQualification = { ...AcademicQualification };
     newAcademicQualification[event.target.name] = event.target.value;
     setAcademicQualification(newAcademicQualification);
-    console.log(AcademicQualification);
   };
+
+  useEffect(() => {
+    dispatch(academicQualificationForm(AcademicQualification));
+  });
 
   return (
     <div className="basic-info-body weeklyTime_div">
       <h6 className="time_heading">Academic Qualification:</h6>
       <Row Row className="mb-3">
-        <Form.Label>
-          SSC or equivalent info:
-        </Form.Label>
+        <Form.Label>SSC or equivalent info:</Form.Label>
         <Col md={3}>
           <Form.Group className="mb-3" controlId="formBasicName">
             <input
@@ -93,10 +98,7 @@ const AcademicQualification = () => {
         </Col>
 
         <Col md={2}>
-          <Form.Group
-            controlId="formBasicCheckbox"
-            className="mb-3"
-          >
+          <Form.Group controlId="formBasicCheckbox" className="mb-3">
             <select
               name="sscStatus"
               id="select"
@@ -162,10 +164,7 @@ const AcademicQualification = () => {
         </Col>
 
         <Col md={2}>
-          <Form.Group
-            controlId="formBasicCheckbox"
-            className="mb-3"
-          >
+          <Form.Group controlId="formBasicCheckbox" className="mb-3">
             <select
               name="hscStatus"
               className="form-select"
@@ -230,10 +229,7 @@ const AcademicQualification = () => {
         </Col>
 
         <Col md={2}>
-          <Form.Group
-            controlId="formBasicCheckbox"
-            className="mb-3"
-          >
+          <Form.Group controlId="formBasicCheckbox" className="mb-3">
             <select
               id="select"
               name="graduationStatus"
@@ -299,10 +295,7 @@ const AcademicQualification = () => {
         </Col>
 
         <Col md={2}>
-          <Form.Group
-            controlId="formBasicCheckbox"
-            className="mb-3"
-          >
+          <Form.Group controlId="formBasicCheckbox" className="mb-3">
             <select
               name="postGraduationStatus"
               type="text"
@@ -368,10 +361,7 @@ const AcademicQualification = () => {
         </Col>
 
         <Col md={2}>
-          <Form.Group
-            controlId="formBasicCheckbox"
-            className="mb-3"
-          >
+          <Form.Group controlId="formBasicCheckbox" className="mb-3">
             <select
               id="select"
               name="doctorateStatus"

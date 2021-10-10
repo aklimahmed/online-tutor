@@ -1,67 +1,57 @@
-import mongoose from 'mongoose'
+import mongoose from "mongoose";
 
 const tutorSchema = mongoose.Schema(
   {
-     BasicInfo: {
-        type: Object,
-        required: true
+    basic: {
+      type: Object,
+      required: true,
     },
-     AcademicQualification: {
-        type: Object,
-        required: true
+    academic: {
+      type: Object,
     },
-      extraQualification: {
-        type: Object,
-        required: true
+    exQualification: {
+      type: Array,
     },
-      WorkExperience: {
-          type: Object,
-          required: true
+    WorkExperience: {
+      type: Object,
+    },
+    WeeklyTime: {
+      type: Object,
+    },
+    SubjectTeaches: {
+      type: Object,
+    },
+    TeachesAndFees: {
+      type: Object,
+    },
+    LessonInclude: {
+      type: Object,
+    },
+    ExtraActivities: {
+      type: Object,
+    },
+    AboutMe: {
+      type: Object,
+    },
+    DocumentUpload: {
+      type: Object,
+      //
+    },
+    VideoUpload: {
+      type: String,
+      validate: {
+        validator: function (v) {
+          return /^https:\/\/www.youtube.com\/.*$/.test(v);
+        },
+        message: (props) => `${props.value} is not a valid youtube link.`,
       },
-      WeeklyTime: {
-          type: Object,
-          required: true
-      },
-      SubjectTeaches: {
-        type: Object,
-        required: true
     },
-      TeachesAndFees: {
-        type: Object,
-        required: true
-    },
-      LessonInclude: {
-        type: Object,
-        required: true
-    },
-      ExtraActivities: {
-        type: Object,
-        required: true
-    },
-      AboutMe: {
-        type: Object,
-        required: true
-    },
-      DocumentUpload: {
-        type: Object,
-        required: true
-    },
-      VideoUpload: {
-        type: String,
-            validate: {
-               validator: function(v) {
-                    return /^https:\/\/www.youtube.com\/.*$/.test(v);
-               },
-               message: props => `${props.value} is not a valid youtube link.`
-            }
-      }
   },
   {
     timestamps: true,
   }
-)
+);
 
+const Tutor = mongoose.model("Tutor", tutorSchema);
 
-const Tutor = mongoose.model('Tutor', tutorSchema)
-
-export default Tutor
+export default Tutor;

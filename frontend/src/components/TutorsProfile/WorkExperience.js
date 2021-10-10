@@ -1,7 +1,11 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import { Col, Form, Row } from "react-bootstrap";
 import { v4 as uuidv4 } from "uuid";
+import { useDispatch } from "react-redux";
+import { WorkExperienceForm } from "../../actions/tutorActions";
 const WorkExperience = () => {
+  const dispatch = useDispatch();
+
   const [WorkExperience, setWorkExperience] = useState([
     {
       id: uuidv4(),
@@ -11,7 +15,7 @@ const WorkExperience = () => {
       status: "",
     },
   ]);
-  console.log(WorkExperience);
+
   const handleChangeInput = (id, event) => {
     const newWorkExperience = WorkExperience.map((i) => {
       if (id === i.id) {
@@ -44,6 +48,10 @@ const WorkExperience = () => {
     );
     setWorkExperience(values);
   };
+
+  useEffect(() => {
+    dispatch(WorkExperienceForm(WorkExperience));
+  });
 
   return (
     <div className="weeklyTime_div">
@@ -98,7 +106,9 @@ const WorkExperience = () => {
                 name="status"
                 onChange={(event) => handleChangeInput(inputField.id, event)}
               >
-                <option style={{ display: "none", color: "white" }}>Status</option>
+                <option style={{ display: "none", color: "white" }}>
+                  Status
+                </option>
                 <option>completed</option>
                 <option>on going</option>
               </select>

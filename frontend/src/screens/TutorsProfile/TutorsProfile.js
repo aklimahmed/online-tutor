@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useState, useEffect } from "react";
 import BasicInfo from "../../components/TutorsProfile/BasicInfo";
 import SubjectTeaches from "../../components/TutorsProfile/SubjectTeaches";
 import TeachesAndFees from "../../components/TutorsProfile/TeachesAndFees";
@@ -11,13 +11,28 @@ import ExtraQualifications from "../../components/TutorsProfile/ExtraQualificati
 import WorkExperience from "../../components/TutorsProfile/WorkExperience";
 import VideoUpload from "../../components/TutorsProfile/VideoUpload";
 import DocumentsUpload from "../../components/TutorsProfile/DocumentsUpload";
-import { useDispatch, useSelector } from 'react-redux'
-import { Form, Button } from 'react-bootstrap'
+import { useDispatch, useSelector } from "react-redux";
+import { createTutor } from "./../../actions/tutorActions";
 
 const TutorsProfile = () => {
+  const dispatch = useDispatch();
+
+  const basic = useSelector((state) => state.basicInfoForm.basicInfo);
+  const academic = useSelector(
+    (state) => state.academicQualificationForm.academicQualification
+  );
+  const exQualification = useSelector(
+    (state) => state.extraQualificationForm.ExtraQualification
+  );
+  console.log(exQualification);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(createTutor(basic, academic, exQualification));
+  };
 
   return (
-    <div>
+    <form onSubmit={handleSubmit}>
       <BasicInfo />
       <AcademicQualification />
       <ExtraQualifications />
@@ -30,7 +45,8 @@ const TutorsProfile = () => {
       <AboutMe />
       <DocumentsUpload />
       <VideoUpload />
-    </div>
+      <button type="submit">Submit</button>
+    </form>
   );
 };
 

@@ -1,8 +1,13 @@
-import { React, useState } from "react";
+import { React, useEffect, useState } from "react";
 import { Row, Col, Form } from "react-bootstrap";
 import "./LessonInclude.scss";
+import { useDispatch } from 'react-redux';
+import { LessonIncludeForm } from "../../actions/tutorActions";
 
 const LessonInclude = () => {
+
+  const dispatch = useDispatch();
+
   const [LessonInclude, setLessonInclude] = useState({
     curriculum: false,
     proficiency: false,
@@ -20,7 +25,10 @@ const LessonInclude = () => {
     setLessonInclude(inputs);
   };
 
-  console.log(LessonInclude);
+  useEffect(() => {
+    dispatch(LessonIncludeForm(LessonInclude));
+  });
+
   return (
     <div className="weeklyTime_div">
       <h6 className="time_heading">Lesson Include:</h6>

@@ -1,10 +1,13 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import { Col, Form, Row } from "react-bootstrap";
 import { v4 as uuidv4 } from "uuid";
+import { useDispatch} from "react-redux";
 import "./ExtraQualifications.scss";
+import { extraQualificationForm } from "../../actions/tutorActions";
 
 const ExtraQualifications = () => {
-  const [ExtraQualifications, setExtraQualifications] = useState([
+
+  const [input, setInput] = useState([
     {
       id: uuidv4(),
       courseTitle: "",
@@ -14,21 +17,20 @@ const ExtraQualifications = () => {
       status: "",
     },
   ]);
-  console.log(ExtraQualifications);
   const handleChangeInput = (id, event) => {
-    const newExtraQualifications = ExtraQualifications.map((i) => {
+    const newinput = input.map((i) => {
       if (id === i.id) {
         i[event.target.name] = event.target.value;
       }
       return i;
     });
 
-    setExtraQualifications(newExtraQualifications);
+    setInput(newinput);
   };
 
   const handleAddFields = () => {
-    setExtraQualifications([
-      ...ExtraQualifications,
+    setInput([
+      ...input,
       {
         id: uuidv4(),
         courseTitle: "",
@@ -41,18 +43,25 @@ const ExtraQualifications = () => {
   };
 
   const handleRemoveFields = (id) => {
-    const values = [...ExtraQualifications];
+    const values = [...input];
     values.splice(
       values.findIndex((value) => value.id === id),
       1
     );
-    setExtraQualifications(values);
+    setInput(values);
   };
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(extraQualificationForm(input));
+  });
+
 
   return (
     <div className="weeklyTime_div">
       <h6 className="time_heading">Extra Qualification or Trainings:</h6>
-      {ExtraQualifications.map((inputField) => (
+      {input.map((inputField) => (
         <Row key={inputField.id}>
           <Col md={3}>
             <Form.Group className="mb-3">
@@ -122,7 +131,7 @@ const ExtraQualifications = () => {
             <button
               type="button"
               class="btn-close px-2 close_button"
-              disabled={ExtraQualifications.length === 1}
+              disabled={input.length === 1}
               aria-label="Close"
               onClick={() => handleRemoveFields(inputField.id)}
             ></button>

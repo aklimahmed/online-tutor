@@ -1,7 +1,11 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import { Row, Col, Form } from "react-bootstrap";
+import { useDispatch } from 'react-redux';
+import { ExtraActivitiesForm } from "../../actions/tutorActions";
 
 const ExtraActivities = () => {
+
+  const dispatch = useDispatch();
   const [ExtraActivities, setExtraActivities] = useState({
     foreignLanguages: false,
     Volunteering: false,
@@ -19,7 +23,9 @@ const ExtraActivities = () => {
     setExtraActivities(inputs);
   };
 
-  console.log(ExtraActivities);
+  useEffect(() => {
+    dispatch(ExtraActivitiesForm(ExtraActivities));
+  });
 
   return (
     <div className="weeklyTime_div">
