@@ -26,6 +26,7 @@
   "homepage": "https://github.com/AzizulTareq/e-commerce#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "chart.js": "^3.5.1",
     "colors": "^1.4.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
@@ -35,6 +36,7 @@
     "mongoose-type-url": "^2.1.0",
     "morgan": "^1.10.0",
     "multer": "^1.4.2",
+    "react-chartjs-2": "^3.0.5",
     "react-linkedin-login-oauth2": "^1.0.9",
     "react-paypal-button": "^4.1.1"
   },
