@@ -6,4 +6,4 @@ import {
 
 router.route('/').post(createTutor)
 
-export default router
+export default router;

@@ -41,7 +41,7 @@ const TutorsProfile = () => {
     (state) => state.ExtraActivitiesForm.ExtraActivities
   );
   const aboutMe = useSelector((state) => state.AboutMeForm.AboutMe);
-  const user = useSelector((state) => state.userLogin.userInfo._id);
+  const user = useSelector((state) => state.userLogin.userInfo);
 
   const handleSubmit = (e) => {
     e.preventDefault();
