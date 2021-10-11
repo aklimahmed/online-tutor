@@ -2,18 +2,19 @@ import asyncHandler from 'express-async-handler'
 import Tutor from './../models/tutorModel.js';
 
 const createTutor = asyncHandler(async (req, res) => {
-    const { basic, academic, exQualification, woExperience, WeeklyTime, 
+    const { user,basic, academic, exQualification, woExperience, WeeklyTime, 
       subjectTeaches, teachesAndFess, lessonInclude, exActivities, aboutMe, DocumentUpload, VideoUpload
     } = req.body
      
   
     const tutor = await Tutor.create({
-        basic, academic, exQualification, woExperience, WeeklyTime, 
+        user,basic, academic, exQualification, woExperience, WeeklyTime, 
         subjectTeaches, teachesAndFess, lessonInclude, exActivities, aboutMe, DocumentUpload, VideoUpload
     })
   
     if (tutor) {
       res.status(201).json({
+        user: tutor.user,
         basic: tutor.basic,
         academic: tutor.academic,
         exQualification: tutor.exQualification,

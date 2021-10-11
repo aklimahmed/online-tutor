@@ -41,11 +41,13 @@ const TutorsProfile = () => {
     (state) => state.ExtraActivitiesForm.ExtraActivities
   );
   const aboutMe = useSelector((state) => state.AboutMeForm.AboutMe);
+  const user = useSelector((state) => state.userLogin.userInfo._id);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(
       createTutor(
+        user,
         basic,
         academic,
         exQualification,
