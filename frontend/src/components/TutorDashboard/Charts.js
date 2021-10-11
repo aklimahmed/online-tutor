@@ -53,7 +53,7 @@ const Charts = () => {
     return (
         <div>
             <Row>
-                <Col className="weeklyTime_div_3">
+                <Col className="weeklyTime_div_3 chart-1">
                     <Doughnut data={genderdata} />
                     <Row>
                     <Col md={6} className="text-center">
@@ -69,7 +69,7 @@ const Charts = () => {
                     </Row>
                 </Col>
 
-                <Col className="weeklyTime_div_3">
+                <Col className="weeklyTime_div_3 chart-2">
                 <Doughnut data={payment} />
                 <Row>
                     <Col md={6} className="text-center">
