@@ -7,12 +7,14 @@ import connectDB from './config/db.js'
 
 import userRoutes from './routes/userRoutes.js'
 import tutorRoutes from './routes/tutorRoutes.js'
+import cors from 'cors'
 
 dotenv.config()
 
 connectDB()
 
 const app = express()
+
 
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'))
@@ -42,6 +44,8 @@ app.use(notFound)
 app.use(errorHandler)
 
 const PORT = process.env.PORT || 5000
+
+app.use(cors());
 
 app.listen(
   PORT,
