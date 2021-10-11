@@ -41,12 +41,14 @@ export const createTutor = (user,basic, academic, exQualification, woExperience,
     })
 
   } catch (error) {
+    const message = error.response && error.response.data.message
+    ? error.response.data.message
+    : error.message
+
+    if(message === 'Not authorized, token failed')
     dispatch({
       type: TUTOR_FORM_FAIL,
-      payload:
-        error.response && error.response.data.message
-          ? error.response.data.message
-          : error.message,
+      payload: message,
     })
   }
 }

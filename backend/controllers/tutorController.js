@@ -33,8 +33,19 @@ const createTutor = asyncHandler(async (req, res) => {
       throw new Error('Unable to submit the form')
     }
   })
+
+  const getTutorProfile = asyncHandler(async (req, res) => {
+    const tutor = await Tutor.findOne({ user: req.params.id})
+
+    if(tutor) {
+      res.send({
+        tutor
+      })
+    }
+  })
   
 
   export {
-    createTutor
+    createTutor,
+    getTutorProfile
   }
