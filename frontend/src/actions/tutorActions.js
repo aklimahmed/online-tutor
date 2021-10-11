@@ -15,7 +15,7 @@ import {
   AboutMeType
 } from '../constants/tutorConstants'
 
-export const createTutor = (basic, academic, exQualification, woExperience, WeeklyTime,
+export const createTutor = (user,basic, academic, exQualification, woExperience, WeeklyTime,
   subjectTeaches, teachesAndFess, lessonInclude, exActivities, aboutMe, DocumentUpload, VideoUpload) => async (dispatch) => {
   try {
     dispatch({
@@ -30,7 +30,7 @@ export const createTutor = (basic, academic, exQualification, woExperience, Week
 
     const { data } = await axios.post(
       '/api/tutor',
-      { basic, academic, exQualification, woExperience, WeeklyTime, subjectTeaches, teachesAndFess,
+      { user,basic, academic, exQualification, woExperience, WeeklyTime, subjectTeaches, teachesAndFess,
         lessonInclude, exActivities, aboutMe, DocumentUpload, VideoUpload},
       config
     )

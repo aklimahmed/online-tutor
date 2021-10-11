@@ -8,8 +8,10 @@ import SubjectTeaches from "./../../components/TutorsProfileView/SubjectTeaches"
 import ClassTeaches from "../../components/TutorsProfileView/ClassTeaches";
 import LessonInclude from "../../components/TutorsProfileView/LessonInclude";
 import AboutMe from "../../components/TutorsProfileView/AboutMe";
+import axios from 'axios'
 
 const TutorProfileView = () => {
+
   return (
     <div>
       <BatchTable />

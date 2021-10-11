@@ -1,10 +1,15 @@
 import mongoose from "mongoose";
 
 const tutorSchema = mongoose.Schema(
-  { 
+  {
+    user:{
+      type:String,
+      required: true,
+      unique: true,
+    },
     basic: {
       type: Object,
-      required: true
+      required: true,
     },
     academic: {
       type: Object,

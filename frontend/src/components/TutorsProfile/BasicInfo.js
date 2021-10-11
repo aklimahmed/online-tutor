@@ -27,8 +27,6 @@ const BasicInfo = () => {
 
   const dispatch = useDispatch();
 
-  // const tutorInfo = useSelector((state) => state.tutorForm);
-  // const { loading, error, tutorInfo } = tutorForm;
 
   const handleBlur = (event) => {
     const newBasicInfo = { ...BasicInfo };
@@ -85,7 +83,6 @@ const BasicInfo = () => {
               onBlur={handleBlur}
               className="form-select"
               name="gender"
-              id="gender"
             >
               <option value ="" selected disabled hidden>Select Gender</option>
               <option value="male">Male</option>
@@ -104,6 +101,7 @@ const BasicInfo = () => {
               name="birthDate"
               min="1901-01-01"
               max="2015-12-31"
+              required
             ></input>
           </Form.Group>
         </Col>
@@ -111,12 +109,10 @@ const BasicInfo = () => {
         <Col md={6}>
           <Form.Group className="mb-3" controlId="formBasicDistrict">
             <Form.Label>Present District:</Form.Label>
-            <br />
             <select
               onBlur={handleBlur}
               className="form-select"
               name="presentDistrict"
-              id="presentdistrict"
             >
               <option style={{ display: "none" }}>Select district name</option>
               {presentdistrict.map((d) => (
@@ -127,12 +123,10 @@ const BasicInfo = () => {
 
           <Form.Group className="mb-3" controlId="formBasicExperience">
             <Form.Label>Experience:</Form.Label>
-            <br />
             <select
               onBlur={handleBlur}
               className="form-select"
               name="experience"
-              id="experience"
             >
               <option style={{ display: "none" }}>
                 Select total years of teaching experience
@@ -145,7 +139,6 @@ const BasicInfo = () => {
 
           <Form.Group className="mb-3" controlId="formBasicLocalLanguage">
             <Form.Label>Can Speak?</Form.Label>
-            <br />
             <MultiSelect
               options={languages}
               value={language}
@@ -156,7 +149,6 @@ const BasicInfo = () => {
 
           <Form.Group className="mb-3" controlId="formBasicLocalLanguage">
             <Form.Label>Understand local language:</Form.Label>
-            <br />
             <MultiSelect
               className="multiSelect"
               options={locallanguage}
