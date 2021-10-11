@@ -1,10 +1,10 @@
 import mongoose from "mongoose";
 
 const tutorSchema = mongoose.Schema(
-  {
+  { 
     basic: {
       type: Object,
-      required: true,
+      required: true
     },
     academic: {
       type: Object,

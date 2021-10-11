@@ -1,6 +1,6 @@
 import React from 'react'
 import { Doughnut } from 'react-chartjs-2';
-import { Row, Col, Card } from 'react-bootstrap'
+import { Row, Col } from 'react-bootstrap'
 import "./Charts.scss"
 
 const datavalues = {
@@ -59,7 +59,6 @@ const Charts = () => {
                     <Col md={6} className="text-center">
                         <p>
                         Male Students<br />
-                        
                         </p>
                     </Col>
                    

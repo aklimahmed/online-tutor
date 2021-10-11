@@ -1,6 +1,5 @@
 import asyncHandler from 'express-async-handler'
-import Tutor from '../models/tutorModel'
-
+import Tutor from '../models/tutorModel.js'
 
 const createTutor = asyncHandler(async (req, res) => {
     const { basic, academic, exQualification, woExperience, WeeklyTime, 
@@ -9,7 +8,7 @@ const createTutor = asyncHandler(async (req, res) => {
      
   
     const tutor = await Tutor.create({
-        basic, academic, exQualification, woExperience, WeeklyTime, 
+      basic, academic, exQualification, woExperience, WeeklyTime, 
         subjectTeaches, teachesAndFess, lessonInclude, exActivities, aboutMe, DocumentUpload, VideoUpload
     })
   
