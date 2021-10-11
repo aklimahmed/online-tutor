@@ -1,10 +1,9 @@
 import { React, useState, useEffect } from "react";
-import { Row, Form, Container } from "react-bootstrap";
+import { Row, Form } from "react-bootstrap";
 import { AboutMeForm } from "../../actions/tutorActions";
-import { useDispatch } from 'react-redux';
+import { useDispatch } from "react-redux";
 
 const AboutMe = () => {
-
   const dispatch = useDispatch();
   const [AboutMe, setAboutMe] = useState({
     aboutMe: "",
@@ -22,7 +21,7 @@ const AboutMe = () => {
   });
 
   return (
-    <Container>
+    <div>
       <Row className="weeklyTime_div">
         <h6 className="time_heading">About me:</h6>
         <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
@@ -48,7 +47,7 @@ const AboutMe = () => {
           />
         </Form.Group>
       </Row>
-    </Container>
+    </div>
   );
 };
 

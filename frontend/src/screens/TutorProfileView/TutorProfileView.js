@@ -3,8 +3,11 @@ import BatchTable from "../../components/TutorsProfileView/BatchTable";
 import Qualifications from "../../components/TutorsProfileView/Qualifications";
 import ExtraQualifications from "./../../components/TutorsProfileView/ExtraQualifications";
 import WorkExperience from "./../../components/TutorsProfileView/WorkExperience";
-import TutorsVideo from "../../components/TutorsProfileView/TutorsVideo";
-import { Row, Col } from 'react-bootstrap'
+import GeneralAvailability from "../../components/TutorsProfileView/GeneralAvailability";
+import SubjectTeaches from "./../../components/TutorsProfileView/SubjectTeaches";
+import ClassTeaches from "../../components/TutorsProfileView/ClassTeaches";
+import LessonInclude from "../../components/TutorsProfileView/LessonInclude";
+import AboutMe from "../../components/TutorsProfileView/AboutMe";
 
 const TutorProfileView = () => {
   return (
@@ -13,6 +16,11 @@ const TutorProfileView = () => {
       <Qualifications />
       <ExtraQualifications />
       <WorkExperience />
+      <GeneralAvailability />
+      <SubjectTeaches />
+      <ClassTeaches />
+      <LessonInclude/>
+      <AboutMe/>
     </div>
   );
 };

@@ -11,7 +11,7 @@ const WorkExperience = () => {
       id: uuidv4(),
       institute: "",
       designation: "",
-      period: "",
+      period: 0,
       status: "",
     },
   ]);
@@ -27,7 +27,8 @@ const WorkExperience = () => {
     setWorkExperience(newWorkExperience);
   };
 
-  const handleAddFields = () => {
+  const handleAddFields = (e) => {
+    e.preventDefault();
     setWorkExperience([
       ...WorkExperience,
       {
@@ -89,7 +90,6 @@ const WorkExperience = () => {
                 type="text"
                 placeholder="Enter Year"
                 name="period"
-                value={inputField.period}
                 onChange={(event) => handleChangeInput(inputField.id, event)}
               />
             </Form.Group>

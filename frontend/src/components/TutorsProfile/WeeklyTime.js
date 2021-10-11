@@ -2,7 +2,7 @@ import { React, useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import "./WeeklyTime.scss";
 import { useDispatch } from "react-redux";
-import { weeklyTimeForm } from './../../actions/tutorActions';
+import { weeklyTimeForm } from "./../../actions/tutorActions";
 
 const WeeklyTime = () => {
   const dispatch = useDispatch();
@@ -36,7 +36,8 @@ const WeeklyTime = () => {
     setWeeklyTime(newWeeklyTime);
   };
 
-  const handleAddFields = () => {
+  const handleAddFields = (e) => {
+    e.preventDefault();
     setWeeklyTime([
       ...WeeklyTime,
       {

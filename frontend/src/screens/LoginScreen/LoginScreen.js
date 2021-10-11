@@ -63,7 +63,7 @@ const LoginScreen = ({ location, history }) => {
           SIGN UP
         </Link>
       </div>
-      <Row className="main_login mt-2">
+      <Row className="main_login mt-2 mx-auto">
         <Col md={5}>
           <p className="form_heading">Sign in with Social Accounts</p>
           <ul className="ul-style">

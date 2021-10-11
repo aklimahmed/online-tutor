@@ -1,6 +1,7 @@
 @import "../../style/Color.scss";
 @import "../../style/FontSize.scss";
 
+
 .sign {
   text-decoration: none;
   color: $login;
@@ -73,8 +74,6 @@
   padding: 5%;
   border-radius: 10px;
   width: 70%;
-  margin-left: auto;
-  margin-right: auto;
 }
 .hr-padding {
   margin-left: 10px;

@@ -16,7 +16,10 @@ const BatchTable = () => {
             <h4 className="total_class mt-2">11</h4>
           </div>
         </Col>
-        <Col md={3} className="d-flex justify-content-between upcomingClass mb-3">
+        <Col
+          md={3}
+          className="d-flex justify-content-between upcomingClass mb-3"
+        >
           <div>
             <h4 className="upcomingText mt-2">Upcoming</h4>
             <h6 className="upcomingText">Batches</h6>
@@ -25,7 +28,10 @@ const BatchTable = () => {
             <h4 className="upcoming_class mt-2">11</h4>
           </div>
         </Col>
-        <Col md={3} className="d-flex justify-content-between upcomingClass mb-3">
+        <Col
+          md={3}
+          className="d-flex justify-content-between upcomingClass mb-3"
+        >
           <div>
             <h4 className="upcomingText mt-2">Today's</h4>
             <h6 className="upcomingText">Classes</h6>
@@ -34,7 +40,10 @@ const BatchTable = () => {
             <h4 className="upcoming_class mt-2">11</h4>
           </div>
         </Col>
-        <Col md={3} className="d-flex justify-content-between upcomingClass mb-3">
+        <Col
+          md={3}
+          className="d-flex justify-content-between upcomingClass mb-3"
+        >
           <div>
             <h4 className="upcomingText mt-2">Tomorrow’s</h4>
             <h6 className="upcomingText">Classes</h6>
@@ -44,8 +53,8 @@ const BatchTable = () => {
           </div>
         </Col>
       </Row>
-      <div className="mt-2">
-        <table class="batch_table">
+      <div>
+        <table className="mt-2 batch_table">
           <thead>
             <tr>
               <th>

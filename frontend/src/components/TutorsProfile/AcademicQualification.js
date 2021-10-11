@@ -78,7 +78,7 @@ const AcademicQualification = () => {
             <input
               name="sscResult"
               className="form-control"
-              type="name"
+              type="number" step="0.01"
               placeholder="Enter result or grade"
               onBlur={handleBlur}
             />
@@ -90,7 +90,7 @@ const AcademicQualification = () => {
             <input
               name="sscInstitution"
               className="form-control"
-              type="name"
+              type="text"
               placeholder="Enter institute name"
               onBlur={handleBlur}
             />
@@ -101,7 +101,6 @@ const AcademicQualification = () => {
           <Form.Group controlId="formBasicCheckbox" className="mb-3">
             <select
               name="sscStatus"
-              id="select"
               className="form-select"
               onBlur={handleBlur}
             >
@@ -144,7 +143,7 @@ const AcademicQualification = () => {
             <input
               className="form-control"
               name="hscResult"
-              type="number"
+              type="number" step="0.01"
               placeholder="Enter result or grade"
               onBlur={handleBlur}
             />
@@ -209,7 +208,7 @@ const AcademicQualification = () => {
             <input
               className="form-control"
               name="graduationResult"
-              type="number"
+              type="number" step="0.01"
               placeholder="Enter result or grade"
               onBlur={handleBlur}
             />
@@ -231,7 +230,6 @@ const AcademicQualification = () => {
         <Col md={2}>
           <Form.Group controlId="formBasicCheckbox" className="mb-3">
             <select
-              id="select"
               name="graduationStatus"
               className="form-select"
               onBlur={handleBlur}
@@ -275,7 +273,7 @@ const AcademicQualification = () => {
             <input
               className="form-control"
               name="postGraduationResult"
-              type="number"
+              type="number" step="0.01"
               placeholder="Enter result or grade"
               onBlur={handleBlur}
             />
@@ -341,7 +339,7 @@ const AcademicQualification = () => {
             <input
               className="form-control"
               name="doctorateResult"
-              type="number"
+              type="number" step="0.01"
               placeholder="Enter result or grade"
               onBlur={handleBlur}
             />

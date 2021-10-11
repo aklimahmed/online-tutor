@@ -110,7 +110,7 @@ export const TeachesAndFeesReducer = (state = initialState, { type, payload }) =
 export const LessonIncludeReducer = (state = initialState, { type, payload }) => {
   switch (type) {
       case LessonIncludeType:
-          return { ...state, LessonIncludeForm: payload };
+          return { ...state, LessonInclude: payload };
 
       default:
           return state;
@@ -120,7 +120,7 @@ export const LessonIncludeReducer = (state = initialState, { type, payload }) =>
 export const ExtraActivitiesReducer = (state = initialState, { type, payload }) => {
   switch (type) {
       case ExtraActivitiesType:
-          return { ...state, ExtraActivitiesForm: payload };
+          return { ...state, ExtraActivities: payload };
 
       default:
           return state;
@@ -130,7 +130,7 @@ export const ExtraActivitiesReducer = (state = initialState, { type, payload }) 
 export const AboutMeReducer = (state = initialState, { type, payload }) => {
   switch (type) {
       case AboutMeType:
-          return { ...state, AboutMeForm: payload };
+          return { ...state, AboutMe: payload };
 
       default:
           return state;

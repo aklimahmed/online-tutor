@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from "react";
+import { React } from "react";
 import BasicInfo from "../../components/TutorsProfile/BasicInfo";
 import SubjectTeaches from "../../components/TutorsProfile/SubjectTeaches";
 import TeachesAndFees from "../../components/TutorsProfile/TeachesAndFees";
@@ -24,11 +24,40 @@ const TutorsProfile = () => {
   const exQualification = useSelector(
     (state) => state.extraQualificationForm.ExtraQualification
   );
-  console.log(exQualification);
+  const woExperience = useSelector(
+    (state) => state.WorkExperienceForm.WorkExperience
+  );
+  const weeklyTime = useSelector((state) => state.weeklyTimeForm.WeeklyTime);
+  const subjectTeaches = useSelector(
+    (state) => state.SubJectTeachesForm.SubjectTeaches
+  );
+  const teachesAndFess = useSelector(
+    (state) => state.TeachesAndFeesForm.TeachesAndFees
+  );
+  const lessonInclude = useSelector(
+    (state) => state.LessonIncludeForm.LessonInclude
+  );
+  const exActivities = useSelector(
+    (state) => state.ExtraActivitiesForm.ExtraActivities
+  );
+  const aboutMe = useSelector((state) => state.AboutMeForm.AboutMe);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(createTutor(basic, academic, exQualification));
+    dispatch(
+      createTutor(
+        basic,
+        academic,
+        exQualification,
+        woExperience,
+        weeklyTime,
+        subjectTeaches,
+        teachesAndFess,
+        lessonInclude,
+        exActivities,
+        aboutMe
+      )
+    );
   };
 
   return (
@@ -45,7 +74,11 @@ const TutorsProfile = () => {
       <AboutMe />
       <DocumentsUpload />
       <VideoUpload />
-      <button type="submit">Submit</button>
+      <div className="d-flex justify-content-end">
+        <button className="btn btn-secondary mt-3 mb-5" type="submit">
+          Submit
+        </button>
+      </div>
     </form>
   );
 };

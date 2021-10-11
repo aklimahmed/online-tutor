@@ -8,31 +8,38 @@ const tutorSchema = mongoose.Schema(
     },
     academic: {
       type: Object,
+      
     },
     exQualification: {
-      type: Object,
+      type: Array,
+      
+    },
+    woExperience: {
+      type: Array,
       required: true,
     },
-    WorkExperience: {
-      type: Object,
-    },
     WeeklyTime: {
+      type: Array,
+      
+    },
+    subjectTeaches: {
       type: Object,
     },
-    SubjectTeaches: {
+    teachesAndFess: {
       type: Object,
+      
     },
-    TeachesAndFees: {
+    lessonInclude: {
       type: Object,
+      
     },
-    LessonInclude: {
+    exActivities: {
       type: Object,
+      
     },
-    ExtraActivities: {
+    aboutMe: {
       type: Object,
-    },
-    AboutMe: {
-      type: Object,
+      
     },
     DocumentUpload: {
       type: Object,

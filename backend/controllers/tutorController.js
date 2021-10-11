@@ -1,19 +1,16 @@
 import asyncHandler from 'express-async-handler'
-import User from '../models/userModel.js'
-import Tutor from '../models/tutorModel.js'
+import Tutor from '../models/tutorModel'
 
-// @desc    Register a new user
-// @route   POST /api/users
-// @access  Public
+
 const createTutor = asyncHandler(async (req, res) => {
-    const { basic, academic, exQualification, WorkExperience, WeeklyTime, 
-        SubjectTeaches, TeachesAndFees, LessonInclude, ExtraActivities, AboutMe, DocumentUpload, VideoUpload
+    const { basic, academic, exQualification, woExperience, WeeklyTime, 
+      subjectTeaches, teachesAndFess, lessonInclude, exActivities, aboutMe, DocumentUpload, VideoUpload
     } = req.body
      
   
     const tutor = await Tutor.create({
-        basic, academic, exQualification, WorkExperience, WeeklyTime, 
-        SubjectTeaches, TeachesAndFees, LessonInclude, ExtraActivities, AboutMe, DocumentUpload, VideoUpload
+        basic, academic, exQualification, woExperience, WeeklyTime, 
+        subjectTeaches, teachesAndFess, lessonInclude, exActivities, aboutMe, DocumentUpload, VideoUpload
     })
   
     if (tutor) {
@@ -21,13 +18,13 @@ const createTutor = asyncHandler(async (req, res) => {
         basic: tutor.basic,
         academic: tutor.academic,
         exQualification: tutor.exQualification,
-        WorkExperience: tutor.WorkExperience,
+        woExperience: tutor.woExperience,
         WeeklyTime: tutor.WeeklyTime,
-        SubjectTeaches: tutor.SubjectTeaches,
-        TeachesAndFees: tutor.TeachesAndFees,
-        LessonInclude: tutor.LessonInclude,
-        ExtraActivities: tutor.ExtraActivities,
-        AboutMe: tutor.AboutMe,
+        subjectTeaches: tutor.subjectTeaches,
+        teachesAndFess: tutor.teachesAndFess,
+        lessonInclude: tutor.lessonInclude,
+        exActivities: tutor.exActivities,
+        aboutMe: tutor.aboutMe,
         DocumentUpload: tutor.DocumentUpload,
         VideoUpload: tutor.VideoUpload
       })

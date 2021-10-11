@@ -13,8 +13,8 @@ const TeachesAndFees = () => {
       id: uuidv4(),
       curriculum: "",
       class: "",
-      batch: "",
-      single: "",
+      batch: 0,
+      single: 0,
     },
   ]);
   const handleChangeInput = (id, event) => {
@@ -28,15 +28,16 @@ const TeachesAndFees = () => {
     setTeachesAndFees(newTeachesAndFees);
   };
 
-  const handleAddFields = () => {
+  const handleAddFields = (e) => {
+    e.preventDefault();
     setTeachesAndFees([
       ...TeachesAndFees,
       {
         id: uuidv4(),
         curriculum: "",
         class: "",
-        batch: "",
-        single: "",
+        batch: 0,
+        single: 0,
       },
     ]);
   };
@@ -108,20 +109,18 @@ const TeachesAndFees = () => {
               <td data-label="Batch/Group">
                 <input
                   className="form-control"
-                  type="text"
+                  type="number"
                   name="batch"
                   placeholder="Enter Amount e.g 120"
-                  value={inputField.batch}
                   onChange={(event) => handleChangeInput(inputField.id, event)}
                 />
               </td>
               <td data-label="One-on-One">
                 <input
                   className="form-control"
-                  type="text"
+                  type="number"
                   placeholder="Enter Amount e.g 350"
                   name="single"
-                  value={inputField.single}
                   onChange={(event) => handleChangeInput(inputField.id, event)}
                 />
               </td>
