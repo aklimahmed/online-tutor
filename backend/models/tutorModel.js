@@ -8,11 +8,11 @@ const tutorSchema = mongoose.Schema(
     },
     academic: {
       type: Object,
-      
+      required: true,
     },
     exQualification: {
       type: Array,
-      
+      required: true,
     },
     woExperience: {
       type: Array,
@@ -20,30 +20,34 @@ const tutorSchema = mongoose.Schema(
     },
     WeeklyTime: {
       type: Array,
-      
+      required: true,
     },
     subjectTeaches: {
       type: Object,
+      required: true,
     },
     teachesAndFess: {
       type: Object,
+      required: true,
       
     },
     lessonInclude: {
       type: Object,
+      required: true,
       
     },
     exActivities: {
       type: Object,
+      required: true,
       
     },
     aboutMe: {
       type: Object,
+      required: true,
       
     },
     DocumentUpload: {
       type: Object,
-      //
     },
     VideoUpload: {
       type: String,

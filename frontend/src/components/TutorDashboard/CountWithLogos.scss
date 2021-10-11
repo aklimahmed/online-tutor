@@ -1,0 +1,67 @@
+@import "../../style/Color.scss";
+@import "../../style/FontSize.scss";
+
+.count-logo-card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-bottom: 10px;
+}
+
+.logo {
+    width: 100px;
+    height: 80px;
+}
+
+.count-number {
+    color: $freeClass;
+    font-size: 2.0rem;
+    font-weight: bold;
+    padding-top: 20px;
+}
+
+.count-text {
+    color: #000000;
+    font-weight: bold;
+}
+
+.weeklyTime_div_2 {
+    margin-top: 30px;
+    padding: 37px 15px 37px 15px;
+    background-color: $primaryBG;
+    border: 1px solid $BoderRadius;
+    border-radius: 10px;
+  }
+
+@media all and (device-width: 1024px){
+    .count-card {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .column-class {
+        width: 100%;
+    }
+
+    .count-logo-card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        margin-bottom: 10px;
+        height: 210px;
+    }
+}
+
+@media all and (device-width: 1280px){
+    .count-card {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .column-class {
+        width: 100%;
+    }
+
+    .count-logo-card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        margin-bottom: 10px;
+        height: 220px;
+    }
+}
+
