@@ -1,14 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Row, Col, Form } from 'react-bootstrap'
 import { classes } from '../../jsonData/Classes'
 import { curriculum } from '../../jsonData/Curriculum'
 import { subjects } from '../../jsonData/Subjects'
+import { languages } from '../../jsonData/Language'
 import { MultiSelect } from "react-multi-select-component";
+import { educationboard } from '../../jsonData/EducationBoard'
 
 const AcademicInfo = () => {
+
+  const [SubjectValue, setSubjectValue] = useState([]);
+  const [LanguageValue, setLanguageValue] = useState([]);
+
     return (
         <div className="basic-info-body weeklyTime_div">
-        <h6 className="time_heading">Basic info:</h6>
+        <h6 className="time_heading">Academic information:</h6>
         <Row>
           <Col md={6}>
           <Form.Group className="mb-3" controlId="formBasicExperience">
@@ -51,20 +57,52 @@ const AcademicInfo = () => {
             </select>
           </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formBasicLocalLanguage">
-            <Form.Label>Can Speak?</Form.Label>
+          <Form.Group className="mb-3" controlId="formBasicSubject">
+            <Form.Label>Subjects to learn:</Form.Label>
             <MultiSelect
-              className="multiSelect"
               options={subjects}
-              value={subjects}
+              value={SubjectValue}
+              onChange={setSubjectValue}
               labelledBy="Select"
             />
-          </Form.Group>
-
-            
+          </Form.Group> 
           </Col>
   
           <Col md={6}>
+          <Form.Group className="mb-3" controlId="formBasicInstitution">
+            <Form.Label>School / Institution Name:</Form.Label> 
+            <input
+              name="institutionName"
+              className="form-control"
+              type="text"
+              placeholder="Enter your school / institution full name"
+            />
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="formBasicExperience">
+            <Form.Label>curriculum:</Form.Label>
+            <select
+              className="form-select"
+              name="curriculum"
+            >
+              <option style={{ display: "none" }}>
+              Select educational board
+              </option>
+              {educationboard.map((e) => (
+                <option value={e.board}>{e.board}</option>
+              ))}
+            </select>
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="formBasicSubject">
+            <Form.Label>Preferred teaching language:</Form.Label>
+            <MultiSelect
+              options={languages}
+              value={LanguageValue}
+              onChange={setLanguageValue}
+              labelledBy="Select"
+            />
+          </Form.Group> 
             
           </Col>
         </Row>
