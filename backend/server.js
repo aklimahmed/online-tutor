@@ -1,19 +1,19 @@
-import * as path from 'path'
-import express from 'express'
-import dotenv from 'dotenv'
-import morgan from 'morgan'
-import { notFound, errorHandler } from './middleware/errorMiddleware.js'
-import connectDB from './config/db.js'
+import path from 'path';
+import express from 'express';
+import dotenv from 'dotenv';
+import morgan from 'morgan';
+import { notFound, errorHandler } from './middleware/errorMiddleware.js';
+import connectDB from './config/db.js';
+import cors from 'cors';
+import userRoutes from './routes/userRoutes.js';
+import tutorRoutes from './routes/tutorRoutes.js';
+dotenv.config();
 
-import userRoutes from './routes/userRoutes.js'
-import tutorRoutes from './routes/tutorRoutes.js'
-import cors from 'cors'
+connectDB();
 
-dotenv.config()
+const app = express();
 
-connectDB()
-
-const app = express()
+app.use(cors());
 
 
 if (process.env.NODE_ENV === 'development') {
@@ -43,9 +43,8 @@ if (process.env.NODE_ENV === 'production') {
 app.use(notFound)
 app.use(errorHandler)
 
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT || 8080
 
-app.use(cors());
 
 app.listen(
   PORT,

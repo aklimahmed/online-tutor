@@ -18,13 +18,20 @@ const TutorProfileView = () => {
 
   const id = useSelector((state) => state.userLogin.userInfo._id);
 
-  useEffect(() => {
-    fetch(`http://localhost:5000/api/tutor/profile/${id}`)
-    .then(res => res.json())
-    .then(data => console.log(data))
-  },[id]);
+  // useEffect(() => {
+  //   fetch(`http://localhost:5000/api/tutor/profile/${id}`)
+  //   .then(res => res.json())
+  //   .then(data => console.log(data))
+  // },[id]);
 
-  console.log(fetchTutorInfo);
+  axios.get(`http://localhost:5000/api/tutor/profile/${id}`)
+  .then(response => {
+    console.log(response.data);
+  }, error => {
+    console.log(error);
+  });
+
+  console.log(id);
 
   return (
     <div>
