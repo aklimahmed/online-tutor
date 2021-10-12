@@ -11,17 +11,17 @@ import AboutMe from "../../components/TutorsProfileView/AboutMe";
 import { useDispatch, useSelector } from "react-redux";
 
 const TutorProfileView = () => {
-  const [fetchTutorInfo, setFetchTutorInfo] = useState();
+  const [fetchTutorInfo, setFetchTutorInfo] = useState({});
 
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  // const id = useSelector((state) => state.userLogin.userInfo._id);
+  const id = useSelector((state) => state.userLogin.userInfo._id);
 
   useEffect(() => {
     fetch(`/api/tutor/profile/6163e30da7206a0b7c8ec996`)
     .then(res => res.json())
     .then(data => setFetchTutorInfo(data))
-  },[]);
+  },[id]);
 
   console.log(fetchTutorInfo);
 
@@ -29,7 +29,7 @@ const TutorProfileView = () => {
     <div>
       <BatchTable />
       <Qualifications />
-      <ExtraQualifications />
+      <ExtraQualifications exQualification={fetchTutorInfo.exQualification}/>
       <WorkExperience />
       <GeneralAvailability />
       <SubjectTeaches />
