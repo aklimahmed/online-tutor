@@ -8,14 +8,14 @@ import cors from 'cors';
 import userRoutes from './routes/userRoutes.js'
 import tutorRoutes from './routes/tutorRoutes.js'
 
-dotenv.config()
+dotenv.config();
 
-connectDB()
+connectDB();
 
-const app = express()
-const cors = require('cors')
+const app = express();
+const cors = require('cors');
 
-app.use(cors())
+app.use(cors());
 
 
 if (process.env.NODE_ENV === 'development') {
