@@ -1,13 +1,12 @@
-import path from 'path'
-import express from 'express'
-import dotenv from 'dotenv'
-import morgan from 'morgan'
-import { notFound, errorHandler } from './middleware/errorMiddleware.js'
-import connectDB from './config/db.js'
+import path from 'path';
+import express from 'express';
+import dotenv from 'dotenv';
+import morgan from 'morgan';
+import { notFound, errorHandler } from './middleware/errorMiddleware.js';
+import connectDB from './config/db.js';
 import cors from 'cors';
-import userRoutes from './routes/userRoutes.js'
-import tutorRoutes from './routes/tutorRoutes.js'
-
+import userRoutes from './routes/userRoutes.js';
+import tutorRoutes from './routes/tutorRoutes.js';
 dotenv.config();
 
 connectDB();
