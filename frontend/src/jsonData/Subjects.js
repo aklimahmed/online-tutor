@@ -1,18 +1,38 @@
 export const subjects = [
-    { value: "Accounting", label: "Accounting" },
-    { value: "Art", label: "Art" },
-    { value: "Art & Design", label: "Art & Design" },
-    { value: "Bangla", label: "Bangla" },
+    { value: "Accounting", 
+      label: "Accounting" 
+    },
+    { value: "Art", 
+      label: "Art" 
+    },
+    { value: "Art & Design", 
+      label: "Art & Design" 
+    },
+    { value: "Bangla", 
+      label: "Bangla" 
+    },
     {
       value: "Bangladesh and Global Studies",
       label: "Bangladesh and Global Studies",
     },
-    { value: "Bangladesh Studies", label: "Bangladesh Studies" },
-    { value: "Physics", label: "Physics" },
-    { value: "Math", label: "Math" },
-    { value: "English", label: "English" },
-    { value: "Biology", label: "Biology" },
-    { value: "Business Entrepreneurship", label: "Business Entrepreneurship" },
+    { value: "Bangladesh Studies", 
+      label: "Bangladesh Studies" 
+    },
+    { value: "Physics", 
+      label: "Physics" 
+    },
+    { value: "Math", 
+      label: "Math" 
+    },
+    { value: "English", 
+      label: "English" 
+    },
+    { value: "Biology", 
+      label: "Biology" 
+    },
+    { value: "Business Entrepreneurship", 
+      label: "Business Entrepreneurship" 
+    },
     { value: "Business Studies", label: "Business Studies" },
     { value: "Chemistry", label: "Chemistry" },
     { value: "Combined Science", label: "Combined Science" },
