@@ -1,4 +1,4 @@
-import * as path from 'path'
+import path from 'path'
 import express from 'express'
 import dotenv from 'dotenv'
 import morgan from 'morgan'
@@ -7,7 +7,6 @@ import connectDB from './config/db.js'
 
 import userRoutes from './routes/userRoutes.js'
 import tutorRoutes from './routes/tutorRoutes.js'
-import cors from 'cors'
 
 dotenv.config()
 
@@ -45,7 +44,6 @@ app.use(errorHandler)
 
 const PORT = process.env.PORT || 5000
 
-app.use(cors());
 
 app.listen(
   PORT,
