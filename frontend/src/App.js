@@ -7,6 +7,8 @@ import RegisterScreen from './screens/RegisterScreen/RegisterScreen'
 import TutorsProfile from './screens/TutorsProfile/TutorsProfile'
 import TutorProfileView from './screens/TutorProfileView/TutorProfileView';
 import TutorDashboard from './screens/TutorDashboard/TutorDashboard'
+import TutorsMessage from './screens/TutorsMessage/TutorsMessage'
+import StudentsForm from './screens/StudentsForm/StudentsForm'
 // awElJHf1SwmAYanM
 
 const App = () => {
@@ -19,7 +21,10 @@ const App = () => {
           <Route path='/register' component={RegisterScreen} />
           <Route path='/tutorsform/:id' component={TutorsProfile} />
           <Route path='/tutorsprofile/:id' component={TutorProfileView} />
-          <Route path='/tutorsdashboard/:id' component={TutorDashboard} />         
+          <Route path='/tutorsdashboard/:id' component={TutorDashboard} />
+          <Route path='/tutorsmessage/:id' component={TutorsMessage} />  
+          <Route path='/studentsform/:id' component={StudentsForm} /> 
+
         </Container>
       </main>
      
