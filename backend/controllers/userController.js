@@ -2,9 +2,6 @@ import asyncHandler from 'express-async-handler'
 import generateToken from '../utils/generateToken.js'
 import User from '../models/userModel.js'
 
-// @desc    Auth user & get token
-// @route   POST /api/users/login
-// @access  Public
 const authUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body
 
@@ -24,9 +21,7 @@ const authUser = asyncHandler(async (req, res) => {
   }
 })
 
-// @desc    Register a new user
-// @route   POST /api/users
-// @access  Public
+
 const registerUser = asyncHandler(async (req, res) => {
   const { role, name, email, phone, password } = req.body
 
@@ -60,7 +55,6 @@ const registerUser = asyncHandler(async (req, res) => {
     throw new Error('Invalid user data')
   }
 })
-
 
 export {
   authUser,

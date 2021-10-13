@@ -15,7 +15,7 @@ const BasicInfo = () => {
   const [language, setLanguage] = useState([]);
 
   const [BasicInfo, setBasicInfo] = useState({
-    name: "",
+    tutorsName: "",
     phone: "",
     gender: "",
     birthDate: "",
@@ -59,10 +59,10 @@ const BasicInfo = () => {
             <Form.Label>Name:</Form.Label> 
             <input
               onBlur={handleBlur}
-              name="name"
+              name="tutorsName"
               className="form-control"
               type="text"
-              placeholder="Aklim Ahmed"
+              placeholder="Aklim Ahmed" 
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formBasicPhone">

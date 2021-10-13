@@ -55,7 +55,7 @@ export const createTutor = (user,basic, academic, exQualification, woExperience,
 
 
 export const basicInfoForm = (info) =>{
-  return{
+  return {
       type: BasicInfoType,
       payload: info
   };

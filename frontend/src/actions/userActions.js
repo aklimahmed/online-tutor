@@ -91,4 +91,3 @@ export const register = (role, name, email, phone, password) => async (dispatch)
     })
   }
 }
-

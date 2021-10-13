@@ -1,6 +1,6 @@
 import { React } from "react";
 import BasicInfo from "../../components/TutorsProfile/BasicInfo";
-import SubjectTeaches from "../../components/TutorsProfile/SubJectTeaches";
+import SubjectTeaches from "../../components/TutorsProfile/SubjectTeaches";
 import TeachesAndFees from "../../components/TutorsProfile/TeachesAndFees";
 import WeeklyTime from "../../components/TutorsProfile/WeeklyTime";
 import AcademicQualification from "../../components/TutorsProfile/AcademicQualification";

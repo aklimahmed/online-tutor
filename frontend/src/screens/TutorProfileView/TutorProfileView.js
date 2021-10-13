@@ -24,14 +24,13 @@ const TutorProfileView = () => {
   //   .then(data => console.log(data))
   // },[id]);
 
-  axios.get(`http://localhost:5000/api/tutor/profile/${id}`)
+  axios.get(`/api/tutor/profile/${id}`)
   .then(response => {
     console.log(response.data);
   }, error => {
     console.log(error);
   });
 
-  console.log(id);
 
   return (
     <div>

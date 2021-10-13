@@ -34,8 +34,8 @@ const reducer = combineReducers({
   AboutMeForm: AboutMeReducer
 });
 
-const userInfoFromStorage = localStorage.getItem("userInfo")
-  ? JSON.parse(localStorage.getItem("userInfo"))
+const userInfoFromStorage = localStorage.getItem('userInfo')
+  ? JSON.parse(localStorage.getItem('userInfo'))
   : null;
 
 const initialState = {
