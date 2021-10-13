@@ -6,36 +6,34 @@ import { useDispatch } from 'react-redux';
 import { subjectTeachesForm } from "../../actions/tutorActions";
 
 const SubjectTeaches = () => {
- 
+    const dispatch = useDispatch();
 
-  const dispatch = useDispatch();
+    const [selected, setSelected] = useState([]);
+    const [SubjectTeaches, setSubjectTeaches] = useState({
+      primarySubject: "",
+      secondarySubjects: [],
+    });
+  
+    useEffect(() => {
+      SubjectTeaches.secondarySubjects = [];
+      const hold = [...selected];
+      hold.map((data) => (
+        SubjectTeaches.secondarySubjects.push(data.value)
+      ));
+    });
+  
+    const handleChangeSubjectTeaches = (event) => {
+      const usereSubjectTeachess = { ...SubjectTeaches };
+      usereSubjectTeachess[event.target.name] = event.target.value;
+      setSubjectTeaches(usereSubjectTeachess);
+    };
+  
+    useEffect(() => {
+      dispatch(subjectTeachesForm(SubjectTeaches));
+    });
 
-  const [selected, setSelected] = useState([]);
-  const [SubjectTeaches, setSubjectTeaches] = useState({
-    primarySubject: "",
-    secondarySubjects: [],
-  });
-
-  useEffect(() => {
-    SubjectTeaches.secondarySubjects = [];
-    const hold = [...selected];
-    hold.map((data) => (
-      SubjectTeaches.secondarySubjects.push(data.value)
-    ));
-  });
-
-  const handleChangeSubjectTeaches = (event) => {
-    const usereSubjectTeachess = { ...SubjectTeaches };
-    usereSubjectTeachess[event.target.name] = event.target.value;
-    setSubjectTeaches(usereSubjectTeachess);
-  };
-
-  useEffect(() => {
-    dispatch(subjectTeachesForm(SubjectTeaches));
-  });
-
-  return (
-    <div className="weeklyTime_div">
+    return (
+        <div className="weeklyTime_div">
       <h6 className="time_heading">Subject Teaches:</h6>
       <Row>
         <Col md={5} className="mb-3">
@@ -69,7 +67,7 @@ const SubjectTeaches = () => {
         </Col>
       </Row>
     </div>
-  );
+    );
 };
 
 export default SubjectTeaches;

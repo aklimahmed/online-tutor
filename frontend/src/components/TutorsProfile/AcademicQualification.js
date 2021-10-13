@@ -47,7 +47,7 @@ const AcademicQualification = () => {
   return (
     <div className="basic-info-body weeklyTime_div">
       <h6 className="time_heading">Academic Qualification:</h6>
-      <Row Row className="mb-3">
+      <Row className="mb-3">
         <Form.Label>SSC or equivalent info:</Form.Label>
         <Col md={3}>
           <Form.Group className="mb-3" controlId="formBasicName">
@@ -112,7 +112,7 @@ const AcademicQualification = () => {
         </Col>
       </Row>
 
-      <Row Row className="mb-3">
+      <Row className="mb-3">
         <Form.Label>HSC or equivalent info:</Form.Label>
         <Col md={3}>
           <Form.Group className="mb-3" controlId="formBasicName">
@@ -177,7 +177,7 @@ const AcademicQualification = () => {
         </Col>
       </Row>
 
-      <Row Row className="mb-3">
+      <Row className="mb-3">
         <Form.Label>Graduation info:</Form.Label>
         <Col md={3}>
           <Form.Group className="mb-3" controlId="formBasicName">
@@ -242,7 +242,7 @@ const AcademicQualification = () => {
         </Col>
       </Row>
 
-      <Row Row className="mb-3">
+      <Row className="mb-3">
         <Form.Label>Post-Graduation info:</Form.Label>
         <Col md={3}>
           <Form.Group className="mb-3" controlId="formBasicName">
@@ -308,7 +308,7 @@ const AcademicQualification = () => {
         </Col>
       </Row>
 
-      <Row Row className="mb-3">
+      <Row className="mb-3">
         <Form.Label>Doctorate info:</Form.Label>
         <Col md={3}>
           <Form.Group className="mb-3" controlId="formBasicName">

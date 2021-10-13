@@ -6,7 +6,7 @@ const VideoUpload = () => {
     <Container className="weeklyTime_div">
       <h6 className="time_heading">
         Video{" "}
-        <small small className="text-regular">
+        <small className="text-regular">
           (upload your introductory video for better appearance to students and
           parents):
         </small>
