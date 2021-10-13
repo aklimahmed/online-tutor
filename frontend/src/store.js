@@ -18,6 +18,8 @@ import {
   AboutMeReducer
 } from "./reducers/tutorReducers";
 
+import { studentFormReducer, studentBasicInfoReducer, academicInfoReducer} from "./reducers/studentReducers"
+
 const reducer = combineReducers({
   userLogin: userLoginReducer,
   userRegister: userRegisterReducer,
@@ -31,7 +33,10 @@ const reducer = combineReducers({
   TeachesAndFeesForm: TeachesAndFeesReducer,
   LessonIncludeForm: LessonIncludeReducer,
   ExtraActivitiesForm: ExtraActivitiesReducer,
-  AboutMeForm: AboutMeReducer
+  AboutMeForm: AboutMeReducer,
+  studentForm: studentFormReducer,
+  studentBasicInfoForm: studentBasicInfoReducer,
+  studentAcademicInfoForm: academicInfoReducer
 });
 
 const userInfoFromStorage = localStorage.getItem('userInfo')
