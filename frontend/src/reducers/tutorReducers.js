@@ -2,16 +2,16 @@ import {
     TUTOR_FORM_FAIL,
     TUTOR_FORM_REQUEST,
     TUTOR_FORM_SUCCESS,
-    BasicInfoType,
-    AcademicQualificationType,
-    ExtraQualificationType,
-    WeeklyTimeType,
-    WorkExperienceType,
-    SubjectTeachesType,
-    TeachesAndFessType,
-    LessonIncludeType,
-    ExtraActivitiesType,
-    AboutMeType
+    BASIC_INFO,
+    ACADEMIC_QUALIFICATION,
+    EXTRA_QUALIFICATION,
+    WEEKLY_TIME,
+    WORK_EXPERIENCE,
+    SUBJECT_TEACHES,
+    TEACHES_AND_FEES,
+    LESSON_INCLUDE,
+    EXTRA_ACTIVITIES,
+    ABOUT_ME
   } from '../constants/tutorConstants'
 
   
@@ -33,7 +33,7 @@ import {
 
   export const basicInfoReducer = (state = initialState, { type, payload }) => {
     switch (type) {
-        case BasicInfoType:
+        case BASIC_INFO:
             return { ...state, basicInfo: payload };
 
         default:
@@ -44,7 +44,7 @@ import {
 
 export const academicQualificationReducer = (state = initialState, { type, payload }) => {
   switch (type) {
-      case AcademicQualificationType:
+      case ACADEMIC_QUALIFICATION:
           return { ...state, academicQualification: payload };
 
       default:
@@ -55,7 +55,7 @@ export const academicQualificationReducer = (state = initialState, { type, paylo
 
 export const extraQualificationReducer = (state = initialState, { type, payload }) => {
   switch (type) {
-      case ExtraQualificationType:
+      case EXTRA_QUALIFICATION:
           return { ...state, ExtraQualification: payload };
 
       default:
@@ -66,7 +66,7 @@ export const extraQualificationReducer = (state = initialState, { type, payload 
 
 export const WorkExperienceReducer = (state = initialState, { type, payload }) => {
   switch (type) {
-      case WorkExperienceType:
+      case WORK_EXPERIENCE:
           return { ...state, WorkExperience: payload };
 
       default:
@@ -76,7 +76,7 @@ export const WorkExperienceReducer = (state = initialState, { type, payload }) =
 
 export const weeklyTimeReducer = (state = initialState, { type, payload }) => {
   switch (type) {
-      case WeeklyTimeType:
+      case WEEKLY_TIME:
           return { ...state, WeeklyTime: payload };
 
       default:
@@ -85,9 +85,9 @@ export const weeklyTimeReducer = (state = initialState, { type, payload }) => {
 }
 
 
-export const SubjectTeachesReducer = (state = initialState, { type, payload }) => {
+export const subjectTeachesReducer = (state = initialState, { type, payload }) => {
   switch (type) {
-      case SubjectTeachesType:
+      case SUBJECT_TEACHES:
           return { ...state, SubjectTeaches: payload };
 
       default:
@@ -96,9 +96,9 @@ export const SubjectTeachesReducer = (state = initialState, { type, payload }) =
 }
 
 
-export const TeachesAndFeesReducer = (state = initialState, { type, payload }) => {
+export const teachesAndFeesReducer = (state = initialState, { type, payload }) => {
   switch (type) {
-      case TeachesAndFessType:
+      case TEACHES_AND_FEES:
           return { ...state, TeachesAndFees: payload };
 
       default:
@@ -107,9 +107,9 @@ export const TeachesAndFeesReducer = (state = initialState, { type, payload }) =
 }
 
 
-export const LessonIncludeReducer = (state = initialState, { type, payload }) => {
+export const lessonIncludeReducer = (state = initialState, { type, payload }) => {
   switch (type) {
-      case LessonIncludeType:
+      case LESSON_INCLUDE:
           return { ...state, LessonInclude: payload };
 
       default:
@@ -117,9 +117,9 @@ export const LessonIncludeReducer = (state = initialState, { type, payload }) =>
   }
 }
 
-export const ExtraActivitiesReducer = (state = initialState, { type, payload }) => {
+export const extraActivitiesReducer = (state = initialState, { type, payload }) => {
   switch (type) {
-      case ExtraActivitiesType:
+      case EXTRA_ACTIVITIES:
           return { ...state, ExtraActivities: payload };
 
       default:
@@ -127,9 +127,9 @@ export const ExtraActivitiesReducer = (state = initialState, { type, payload }) 
   }
 }
 
-export const AboutMeReducer = (state = initialState, { type, payload }) => {
+export const aboutMeReducer = (state = initialState, { type, payload }) => {
   switch (type) {
-      case AboutMeType:
+      case ABOUT_ME:
           return { ...state, AboutMe: payload };
 
       default:

@@ -9,6 +9,7 @@ import ClassTeaches from "../../components/TutorsProfileView/ClassTeaches";
 import LessonInclude from "../../components/TutorsProfileView/LessonInclude";
 import AboutMe from "../../components/TutorsProfileView/AboutMe";
 import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
 
 const TutorProfileView = () => {
   const [fetchTutorInfo, setFetchTutorInfo] = useState({});
@@ -18,9 +19,8 @@ const TutorProfileView = () => {
   const id = useSelector((state) => state.userLogin.userInfo._id);
 
   useEffect(() => {
-    fetch(`/api/tutor/profile/6163e30da7206a0b7c8ec996`)
-    .then(res => res.json())
-    .then(data => setFetchTutorInfo(data))
+    axios.get(`/api/tutor/profile/${id}`)
+    .then(data => setFetchTutorInfo(data.data))
   },[id]);
 
   console.log(fetchTutorInfo);
@@ -28,10 +28,10 @@ const TutorProfileView = () => {
   return (
     <div>
       <BatchTable />
-      <Qualifications />
+      <Qualifications Qualifications={fetchTutorInfo.academic} />
       <ExtraQualifications exQualification={fetchTutorInfo.exQualification}/>
-      <WorkExperience />
-      <GeneralAvailability />
+      <WorkExperience WoExperience={fetchTutorInfo.woExperience}/>
+      <GeneralAvailability WeeklyTime={fetchTutorInfo.WeeklyTime} />
       <SubjectTeaches />
       <ClassTeaches />
       <LessonInclude />

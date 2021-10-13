@@ -1,6 +1,12 @@
-import React from "react";
+import { React, useState, useEffect } from "react";
 
-const WorkExperience = () => {
+const WorkExperience = (props) => {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    setData(props.WoExperience);
+  }, [props]);
+
   return (
     <div className="mt-5">
       <h5 className="qtext">Work Experience</h5>
@@ -22,34 +28,26 @@ const WorkExperience = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td data-label="Degree">
-              <small>North South University</small>
-            </td>
-            <td data-label="Subject (Major)">
-              <small>Scheduling Associate</small>
-            </td>
-            <td data-label="Passing Year">
-              <small>2017 - 2019</small>
-            </td>
-            <td data-label="Verification">
-              <small>Verified</small>
-            </td>
-          </tr>
-          <tr>
-            <td data-label="Degree">
-              <small>North South University</small>
-            </td>
-            <td data-label="Subject (Major)">
-              <small>Scheduling Associate</small>
-            </td>
-            <td data-label="Passing Year">
-              <small>2017 - 2019</small>
-            </td>
-            <td data-label="Verification">
-              <small>Verified</small>
-            </td>
-          </tr>
+          {data ? (
+            data.map((data) => (
+              <tr key={data.id}>
+                <td data-label="Institute">
+                  <small>{data.institute}</small>
+                </td>
+                <td data-label="Designation">
+                  <small>{data.designation}</small>
+                </td>
+                <td data-label="Period">
+                  <small>{data.period} days</small>
+                </td>
+                <td data-label="Verification">
+                  <small>Verified</small>
+                </td>
+              </tr>
+            ))
+          ) : (
+            <tr></tr>
+          )}
         </tbody>
       </table>
     </div>

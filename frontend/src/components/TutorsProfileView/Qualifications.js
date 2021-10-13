@@ -1,7 +1,14 @@
-import React from "react";
+import {React, useEffect, useState} from "react";
 import "./Qualifications.scss";
 
-const Qualifications = () => {
+const Qualifications = (props) => {
+
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    setData(props.Qualifications);
+  }, [props]);
+
   return (
     <div className="mt-5">
       <h5 className="qtext">Qualifications</h5>

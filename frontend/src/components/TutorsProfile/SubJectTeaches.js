@@ -3,7 +3,7 @@ import { MultiSelect } from "react-multi-select-component";
 import { Row, Col } from "react-bootstrap";
 import { subjects } from "../../jsonData/Subjects";
 import { useDispatch } from 'react-redux';
-import { SubjectTeachesForm } from "../../actions/tutorActions";
+import { subjectTeachesForm } from "../../actions/tutorActions";
 
 const SubjectTeaches = () => {
  
@@ -31,7 +31,7 @@ const SubjectTeaches = () => {
   };
 
   useEffect(() => {
-    dispatch(SubjectTeachesForm(SubjectTeaches));
+    dispatch(subjectTeachesForm(SubjectTeaches));
   });
 
   return (

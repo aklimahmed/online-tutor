@@ -11,11 +11,11 @@ import {
   extraQualificationReducer,
   weeklyTimeReducer,
   WorkExperienceReducer,
-  SubjectTeachesReducer,
-  TeachesAndFeesReducer,
-  LessonIncludeReducer,
-  ExtraActivitiesReducer,
-  AboutMeReducer
+  subjectTeachesReducer,
+  teachesAndFeesReducer,
+  lessonIncludeReducer,
+  extraActivitiesReducer,
+  aboutMeReducer
 } from "./reducers/tutorReducers";
 
 const reducer = combineReducers({
@@ -27,11 +27,11 @@ const reducer = combineReducers({
   extraQualificationForm: extraQualificationReducer,
   WorkExperienceForm: WorkExperienceReducer,
   weeklyTimeForm: weeklyTimeReducer,
-  SubJectTeachesForm: SubjectTeachesReducer,
-  TeachesAndFeesForm: TeachesAndFeesReducer,
-  LessonIncludeForm: LessonIncludeReducer,
-  ExtraActivitiesForm: ExtraActivitiesReducer,
-  AboutMeForm: AboutMeReducer
+  subjectTeachesForm: subjectTeachesReducer,
+  teachesAndFeesForm: teachesAndFeesReducer,
+  lessonIncludeForm: lessonIncludeReducer,
+  extraActivitiesForm: extraActivitiesReducer,
+  aboutMeForm: aboutMeReducer
 });
 
 const userInfoFromStorage = localStorage.getItem("userInfo")

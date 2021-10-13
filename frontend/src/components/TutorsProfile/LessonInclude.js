@@ -2,7 +2,7 @@ import { React, useEffect, useState } from "react";
 import { Row, Col, Form } from "react-bootstrap";
 import "./LessonInclude.scss";
 import { useDispatch } from 'react-redux';
-import { LessonIncludeForm } from "../../actions/tutorActions";
+import { lessonIncludeForm } from "../../actions/tutorActions";
 
 const LessonInclude = () => {
 
@@ -26,7 +26,7 @@ const LessonInclude = () => {
   };
 
   useEffect(() => {
-    dispatch(LessonIncludeForm(LessonInclude));
+    dispatch(lessonIncludeForm(LessonInclude));
   });
 
   return (

@@ -1,33 +1,11 @@
-import {React, useState, useEffect} from "react";
+import { React, useState, useEffect } from "react";
 
 const ExtraQualifications = (props) => {
-
   const [data, setData] = useState([]);
 
-
   useEffect(() => {
-    setData(props.exQualification)
-  },[props]);
-
-
-  const tableData = () =>{
-    data.map(data =>{
-      <tr key={data.id}>
-    <td data-label="Degree">
-      <small>{data.courseTitle}</small>
-    </td>
-    <td data-label="Duration">
-      <small>{data.duration}</small>
-    </td>
-    <td data-label="Passing Year">
-      <small>{data.year}</small>
-    </td>
-    <td data-label="Institute">
-      <small>{data.institute}</small>
-    </td>
-  </tr>
-    })
-  }
+    setData(props.exQualification);
+  }, [props]);
 
   return (
     <div className="mt-5">
@@ -50,9 +28,26 @@ const ExtraQualifications = (props) => {
           </tr>
         </thead>
         <tbody>
-          {
-            tableData
-          }
+          {data ? (
+            data.map((data) => (
+              <tr key={data.id}>
+                <td data-label="Course Title">
+                  <small>{data.courseTitle}</small>
+                </td>
+                <td data-label="Duration">
+                  <small>{data.duration}</small>
+                </td>
+                <td data-label="Passing Year">
+                  <small>{data.year}</small>
+                </td>
+                <td data-label="Institute">
+                  <small>{data.institute}</small>
+                </td>
+              </tr>
+            ))
+          ) : (
+            <tr></tr>
+          )}
         </tbody>
       </table>
     </div>
