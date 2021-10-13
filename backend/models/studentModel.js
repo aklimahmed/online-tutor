@@ -10,6 +10,9 @@ const studentSchema = mongoose.Schema(
     },
     studentAcademic: {
       type: Object
+    },
+    studentExtraActivities: {
+      type: Object
     }
   },
   {

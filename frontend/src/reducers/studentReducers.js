@@ -3,7 +3,8 @@ import {
     STUDENT_FORM_SUCCESS,
     STUDENT_FORM_FAIL,
     STUDENT_BASIC_INFO,
-    STUDENT_ACADEMIC_INFO
+    STUDENT_ACADEMIC_INFO,
+    STUDENT_EXTRA_ACTIVITIES
 } from '../constants/studentConstants'
 
 export const studentFormReducer = (state = {}, action) => {
@@ -36,6 +37,16 @@ export const academicInfoReducer = (state = initialState, { type, payload }) => 
   switch (type) {
       case STUDENT_ACADEMIC_INFO:
           return { ...state, studentAcademicInfo: payload };
+      default:
+          return state;
+  }
+}
+
+export const studentExtraActivitiesReducer = (state = initialState, { type, payload }) => {
+  switch (type) {
+      case STUDENT_EXTRA_ACTIVITIES:
+          return { ...state, studentExtraActivities: payload };
+
       default:
           return state;
   }

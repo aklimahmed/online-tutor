@@ -10,7 +10,7 @@ const StudentDocumentsUpload = () => {
       </h6>
       <Row>
         <Col md={4} className="card-align">
-          <Card style={{ width: "100%" }}>
+          <Card style={{ width: "100%"}}>
             <Card.Header className="card-header">
               Student ID Card (Front side)
             </Card.Header>
