@@ -35,7 +35,6 @@ import {
     switch (type) {
         case BASIC_INFO:
             return { ...state, basicInfo: payload };
-
         default:
             return state;
     }

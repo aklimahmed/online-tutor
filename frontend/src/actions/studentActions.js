@@ -4,11 +4,12 @@ import {
     STUDENT_FORM_REQUEST,
     STUDENT_FORM_SUCCESS,
     STUDENT_FORM_FAIL,
-    StudentBasicInfoType,
-    AcademicInfoType
+    STUDENT_BASIC_INFO,
+    STUDENT_ACADEMIC_INFO,
+    STUDENT_EXTRA_ACTIVITIES
 } from '../constants/studentConstants'
 
-export const createStudent = (user, studentBasic, studentAcademic) => async (dispatch) => {
+export const createStudent = (user, studentBasic, studentAcademic, studentExtraActivities) => async (dispatch) => {
     try {
       dispatch({
         type: STUDENT_FORM_REQUEST,
@@ -22,7 +23,7 @@ export const createStudent = (user, studentBasic, studentAcademic) => async (dis
   
       const { data } = await axios.post(
         '/api/student',
-        { user, studentBasic, studentAcademic},
+        { user, studentBasic, studentAcademic, studentExtraActivities},
         config
       )
   
@@ -46,15 +47,23 @@ export const createStudent = (user, studentBasic, studentAcademic) => async (dis
 
   export const studentsBasicInfoForm = (info) =>{
     return {
-        type: StudentBasicInfoType,
+        type: STUDENT_BASIC_INFO,
         payload: info
     };
   };
   
   export const studentsAcademicInfoForm = (info) =>{
     return {
-        type: AcademicInfoType,
+        type: STUDENT_ACADEMIC_INFO,
         payload: info
     };
   };
+
+  export const studentExtraActivitiesForm = (info) =>{
+    return{
+        type: STUDENT_EXTRA_ACTIVITIES,
+        payload: info
+    };
+  };
+  
   

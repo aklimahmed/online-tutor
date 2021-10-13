@@ -2,11 +2,12 @@ import {
     STUDENT_FORM_REQUEST,
     STUDENT_FORM_SUCCESS,
     STUDENT_FORM_FAIL,
-    StudentBasicInfoType,
-    AcademicInfoType
+    STUDENT_BASIC_INFO,
+    STUDENT_ACADEMIC_INFO,
+    STUDENT_EXTRA_ACTIVITIES
 } from '../constants/studentConstants'
 
-export const tutorFormReducer = (state = {}, action) => {
+export const studentFormReducer = (state = {}, action) => {
     switch (action.type) {
       case STUDENT_FORM_REQUEST:
         return { loading: true }
@@ -17,26 +18,34 @@ export const tutorFormReducer = (state = {}, action) => {
       default:
         return state
     }
-  }
-
-  const initialState = {
 }
 
-  export const StudentBasicInfoReducer = (state = initialState, { type, payload }) => {
-    switch (type) {
-        case StudentBasicInfoType:
-            return { ...state, basicInfo: payload };
+const initialState = {
+}
 
+export const studentBasicInfoReducer = (state = initialState, { type, payload }) => {
+    switch (type) {
+        case STUDENT_BASIC_INFO:
+            return { ...state, studentBasicInfo: payload };
         default:
             return state;
     }
 }
   
 
-export const academicQualificationReducer = (state = initialState, { type, payload }) => {
+export const academicInfoReducer = (state = initialState, { type, payload }) => {
   switch (type) {
-      case AcademicInfoType:
+      case STUDENT_ACADEMIC_INFO:
           return { ...state, studentAcademicInfo: payload };
+      default:
+          return state;
+  }
+}
+
+export const studentExtraActivitiesReducer = (state = initialState, { type, payload }) => {
+  switch (type) {
+      case STUDENT_EXTRA_ACTIVITIES:
+          return { ...state, studentExtraActivities: payload };
 
       default:
           return state;

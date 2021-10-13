@@ -18,6 +18,7 @@ const TutorsProfile = () => {
   const dispatch = useDispatch();
 
   const basic = useSelector((state) => state.basicInfoForm.basicInfo);
+  console.log(basic)
   const academic = useSelector(
     (state) => state.academicQualificationForm.academicQualification
   );

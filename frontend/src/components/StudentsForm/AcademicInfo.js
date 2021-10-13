@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Row, Col, Form } from 'react-bootstrap'
 import { classes } from '../../jsonData/Classes'
 import { curriculum } from '../../jsonData/Curriculum'
@@ -6,11 +6,45 @@ import { subjects } from '../../jsonData/Subjects'
 import { languages } from '../../jsonData/Language'
 import { MultiSelect } from "react-multi-select-component";
 import { educationboard } from '../../jsonData/EducationBoard'
+import { useDispatch } from 'react-redux'
+import { studentsAcademicInfoForm } from '../../actions/studentActions'
 
 const AcademicInfo = () => {
 
   const [SubjectValue, setSubjectValue] = useState([]);
   const [LanguageValue, setLanguageValue] = useState([]);
+
+  const [StudentAcademicInfo, setStudentAcademicInfo] = useState({
+    studentClass: "",
+    section: "",
+    curriculum: "",
+    studentSubjects: [],
+    institutionName: "",
+    studentLanguages: []
+  });
+
+  console.log(StudentAcademicInfo)
+
+  const handleBlur = (event) => {
+    const newBasicInfo = { ...StudentAcademicInfo };
+    newBasicInfo[event.target.name] = event.target.value;
+    setStudentAcademicInfo(newBasicInfo);
+  };
+
+  useEffect(() => {
+    StudentAcademicInfo.studentSubjects = [];
+    const hold = [...SubjectValue];
+    hold.map((data) => StudentAcademicInfo.studentSubjects.push(data.value));
+  });
+
+  useEffect(() => {
+    StudentAcademicInfo.studentLanguages = [];
+    const hold = [...LanguageValue];
+    hold.map((data) => StudentAcademicInfo.studentLanguages.push(data.value));
+  });
+
+  const dispatch = useDispatch();
+  dispatch(studentsAcademicInfoForm(StudentAcademicInfo));
 
     return (
         <div className="basic-info-body weeklyTime_div">
@@ -21,7 +55,8 @@ const AcademicInfo = () => {
             <Form.Label>Class</Form.Label>
             <select
               className="form-select"
-              name="class"
+              name="studentClass"
+              onBlur={handleBlur}
             >
               <option style={{ display: "none" }}>
                 Select your class
@@ -39,6 +74,7 @@ const AcademicInfo = () => {
               className="form-control"
               type="text"
               placeholder="Enter your section (e.g. A)"
+              onBlur={handleBlur}
             />
           </Form.Group>
           
@@ -47,6 +83,7 @@ const AcademicInfo = () => {
             <select
               className="form-select"
               name="curriculum"
+              onBlur={handleBlur}
             >
               <option style={{ display: "none" }}>
                 Select your study curriculum
@@ -76,14 +113,16 @@ const AcademicInfo = () => {
               className="form-control"
               type="text"
               placeholder="Enter your school / institution full name"
+              onBlur={handleBlur}
             />
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicExperience">
-            <Form.Label>curriculum:</Form.Label>
+            <Form.Label>Education Board:</Form.Label>
             <select
               className="form-select"
               name="curriculum"
+              onBlur={handleBlur}
             >
               <option style={{ display: "none" }}>
               Select educational board
