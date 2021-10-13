@@ -23,8 +23,6 @@ const TutorProfileView = () => {
     .then(data => setFetchTutorInfo(data.data))
   },[id]);
 
-  console.log(fetchTutorInfo);
-
   return (
     <div>
       <BatchTable />

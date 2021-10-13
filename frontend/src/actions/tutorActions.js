@@ -55,8 +55,13 @@ export const createTutor = (user,basic, academic, exQualification, woExperience,
 
 
 export const basicInfoForm = (info) =>{
+<<<<<<< HEAD
   return{
       type: BASIC_INFO,
+=======
+  return {
+      type: BasicInfoType,
+>>>>>>> ceb934ea808446b6dfb8909f942fc468f929a8bb
       payload: info
   };
 };
