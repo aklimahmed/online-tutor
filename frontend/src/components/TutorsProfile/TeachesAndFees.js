@@ -88,7 +88,7 @@ const TeachesAndFees = () => {
                 >
                   <option style={{ display: "none" }}>Select Curriculum</option>
                   {curriculum.map((curr) => (
-                    <option value={curr.curriculum}>{curr.curriculum}</option>
+                    <option key={curr.curriculum} value={curr.curriculum}>{curr.curriculum}</option>
                   ))}
                 </select>
               </td>
@@ -102,7 +102,7 @@ const TeachesAndFees = () => {
                 >
                   <option style={{ display: "none" }}>Select Class</option>
                   {classes.map((val) => (
-                    <option value={val.class}>{val.class}</option>
+                    <option key={val.class} value={val.class}>{val.class}</option>
                   ))}
                 </select>
               </td>
@@ -127,7 +127,7 @@ const TeachesAndFees = () => {
               <td data-label="Action">
                 <button
                   type="button"
-                  class="btn-close"
+                  className="btn-close"
                   disabled={TeachesAndFees.length === 1}
                   aria-label="Close"
                   onClick={() => handleRemoveFields(inputField.id)}

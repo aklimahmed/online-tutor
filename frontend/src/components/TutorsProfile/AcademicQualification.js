@@ -55,7 +55,7 @@ const AcademicQualification = () => {
               name="sscDegree"
               className="form-control"
               type="text"
-              placeholder="Enter degree and subject"
+              placeholder="Enter your major / group"
               onBlur={handleBlur}
             />
           </Form.Group>
@@ -120,7 +120,7 @@ const AcademicQualification = () => {
               name="hscDegree"
               className="form-control"
               type="text"
-              placeholder="Enter degree and subject"
+              placeholder="Enter your major / group"
               onBlur={handleBlur}
             />
           </Form.Group>
@@ -185,7 +185,7 @@ const AcademicQualification = () => {
               className="form-control"
               name="graduationDegree"
               type="text"
-              placeholder="Enter degree and subject"
+              placeholder="Enter your major / group"
               onBlur={handleBlur}
             />
           </Form.Group>
@@ -250,7 +250,7 @@ const AcademicQualification = () => {
               className="form-control"
               type="text"
               name="postGraduationDegree"
-              placeholder="Enter degree and subject"
+              placeholder="Enter your major / group"
               onBlur={handleBlur}
             />
           </Form.Group>
@@ -316,7 +316,7 @@ const AcademicQualification = () => {
               className="form-control"
               name="doctorateDegree"
               type="text"
-              placeholder="Enter degree and subject"
+              placeholder="Enter your major / group"
               onBlur={handleBlur}
             />
           </Form.Group>

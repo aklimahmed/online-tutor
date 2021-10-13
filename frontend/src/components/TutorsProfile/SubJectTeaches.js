@@ -39,7 +39,7 @@ const SubjectTeaches = () => {
       <h6 className="time_heading">Subject Teaches:</h6>
       <Row>
         <Col md={5} className="mb-3">
-          <label for="Select" className="form-label">
+          <label className="form-label">
             Primary Subject(One subject):
           </label>
           <select
@@ -52,12 +52,12 @@ const SubjectTeaches = () => {
               Select primary subject of teaching
             </option>
             {subjects.map((sub) => (
-              <option value={sub.value}>{sub.label}</option>
+              <option key={sub.value} value={sub.value}>{sub.label}</option>
             ))}
           </select>
         </Col>
         <Col md={7}>
-          <label for="Select" className="form-label">
+          <label className="form-label">
             Secondary Subject(Multiple subjects):
           </label>
           <MultiSelect

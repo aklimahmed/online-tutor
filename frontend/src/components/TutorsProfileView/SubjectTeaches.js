@@ -1,10 +1,16 @@
-import React from "react";
+import { React, useState, useEffect } from "react";
 
-const SubjectTeaches = () => {
+const SubjectTeaches = (props) => {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    setData(props.subjectTeaches);
+  }, [props]);
+
   return (
     <div className="mt-5">
       <h5 className="qtext">Subject Teaches</h5>
-      <table class="qualification_table mt-3">
+      <table className="qualification_table mt-3">
         <thead>
           <tr>
             <th>
@@ -16,22 +22,14 @@ const SubjectTeaches = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td data-label="Focus">
-              <small>Primary</small>
-            </td>
-            <td data-label="Subjects">
-              <small>Math</small>
-            </td>
-          </tr>
-          <tr>
-            <td data-label="Focus">
-              <small>Scondary</small>
-            </td>
-            <td data-label="Subjects">
-              <small>Management, Economics, Statistics</small>
-            </td>
-          </tr>
+
+          {
+            data? 
+              <tr>
+                <td data-label="Focus"><small>{data.primarySubject}</small></td>
+                <td data-label="subjects"><small>{`${data.secondarySubjects}`}</small></td>
+              </tr>:<tr></tr>
+          }
         </tbody>
       </table>
     </div>

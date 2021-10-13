@@ -131,7 +131,7 @@ const ExtraQualifications = () => {
             </Form.Group>
             <button
               type="button"
-              class="btn-close px-2 close_button"
+              className="btn-close px-2 close_button"
               disabled={input.length === 1}
               aria-label="Close"
               onClick={() => handleRemoveFields(inputField.id)}

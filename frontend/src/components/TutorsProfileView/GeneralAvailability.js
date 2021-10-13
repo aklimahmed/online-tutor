@@ -8,11 +8,10 @@ const GeneralAvailability = (props) => {
     setData(props.WeeklyTime);
   }, [props]);
 
-  console.log(data);
   return (
     <div className="mt-5">
       <h5 className="qtext">General Availability</h5>
-      <table class="qualification_table mt-3">
+      <table className="qualification_table mt-3">
         <thead>
           <tr>
             <th>
@@ -42,42 +41,32 @@ const GeneralAvailability = (props) => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td data-label="Time">
-              <small>9pm-10pm</small>
-            </td>
-            <td data-label="Sat">
-              <FaCheck />
-            </td>
-            <td data-label="Sun">&nbsp;</td>
-            <td data-label="Mon">&nbsp;</td>
-            <td data-label="Tue">
-              <FaCheck />
-            </td>
-            <td data-label="Wed">&nbsp;</td>
-            <td data-label="Thu">&nbsp;</td>
-            <td data-label="Fri">
-              <FaCheck />
-            </td>
-          </tr>
           {data ? (
             data.map((data) => (
               <tr key={data.id}>
                 <td data-label="Time">
-                  <small>9pm-10pm</small>
+                  <small>{data.from} - {data.to}</small>
                 </td>
                 <td data-label="Sat">
-                  <FaCheck />
+                  {data.sat === true ? (<FaCheck />): ""}
                 </td>
-                <td data-label="Sun">&nbsp;</td>
-                <td data-label="Mon">&nbsp;</td>
+                <td data-label="Sun">
+                  {data.sun === true ? (<FaCheck />): ""}
+                </td>
+                <td data-label="Mon">
+                  {data.mon === true ? (<FaCheck />): ""}
+                </td>
                 <td data-label="Tue">
-                  <FaCheck />
+                  {data.tue === true ? (<FaCheck />): ""}
                 </td>
-                <td data-label="Wed">&nbsp;</td>
-                <td data-label="Thu">&nbsp;</td>
+                <td data-label="Wed">
+                  {data.wed === true ? (<FaCheck />): ""}
+                </td>
+                <td data-label="Thu">
+                  {data.thu === true ? (<FaCheck />): ""}
+                </td>
                 <td data-label="Fri">
-                  <FaCheck />
+                  {data.fri === true ? (<FaCheck />): ""}
                 </td>
               </tr>
             ))

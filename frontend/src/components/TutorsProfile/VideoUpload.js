@@ -23,7 +23,7 @@ const VideoUpload = () => {
               </Card.Text>
               <br />
               <Row style={{ textAlign: "center" }}>
-                <label for="files">
+                <label>
                   <Card.Title className="click-for-upload">
                     Click for upload
                   </Card.Title>

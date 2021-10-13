@@ -24,13 +24,15 @@ const WeeklyTime = () => {
 
   const setTime = (val) => {
     const [h, m] = val.split(":");
-    return((h % 12) + 12 * (h % 12 == 0) + ":" + m, h >= 12 ? "PM" : "AM");
+    return(
+      `${(h % 12) + 12 * (h % 12 === 0)} : ${m} ${h >= 12 ? "PM" : "AM"}`
+    );
   };
   const handleChangeInput = (id, event) => {
     const newWeeklyTime = WeeklyTime.map((i) => {
       if (id === i.id) {
         if (event.target.name === "from" || event.target.name === "to") {
-          i[event.target.name] = event.target.value + " " + setTime(event.target.value);
+          i[event.target.name] = setTime(event.target.value);
         } else {
           i[event.target.name] = event.target.checked;
         }
@@ -167,7 +169,7 @@ const WeeklyTime = () => {
               <td data-label="Action">
                 <button
                   type="button"
-                  class="btn-close"
+                  className="btn-close"
                   disabled={WeeklyTime.length === 1}
                   aria-label="Close"
                   onClick={() => handleRemoveFields(inputField.id)}

@@ -60,7 +60,7 @@ const StudentsBasicInfo = () => {
               className="form-select"
               name="gender"
             >
-              <option value ="" selected disabled hidden>Select Gender</option>
+              <option style={{ display: "none" }}>Select Gender</option>
               <option value="male">Male</option>
               <option value="female">Female</option>
               <option value="other">Other</option>

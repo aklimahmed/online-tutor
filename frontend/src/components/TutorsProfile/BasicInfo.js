@@ -84,7 +84,7 @@ const BasicInfo = () => {
               className="form-select"
               name="gender"
             >
-              <option value ="" selected disabled hidden>Select Gender</option>
+              <option style={{ display: "none" }}>Select Gender</option>
               <option value="male">Male</option>
               <option value="female">Female</option>
               <option value="other">Other</option>
@@ -116,7 +116,7 @@ const BasicInfo = () => {
             >
               <option style={{ display: "none" }}>Select district name</option>
               {presentdistrict.map((d) => (
-                <option value={d.name}>{d.name}</option>
+                <option key={d.name} value={d.name}>{d.name}</option>
               ))}
             </select>
           </Form.Group>
@@ -132,7 +132,7 @@ const BasicInfo = () => {
                 Select total years of teaching experience
               </option>
               {experience.map((e) => (
-                <option value={e.year}>{e.year}</option>
+                <option key={e.year} value={e.year}>{e.year}</option>
               ))}
             </select>
           </Form.Group>

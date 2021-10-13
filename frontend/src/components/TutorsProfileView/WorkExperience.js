@@ -10,7 +10,7 @@ const WorkExperience = (props) => {
   return (
     <div className="mt-5">
       <h5 className="qtext">Work Experience</h5>
-      <table class="qualification_table mt-3">
+      <table className="qualification_table mt-3">
         <thead>
           <tr>
             <th>
