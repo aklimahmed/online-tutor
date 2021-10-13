@@ -11,14 +11,17 @@ import {
   extraQualificationReducer,
   weeklyTimeReducer,
   WorkExperienceReducer,
-  SubjectTeachesReducer,
-  TeachesAndFeesReducer,
-  LessonIncludeReducer,
-  ExtraActivitiesReducer,
-  AboutMeReducer
+  subjectTeachesReducer,
+  teachesAndFeesReducer,
+  lessonIncludeReducer,
+  extraActivitiesReducer,
+  aboutMeReducer
 } from "./reducers/tutorReducers";
 
-import { studentFormReducer, studentBasicInfoReducer, academicInfoReducer} from "./reducers/studentReducers"
+import { studentFormReducer, 
+  studentBasicInfoReducer, 
+  academicInfoReducer
+} from "./reducers/studentReducers"
 
 const reducer = combineReducers({
   userLogin: userLoginReducer,
@@ -29,11 +32,11 @@ const reducer = combineReducers({
   extraQualificationForm: extraQualificationReducer,
   WorkExperienceForm: WorkExperienceReducer,
   weeklyTimeForm: weeklyTimeReducer,
-  SubJectTeachesForm: SubjectTeachesReducer,
-  TeachesAndFeesForm: TeachesAndFeesReducer,
-  LessonIncludeForm: LessonIncludeReducer,
-  ExtraActivitiesForm: ExtraActivitiesReducer,
-  AboutMeForm: AboutMeReducer,
+  subjectTeachesForm: subjectTeachesReducer,
+  teachesAndFeesForm: teachesAndFeesReducer,
+  lessonIncludeForm: lessonIncludeReducer,
+  extraActivitiesForm: extraActivitiesReducer,
+  aboutMeForm: aboutMeReducer,
   studentForm: studentFormReducer,
   studentBasicInfoForm: studentBasicInfoReducer,
   studentAcademicInfoForm: academicInfoReducer

@@ -3,16 +3,16 @@ import {
   TUTOR_FORM_FAIL,
   TUTOR_FORM_REQUEST,
   TUTOR_FORM_SUCCESS,
-  BasicInfoType,
-  AcademicQualificationType,
-  ExtraQualificationType,
-  WeeklyTimeType,
-  WorkExperienceType,
-  SubjectTeachesType,
-  TeachesAndFessType,
-  LessonIncludeType,
-  ExtraActivitiesType,
-  AboutMeType
+  BASIC_INFO,
+  ACADEMIC_QUALIFICATION,
+  EXTRA_QUALIFICATION,
+  WEEKLY_TIME,
+  WORK_EXPERIENCE,
+  SUBJECT_TEACHES,
+  TEACHES_AND_FEES,
+  LESSON_INCLUDE,
+  EXTRA_ACTIVITIES,
+  ABOUT_ME
 } from '../constants/tutorConstants'
 
 export const createTutor = (user,basic, academic, exQualification, woExperience, WeeklyTime,
@@ -55,15 +55,15 @@ export const createTutor = (user,basic, academic, exQualification, woExperience,
 
 
 export const basicInfoForm = (info) =>{
-  return {
-      type: BasicInfoType,
+  return{
+      type: BASIC_INFO,
       payload: info
   };
 };
 
 export const academicQualificationForm = (info) =>{
   return{
-      type: AcademicQualificationType,
+      type: ACADEMIC_QUALIFICATION,
       payload: info
   };
 };
@@ -71,7 +71,7 @@ export const academicQualificationForm = (info) =>{
 
 export const extraQualificationForm = (info) =>{
   return{
-      type: ExtraQualificationType,
+      type: EXTRA_QUALIFICATION,
       payload: info
   };
 };
@@ -79,7 +79,7 @@ export const extraQualificationForm = (info) =>{
 
 export const WorkExperienceForm = (info) =>{
   return{
-      type: WorkExperienceType,
+      type: WORK_EXPERIENCE,
       payload: info
   };
 };
@@ -87,44 +87,44 @@ export const WorkExperienceForm = (info) =>{
 
 export const weeklyTimeForm = (info) =>{
   return{
-      type: WeeklyTimeType,
+      type: WEEKLY_TIME,
       payload: info
   };
 };
 
-export const SubjectTeachesForm = (info) =>{
+export const subjectTeachesForm = (info) =>{
   return{
-      type: SubjectTeachesType,
-      payload: info
-  };
-};
-
-
-export const TeachesAndFeesForm = (info) =>{
-  return{
-      type: TeachesAndFessType,
+      type: SUBJECT_TEACHES,
       payload: info
   };
 };
 
 
-export const LessonIncludeForm = (info) =>{
+export const teachesAndFeesForm = (info) =>{
   return{
-      type: LessonIncludeType,
+      type: TEACHES_AND_FEES,
       payload: info
   };
 };
 
-export const ExtraActivitiesForm = (info) =>{
+
+export const lessonIncludeForm = (info) =>{
   return{
-      type: ExtraActivitiesType,
+      type: LESSON_INCLUDE,
       payload: info
   };
 };
 
-export const AboutMeForm = (info) =>{
+export const extraActivitiesForm = (info) =>{
   return{
-      type: AboutMeType,
+      type: EXTRA_ACTIVITIES,
+      payload: info
+  };
+};
+
+export const aboutMeForm = (info) =>{
+  return{
+      type: ABOUT_ME,
       payload: info
   };
 };

@@ -1,7 +1,7 @@
 import { React, useState, useEffect } from "react";
 import { Row, Col, Form } from "react-bootstrap";
 import { useDispatch } from 'react-redux';
-import { ExtraActivitiesForm } from "../../actions/tutorActions";
+import { extraActivitiesForm } from "../../actions/tutorActions";
 
 const ExtraActivities = () => {
 
@@ -24,7 +24,7 @@ const ExtraActivities = () => {
   };
 
   useEffect(() => {
-    dispatch(ExtraActivitiesForm(ExtraActivities));
+    dispatch(extraActivitiesForm(ExtraActivities));
   });
 
   return (

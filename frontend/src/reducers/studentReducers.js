@@ -2,8 +2,8 @@ import {
     STUDENT_FORM_REQUEST,
     STUDENT_FORM_SUCCESS,
     STUDENT_FORM_FAIL,
-    StudentBasicInfoType,
-    AcademicInfoType
+    STUDENT_BASIC_INFO,
+    STUDENT_ACADEMIC_INFO
 } from '../constants/studentConstants'
 
 export const studentFormReducer = (state = {}, action) => {
@@ -24,8 +24,8 @@ const initialState = {
 
 export const studentBasicInfoReducer = (state = initialState, { type, payload }) => {
     switch (type) {
-        case StudentBasicInfoType:
-            return { ...state, StudentBasicInfo: payload };
+        case STUDENT_BASIC_INFO:
+            return { ...state, studentBasicInfo: payload };
         default:
             return state;
     }
@@ -34,7 +34,7 @@ export const studentBasicInfoReducer = (state = initialState, { type, payload })
 
 export const academicInfoReducer = (state = initialState, { type, payload }) => {
   switch (type) {
-      case AcademicInfoType:
+      case STUDENT_ACADEMIC_INFO:
           return { ...state, studentAcademicInfo: payload };
       default:
           return state;

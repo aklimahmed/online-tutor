@@ -18,6 +18,7 @@ const TutorsProfile = () => {
   const dispatch = useDispatch();
 
   const basic = useSelector((state) => state.basicInfoForm.basicInfo);
+  console.log(basic)
   const academic = useSelector(
     (state) => state.academicQualificationForm.academicQualification
   );
@@ -29,18 +30,18 @@ const TutorsProfile = () => {
   );
   const weeklyTime = useSelector((state) => state.weeklyTimeForm.WeeklyTime);
   const subjectTeaches = useSelector(
-    (state) => state.SubJectTeachesForm.SubjectTeaches
+    (state) => state.subjectTeachesForm.SubjectTeaches
   );
   const teachesAndFess = useSelector(
-    (state) => state.TeachesAndFeesForm.TeachesAndFees
+    (state) => state.teachesAndFeesForm.TeachesAndFees
   );
   const lessonInclude = useSelector(
-    (state) => state.LessonIncludeForm.LessonInclude
+    (state) => state.lessonIncludeForm.LessonInclude
   );
   const exActivities = useSelector(
-    (state) => state.ExtraActivitiesForm.ExtraActivities
+    (state) => state.extraActivitiesForm.ExtraActivities
   );
-  const aboutMe = useSelector((state) => state.AboutMeForm.AboutMe);
+  const aboutMe = useSelector((state) => state.aboutMeForm.AboutMe);
   const user = useSelector((state) => state.userLogin.userInfo);
 
   const handleSubmit = (e) => {

@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Row, Col, Form } from 'react-bootstrap';
 import { presentdistrict } from "../../jsonData/PresentDistrict";
 import { useDispatch} from "react-redux";
+import { studentsBasicInfoForm } from "./../../actions/studentActions"
 
 const StudentsBasicInfo = () => {
     const [studentsBasicInfo, setStudentsBasicInfo] = useState({
@@ -25,6 +26,10 @@ const StudentsBasicInfo = () => {
       newBasicInfo[event.target.name] = event.target.value;
       setStudentsBasicInfo(newBasicInfo);
     };
+
+    useEffect(() => {
+      dispatch(studentsBasicInfoForm(studentsBasicInfo));
+    });
 
     return (
         <div className="basic-info-body weeklyTime_div">
@@ -80,9 +85,7 @@ const StudentsBasicInfo = () => {
               required
             ></input>
           </Form.Group>
-        </Col>
 
-        <Col md={6}>
           <Form.Group className="mb-3" controlId="formBasicDistrict">
             <Form.Label>Present District:</Form.Label>
             <select
@@ -97,6 +100,9 @@ const StudentsBasicInfo = () => {
               
             </select>
           </Form.Group>
+        </Col>
+
+        <Col md={6}>
 
           <Form.Group className="mb-3" controlId="formBasicName">
             <Form.Label>Father's name:</Form.Label> 

@@ -1,6 +1,6 @@
 import { React, useState, useEffect } from "react";
 import { Row, Form } from "react-bootstrap";
-import { AboutMeForm } from "../../actions/tutorActions";
+import { aboutMeForm } from "../../actions/tutorActions";
 import { useDispatch } from "react-redux";
 
 const AboutMe = () => {
@@ -17,7 +17,7 @@ const AboutMe = () => {
   };
 
   useEffect(() => {
-    dispatch(AboutMeForm(AboutMe));
+    dispatch(aboutMeForm(AboutMe));
   });
 
   return (

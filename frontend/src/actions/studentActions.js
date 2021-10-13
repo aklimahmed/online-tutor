@@ -4,8 +4,8 @@ import {
     STUDENT_FORM_REQUEST,
     STUDENT_FORM_SUCCESS,
     STUDENT_FORM_FAIL,
-    StudentBasicInfoType,
-    AcademicInfoType
+    STUDENT_BASIC_INFO,
+    STUDENT_ACADEMIC_INFO
 } from '../constants/studentConstants'
 
 export const createStudent = (user, studentBasic, studentAcademic) => async (dispatch) => {
@@ -46,14 +46,14 @@ export const createStudent = (user, studentBasic, studentAcademic) => async (dis
 
   export const studentsBasicInfoForm = (info) =>{
     return {
-        type: StudentBasicInfoType,
+        type: STUDENT_BASIC_INFO,
         payload: info
     };
   };
   
   export const studentsAcademicInfoForm = (info) =>{
     return {
-        type: AcademicInfoType,
+        type: STUDENT_ACADEMIC_INFO,
         payload: info
     };
   };

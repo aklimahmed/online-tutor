@@ -7,6 +7,7 @@ import connectDB from './config/db.js';
 import cors from 'cors';
 import userRoutes from './routes/userRoutes.js';
 import tutorRoutes from './routes/tutorRoutes.js';
+import studentRoutes from './routes/studentRoutes.js';
 dotenv.config();
 
 connectDB();
@@ -24,6 +25,7 @@ app.use(express.json())
 
 app.use('/api/users', userRoutes)
 app.use('/api/tutor', tutorRoutes)
+app.use('/api/student', studentRoutes)
 
 const __dirname = path.resolve()
 app.use('/uploads', express.static(path.join(__dirname, '/uploads')))

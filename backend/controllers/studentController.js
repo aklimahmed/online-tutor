@@ -1,32 +1,20 @@
 import asyncHandler from 'express-async-handler'
-import Tutor from './../models/tutorModel.js';
+import Student from './../models/studentModel.js';
 
-const createTutor = asyncHandler(async (req, res) => {
-    const { user,basic, academic, exQualification, woExperience, WeeklyTime, 
-      subjectTeaches, teachesAndFess, lessonInclude, exActivities, aboutMe, DocumentUpload, VideoUpload
+const createStudent = asyncHandler(async (req, res) => {
+    const { user, studentBasic, studentAcademic
     } = req.body
      
   
-    const tutor = await Tutor.create({
-        user,basic, academic, exQualification, woExperience, WeeklyTime, 
-        subjectTeaches, teachesAndFess, lessonInclude, exActivities, aboutMe, DocumentUpload, VideoUpload
+    const student = await Student.create({
+        user,studentBasic,studentAcademic
     })
   
-    if (tutor) {
+    if (student) {
       res.status(201).json({
-        user: tutor.user,
-        basic: tutor.basic,
-        academic: tutor.academic,
-        exQualification: tutor.exQualification,
-        woExperience: tutor.woExperience,
-        WeeklyTime: tutor.WeeklyTime,
-        subjectTeaches: tutor.subjectTeaches,
-        teachesAndFess: tutor.teachesAndFess,
-        lessonInclude: tutor.lessonInclude,
-        exActivities: tutor.exActivities,
-        aboutMe: tutor.aboutMe,
-        DocumentUpload: tutor.DocumentUpload,
-        VideoUpload: tutor.VideoUpload
+        user: student.user,
+        studentBasic: student.studentBasic,
+        studentAcademic: student.studentAcademic
       })
     } else {
       res.status(400)
@@ -34,34 +22,7 @@ const createTutor = asyncHandler(async (req, res) => {
     }
   })
 
-  const getTutorProfile = asyncHandler(async (req, res) => {
-    const tutor = await Tutor.findOne({ user: req.params.id})
-
-    if(tutor) {
-      res.send({
-        user: tutor.user,
-        basic: tutor.basic,
-        academic: tutor.academic,
-        exQualification: tutor.exQualification,
-        woExperience: tutor.woExperience,
-        WeeklyTime: tutor.WeeklyTime,
-        subjectTeaches: tutor.subjectTeaches,
-        teachesAndFess: tutor.teachesAndFess,
-        lessonInclude: tutor.lessonInclude,
-        exActivities: tutor.exActivities,
-        aboutMe: tutor.aboutMe,
-        DocumentUpload: tutor.DocumentUpload,
-        VideoUpload: tutor.VideoUpload
-      })
-    }
-    else {
-      res.status(404)
-      throw new Error('Unable to get tutor')
-    }
-  })
-  
 
   export {
-    createTutor,
-    getTutorProfile
+    createStudent
   }

@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 import { classes } from "../../jsonData/Classes";
 import { curriculum } from "../../jsonData/Curriculum";
 import { useDispatch } from "react-redux";
-import { TeachesAndFeesForm } from "../../actions/tutorActions";
+import { teachesAndFeesForm } from "../../actions/tutorActions";
 
 const TeachesAndFees = () => {
   const dispatch = useDispatch();
@@ -52,7 +52,7 @@ const TeachesAndFees = () => {
   };
 
   useEffect(() => {
-    dispatch(TeachesAndFeesForm(TeachesAndFees));
+    dispatch(teachesAndFeesForm(TeachesAndFees));
   });
 
   return (
