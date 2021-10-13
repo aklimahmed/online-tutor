@@ -39,8 +39,24 @@ const createTutor = asyncHandler(async (req, res) => {
 
     if(tutor) {
       res.send({
-        tutor
+        user: tutor.user,
+        basic: tutor.basic,
+        academic: tutor.academic,
+        exQualification: tutor.exQualification,
+        woExperience: tutor.woExperience,
+        WeeklyTime: tutor.WeeklyTime,
+        subjectTeaches: tutor.subjectTeaches,
+        teachesAndFess: tutor.teachesAndFess,
+        lessonInclude: tutor.lessonInclude,
+        exActivities: tutor.exActivities,
+        aboutMe: tutor.aboutMe,
+        DocumentUpload: tutor.DocumentUpload,
+        VideoUpload: tutor.VideoUpload
       })
+    }
+    else {
+      res.status(404)
+      throw new Error('Unable to get tutor')
     }
   })
   

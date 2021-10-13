@@ -5,7 +5,7 @@ import {
     getTutorProfile
 } from '../controllers/tutorController.js'
 
-import { protect } from '../middleware/authMiddleware.js'
+// import { protect } from '../middleware/authMiddleware.js'
 
 router.route('/').post(createTutor)
 router
