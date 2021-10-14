@@ -48,25 +48,25 @@ const GeneralAvailability = (props) => {
                   <small>{data.from} - {data.to}</small>
                 </td>
                 <td data-label="Sat">
-                  {data.sat === true ? (<FaCheck />): ""}
+                  {data.sat === true ? (<FaCheck />): <>&nbsp;</>}
                 </td>
                 <td data-label="Sun">
-                  {data.sun === true ? (<FaCheck />): ""}
+                  {data.sun === true ? (<FaCheck />): <>&nbsp;</>}
                 </td>
                 <td data-label="Mon">
-                  {data.mon === true ? (<FaCheck />): ""}
+                  {data.mon === true ? (<FaCheck />): <>&nbsp;</>}
                 </td>
                 <td data-label="Tue">
-                  {data.tue === true ? (<FaCheck />): ""}
+                  {data.tue === true ? (<FaCheck />): <>&nbsp;</>}
                 </td>
                 <td data-label="Wed">
-                  {data.wed === true ? (<FaCheck />): ""}
+                  {data.wed === true ? (<FaCheck />): <>&nbsp;</>}
                 </td>
                 <td data-label="Thu">
-                  {data.thu === true ? (<FaCheck />): ""}
+                  {data.thu === true ? (<FaCheck />): <>&nbsp;</>}
                 </td>
                 <td data-label="Fri">
-                  {data.fri === true ? (<FaCheck />): ""}
+                  {data.fri === true ? (<FaCheck />): <>&nbsp;</>}
                 </td>
               </tr>
             ))

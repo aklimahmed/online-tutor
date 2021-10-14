@@ -49,7 +49,7 @@ const AcademicQualification = () => {
       <h6 className="time_heading">Academic Qualification:</h6>
       <Row className="mb-3">
         <Form.Label>SSC or equivalent info:</Form.Label>
-        <Col md={3}>
+        <Col className="flex-col1" md={3}>
           <Form.Group className="mb-3" controlId="formBasicName">
             <input
               name="sscDegree"
@@ -61,7 +61,7 @@ const AcademicQualification = () => {
           </Form.Group>
         </Col>
 
-        <Col md={2}>
+        <Col className="flex-col2" md={2}>
           <Form.Group className="mb-3" controlId="formBasicName">
             <input
               name="sscPassingYear"
@@ -73,7 +73,7 @@ const AcademicQualification = () => {
           </Form.Group>
         </Col>
 
-        <Col md={2}>
+        <Col className="flex-col2" md={2}>
           <Form.Group className="mb-3" controlId="formBasicName">
             <input
               name="sscResult"
@@ -85,7 +85,7 @@ const AcademicQualification = () => {
           </Form.Group>
         </Col>
 
-        <Col md={3}>
+        <Col className="flex-col" md={3}>
           <Form.Group className="mb-3" controlId="formBasicName">
             <input
               name="sscInstitution"
@@ -97,7 +97,7 @@ const AcademicQualification = () => {
           </Form.Group>
         </Col>
 
-        <Col md={2}>
+        <Col className="flex-col" md={2}>
           <Form.Group controlId="formBasicCheckbox" className="mb-3">
             <select
               name="sscStatus"
@@ -114,7 +114,7 @@ const AcademicQualification = () => {
 
       <Row className="mb-3">
         <Form.Label>HSC or equivalent info:</Form.Label>
-        <Col md={3}>
+        <Col className="flex-col1" md={3}>
           <Form.Group className="mb-3" controlId="formBasicName">
             <input
               name="hscDegree"
@@ -126,7 +126,7 @@ const AcademicQualification = () => {
           </Form.Group>
         </Col>
 
-        <Col md={2}>
+        <Col className="flex-col2" md={2}>
           <Form.Group className="mb-3" controlId="formBasicName">
             <input
               name="hscPassingYear"
@@ -138,7 +138,7 @@ const AcademicQualification = () => {
           </Form.Group>
         </Col>
 
-        <Col md={2}>
+        <Col className="flex-col2" md={2}>
           <Form.Group className="mb-3" controlId="formBasicName">
             <input
               className="form-control"
@@ -150,7 +150,7 @@ const AcademicQualification = () => {
           </Form.Group>
         </Col>
 
-        <Col md={3}>
+        <Col className="flex-col" md={3}>
           <Form.Group className="mb-3" controlId="formBasicName">
             <input
               className="form-control"
@@ -162,7 +162,7 @@ const AcademicQualification = () => {
           </Form.Group>
         </Col>
 
-        <Col md={2}>
+        <Col className="flex-col" md={2}>
           <Form.Group controlId="formBasicCheckbox" className="mb-3">
             <select
               name="hscStatus"
@@ -179,7 +179,7 @@ const AcademicQualification = () => {
 
       <Row className="mb-3">
         <Form.Label>Graduation info:</Form.Label>
-        <Col md={3}>
+        <Col className="flex-col1" md={3}>
           <Form.Group className="mb-3" controlId="formBasicName">
             <input
               className="form-control"
@@ -191,7 +191,7 @@ const AcademicQualification = () => {
           </Form.Group>
         </Col>
 
-        <Col md={2}>
+        <Col className="flex-col2" md={2}>
           <Form.Group className="mb-3" controlId="formBasicName">
             <input
               className="form-control"
@@ -203,7 +203,7 @@ const AcademicQualification = () => {
           </Form.Group>
         </Col>
 
-        <Col md={2}>
+        <Col className="flex-col2" md={2}>
           <Form.Group className="mb-3" controlId="formBasicName">
             <input
               className="form-control"
@@ -215,7 +215,7 @@ const AcademicQualification = () => {
           </Form.Group>
         </Col>
 
-        <Col md={3}>
+        <Col className="flex-col" md={3}>
           <Form.Group className="mb-3" controlId="formBasicName">
             <input
               className="form-control"
@@ -227,7 +227,7 @@ const AcademicQualification = () => {
           </Form.Group>
         </Col>
 
-        <Col md={2}>
+        <Col className="flex-col" md={2}>
           <Form.Group controlId="formBasicCheckbox" className="mb-3">
             <select
               name="graduationStatus"
@@ -244,7 +244,7 @@ const AcademicQualification = () => {
 
       <Row className="mb-3">
         <Form.Label>Post-Graduation info:</Form.Label>
-        <Col md={3}>
+        <Col className="flex-col1" md={3}>
           <Form.Group className="mb-3" controlId="formBasicName">
             <input
               className="form-control"
@@ -256,7 +256,7 @@ const AcademicQualification = () => {
           </Form.Group>
         </Col>
 
-        <Col md={2}>
+        <Col className="flex-col2" md={2}>
           <Form.Group className="mb-3" controlId="formBasicName">
             <input
               className="form-control"
@@ -268,7 +268,7 @@ const AcademicQualification = () => {
           </Form.Group>
         </Col>
 
-        <Col md={2}>
+        <Col className="flex-col2" md={2}>
           <Form.Group className="mb-3" controlId="formBasicName">
             <input
               className="form-control"
@@ -280,7 +280,7 @@ const AcademicQualification = () => {
           </Form.Group>
         </Col>
 
-        <Col md={3}>
+        <Col className="flex-col" md={3}>
           <Form.Group className="mb-3" controlId="formBasicName">
             <input
               className="form-control"
@@ -292,7 +292,7 @@ const AcademicQualification = () => {
           </Form.Group>
         </Col>
 
-        <Col md={2}>
+        <Col className="flex-col" md={2}>
           <Form.Group controlId="formBasicCheckbox" className="mb-3">
             <select
               name="postGraduationStatus"
@@ -310,7 +310,7 @@ const AcademicQualification = () => {
 
       <Row className="mb-3">
         <Form.Label>Doctorate info:</Form.Label>
-        <Col md={3}>
+        <Col className="flex-col1" md={3}>
           <Form.Group className="mb-3" controlId="formBasicName">
             <input
               className="form-control"
@@ -322,7 +322,7 @@ const AcademicQualification = () => {
           </Form.Group>
         </Col>
 
-        <Col md={2}>
+        <Col className="flex-col2" md={2}>
           <Form.Group className="mb-3" controlId="formBasicName">
             <input
               className="form-control"
@@ -334,7 +334,7 @@ const AcademicQualification = () => {
           </Form.Group>
         </Col>
 
-        <Col md={2}>
+        <Col className="flex-col2" md={2}>
           <Form.Group className="mb-3" controlId="formBasicName">
             <input
               className="form-control"
@@ -346,7 +346,7 @@ const AcademicQualification = () => {
           </Form.Group>
         </Col>
 
-        <Col md={3}>
+        <Col className="flex-col" md={3}>
           <Form.Group className="mb-3" controlId="formBasicName">
             <input
               className="form-control"
@@ -358,7 +358,7 @@ const AcademicQualification = () => {
           </Form.Group>
         </Col>
 
-        <Col md={2}>
+        <Col className="flex-col" md={2}>
           <Form.Group controlId="formBasicCheckbox" className="mb-3">
             <select
               id="select"

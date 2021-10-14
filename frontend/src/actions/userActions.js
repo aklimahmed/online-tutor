@@ -65,7 +65,7 @@ export const register = (role, name, email, phone, password) => async (dispatch)
     }
 
     const { data } = await axios.post(
-      'http://localhost:5000api/users',
+      'http://localhost:5000/api/users',
       { role, name, email, phone, password },
       config
     )

@@ -10,6 +10,7 @@ import LessonInclude from "../../components/TutorsProfileView/LessonInclude";
 import AboutMe from "../../components/TutorsProfileView/AboutMe";
 import { useSelector } from "react-redux";
 import axios from "axios";
+import ExtraActivities from "../../components/TutorsProfileView/ExtraActivities";
 
 const TutorProfileView = () => {
   const [fetchTutorInfo, setFetchTutorInfo] = useState({});
@@ -33,6 +34,7 @@ const TutorProfileView = () => {
       <SubjectTeaches subjectTeaches={fetchTutorInfo.subjectTeaches} />
       <ClassTeaches teachesAndFess={fetchTutorInfo.teachesAndFess} />
       <LessonInclude lessonInclude={fetchTutorInfo.lessonInclude} />
+      <ExtraActivities exActivities={fetchTutorInfo.exActivities} />
       <AboutMe aboutMe={fetchTutorInfo.aboutMe} />
     </div>
   );

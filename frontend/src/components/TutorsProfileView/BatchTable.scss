@@ -50,14 +50,11 @@
   width: 100%;
 }
 
-@media all and (device-width: 768px) and (device-height: 1024px){
-    .col-md-3 {
-        flex: 0 0 auto;
-        width: 49.5%;
-      }
-}
-
 @media all and (device-width: 768px) and (device-height: 1024px) {
+  .col-md-3 {
+    flex: 0 0 auto;
+    width: 49.5%;
+  }
   .batch_table {
     border: 0;
   }
