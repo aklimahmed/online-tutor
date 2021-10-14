@@ -26,6 +26,9 @@ const Qualifications = (props) => {
               <small>Passing Year</small>
             </th>
             <th>
+              <small>Result</small>
+            </th>
+            <th>
               <small>Institute</small>
             </th>
             <th>
@@ -36,52 +39,57 @@ const Qualifications = (props) => {
         <tbody>
             {
               data ? 
-              <tr>
-                {data.sscDegree ? <td data-label="Degree"><small>SSC</small></td> : ""}
-                {data.sscDegree ? <td data-label="Subject (Major)"><small>{data.sscDegree}</small></td> : ""}
-                {data.sscPassingYear ? <td data-label="Passing Year"><small>{data.sscPassingYear}</small></td> : ""}
-                {data.sscInstitution ? <td data-label="Institute"><small>{data.sscInstitution}</small></td> : ""}
-                {data.sscDegree ? <td data-label="Subject (Major)"><small>Verified</small></td> : ""}
+              <tr style={data.sscDegree === ""  ? {display: "none"} : {}}>
+                <td data-label="Degree"><small>{data.sscDegree ? "SSC" : ""}</small></td>
+                <td data-label="Subject (Major)"><small>{data.sscDegree ? data.sscDegree : ""}</small></td>
+                <td data-label="Passing Year"><small>{data.sscPassingYear ? data.sscPassingYear : ""}</small></td>
+                <td data-label="Result"><small>{data.sscResult ? data.sscResult : ""}</small></td>
+                <td data-label="Institute"><small>{data.sscInstitution? data.sscInstitution : ""}</small></td>
+                <td data-label="Subject (Major)"><small>{data.sscDegree? "Verified" : ""}</small></td>
             </tr>:<tr></tr>
             }
             {
               data ? 
-              <tr>
-                {data.hscDegree ? <td data-label="Degree"><small>HSC</small></td> : ""}
-                {data.hscDegree ? <td data-label="Subject (Major)"><small>{data.hscDegree}</small></td> : ""}
-                {data.hscPassingYear ? <td data-label="Passing Year"><small>{data.hscPassingYear}</small></td> : ""}
-                {data.hscInstitution ? <td data-label="Institute"><small>{data.hscInstitution}</small></td> : ""}
-                {data.hscDegree ? <td data-label="Degree"><small>Verified</small></td> : ""}
+              <tr style={data.hscDegree === ""  ? {display: "none"} : {}}>
+                <td data-label="Degree"><small>{data.hscDegree ? "HSC" : ""}</small></td>
+                <td data-label="Subject (Major)"><small>{data.hscDegree ? data.hscDegree : ""}</small></td>
+                <td data-label="Passing Year"><small>{data.hscPassingYear ? data.hscPassingYear : ""}</small></td>
+                <td data-label="Result"><small>{data.hscResult ? data.hscResult : ""}</small></td>
+                <td data-label="Institute"><small>{data.hscInstitution? data.hscInstitution : ""}</small></td>
+                <td data-label="Subject (Major)"><small>{data.hscDegree? "Verified" : ""}</small></td>
             </tr>:<tr></tr>
             }
              {
               data ? 
-              <tr>
-                {data.graduationDegree ? <td data-label="Degree"><small>Graduation</small></td> : ""}
-                {data.graduationDegree ? <td data-label="Subject (Major)"><small>{data.graduationDegree}</small></td> : ""}
-                {data.graduationPassingYear ? <td data-label="Passing Year"><small>{data.graduationPassingYear}</small></td> : ""}
-                {data.graduationInstitution ? <td data-label="Institute"><small>{data.graduationInstitution}</small></td> : ""}
-                {data.graduationDegree ? <td data-label="Degree"><small>Verified</small></td> : ""}
+              <tr style={data.graduationDegree === ""  ? {display: "none"} : {}}>
+                <td data-label="Degree"><small>{data.graduationDegree ? "Graduation" : ""}</small></td>
+                <td data-label="Subject (Major)"><small>{data.graduationDegree ? data.graduationDegree : ""}</small></td>
+                <td data-label="Passing Year"><small>{data.graduationPassingYear ? data.graduationPassingYear : ""}</small></td>
+                <td data-label="Result"><small>{data.graduationResult ? data.graduationResult : ""}</small></td>
+                <td data-label="Institute"><small>{data.graduationInstitution? data.graduationInstitution : ""}</small></td>
+                <td data-label="Subject (Major)"><small>{data.graduationDegree? "Verified" : ""}</small></td>
             </tr>:<tr></tr>
             }
             {
               data ? 
-              <tr>
-                {data.postGraduationDegree ? <td data-label="Degree"><small>Post-Graduation</small></td> : ""}
-                {data.postGraduationDegree ? <td data-label="Subject (Major)"><small>{data.postGraduationDegree}</small></td> : ""}
-                {data.postGraduationPassingYear ? <td data-label="Passing Year"><small>{data.postGraduationPassingYear}</small></td> : ""}
-                {data.postGraduationInstitution ? <td data-label="Institute"><small>{data.postGraduationInstitution}</small></td> : ""}
-                {data.postGraduationDegree ? <td data-label="Degree"><small>Verified</small></td> : ""}
+              <tr style={data.postGraduationDegree === ""  ? {display: "none"} : {}}>
+                <td data-label="Degree"><small>{data.postGraduationDegree ? "Post-Graduation" : ""}</small></td>
+                <td data-label="Subject (Major)"><small>{data.postGraduationDegree ? data.postGraduationDegree : ""}</small></td>
+                <td data-label="Passing Year"><small>{data.postGraduationPassingYear ? data.postGraduationPassingYear : ""}</small></td>
+                <td data-label="Result"><small>{data.postGraduationResult ? data.postGraduationResult : ""}</small></td>
+                <td data-label="Institute"><small>{data.postGraduationInstitution? data.postGraduationInstitution : ""}</small></td>
+                <td data-label="Subject (Major)"><small>{data.postGraduationDegree? "Verified" : ""}</small></td>
             </tr>:<tr></tr>
             }
             {
               data ? 
-              <tr>
-                {data.doctorateDegree ? <td data-label="Degree"><small>Doctorate</small></td> : ""}
-                {data.doctorateDegree ? <td data-label="Subject (Major)"><small>{data.doctorateDegree}</small></td> : ""}
-                {data.doctoratePassingYear ? <td data-label="Passing Year"><small>{data.doctoratePassingYear}</small></td> : ""}
-                {data.doctorateInstitution ? <td data-label="Institute"><small>{data.doctorateInstitution}</small></td> : ""}
-                {data.doctorateDegree ? <td data-label="Degree"><small>Verified</small></td> : ""}
+              <tr style={data.postGraduationDegree === ""  ? {display: "none"} : {}}>
+                <td data-label="Degree"><small>{data.postGraduationDegree ? "Doctorate" : ""}</small></td>
+                <td data-label="Subject (Major)"><small>{data.postGraduationDegree ? data.postGraduationDegree : ""}</small></td>
+                <td data-label="Passing Year"><small>{data.doctoratePassingYear ? data.doctoratePassingYear : ""}</small></td>
+                <td data-label="Result"><small>{data.doctorateResult? data.doctorateResult : ""}</small></td>
+                <td data-label="Institute"><small>{data.doctorateInstitution? data.doctorateInstitution : ""}</small></td>
+                <td data-label="Subject (Major)"><small>{data.postGraduationDegree? "Verified" : ""}</small></td>
             </tr>:<tr></tr>
             }
         </tbody>

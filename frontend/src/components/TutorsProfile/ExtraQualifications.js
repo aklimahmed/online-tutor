@@ -64,7 +64,7 @@ const ExtraQualifications = () => {
       <h6 className="time_heading">Extra Qualification or Trainings:</h6>
       {input.map((inputField) => (
         <Row key={inputField.id}>
-          <Col md={3}>
+          <Col className="flex-col1" md={3}>
             <Form.Group className="mb-3">
               <Form.Label>Course Title :</Form.Label>
               <Form.Control
@@ -76,7 +76,7 @@ const ExtraQualifications = () => {
               />
             </Form.Group>
           </Col>
-          <Col md={2}>
+          <Col className="flex-col2" md={2}>
             <Form.Group className="mb-3">
               <Form.Label>Duration (in days) :</Form.Label>
               <Form.Control
@@ -88,7 +88,7 @@ const ExtraQualifications = () => {
               />
             </Form.Group>
           </Col>
-          <Col md={2}>
+          <Col className="flex-col2" md={2}>
             <Form.Group className="mb-3">
               <Form.Label>Year :</Form.Label>
               <Form.Control
@@ -100,7 +100,7 @@ const ExtraQualifications = () => {
               />
             </Form.Group>
           </Col>
-          <Col md={3}>
+          <Col className="flex-col" md={3}>
             <Form.Group className="mb-3">
               <Form.Label>Institute :</Form.Label>
               <Form.Control
@@ -112,19 +112,19 @@ const ExtraQualifications = () => {
               />
             </Form.Group>
           </Col>
-          <Col md={2} className="d-flex">
+          <Col className="flex-col" md={2}>
+          <div className="d-flex">
             <Form.Group
-              className="mb-3 justify-content-end"
+              className="mb-3"
               controlId="formBasicCheckbox"
             >
               <Form.Label>Select status :</Form.Label>
               <select
-                id="Select"
                 className="form-select"
                 name="status"
                 onChange={(event) => handleChangeInput(inputField.id, event)}
               >
-                <option style={{ display: "none" }}>status</option>
+                <option style={{ display: "none" }}>Select status</option>
                 <option>completed</option>
                 <option>on going</option>
               </select>
@@ -136,6 +136,7 @@ const ExtraQualifications = () => {
               aria-label="Close"
               onClick={() => handleRemoveFields(inputField.id)}
             ></button>
+            </div>
           </Col>
         </Row>
       ))}

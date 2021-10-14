@@ -59,7 +59,7 @@ const WorkExperience = () => {
       <h6 className="time_heading">Work Experience:</h6>
       {WorkExperience.map((inputField) => (
         <Row key={inputField.id}>
-          <Col md={4}>
+          <Col className="flex-col" md={4}>
             <Form.Group className="mb-3">
               <Form.Label>Institute Name :</Form.Label>
               <Form.Control
@@ -71,7 +71,7 @@ const WorkExperience = () => {
               />
             </Form.Group>
           </Col>
-          <Col md={4}>
+          <Col className="flex-col" md={4}>
             <Form.Group className="mb-3">
               <Form.Label>Designation :</Form.Label>
               <Form.Control
@@ -83,7 +83,7 @@ const WorkExperience = () => {
               />
             </Form.Group>
           </Col>
-          <Col md={2}>
+          <Col className="flex-col" md={2}>
             <Form.Group className="mb-3">
               <Form.Label>Period :</Form.Label>
               <Form.Control
@@ -94,32 +94,30 @@ const WorkExperience = () => {
               />
             </Form.Group>
           </Col>
-          <Col md={2} className="d-flex">
-            <Form.Group
-              className="mb-3 justify-content-end"
-              controlId="formBasicCheckbox"
-            >
-              <Form.Label>Select status :</Form.Label>
-              <select
-                id="Select"
-                className="form-select"
-                name="status"
-                onChange={(event) => handleChangeInput(inputField.id, event)}
-              >
-                <option style={{ display: "none", color: "white" }}>
-                  Status
-                </option>
-                <option>completed</option>
-                <option>on going</option>
-              </select>
-            </Form.Group>
-            <button
-              type="button"
-              className="btn-close px-2 close_button"
-              disabled={WorkExperience.length === 1}
-              aria-label="Close"
-              onClick={() => handleRemoveFields(inputField.id)}
-            ></button>
+          <Col className="flex-col" md={2}>
+            <div className="d-flex">
+              <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                <Form.Label>Select status :</Form.Label>
+                <select
+                  className="form-select"
+                  name="status"
+                  onChange={(event) => handleChangeInput(inputField.id, event)}
+                >
+                  <option style={{ display: "none", color: "white" }}>
+                    Select status
+                  </option>
+                  <option>completed</option>
+                  <option>on going</option>
+                </select>
+              </Form.Group>
+              <button
+                type="button"
+                className="btn-close px-2 close_button"
+                disabled={WorkExperience.length === 1}
+                aria-label="Close"
+                onClick={() => handleRemoveFields(inputField.id)}
+              ></button>
+            </div>
           </Col>
         </Row>
       ))}

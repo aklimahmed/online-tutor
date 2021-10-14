@@ -13,9 +13,7 @@ const RegisterScreen = ({ location, history }) => {
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
   const [password, setPassword] = useState('')
-  const [message, setMessage] = useState(null)
-  console.log(role)
-  console.log(name)
+  const [message, setMessage] = useState(null);
   const dispatch = useDispatch()
 
   const userRegister = useSelector((state) => state.userRegister)
