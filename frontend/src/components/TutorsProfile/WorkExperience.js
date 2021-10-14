@@ -104,7 +104,7 @@ const WorkExperience = () => {
                   onChange={(event) => handleChangeInput(inputField.id, event)}
                 >
                   <option style={{ display: "none", color: "white" }}>
-                    Status
+                    Select status
                   </option>
                   <option>completed</option>
                   <option>on going</option>
