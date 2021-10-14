@@ -10,7 +10,7 @@ const CreateNewCourse = () => {
         <Col md={3} className="columns">
           <Form.Group className="mb-3" controlId="formBasicDistrict">
             <select className="form-select drop_down" name="presentDistrict">
-              <option style={{ display: "none" }}>Select district name</option>
+              <option style={{ display: "none" }}>Select Curriculum</option>
               {curriculum.map((d) => (
                 <option key={curriculum.name} value={d.curriculum}>
                   {d.curriculum}
@@ -22,7 +22,7 @@ const CreateNewCourse = () => {
         <Col md={3} className="columns">
           <Form.Group className="mb-3" controlId="formBasicDistrict">
             <select className="form-select drop_down" name="presentDistrict">
-              <option style={{ display: "none" }}>Select district name</option>
+              <option style={{ display: "none" }}>Select Class</option>
               {curriculum.map((d) => (
                 <option key={curriculum.name} value={d.curriculum}>
                   {d.curriculum}
@@ -34,7 +34,7 @@ const CreateNewCourse = () => {
         <Col md={3} className="columns">
           <Form.Group className="mb-3" controlId="formBasicDistrict">
             <select className="form-select drop_down" name="presentDistrict">
-              <option style={{ display: "none" }}>Select district name</option>
+              <option style={{ display: "none" }}>Select Subject</option>
               {curriculum.map((d) => (
                 <option key={curriculum.name} value={d.curriculum}>
                   {d.curriculum}
@@ -46,7 +46,7 @@ const CreateNewCourse = () => {
         <Col md={3} className="columns">
           <Form.Group className="mb-3" controlId="formBasicDistrict">
             <select className="form-select drop_down" name="presentDistrict">
-              <option style={{ display: "none" }}>Select district name</option>
+              <option style={{ display: "none" }}>Select Batch Type</option>
               {curriculum.map((d) => (
                 <option key={curriculum.name} value={d.curriculum}>
                   {d.curriculum}
@@ -61,7 +61,7 @@ const CreateNewCourse = () => {
         <Col md={4} className="columns">
           <Form.Group className="mb-3" controlId="formBasicDistrict">
             <select className="form-select drop_down" name="presentDistrict">
-              <option style={{ display: "none" }}>Select district name</option>
+              <option style={{ display: "none" }}>No of Students</option>
               {curriculum.map((d) => (
                 <option key={curriculum.name} value={d.curriculum}>
                   {d.curriculum}
@@ -73,7 +73,7 @@ const CreateNewCourse = () => {
         <Col md={4} className="columns">
           <Form.Group className="mb-3" controlId="formBasicDistrict">
             <select className="form-select drop_down" name="presentDistrict">
-              <option style={{ display: "none" }}>Select district name</option>
+              <option style={{ display: "none" }}>Select Class Days</option>
               {curriculum.map((d) => (
                 <option key={curriculum.name} value={d.curriculum}>
                   {d.curriculum}
@@ -85,7 +85,7 @@ const CreateNewCourse = () => {
         <Col md={4} className="columns">
           <Form.Group className="mb-3" controlId="formBasicDistrict">
             <select className="form-select drop_down" name="presentDistrict">
-              <option style={{ display: "none" }}>Select district name</option>
+              <option style={{ display: "none" }}>Each Class Duration</option>
               {curriculum.map((d) => (
                 <option key={curriculum.name} value={d.curriculum}>
                   {d.curriculum}
@@ -154,14 +154,16 @@ const CreateNewCourse = () => {
             </select>
           </Form.Group>
         </Col>
-        <Col>
+        <Col md={1}>
           <Form.Group className="mb-3" controlId="formBasicCheckbox">
-            <Form.Check
+            <Form.Check style={{float: 'right'}}
               className="check-class"
               type="checkbox"
-              label="FREE Class"
             />
           </Form.Group>
+        </Col>
+        <Col md={3}>
+        <label for="vehicle1"> FREE Class</label>
         </Col>
       </Row>
       <Row>

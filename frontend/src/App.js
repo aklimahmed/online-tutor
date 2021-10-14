@@ -24,14 +24,8 @@ const App = () => {
           <Route path='/tutorsprofile/:id' component={TutorProfileView} />
           <Route path='/tutorsdashboard/:id' component={TutorDashboard} />
           <Route path='/tutorsmessage/:id' component={TutorsMessage} />  
-<<<<<<< HEAD
           <Route path='/studentsform/:id' component={StudentsForm} />
           <Route path='/tutorscourses' component={TutorsCourses} />
-
-
-=======
-          <Route path='/studentsform/:id' component={StudentsForm} /> 
->>>>>>> 5c2e0e0b876d3ec62f179804bfb94d9aaa9a6136
         </Container>
       </main>
      
