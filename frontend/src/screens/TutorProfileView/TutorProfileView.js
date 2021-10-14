@@ -11,6 +11,8 @@ import AboutMe from "../../components/TutorsProfileView/AboutMe";
 import { useSelector } from "react-redux";
 import axios from "axios";
 import ExtraActivities from "../../components/TutorsProfileView/ExtraActivities";
+import { Col, Row } from "react-bootstrap";
+import VideoIntro from "../../components/TutorsProfileView/VideoIntro";
 
 const TutorProfileView = () => {
   const [fetchTutorInfo, setFetchTutorInfo] = useState({});
@@ -23,19 +25,25 @@ const TutorProfileView = () => {
       .then((data) => setFetchTutorInfo(data.data));
   }, [id]);
 
-
   return (
     <div>
       <BatchTable />
-      <Qualifications Qualifications={fetchTutorInfo.academic} />
-      <ExtraQualifications exQualification={fetchTutorInfo.exQualification} />
-      <WorkExperience WoExperience={fetchTutorInfo.woExperience} />
-      <GeneralAvailability WeeklyTime={fetchTutorInfo.WeeklyTime} />
-      <SubjectTeaches subjectTeaches={fetchTutorInfo.subjectTeaches} />
-      <ClassTeaches teachesAndFess={fetchTutorInfo.teachesAndFess} />
-      <LessonInclude lessonInclude={fetchTutorInfo.lessonInclude} />
-      <ExtraActivities exActivities={fetchTutorInfo.exActivities} />
-      <AboutMe aboutMe={fetchTutorInfo.aboutMe} />
+      <Row style={{marginLeft: "-1%"}}>
+        <Col md={8}>
+        <Qualifications Qualifications={fetchTutorInfo.academic} />
+          <ExtraQualifications exQualification={fetchTutorInfo.exQualification} />
+          <WorkExperience WoExperience={fetchTutorInfo.woExperience} />
+          <GeneralAvailability WeeklyTime={fetchTutorInfo.WeeklyTime} />
+          <SubjectTeaches subjectTeaches={fetchTutorInfo.subjectTeaches} />
+          <ClassTeaches teachesAndFess={fetchTutorInfo.teachesAndFess} />
+          <LessonInclude lessonInclude={fetchTutorInfo.lessonInclude} />
+          <ExtraActivities exActivities={fetchTutorInfo.exActivities} />
+          <AboutMe aboutMe={fetchTutorInfo.aboutMe} />
+        </Col>
+        <Col md={4}>
+          <VideoIntro/>
+        </Col>
+      </Row>
     </div>
   );
 };
