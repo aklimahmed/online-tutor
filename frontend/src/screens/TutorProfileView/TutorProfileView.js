@@ -18,7 +18,7 @@ const TutorProfileView = () => {
 
   useEffect(() => {
     axios
-      .get(`/api/tutor/profile/${id}`)
+      .get(`http://localhost:5000/api/tutor/profile/${id}`)
       .then((data) => setFetchTutorInfo(data.data));
   }, [id]);
 

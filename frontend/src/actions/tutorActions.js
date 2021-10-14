@@ -29,7 +29,7 @@ export const createTutor = (user,basic, academic, exQualification, woExperience,
     }
 
     const { data } = await axios.post(
-      '/api/tutor',
+      'http://localhost:5000/api/tutor',
       { user,basic, academic, exQualification, woExperience, WeeklyTime, subjectTeaches, teachesAndFess,
         lessonInclude, exActivities, aboutMe, DocumentUpload, VideoUpload},
       config

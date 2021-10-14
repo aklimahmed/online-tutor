@@ -22,7 +22,7 @@ export const createStudent = (user, studentBasic, studentAcademic, studentExtraA
       }
   
       const { data } = await axios.post(
-        '/api/student',
+        'http://localhost:5000/api/student',
         { user, studentBasic, studentAcademic, studentExtraActivities},
         config
       )
