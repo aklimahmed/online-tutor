@@ -1,0 +1,106 @@
+body {
+  p,
+  h5,
+  h4 {
+    margin: 0;
+  }
+}
+
+.tutor_profile_top_main{
+    background-color: #fdf9f9;
+    padding: 15px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+.teacher_name {
+  font-weight: 700;
+  color: #ff7d48;
+}
+
+.lesson_bg {
+  background-color: #E8E8E8;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.student_div {
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.tutor_top_primary {
+  color: #ff7d48;
+  font-weight: 600;
+}
+
+.tutor_top_secondary {
+  color: #b8b8b8;
+}
+
+.verify {
+  color: #707070;
+}
+
+.teacher_image {
+  position: relative;
+}
+
+.teacher_image img {
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+}
+
+.dot {
+  height: 15px;
+  width: 15px;
+  border-radius: 100%;
+  background: #097c24;
+  position: relative;
+  right: -92px;
+  bottom: 25px;
+  border: 1px solid white;
+}
+
+.heart {
+  color: red;
+  width: 22px;
+  border: 1px solid #ffc50b;
+  background-color: #ffc50b;
+  border-radius: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.class_fee_button {
+  text-align: center;
+  width: 70%;
+  background-color: #494949;
+  border-color: #707070;
+  margin-top: 50px;
+  margin-bottom: 10px;
+  padding: 5px;
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.image_div {
+  margin-right: 30px;
+}
+
+.tutor_rating {
+  color: #ff7d48;
+  font-size: 38px;
+  font-weight: 500;
+}
+
+.stars {
+  font-size: 10px;
+  color: #008593;
+}
+
+.rating_div {
+  position: absolute;
+  right: 350px;
+}

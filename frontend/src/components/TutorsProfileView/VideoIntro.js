@@ -42,7 +42,7 @@ const VideoIntro = () => {
           </div>
           <div className="free_class_button">
               <h5 className="zero_title">0</h5>
-              <h6>BDT/HR</h6>
+              <small className="zero_des">BDT/HR</small>
           </div>
         </div>
       </div>

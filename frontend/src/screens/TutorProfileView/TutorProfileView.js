@@ -13,6 +13,7 @@ import axios from "axios";
 import ExtraActivities from "../../components/TutorsProfileView/ExtraActivities";
 import { Col, Row } from "react-bootstrap";
 import VideoIntro from "../../components/TutorsProfileView/VideoIntro";
+import TutorProfileTop from "./../../components/TutorsProfileView/TutorProfileTop";
 
 const TutorProfileView = () => {
   const [fetchTutorInfo, setFetchTutorInfo] = useState({});
@@ -27,11 +28,14 @@ const TutorProfileView = () => {
 
   return (
     <div>
+      <TutorProfileTop />
       <BatchTable />
-      <Row style={{marginLeft: "-1%"}}>
+      <Row style={{ marginLeft: "-1%" }}>
         <Col md={8}>
-        <Qualifications Qualifications={fetchTutorInfo.academic} />
-          <ExtraQualifications exQualification={fetchTutorInfo.exQualification} />
+          <Qualifications Qualifications={fetchTutorInfo.academic} />
+          <ExtraQualifications
+            exQualification={fetchTutorInfo.exQualification}
+          />
           <WorkExperience WoExperience={fetchTutorInfo.woExperience} />
           <GeneralAvailability WeeklyTime={fetchTutorInfo.WeeklyTime} />
           <SubjectTeaches subjectTeaches={fetchTutorInfo.subjectTeaches} />
@@ -41,7 +45,7 @@ const TutorProfileView = () => {
           <AboutMe aboutMe={fetchTutorInfo.aboutMe} />
         </Col>
         <Col md={4}>
-          <VideoIntro/>
+          <VideoIntro />
         </Col>
       </Row>
     </div>

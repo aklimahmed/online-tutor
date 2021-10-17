@@ -7,6 +7,9 @@ const SubjectTeaches = (props) => {
     setData(props.subjectTeaches);
   }, [props]);
 
+  const subject = data ? data.secondarySubjects : "";
+  console.log(subject);
+
   return (
     <div className="mt-5">
       <h5 className="qtext">Subject Teaches</h5>
@@ -22,21 +25,28 @@ const SubjectTeaches = (props) => {
           </tr>
         </thead>
         <tbody>
-
-          {
-            data? 
-              <tr>
-                <td data-label="Primary"><small>Primary</small></td>
-                <td data-label="Focus"><small>{data.primarySubject}</small></td>
-              </tr>:<tr></tr>
-          }
-          {
-            data? 
-              <tr>
-                <td data-label="Secondary"><small>Secondary</small></td>
-                <td data-label="subjects"><small>{`${data.secondarySubjects}`}</small></td>
-              </tr>:<tr></tr>
-          }
+          {data ? (
+            <tr>
+              <td data-label="Focus">
+                <small>Primary</small>
+              </td>
+              <td data-label="Subject">
+                <small>{data.primarySubject}</small>
+              </td>
+            </tr>
+          ) : (
+            <tr></tr>
+          )}
+          {data ? (
+            <tr>
+              <td data-label="Focus">
+                <small>Secondary</small>
+              </td>
+              <td data-label="subjects"><small>{`${data.secondarySubjects}`}</small></td>
+            </tr>
+          ) : (
+            <tr></tr>
+          )}
         </tbody>
       </table>
     </div>
