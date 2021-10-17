@@ -35,7 +35,7 @@ const ExtraQualifications = (props) => {
                   <small>{data.courseTitle}</small>
                 </td>
                 <td data-label="Duration">
-                  <small>{data.duration}</small>
+                  <small>{data.duration} days</small>
                 </td>
                 <td data-label="Passing Year">
                   <small>{data.year}</small>

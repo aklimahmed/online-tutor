@@ -4,6 +4,7 @@ import { classes } from "../../jsonData/Classes";
 import { curriculum } from "../../jsonData/Curriculum";
 import { useDispatch } from "react-redux";
 import { teachesAndFeesForm } from "../../actions/tutorActions";
+import { currency } from "../../jsonData/Currency";
 
 const TeachesAndFees = () => {
   const dispatch = useDispatch();
@@ -13,6 +14,7 @@ const TeachesAndFees = () => {
       id: uuidv4(),
       curriculum: "",
       class: "",
+      currency: "",
       batch: 0,
       single: 0,
     },
@@ -63,6 +65,7 @@ const TeachesAndFees = () => {
           <tr>
             <th rowSpan="2">Curriculum</th>
             <th rowSpan="2">Class</th>
+            <th rowSpan="2">Currency</th>
             <th colSpan="2" scope="col">
               Fess per hour/session
             </th>
@@ -94,7 +97,6 @@ const TeachesAndFees = () => {
               </td>
               <td data-label="Class">
                 <select
-                  id="Select"
                   className="form-select"
                   name="class"
                   value={inputField.class}
@@ -103,6 +105,19 @@ const TeachesAndFees = () => {
                   <option style={{ display: "none" }}>Select Class</option>
                   {classes.map((val) => (
                     <option key={val.class} value={val.class}>{val.class}</option>
+                  ))}
+                </select>
+              </td>
+              <td data-label="Currency">
+                <select
+                  className="form-select"
+                  name="currency"
+                  value={inputField.currency}
+                  onChange={(event) => handleChangeInput(inputField.id, event)}
+                >
+                  <option style={{ display: "none" }}>Select Currency</option>
+                  {currency.map((val) => (
+                    <option key={val.currency} value={val.currency}>{val.currency}</option>
                   ))}
                 </select>
               </td>

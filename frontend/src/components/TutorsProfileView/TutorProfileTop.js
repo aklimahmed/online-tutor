@@ -24,10 +24,6 @@ const TutorProfileTop = () => {
             </p>
             <small>1002 followers</small>
           </div>
-          <div className="class_fee_button">
-            <h5 className="zero_title">120</h5>
-            <small className="zero_des">BDT/HR</small>
-          </div>
         </div>
         <div>
           <h4 className="teacher_name">

@@ -69,7 +69,7 @@ const ExtraQualifications = () => {
               <Form.Label>Course Title :</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Enter course title"
+                placeholder="Teaching Strategies"
                 name="courseTitle"
                 value={inputField.courseTitle}
                 onChange={(event) => handleChangeInput(inputField.id, event)}
@@ -81,7 +81,7 @@ const ExtraQualifications = () => {
               <Form.Label>Duration (in days) :</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Enter duration"
+                placeholder="e.g: 10"
                 name="duration"
                 value={inputField.duration}
                 onChange={(event) => handleChangeInput(inputField.id, event)}
@@ -93,7 +93,7 @@ const ExtraQualifications = () => {
               <Form.Label>Year :</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Enter Year"
+                placeholder="e.g: 2021"
                 name="year"
                 value={inputField.year}
                 onChange={(event) => handleChangeInput(inputField.id, event)}
@@ -105,7 +105,7 @@ const ExtraQualifications = () => {
               <Form.Label>Institute :</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Enter Institute Name"
+                placeholder="e.g: Teachers' Training Institute"
                 name="institute"
                 value={inputField.institute}
                 onChange={(event) => handleChangeInput(inputField.id, event)}

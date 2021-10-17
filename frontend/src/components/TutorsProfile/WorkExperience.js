@@ -64,7 +64,7 @@ const WorkExperience = () => {
               <Form.Label>Institute Name :</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Enter Institute Name"
+                placeholder="e.g: Dhaka City College"
                 name="institute"
                 value={inputField.institute}
                 onChange={(event) => handleChangeInput(inputField.id, event)}
@@ -76,7 +76,7 @@ const WorkExperience = () => {
               <Form.Label>Designation :</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Enter Designation"
+                placeholder="e.g: Assistant Teacher"
                 name="designation"
                 value={inputField.designation}
                 onChange={(event) => handleChangeInput(inputField.id, event)}
@@ -88,7 +88,7 @@ const WorkExperience = () => {
               <Form.Label>Period :</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Enter Year"
+                placeholder="e.g: 2019 - 2021"
                 name="period"
                 onChange={(event) => handleChangeInput(inputField.id, event)}
               />

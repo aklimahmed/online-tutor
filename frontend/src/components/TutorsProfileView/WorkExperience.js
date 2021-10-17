@@ -38,7 +38,7 @@ const WorkExperience = (props) => {
                   <small>{data.designation}</small>
                 </td>
                 <td data-label="Period">
-                  <small>{data.period} days</small>
+                  <small>{data.period}</small>
                 </td>
                 <td data-label="Verification">
                   <small>Verified</small>

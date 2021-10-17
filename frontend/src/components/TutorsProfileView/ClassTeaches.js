@@ -43,10 +43,10 @@ const ClassTeaches = (props) => {
                     <small>{data.class}</small>
                   </td>
                   <td data-label="Batch/Group">
-                    <small>{data.batch} TK</small>
+                    <small>{data.batch} {data.currency}</small>
                   </td>
                   <td data-label="One-on-One">
-                    <small>{data.single} TK</small>
+                    <small>{data.single} {data.currency}</small>
                   </td>
                 </tr>
               ))

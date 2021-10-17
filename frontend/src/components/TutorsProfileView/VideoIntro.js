@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const VideoIntro = () => {
   return (
-    <div>
+    <div className="sticky-top">
       <div className="video_intro_main">
         <h6 className="intro_title pt-1">My Video</h6>
         <iframe
