@@ -20,7 +20,7 @@ const Qualifications = (props) => {
               <small>Degree</small>
             </th>
             <th>
-              <small>Subject (Major)</small>
+              <small>Group / Major</small>
             </th>
             <th>
               <small>Passing Year</small>

@@ -1,5 +1,5 @@
 import { React, useState, useEffect } from "react";
-import { FaCheck } from "react-icons/fa";
+import { FcCheckmark } from "react-icons/fc";
 
 const GeneralAvailability = (props) => {
   const [data, setData] = useState([]);
@@ -45,28 +45,30 @@ const GeneralAvailability = (props) => {
             data.map((data) => (
               <tr key={data.id}>
                 <td data-label="Time">
-                  <small>{data.from} - {data.to}</small>
+                  <small>
+                    {data.from} - {data.to}
+                  </small>
                 </td>
                 <td data-label="Sat">
-                  {data.sat === true ? (<FaCheck />): <>&nbsp;</>}
+                  {data.sat === true ? <FcCheckmark /> : <>&nbsp;</>}
                 </td>
                 <td data-label="Sun">
-                  {data.sun === true ? (<FaCheck />): <>&nbsp;</>}
+                  {data.sun === true ? <FcCheckmark /> : <>&nbsp;</>}
                 </td>
                 <td data-label="Mon">
-                  {data.mon === true ? (<FaCheck />): <>&nbsp;</>}
+                  {data.mon === true ? <FcCheckmark /> : <>&nbsp;</>}
                 </td>
                 <td data-label="Tue">
-                  {data.tue === true ? (<FaCheck />): <>&nbsp;</>}
+                  {data.tue === true ? <FcCheckmark /> : <>&nbsp;</>}
                 </td>
                 <td data-label="Wed">
-                  {data.wed === true ? (<FaCheck />): <>&nbsp;</>}
+                  {data.wed === true ? <FcCheckmark /> : <>&nbsp;</>}
                 </td>
                 <td data-label="Thu">
-                  {data.thu === true ? (<FaCheck />): <>&nbsp;</>}
+                  {data.thu === true ? <FcCheckmark /> : <>&nbsp;</>}
                 </td>
                 <td data-label="Fri">
-                  {data.fri === true ? (<FaCheck />): <>&nbsp;</>}
+                  {data.fri === true ? <FcCheckmark /> : <>&nbsp;</>}
                 </td>
               </tr>
             ))

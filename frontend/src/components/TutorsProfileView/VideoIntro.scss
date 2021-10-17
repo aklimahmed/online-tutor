@@ -1,0 +1,100 @@
+.intro_title {
+  color: #ff7d48;
+}
+
+.video_intro_main {
+  width: 85%;
+  background-color: #e7e7e7;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 5%;
+  padding-right: 5%;
+  border-radius: 5px;
+  margin-top: 21%;
+}
+
+.video {
+  height: 180px;
+  width: 100%;
+}
+
+.class_list {
+  margin-top: 10%;
+  background-color: #ffffff;
+  padding: 2% 3% 2%;
+  border-radius: 10px;
+}
+
+.link_style {
+  text-decoration: none;
+  color: #000000;
+}
+
+.enroll_button {
+  margin-top: 20%;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 10%;
+}
+
+.btn-enroll {
+  background-color: #ff7d48;
+  border-color: #ff7d48;
+  color: white;
+  font-size: 0.8rem;
+  padding-top: 0.55rem;
+  font-weight: 600;
+  width: 8rem;
+  border-radius: 10px;
+}
+
+.btn-enroll:hover {
+  color: white;
+}
+
+.btn-message {
+  background-color: #008593;
+  border-color: #707070;
+  color: white;
+  font-size: 0.8rem;
+  padding-top: 0.55rem;
+  font-weight: 600;
+  width: 8rem;
+  border-radius: 10px;
+}
+
+.btn-message:hover {
+  color: white;
+}
+.trail_lesson {
+  width: 85%;
+  background-color: #e7e7e7;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 5%;
+  padding-right: 5%;
+  border-radius: 5px;
+  margin-top: 10%;
+  border: #707070;
+}
+
+.cost{
+    font-weight: 700;
+}
+
+.free_class_button{
+    text-align: center;
+    width: 25%;
+    background-color: #494949;
+    border-color: #707070;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.zero_title{
+    color:#FF7D48;
+    font-weight: 800;
+    font-size: 1.5rem;
+    margin-bottom: 0px;
+}
