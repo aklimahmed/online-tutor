@@ -1,0 +1,5 @@
+export const COURSE_FORM_REQUEST = "COURSE_FORM_REQUEST";
+export const COURSE_FORM_SUCCESS = "COURSE_FORM_SUCCESS";
+export const COURSE_FORM_FAIL = "COURSE_FORM_FAIL";
+
+export const COURSE_BY_TUTOR = "SET_CourseByTutor";
