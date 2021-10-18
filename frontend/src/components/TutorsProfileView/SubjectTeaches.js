@@ -8,8 +8,6 @@ const SubjectTeaches = (props) => {
   }, [props]);
 
   const subject = data ? data.secondarySubjects : "";
-  console.log(subject);
-
   return (
     <div className="mt-5">
       <h5 className="qtext">Subject Teaches</h5>

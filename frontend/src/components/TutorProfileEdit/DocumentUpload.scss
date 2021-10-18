@@ -1,0 +1,38 @@
+@import "../../style/Color.scss";
+@import "../../style/FontSize.scss";
+
+.click-for-upload {
+  font-size: $clickUpload;
+  text-align: center;
+  font-weight: $boldValue;
+  color: $UploadText;
+  cursor: pointer;
+  bottom: 2px;
+}
+.card-header {
+  font-size: 13px;
+  text-align: center;
+  font-weight: bold;
+  color: #6b6b6b;
+}
+
+.instruction-text {
+  text-align: center;
+  font-size: 15px;
+  color: $InstructionClickUpload;
+}
+
+.text-regular{
+  font-weight: 500;
+}
+
+.video_url_label {
+  padding-top: 4px;
+  padding-bottom: 6px;
+}
+
+@media screen and (max-width: 600px) {
+  .card-align {
+      margin-bottom: 30px;
+  }
+}

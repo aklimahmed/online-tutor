@@ -6,19 +6,31 @@ import { useDispatch } from "react-redux";
 import { teachesAndFeesForm } from "../../actions/tutorActions";
 import { currency } from "../../jsonData/Currency";
 
-const TeachesAndFees = () => {
+const TeachesAndFees = (props) => {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    setData(props.teachesAndFess);
+  }, [props]);
+
+  useEffect(() => {
+    data
+      ? setTeachesAndFees(data)
+      : setTeachesAndFees([
+          {
+            id: uuidv4(),
+            curriculum: "",
+            class: "",
+            currency: "BDT",
+            batch: 0,
+            single: 0,
+          },
+        ]);
+  }, [data]);
+
   const dispatch = useDispatch();
 
-  const [TeachesAndFees, setTeachesAndFees] = useState([
-    {
-      id: uuidv4(),
-      curriculum: "",
-      class: "",
-      currency: "BDT",
-      batch: 0,
-      single: 0,
-    },
-  ]);
+  const [TeachesAndFees, setTeachesAndFees] = useState([]);
   const handleChangeInput = (id, event) => {
     const newTeachesAndFees = TeachesAndFees.map((i) => {
       if (id === i.id) {
@@ -36,11 +48,11 @@ const TeachesAndFees = () => {
       ...TeachesAndFees,
       {
         id: uuidv4(),
-      curriculum: "",
-      class: "",
-      currency: "BDT",
-      batch: 0,
-      single: 0,
+        curriculum: "",
+        class: "",
+        currency: "BDT",
+        batch: 0,
+        single: 0,
       },
     ]);
   };
@@ -92,7 +104,9 @@ const TeachesAndFees = () => {
                 >
                   <option style={{ display: "none" }}>Select Curriculum</option>
                   {curriculum.map((curr) => (
-                    <option key={curr.curriculum} value={curr.curriculum}>{curr.curriculum}</option>
+                    <option key={curr.curriculum} value={curr.curriculum}>
+                      {curr.curriculum}
+                    </option>
                   ))}
                 </select>
               </td>
@@ -105,7 +119,9 @@ const TeachesAndFees = () => {
                 >
                   <option style={{ display: "none" }}>Select Class</option>
                   {classes.map((val) => (
-                    <option key={val.class} value={val.class}>{val.class}</option>
+                    <option key={val.class} value={val.class}>
+                      {val.class}
+                    </option>
                   ))}
                 </select>
               </td>
@@ -118,7 +134,9 @@ const TeachesAndFees = () => {
                 >
                   <option style={{ display: "none" }}>Select Currency</option>
                   {currency.map((val) => (
-                    <option key={val.currency} value={val.currency}>{val.currency}</option>
+                    <option key={val.currency} value={val.currency}>
+                      {val.currency}
+                    </option>
                   ))}
                 </select>
               </td>
@@ -127,6 +145,7 @@ const TeachesAndFees = () => {
                   className="form-control"
                   type="number"
                   name="batch"
+                  value={inputField.batch === 0 ? "" : inputField.batch} 
                   placeholder="Enter Amount e.g 120"
                   onChange={(event) => handleChangeInput(inputField.id, event)}
                 />
@@ -137,6 +156,7 @@ const TeachesAndFees = () => {
                   type="number"
                   placeholder="Enter Amount e.g 350"
                   name="single"
+                  value={inputField.batch === 0 ? "" : inputField.single} 
                   onChange={(event) => handleChangeInput(inputField.id, event)}
                 />
               </td>

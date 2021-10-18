@@ -8,6 +8,13 @@ const GeneralAvailability = (props) => {
     setData(props.WeeklyTime);
   }, [props]);
 
+  const setTime = (val) => {
+    const [h, m] = val.split(":");
+    return(
+      `${(h % 12) + 12 * (h % 12 === 0)}:${m} ${h >= 12 ? "PM" : "AM"}`
+    );
+  };
+
   return (
     <div className="mt-5">
       <h5 className="qtext">General Availability</h5>
@@ -46,7 +53,7 @@ const GeneralAvailability = (props) => {
               <tr key={data.id}>
                 <td data-label="Time">
                   <small>
-                    {data.from} - {data.to}
+                    {setTime(data.from)} - {setTime(data.to)}
                   </small>
                 </td>
                 <td data-label="Sat">

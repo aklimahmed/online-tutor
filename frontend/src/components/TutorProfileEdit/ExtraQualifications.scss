@@ -1,0 +1,60 @@
+@import "../../style/Color.scss";
+
+.close_button {
+  margin-top: 35px;
+}
+
+@media screen and (max-width: 600px) {
+  .close_button {
+    margin-top: 35px;
+    margin-left: 10px;
+  }
+  .form-group {
+    width: 100%;
+  }
+}
+
+@media all and (device-width: 768px) and (device-height: 1024px) {
+  .flex-col1 {
+    width: 40% !important;
+  }
+  .flex-col2 {
+    width: 30% !important;
+  }
+  .flex-col {
+    width: 50% !important;
+  }
+  .form-group {
+    width: 100% !important;
+  }
+}
+
+@media only screen and (min-device-width: 1024px) and (max-device-width: 600px) {
+  .flex-col1 {
+    width: 40% !important;
+  }
+  .flex-col2 {
+    width: 30% !important;
+  }
+  .flex-col {
+    width: 50% !important;
+  }
+  .form-group {
+    width: 100% !important;
+  }
+}
+
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) {
+  .flex-col1 {
+    width: 40% !important;
+  }
+  .flex-col2 {
+    width: 30% !important;
+  }
+  .flex-col {
+    width: 50% !important;
+  }
+  .form-group {
+    width: 100% !important;
+  }
+}

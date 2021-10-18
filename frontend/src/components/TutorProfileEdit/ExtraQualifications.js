@@ -5,18 +5,26 @@ import { useDispatch} from "react-redux";
 import "./ExtraQualifications.scss";
 import { extraQualificationForm } from "../../actions/tutorActions";
 
-const ExtraQualifications = () => {
+const ExtraQualifications = (props) => {
 
-  const [input, setInput] = useState([
-    {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    setData(props.exQualification);
+  }, [props]);
+
+  useEffect(() => {
+    data ? setInput(data): setInput([{
       id: uuidv4(),
       courseTitle: "",
       duration: 0,
       year: 0,
       institute: "",
       status: "",
-    },
-  ]);
+    }])
+  }, [data]);
+
+  const [input, setInput] = useState([]);
   const handleChangeInput = (id, event) => {
     const newinput = input.map((i) => {
       if (id === i.id) {
@@ -122,6 +130,7 @@ const ExtraQualifications = () => {
               <select
                 className="form-select"
                 name="status"
+                value={inputField.status}
                 onChange={(event) => handleChangeInput(inputField.id, event)}
               >
                 <option style={{ display: "none" }}>Select status</option>

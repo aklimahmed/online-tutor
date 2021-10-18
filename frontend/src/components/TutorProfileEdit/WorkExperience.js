@@ -3,7 +3,23 @@ import { Col, Form, Row } from "react-bootstrap";
 import { v4 as uuidv4 } from "uuid";
 import { useDispatch } from "react-redux";
 import { WorkExperienceForm } from "../../actions/tutorActions";
-const WorkExperience = () => {
+const WorkExperience = (props) => {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    setData(props.woExperience);
+  }, [props]);
+
+  useEffect(() => {
+    data ? setWorkExperience(data): setWorkExperience([{
+      id: uuidv4(),
+      institute: "",
+      designation: "",
+      period: "",
+      status: "",
+    }])
+  }, [data]);
+
   const dispatch = useDispatch();
 
   const [WorkExperience, setWorkExperience] = useState([
@@ -102,10 +118,11 @@ const WorkExperience = () => {
                 <select
                   className="form-select"
                   name="status"
+                  value={inputField.status}
                   onChange={(event) => handleChangeInput(inputField.id, event)}
                 >
                   <option style={{ display: "none", color: "white" }}>
-                    Select status
+                  Select status
                   </option>
                   <option>completed</option>
                   <option>on going</option>

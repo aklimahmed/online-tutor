@@ -8,6 +8,7 @@ const VideoIntro = () => {
       <div className="video_intro_main">
         <h6 className="intro_title pt-1">My Video</h6>
         <iframe
+          title="Video Intro"
           className="video"
           src="https://www.youtube.com/embed/tgbNymZ7vqY"
         ></iframe>
@@ -41,8 +42,8 @@ const VideoIntro = () => {
             </p>
           </div>
           <div className="free_class_button">
-              <h5 className="zero_title">0</h5>
-              <small className="zero_des">BDT/HR</small>
+            <h5 className="zero_title">0</h5>
+            <small className="zero_des">BDT/HR</small>
           </div>
         </div>
       </div>
