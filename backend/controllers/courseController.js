@@ -4,15 +4,14 @@ import Course from './../models/courseModel.js';
 const createCourse = asyncHandler(async (req, res) => {
     const { tutor, courseByTutor
     } = req.body
-     
-  
+
     const course = await Course.create({
-        tutor, courseByTutor
+      tutor, courseByTutor
     })
   
     if (course) {
       res.status(201).json({
-        tutor: course.user,
+        tutor: course.tutor,
         courseByTutor: course.courseByTutor
       })
     } else {

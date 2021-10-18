@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Row, Col, Card, Container, Form, Button } from "react-bootstrap";
 import "./CreateNewCourse.scss";
 import { MultiSelect } from "react-multi-select-component";
@@ -7,12 +8,13 @@ import { classes } from "../../jsonData/Classes";
 import { subjects} from "../../jsonData/Subjects";
 import { numberOfStudents, numberOfStudentsInFreeClass } from "../../jsonData/NumberOfStudents"
 import { classDays } from "../../jsonData/ClassDays"
-import { classDuration } from "../../jsonData/classDuration"
+import { classDuration } from "../../jsonData/classDuration";
+import { courseByTutorForm } from "./../../actions/courseActions"
 
 const CreateNewCourse = () => {
   const [classDay, setClassDay] = useState([]);
 
-  const [createNewCourse, setCreateNewCourse] = useState({
+  const [courseByTutor, SetCourseByTutor] = useState({
       classTypes: "",
       curriculum: "",
       classLevel: "",
@@ -30,25 +32,33 @@ const CreateNewCourse = () => {
       courseVideoUrl: ""
   })
 
-  console.log(createNewCourse)
+  console.log(courseByTutor)
 
   const handleBlur = (event) => {
-    const newCreateNewCourse = { ...createNewCourse };
-    newCreateNewCourse[event.target.name] = event.target.value;
-    setCreateNewCourse(newCreateNewCourse);
+    const newCourseByTutor = { ...courseByTutor };
+    newCourseByTutor[event.target.name] = event.target.value;
+    SetCourseByTutor(newCourseByTutor);
   };
 
   useEffect(() => {
-    createNewCourse.classDay = [];
+    courseByTutor.classDay = [];
     const hold = [...classDay];
-    hold.map((data) => createNewCourse.classDay.push(data.value));
+    hold.map((data) => courseByTutor.classDay.push(data.value));
   });
+
+  const dispatch = useDispatch();
+
+  useEffect(() => { 
+    dispatch(courseByTutorForm(courseByTutor));
+  });
+
 
 
 
 
   return (
     <Container className="course-add-container">
+      
       <Row>
       <Col md={4} className="columns">
           <Form.Group className="mb-3 card-align" controlId="formBasicDistrict">
@@ -126,7 +136,7 @@ const CreateNewCourse = () => {
             
               <option style={{ display: "none" }}>No of Students</option>
 
-              {createNewCourse.classTypes === "Free Class" ? 
+              {courseByTutor.classTypes === "Free Class" ? 
             <>
             {numberOfStudentsInFreeClass.map((d) => (
               <option key={d.numberOfStudents} value={d.numberOfStudents}>
@@ -217,7 +227,7 @@ const CreateNewCourse = () => {
           </Form.Group>
         </Col>
       </Row>
-      {createNewCourse.classTypes === "Free Class" ? '' : 
+      {courseByTutor.classTypes === "Free Class" ? '' : 
       <Row style={{ paddingTop: "15px" }}>
       <Col md={1}><label style={{paddingTop: '11px', paddingRight: '10px'}}>Fee:</label></Col>
       <Col md={3}>
@@ -257,7 +267,7 @@ const CreateNewCourse = () => {
       </Row>
       <Row>
         <Col md={6}>
-        <Card style={{ width: "100%", border: '1px solid #B8B8B8'}}>
+        <Card style={{ width: "100%",height:"140px", border: '1px solid #B8B8B8'}}>
             <Card.Header className="card-header">
               Attach a file (course plan/curriculum/syllabus)
             </Card.Header>
@@ -278,40 +288,23 @@ const CreateNewCourse = () => {
             </Card.Body>
           </Card>
         </Col>
-        <Col md={6} >
+        <Col md={6}>
+          <Card style={{ width: "100%",height:"140px", border: '1px solid #B8B8B8'}}>
         <Card.Header className="card-header">
         Add a video link:
             </Card.Header>
             <br />
-          <input
+          <input style={{width: "100%"}}
             className="form-control"
             onBlur={handleBlur}
             name="courseVideoUrl"
             type="url"
             placeholder="eg. www.youtube.com/kxYsdjkd"
           />
+          </Card>
         </Col>
       </Row>
       <br />
-      <Row>
-        <Col>
-          <div className="button-2" style={{ paddingLeft: "20px" }}>
-            <Button
-              type="submit"
-              style={{ float: "right", backgroundColor: "#008593" }}
-            >
-              SAVE
-            </Button>
-            <Button
-              variant="info"
-              type="submit"
-              style={{ float: "right", color: "#fff", marginRight: '20px'}}
-            >
-              RESET
-            </Button>
-          </div>
-        </Col>
-      </Row>
     </Container>
   );
 };

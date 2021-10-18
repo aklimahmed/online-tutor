@@ -43,7 +43,7 @@ export const createCourse = (tutor, courseByTutor) => async (dispatch) => {
     }
   }
 
-  export const courseByTutor = (info) => {
+  export const courseByTutorForm = (info) => {
     return {
         type: COURSE_BY_TUTOR,
         payload: info

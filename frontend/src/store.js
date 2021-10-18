@@ -47,7 +47,7 @@ const reducer = combineReducers({
   studentAcademicInfoForm: academicInfoReducer,
   studentExtraActivitiesForm: studentExtraActivitiesReducer,
   courseForm: courseFormReducer,
-  courseByTutor: courseByTutorReducer
+  courseByTutorForm: courseByTutorReducer
 });
 
 const userInfoFromStorage = localStorage.getItem('userInfo')

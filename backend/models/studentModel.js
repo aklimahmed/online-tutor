@@ -3,7 +3,9 @@ import mongoose from "mongoose";
 const studentSchema = mongoose.Schema(
   {
     user:{
-      type:String
+      type:String,
+      required: true,
+      unique: true
     },
     studentBasic: {
       type: Object
