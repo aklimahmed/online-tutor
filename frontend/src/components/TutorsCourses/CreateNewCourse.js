@@ -1,33 +1,72 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Row, Col, Card, Container, Form, Button } from "react-bootstrap";
 import "./CreateNewCourse.scss";
 import { MultiSelect } from "react-multi-select-component";
 import { curriculum } from "../../jsonData/Curriculum";
 import { classes } from "../../jsonData/Classes";
 import { subjects} from "../../jsonData/Subjects";
-import { numberOfStudents } from "../../jsonData/NumberOfStudents"
+import { numberOfStudents, numberOfStudentsInFreeClass } from "../../jsonData/NumberOfStudents"
 import { classDays } from "../../jsonData/ClassDays"
+import { classDuration } from "../../jsonData/classDuration"
 
 const CreateNewCourse = () => {
   const [classDay, setClassDay] = useState([]);
+
+  const [createNewCourse, setCreateNewCourse] = useState({
+      classTypes: "",
+      curriculum: "",
+      classLevel: "",
+      subject: "",
+      batchType: "",
+      noOfStudents: "",
+      classDuration: "",
+      classDay: [],
+      classStartDateAndTime: "",
+      classEndDateAndTime: "",
+      enrollDueDate: "",
+      tutionFee: 0,
+      feesTime: "",
+      courseDescription: "",
+      courseVideoUrl: ""
+  })
+
+  console.log(createNewCourse)
+
+  const handleBlur = (event) => {
+    const newCreateNewCourse = { ...createNewCourse };
+    newCreateNewCourse[event.target.name] = event.target.value;
+    setCreateNewCourse(newCreateNewCourse);
+  };
+
+  useEffect(() => {
+    createNewCourse.classDay = [];
+    const hold = [...classDay];
+    hold.map((data) => createNewCourse.classDay.push(data.value));
+  });
+
+
+
+
   return (
     <Container className="course-add-container">
       <Row>
       <Col md={4} className="columns">
           <Form.Group className="mb-3 card-align" controlId="formBasicDistrict">
-            <select className="form-select drop_down" name="presentDistrict">
+            <select className="form-select drop_down" 
+            name="classTypes"
+            onBlur={handleBlur}
+            >
               <option style={{ display: "none" }}>Select Class Types</option>
-              {curriculum.map((d) => (
-                <option key={curriculum.name} value={d.curriculum}>
-                  {d.curriculum}
-                </option>
-              ))}
+                <option>Free Class</option>
+                <option>Paid Class</option>
             </select>
           </Form.Group>
         </Col>
         <Col md={4} className="columns">
           <Form.Group className="mb-3 card-align" controlId="formBasicDistrict">
-            <select className="form-select drop_down" name="presentDistrict">
+            <select className="form-select drop_down" 
+            onBlur={handleBlur}
+            name="curriculum">
               <option style={{ display: "none" }}>Select Curriculum</option>
               {curriculum.map((d) => (
                 <option key={curriculum.name} value={d.curriculum}>
@@ -39,7 +78,9 @@ const CreateNewCourse = () => {
         </Col>
         <Col md={4} className="columns">
           <Form.Group className="mb-3 card-align" controlId="formBasicDistrict">
-            <select className="form-select drop_down" name="presentDistrict">
+            <select className="form-select drop_down" 
+            onBlur={handleBlur}
+            name="classLevel">
               <option style={{ display: "none" }}>Select Class</option>
               {classes.map((d) => (
                 <option key={d.class} value={d.class}>
@@ -50,15 +91,12 @@ const CreateNewCourse = () => {
           </Form.Group>
         </Col>
         </Row>
-        
-    
-     
-      
-
       <Row>
       <Col md={3} className="columns">
           <Form.Group className="mb-3 card-align" controlId="formBasicDistrict">
-            <select className="form-select drop_down" name="presentDistrict">
+            <select className="form-select drop_down" 
+            onBlur={handleBlur}
+            name="subject">
               <option style={{ display: "none" }}>Select Subject</option>
               {subjects.map((d) => (
                 <option key={d.value} value={d.value}>
@@ -70,7 +108,9 @@ const CreateNewCourse = () => {
         </Col>
         <Col md={3} className="columns">
           <Form.Group className="mb-3 card-align" controlId="formBasicDistrict" style={{width: "100%"}}>
-            <select className="form-select drop_down" name="presentDistrict">
+            <select className="form-select drop_down" 
+            onBlur={handleBlur}
+            name="batchType">
               <option style={{ display: "none" }}>Select Batch Type</option>
                 <option>Batch Class</option>
                 <option>One-to-One Class</option>
@@ -79,24 +119,44 @@ const CreateNewCourse = () => {
         </Col>
         <Col md={3} className="columns">
         <Form.Group className="mb-3" controlId="formBasicDistrict">
-            <select className="form-select drop_down" name="presentDistrict">
+            <select className="form-select drop_down" 
+            onBlur={handleBlur}
+            name="noOfStudents">
+
+            
               <option style={{ display: "none" }}>No of Students</option>
-              {numberOfStudents.map((d) => (
-                <option key={d.numberOfStudents} value={d.numberOfStudents}>
-                  {d.numberOfStudents}
-                </option>
-              ))}
+
+              {createNewCourse.classTypes === "Free Class" ? 
+            <>
+            {numberOfStudentsInFreeClass.map((d) => (
+              <option key={d.numberOfStudents} value={d.numberOfStudents}>
+                {d.numberOfStudents}
+              </option>
+            ))} 
+            </>
+            :
+            <>
+            {numberOfStudents.map((d) => (
+              <option key={d.numberOfStudents} value={d.numberOfStudents}>
+                {d.numberOfStudents}
+              </option>
+            ))}
+          </>
+          }
+
+              
             </select>
           </Form.Group>
-        
         </Col>
         <Col md={3} className="columns">
           <Form.Group className="mb-3" controlId="formBasicDistrict">
-            <select className="form-select drop_down" name="presentDistrict">
+            <select className="form-select drop_down" 
+            onBlur={handleBlur}
+            name="classDuration">
               <option style={{ display: "none" }}>Each Class Duration</option>
-              {curriculum.map((d) => (
-                <option key={curriculum.name} value={d.curriculum}>
-                  {d.curriculum}
+              {classDuration.map((d) => (
+                <option key={classDuration.value} value={d.value}>
+                  {d.value} Minutes
                 </option>
               ))}
             </select>
@@ -115,16 +175,14 @@ const CreateNewCourse = () => {
             />
           </Form.Group>
         </Col>
-      
-
-      
         <Col md={3} className="columns">
           <Form.Group>
             <Form.Label className="form_label">Class Start Date & Time</Form.Label>
             <input
               type="datetime-local"
               id="birthdaytime"
-              name="birthdaytime"
+              name="classStartDateAndTime"
+              onBlur={handleBlur}
               placeholder="enter date and time"
               className="form-control date-time-input"
             ></input>
@@ -136,7 +194,8 @@ const CreateNewCourse = () => {
             <input
               type="datetime-local"
               id="birthdaytime"
-              name="birthdaytime"
+              name="classEndDateAndTime"
+              onBlur={handleBlur}
               placeholder="enter date and time"
               className="form-control date-time-input"
             ></input>
@@ -150,56 +209,55 @@ const CreateNewCourse = () => {
               className="form-control"
               type="date"
               id="start"
-              name="birthDate"
+              name="enrollDueDate"
+              onBlur={handleBlur}
               min="2021-10-10"
               max="2025-10-10"
-              required
             ></input>
           </Form.Group>
         </Col>
       </Row>
+      {createNewCourse.classTypes === "Free Class" ? '' : 
       <Row style={{ paddingTop: "15px" }}>
-        <Col md={1}><label style={{paddingTop: '11px', paddingRight: '10px'}}>Fee:</label></Col>
-        <Col md={3}>
-          <Form.Group className="mb-3" controlId="formBasicFee">
-            <input
-              className="form-control"
-              name="tutionFee"
-              type="number"
-              placeholder="Enter amount e.g 100"
-            />
-          </Form.Group>
-        </Col>
-        <Col md={4}>
-          <Form.Group className="mb-3" controlId="formBasicDistrict">
-            <select className="form-select drop_down" name="presentDistrict">
-              <option>Per Hour</option>
-              <option>Per Month</option>
-              <option>Per Course</option>
-            </select>
-          </Form.Group>
-        </Col>
-        <Col md={4}>
-        <div className="d-flex">
-          <Form.Group className="mb-3" controlId="formBasicCheckbox">
-            <Form.Check
-              className="check-class"
-              type="checkbox"
-            />
-          </Form.Group>
-          
-          </div>
-        </Col>
-      </Row>
+      <Col md={1}><label style={{paddingTop: '11px', paddingRight: '10px'}}>Fee:</label></Col>
+      <Col md={3}>
+        <Form.Group className="mb-3" controlId="formBasicFee">
+          <input
+            className="form-control"
+            name="tutionFee"
+            onBlur={handleBlur}
+            type="number"
+            placeholder="Enter amount e.g 100"
+          />
+        </Form.Group>
+      </Col>
+      <Col md={4}>
+        <Form.Group className="mb-3" controlId="formBasicDistrict">
+          <select className="form-select drop_down"
+          onBlur={handleBlur} 
+          name="feesTime">
+            <option>Per Hour</option>
+            <option>Per Month</option>
+            <option>Per Course</option>
+          </select>
+        </Form.Group>
+      </Col>
+    </Row>
+      
+      
+      }
+      
       <Row>
         <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
           <Form.Label>Enter course description if any:</Form.Label>
-          <Form.Control as="textarea" rows={3} />
+          <Form.Control as="textarea" 
+          onBlur={handleBlur}
+          name="courseDescription" rows={3} />
         </Form.Group>
       </Row>
       <Row>
         <Col md={6}>
-        <Card style={{ width: "100%" }}>
+        <Card style={{ width: "100%", border: '1px solid #B8B8B8'}}>
             <Card.Header className="card-header">
               Attach a file (course plan/curriculum/syllabus)
             </Card.Header>
@@ -227,6 +285,8 @@ const CreateNewCourse = () => {
             <br />
           <input
             className="form-control"
+            onBlur={handleBlur}
+            name="courseVideoUrl"
             type="url"
             placeholder="eg. www.youtube.com/kxYsdjkd"
           />

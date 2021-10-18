@@ -30,3 +30,27 @@ export const numberOfStudents = [
         numberOfStudents: 10
     },
 ]
+
+export const numberOfStudentsInFreeClass = [
+    {
+        numberOfStudents: 1
+    },
+    {
+        numberOfStudents: 5
+    },    
+    {
+        numberOfStudents: 10
+    },
+    {
+        numberOfStudents: 15
+    },    
+    {
+        numberOfStudents: 20
+    },
+    {
+        numberOfStudents: 25
+    },
+    {
+        numberOfStudents: 30
+    }
+]
