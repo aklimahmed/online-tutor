@@ -27,7 +27,7 @@ const App = () => {
           <Route path='/tutorsdashboard/:id' component={TutorDashboard} />
           <Route path='/tutorsmessage/:id' component={TutorsMessage} />  
           <Route path='/studentsform/:id' component={StudentsForm} />
-          <Route path='/tutorscourses' component={TutorsCourses} />
+          <Route path='/course/tutor/:id' component={TutorsCourses} />
         </Container>
       </main>
      

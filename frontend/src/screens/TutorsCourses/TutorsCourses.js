@@ -3,6 +3,7 @@ import CreateNewCourse from '../../components/TutorsCourses/CreateNewCourse'
 import { useDispatch, useSelector } from "react-redux";
 import { Button, Container } from 'react-bootstrap'
 import { createCourse } from "../../actions/courseActions";
+import AllCourses from '../../components/TutorsCourses/AllCourses';
 
 const TutorsCourses = () => {
 
@@ -25,6 +26,7 @@ const TutorsCourses = () => {
 
     return (
         <Container>
+          <AllCourses />  
             <form onSubmit={handleCourseFormSubmit}>
             <CreateNewCourse />
             <div className="button-2" style={{ paddingLeft: "20px" }}>

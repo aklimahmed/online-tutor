@@ -12,6 +12,11 @@ import { classDuration } from "../../jsonData/classDuration";
 import { courseByTutorForm } from "./../../actions/courseActions"
 
 const CreateNewCourse = () => {
+
+  const monthNames = ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+  ];
+
   const [classDay, setClassDay] = useState([]);
 
   const [courseByTutor, SetCourseByTutor] = useState({
@@ -27,17 +32,31 @@ const CreateNewCourse = () => {
       classEndDateAndTime: "",
       enrollDueDate: "",
       tutionFee: 0,
-      feesTime: "",
+      feesTime: "Per Hour",
       courseDescription: "",
       courseVideoUrl: ""
   })
 
   console.log(courseByTutor)
 
+  const formateDateAndTime = (value) => {
+    const date = value.substring(0, 9)
+    const d = new Date(date);
+    let month = monthNames[d.getMonth()]
+    let dateAndTime ="T "+value[11]+value[12]+":"+value[14]+value[15]+ value[8]+value[9]+" "+month+" "+value[0]+value[1]+value[2]+value[3];
+    return dateAndTime;
+  }
+
   const handleBlur = (event) => {
     const newCourseByTutor = { ...courseByTutor };
+
+    if(event.target.name === "classStartDateAndTime" || event.target.name === "classEndDateAndTime"){
+      newCourseByTutor[event.target.name] = formateDateAndTime(event.target.value);
+      SetCourseByTutor(newCourseByTutor);
+    }else{
     newCourseByTutor[event.target.name] = event.target.value;
     SetCourseByTutor(newCourseByTutor);
+    }
   };
 
   useEffect(() => {
