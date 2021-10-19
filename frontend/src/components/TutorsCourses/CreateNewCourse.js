@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Row, Col, Card, Container, Form, Button } from "react-bootstrap";
+import { useDispatch } from "react-redux";
+import { Row, Col, Card, Container, Form } from "react-bootstrap";
 import "./CreateNewCourse.scss";
 import { MultiSelect } from "react-multi-select-component";
 import { curriculum } from "../../jsonData/Curriculum";
@@ -101,10 +101,10 @@ const CreateNewCourse = () => {
           </Form.Group>
         </Col>
         </Row>
-      <Row>
+      <Row className="d-flex justify-content-between">
       <Col md={3} className="columns">
           <Form.Group className="mb-3 card-align" controlId="formBasicDistrict">
-            <select className="form-select drop_down" 
+            <select className="form-select drop_down"
             onBlur={handleBlur}
             name="subject">
               <option style={{ display: "none" }}>Select Subject</option>
@@ -173,7 +173,7 @@ const CreateNewCourse = () => {
           </Form.Group>
         </Col>
         </Row>
-        <Row>
+        <Row className="d-flex justify-content-between">
         <Col md={3} className="columns">
           <Form.Group className="mb-3" controlId="formBasicLocalLanguage">
           <Form.Label className="form_label">Select Class Days</Form.Label>
@@ -294,7 +294,7 @@ const CreateNewCourse = () => {
         Add a video link:
             </Card.Header>
             <br />
-          <input style={{width: "100%"}}
+          <input
             className="form-control"
             onBlur={handleBlur}
             name="courseVideoUrl"
