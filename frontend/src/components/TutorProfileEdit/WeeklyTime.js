@@ -4,11 +4,16 @@ import "./WeeklyTime.scss";
 import { useDispatch } from "react-redux";
 import { weeklyTimeForm } from "./../../actions/tutorActions";
 
-const WeeklyTime = () => {
-  const dispatch = useDispatch();
+const WeeklyTime = (props) => {
 
-  const [WeeklyTime, setWeeklyTime] = useState([
-    {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    setData(props.WeeklyTime);
+  }, [props]);
+
+  useEffect(() => {
+    data ? setWeeklyTime(data): setWeeklyTime([{
       id: uuidv4(),
       from: "",
       to: "",
@@ -19,8 +24,12 @@ const WeeklyTime = () => {
       wed: false,
       thu: false,
       fri: false,
-    },
-  ]);
+    }])
+  }, [data]);
+
+  const dispatch = useDispatch();
+
+  const [WeeklyTime, setWeeklyTime] = useState([]);
 
   const handleChangeInput = (id, event) => {
     const newWeeklyTime = WeeklyTime.map((i) => {
@@ -100,6 +109,7 @@ const WeeklyTime = () => {
                   className="form-control"
                   type="time"
                   name="from"
+                  value={inputField.from}
                   onChange={(event) => handleChangeInput(inputField.id, event)}
                 />
               </td>
@@ -108,12 +118,14 @@ const WeeklyTime = () => {
                   className="form-control"
                   type="time"
                   name="to"
+                  value={inputField.to}
                   onChange={(event) => handleChangeInput(inputField.id, event)}
                 />
               </td>
               <td data-label="Sat">
                 <input
                   type="checkbox"
+                  checked={inputField.sat === true}
                   name="sat"
                   onChange={(event) => handleChangeInput(inputField.id, event)}
                 />
@@ -122,6 +134,7 @@ const WeeklyTime = () => {
                 <input
                   type="checkbox"
                   name="sun"
+                  checked={inputField.sun === true}
                   onChange={(event) => handleChangeInput(inputField.id, event)}
                 />
               </td>
@@ -129,6 +142,7 @@ const WeeklyTime = () => {
                 <input
                   type="checkbox"
                   name="mon"
+                  checked={inputField.mon === true}
                   onChange={(event) => handleChangeInput(inputField.id, event)}
                 />
               </td>
@@ -136,6 +150,7 @@ const WeeklyTime = () => {
                 <input
                   type="checkbox"
                   name="tue"
+                  checked={inputField.tue === true}
                   onChange={(event) => handleChangeInput(inputField.id, event)}
                 />
               </td>
@@ -143,6 +158,7 @@ const WeeklyTime = () => {
                 <input
                   type="checkbox"
                   name="wed"
+                  checked={inputField.wed === true}
                   onChange={(event) => handleChangeInput(inputField.id, event)}
                 />
               </td>
@@ -150,6 +166,7 @@ const WeeklyTime = () => {
                 <input
                   type="checkbox"
                   name="thu"
+                  checked={inputField.thu === true}
                   onChange={(event) => handleChangeInput(inputField.id, event)}
                 />
               </td>
@@ -157,6 +174,7 @@ const WeeklyTime = () => {
                 <input
                   type="checkbox"
                   name="fri"
+                  checked={inputField.fri === true}
                   onChange={(event) => handleChangeInput(inputField.id, event)}
                 />
               </td>

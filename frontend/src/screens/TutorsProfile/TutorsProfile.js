@@ -13,6 +13,7 @@ import VideoUpload from "../../components/TutorsProfile/VideoUpload";
 import DocumentsUpload from "../../components/TutorsProfile/DocumentsUpload";
 import { useDispatch, useSelector } from "react-redux";
 import { createTutor } from "./../../actions/tutorActions";
+import './TutorProfile.scss'
 
 const TutorsProfile = () => {
   const dispatch = useDispatch();
@@ -78,7 +79,7 @@ const TutorsProfile = () => {
       <DocumentsUpload />
       <VideoUpload />
       <div className="d-flex justify-content-center">
-        <button style={{width: "150px"}} className="btn btn-primary mt-3 mb-5" type="submit">
+        <button className="form_button" className="btn btn-primary mt-3 mb-5" type="submit">
           Submit
         </button>
       </div>

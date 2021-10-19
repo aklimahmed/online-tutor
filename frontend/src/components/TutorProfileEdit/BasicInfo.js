@@ -9,7 +9,34 @@ import { experience } from "../../jsonData/Experience";
 import { locallanguage } from "../../jsonData/LocalLanguage";
 import { basicInfoForm } from "./../../actions/tutorActions";
 
-const BasicInfo = () => {
+const BasicInfo = (props) => {
+
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    setData(props.basic);
+  }, [props]);
+
+
+  useEffect(() => {
+    data ? setLanguage(muliselectFetch(data.languages)) : setLanguage([]);
+    data ? setLocal(muliselectFetch(data.locallanguage)) : setLocal([]);
+  }, [data]);
+
+  const muliselectFetch = (data) => {
+    const arr = [];
+    if (data) {
+      data.map((data) =>
+        arr.push({
+          value: data,
+          label: data,
+        })
+      );
+    }
+
+    return(arr);
+  };
+
   const [local, setLocal] = useState([]);
 
   const [language, setLanguage] = useState([]);
@@ -60,6 +87,7 @@ const BasicInfo = () => {
             <input
               onBlur={handleBlur}
               name="tutorsName"
+              defaultValue={data ? data.tutorsName : ""}
               className="form-control"
               type="text"
               placeholder="Aklim Ahmed" 
@@ -71,6 +99,7 @@ const BasicInfo = () => {
             <input
               onBlur={handleBlur}
               name="phone"
+              defaultValue={data ? data.phone : ""}
               className="form-control"
               type="tel"
               placeholder="+8801836765672"
@@ -84,7 +113,7 @@ const BasicInfo = () => {
               className="form-select"
               name="gender"
             >
-              <option style={{ display: "none" }}>Select Gender</option>
+              <option style={{ display: "none" }}>{data ? data.gender : "Select Gender"}</option>
               <option value="Male">Male</option>
               <option value="Female">Female</option>
               <option value="Other">Other</option>
@@ -97,8 +126,8 @@ const BasicInfo = () => {
               onBlur={handleBlur}
               className="form-control"
               type="date"
-              id="start"
               name="birthDate"
+              defaultValue={data ? data.birthDate : ""}
               min="1901-01-01"
               max="2015-12-31"
               required
@@ -114,7 +143,7 @@ const BasicInfo = () => {
               className="form-select"
               name="presentDistrict"
             >
-              <option style={{ display: "none" }}>Select district name</option>
+              <option style={{ display: "none" }}>{data ? data.presentDistrict : "Select district name"}</option>
               {presentdistrict.map((d) => (
                 <option key={d.name} value={d.name}>{d.name}</option>
               ))}
@@ -129,7 +158,7 @@ const BasicInfo = () => {
               name="experience"
             >
               <option style={{ display: "none" }}>
-                Select total years of teaching experience
+              {data ? data.experience : "Select total years of teaching experience"}
               </option>
               {experience.map((e) => (
                 <option key={e.year} value={e.year}>{e.year}</option>
