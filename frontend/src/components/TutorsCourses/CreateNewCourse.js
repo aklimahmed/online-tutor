@@ -38,25 +38,50 @@ const CreateNewCourse = () => {
   })
 
   console.log(courseByTutor)
+  // 2021-12-01T21:00
+  // const formateDateAndTime = (value) => {
+  //   const date = value.substring(0, 9)
+  //   const d = new Date(date);
+  //   let month = monthNames[d.getMonth()]
+  //   let formattedTime = "";
+  //   if(value[11] === "1" && value[12] === "3"){
+  //     formattedTime = "PM 01:"+value[14]+value[15]+" ";
+  //   }else if(value[11] === "1" && value[12] === "4"){
+  //     formattedTime = "PM 02:"+value[14]+value[15]+" ";
+  //   }else if(value[11] === "1" && value[12] === "5"){
+  //     formattedTime = "PM 03:"+value[14]+value[15]+" ";
+  //   }else if(value[11] === "1" && value[12] === "6"){
+  //     formattedTime = "PM 04:"+value[14]+value[15]+" ";
+  //   }else if(value[11] === "1" && value[12] === "7"){
+  //     formattedTime = "PM 05:"+value[14]+value[15]+" ";
+  //   }else if(value[11] === "1" && value[12] === "8"){
+  //     formattedTime = "PM 06:"+value[14]+value[15]+" ";
+  //   }else if(value[11] === "1" && value[12] === "9"){
+  //     formattedTime = "PM 07:"+value[14]+value[15]+" ";
+  //   }else if(value[11] === "2" && value[12] === "0"){
+  //     formattedTime = "PM 08:"+value[14]+value[15]+" ";
+  //   }else if(value[11] === "2" && value[12] === "1"){
+  //     formattedTime = "PM 09:"+value[14]+value[15]+" ";
+  //   }else if(value[11] === "2" && value[12] === "2"){
+  //     formattedTime = "PM 10:"+value[14]+value[15]+" ";
+  //   }else if(value[11] === "2" && value[12] === "3"){
+  //     formattedTime = "PM 11:"+value[14]+value[15]+" ";
+  //   }else if(value[11] === "0" && value[12] === "0"){
+  //     formattedTime = "AM 12:"+value[14]+value[15]+" ";
+  //   }else {
+  //     formattedTime = "AM "+value[11]+value[12]+":"+value[14]+value[15];
+  //   }
 
-  const formateDateAndTime = (value) => {
-    const date = value.substring(0, 9)
-    const d = new Date(date);
-    let month = monthNames[d.getMonth()]
-    let dateAndTime ="T "+value[11]+value[12]+":"+value[14]+value[15]+ value[8]+value[9]+" "+month+" "+value[0]+value[1]+value[2]+value[3];
-    return dateAndTime;
-  }
+  //   // value[11]+value[12]+":"+value[14]+value[15] 
+
+  //   let dateAndTime = formattedTime+value[8]+value[9]+" "+month+" "+value[0]+value[1]+value[2]+value[3];
+  //   return dateAndTime;
+  // }
 
   const handleBlur = (event) => {
     const newCourseByTutor = { ...courseByTutor };
-
-    if(event.target.name === "classStartDateAndTime" || event.target.name === "classEndDateAndTime"){
-      newCourseByTutor[event.target.name] = formateDateAndTime(event.target.value);
-      SetCourseByTutor(newCourseByTutor);
-    }else{
     newCourseByTutor[event.target.name] = event.target.value;
     SetCourseByTutor(newCourseByTutor);
-    }
   };
 
   useEffect(() => {
@@ -70,11 +95,7 @@ const CreateNewCourse = () => {
   useEffect(() => { 
     dispatch(courseByTutorForm(courseByTutor));
   });
-
-
-
-
-
+  
   return (
     <Container className="course-add-container">
       

@@ -4,7 +4,7 @@ import axios from 'axios'
 import { BsFillEyeFill } from 'react-icons/bs'
 import { FaEdit } from 'react-icons/fa'
 import { AiFillDelete } from 'react-icons/ai'
-// /${id}
+
 const AllCourses = () => {
 
     const [fetchCourseDetails, setFetchCourseDetails] = useState([]);
@@ -81,14 +81,68 @@ const AllCourses = () => {
                 </td>
                 <td data-label="Start Date & Time">
                   <small>
-                  {data.courseByTutor.classStartDateAndTime.substring(7, data.courseByTutor.classStartDateAndTime.length)}
-                  {" "+data.courseByTutor.classStartDateAndTime[2]+data.courseByTutor.classStartDateAndTime[3]+data.courseByTutor.classStartDateAndTime[4]+data.courseByTutor.classStartDateAndTime[5]+data.courseByTutor.classStartDateAndTime[6]}
+                  {data.courseByTutor.classStartDateAndTime[8]+data.courseByTutor.classStartDateAndTime[9]+"/"+data.courseByTutor.classStartDateAndTime[5]+data.courseByTutor.classStartDateAndTime[6]+"/"+data.courseByTutor.classStartDateAndTime.substring(0,4)+" "}
+                  {data.courseByTutor.classStartDateAndTime[11]+data.courseByTutor.classStartDateAndTime[12] === "12" ?
+                   "12:"+data.courseByTutor.classStartDateAndTime[14]+data.courseByTutor.classStartDateAndTime[15]+" PM" : 
+                   data.courseByTutor.classStartDateAndTime[11]+data.courseByTutor.classStartDateAndTime[12] === "13" ? 
+                   "01:"+data.courseByTutor.classStartDateAndTime[14]+data.courseByTutor.classStartDateAndTime[15]+" PM" : 
+                   data.courseByTutor.classStartDateAndTime[11]+data.courseByTutor.classStartDateAndTime[12] === "14" ? 
+                   "02:"+data.courseByTutor.classStartDateAndTime[14]+data.courseByTutor.classStartDateAndTime[15]+" PM" :
+                   data.courseByTutor.classStartDateAndTime[11]+data.courseByTutor.classStartDateAndTime[12] === "15" ?
+                    "03:"+data.courseByTutor.classStartDateAndTime[14]+data.courseByTutor.classStartDateAndTime[15]+" PM" :
+                    data.courseByTutor.classStartDateAndTime[11]+data.courseByTutor.classStartDateAndTime[12] === "16" ?
+                     "04:"+data.courseByTutor.classStartDateAndTime[14]+data.courseByTutor.classStartDateAndTime[15]+" PM" :
+                     data.courseByTutor.classStartDateAndTime[11]+data.courseByTutor.classStartDateAndTime[12] === "17" ?
+                      "05:"+data.courseByTutor.classStartDateAndTime[14]+data.courseByTutor.classStartDateAndTime[15]+" PM" :
+                      data.courseByTutor.classStartDateAndTime[11]+data.courseByTutor.classStartDateAndTime[12] === "18" ?
+                       "06:"+data.courseByTutor.classStartDateAndTime[14]+data.courseByTutor.classStartDateAndTime[15]+" PM" :
+                       data.courseByTutor.classStartDateAndTime[11]+data.courseByTutor.classStartDateAndTime[12] === "19" ?
+                       "07:"+data.courseByTutor.classStartDateAndTime[14]+data.courseByTutor.classStartDateAndTime[15]+" PM" :
+                       data.courseByTutor.classStartDateAndTime[11]+data.courseByTutor.classStartDateAndTime[12] === "20" ?
+                       "08:"+data.courseByTutor.classStartDateAndTime[14]+data.courseByTutor.classStartDateAndTime[15]+" PM" :
+                       data.courseByTutor.classStartDateAndTime[11]+data.courseByTutor.classStartDateAndTime[12] === "21" ?
+                       "09:"+data.courseByTutor.classStartDateAndTime[14]+data.courseByTutor.classStartDateAndTime[15]+" PM" :
+                       data.courseByTutor.classStartDateAndTime[11]+data.courseByTutor.classStartDateAndTime[12] === "22" ?
+                       "10:"+data.courseByTutor.classStartDateAndTime[14]+data.courseByTutor.classStartDateAndTime[15]+" PM":
+                       data.courseByTutor.classStartDateAndTime[11]+data.courseByTutor.classStartDateAndTime[12] === "23" ?
+                       "11:"+data.courseByTutor.classStartDateAndTime[14]+data.courseByTutor.classStartDateAndTime[15]+" PM":
+                       data.courseByTutor.classStartDateAndTime[11]+data.courseByTutor.classStartDateAndTime[12] === "00" ?
+                       "12:"+data.courseByTutor.classStartDateAndTime[14]+data.courseByTutor.classStartDateAndTime[15]+" AM": 
+                       data.courseByTutor.classStartDateAndTime[11]+data.courseByTutor.classStartDateAndTime[12]+data.courseByTutor.classStartDateAndTime[13]+data.courseByTutor.classStartDateAndTime[14]+data.courseByTutor.classStartDateAndTime[15]+" AM"}
+
                  </small>
                 </td>
                 <td data-label="End Time">
                 <small>
-                  {data.courseByTutor.classEndDateAndTime.substring(7, data.courseByTutor.classEndDateAndTime.length)}
-                  {" "+data.courseByTutor.classEndDateAndTime[2]+data.courseByTutor.classEndDateAndTime[3]+data.courseByTutor.classEndDateAndTime[4]+data.courseByTutor.classEndDateAndTime[5]+data.courseByTutor.classEndDateAndTime[6]}
+      
+                {data.courseByTutor.classEndDateAndTime[8]+data.courseByTutor.classEndDateAndTime[9]+"/"+data.courseByTutor.classEndDateAndTime[5]+data.courseByTutor.classEndDateAndTime[6]+"/"+data.courseByTutor.classEndDateAndTime.substring(0,4)+" "}
+                  {data.courseByTutor.classEndDateAndTime[11]+data.courseByTutor.classEndDateAndTime[12] === "12" ?
+                   "12:"+data.courseByTutor.classEndDateAndTime[14]+data.courseByTutor.classEndDateAndTime[15]+" PM" : 
+                   data.courseByTutor.classEndDateAndTime[11]+data.courseByTutor.classEndDateAndTime[12] === "13" ? 
+                   "01:"+data.courseByTutor.classEndDateAndTime[14]+data.courseByTutor.classEndDateAndTime[15]+" PM" : 
+                   data.courseByTutor.classEndDateAndTime[11]+data.courseByTutor.classEndDateAndTime[12] === "14" ? 
+                   "02:"+data.courseByTutor.classEndDateAndTime[14]+data.courseByTutor.classEndDateAndTime[15]+" PM" :
+                   data.courseByTutor.classEndDateAndTime[11]+data.courseByTutor.classEndDateAndTime[12] === "15" ?
+                    "03:"+data.courseByTutor.classEndDateAndTime[14]+data.courseByTutor.classEndDateAndTime[15]+" PM" :
+                    data.courseByTutor.classEndDateAndTime[11]+data.courseByTutor.classEndDateAndTime[12] === "16" ?
+                     "04:"+data.courseByTutor.classEndDateAndTime[14]+data.courseByTutor.classEndDateAndTime[15]+" PM" :
+                     data.courseByTutor.classEndDateAndTime[11]+data.courseByTutor.classEndDateAndTime[12] === "17" ?
+                      "05:"+data.courseByTutor.classEndDateAndTime[14]+data.courseByTutor.classEndDateAndTime[15]+" PM" :
+                      data.courseByTutor.classEndDateAndTime[11]+data.courseByTutor.classEndDateAndTime[12] === "18" ?
+                       "06:"+data.courseByTutor.classEndDateAndTime[14]+data.courseByTutor.classEndDateAndTime[15]+" PM" :
+                       data.courseByTutor.classEndDateAndTime[11]+data.courseByTutor.classEndDateAndTime[12] === "19" ?
+                       "07:"+data.courseByTutor.classEndDateAndTime[14]+data.courseByTutor.classEndDateAndTime[15]+" PM" :
+                       data.courseByTutor.classEndDateAndTime[11]+data.courseByTutor.classEndDateAndTime[12] === "20" ?
+                       "08:"+data.courseByTutor.classEndDateAndTime[14]+data.courseByTutor.classEndDateAndTime[15]+" PM" :
+                       data.courseByTutor.classEndDateAndTime[11]+data.courseByTutor.classEndDateAndTime[12] === "21" ?
+                       "09:"+data.courseByTutor.classEndDateAndTime[14]+data.courseByTutor.classEndDateAndTime[15]+" PM" :
+                       data.courseByTutor.classEndDateAndTime[11]+data.courseByTutor.classEndDateAndTime[12] === "22" ?
+                       "10:"+data.courseByTutor.classEndDateAndTime[14]+data.courseByTutor.classEndDateAndTime[15]+" PM":
+                       data.courseByTutor.classEndDateAndTime[11]+data.courseByTutor.classEndDateAndTime[12] === "23" ?
+                       "11:"+data.courseByTutor.classEndDateAndTime[14]+data.courseByTutor.classEndDateAndTime[15]+" PM":
+                       data.courseByTutor.classEndDateAndTime[11]+data.courseByTutor.classEndDateAndTime[12] === "00" ?
+                       "12:"+data.courseByTutor.classEndDateAndTime[14]+data.courseByTutor.classEndDateAndTime[15]+" AM": 
+                       data.courseByTutor.classEndDateAndTime[11]+data.courseByTutor.classEndDateAndTime[12]+data.courseByTutor.classEndDateAndTime[13]+data.courseByTutor.classEndDateAndTime[14]+data.courseByTutor.classEndDateAndTime[15]+" AM"}
                  </small>
                 </td>
                 <td data-label="Fees in BDT">

@@ -7,14 +7,13 @@ const courseSchema = mongoose.Schema(
         required: true
       },
     courseByTutor: {
-        type: Object
+        type: Object,
+        required: true
     }
 },
   {
     timestamps: true,
   }
-
-
 )
 
 const Course = mongoose.model("Course", courseSchema);

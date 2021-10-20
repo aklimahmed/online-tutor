@@ -1,4 +1,5 @@
 import { React } from "react";
+import { Button } from 'react-bootstrap'
 import BasicInfo from "../../components/TutorsProfile/BasicInfo";
 import SubjectTeaches from "../../components/TutorsProfile/SubjectTeaches";
 import TeachesAndFees from "../../components/TutorsProfile/TeachesAndFees";
@@ -79,9 +80,9 @@ const TutorsProfile = () => {
       <DocumentsUpload />
       <VideoUpload />
       <div className="d-flex justify-content-center">
-        <button className="form_button" className="btn btn-primary mt-3 mb-5" type="submit">
-          Submit
-        </button>
+        <Button className="form_button" type="submit">
+          SAVE
+        </Button>
       </div>
     </form>
   );
