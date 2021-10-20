@@ -1,5 +1,4 @@
 import { React } from "react";
-import { Button } from 'react-bootstrap'
 import BasicInfo from "../../components/TutorsProfile/BasicInfo";
 import SubjectTeaches from "../../components/TutorsProfile/SubjectTeaches";
 import TeachesAndFees from "../../components/TutorsProfile/TeachesAndFees";
