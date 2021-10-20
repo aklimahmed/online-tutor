@@ -12,9 +12,16 @@ const SubjectTeaches = (props) => {
     setData(props.subjectTeaches);
   }, [props]);
 
-  
   useEffect(() => {
-    data ? setSelected(muliselectFetch(data.secondarySubjects)) : setSelected([]);
+    data
+      ? setSelected(muliselectFetch(data.secondarySubjects))
+      : setSelected([]);
+    data
+      ? setSubjectTeaches(data)
+      : setSubjectTeaches({
+          primarySubject: "",
+          secondarySubjects: [],
+        });
   }, [data]);
 
   const muliselectFetch = (data) => {
@@ -28,16 +35,13 @@ const SubjectTeaches = (props) => {
       );
     }
 
-    return(arr);
+    return arr;
   };
 
   const dispatch = useDispatch();
 
   const [selected, setSelected] = useState([]);
-  const [SubjectTeaches, setSubjectTeaches] = useState({
-    primarySubject: "",
-    secondarySubjects: [],
-  });
+  const [SubjectTeaches, setSubjectTeaches] = useState({});
 
   useEffect(() => {
     SubjectTeaches.secondarySubjects = [];
@@ -62,14 +66,16 @@ const SubjectTeaches = (props) => {
         <Col md={5} className="mb-3">
           <label className="form-label">Primary Subject(One subject):</label>
           <select
-            id="Select"
             className="form-select"
             name="primarySubject"
-            value={data ? data.primarySubject : ""}
             onBlur={handleChangeSubjectTeaches}
           >
             <option style={{ display: "none" }}>
-              Select primary subject of teaching
+            {data
+                  ? SubjectTeaches.primarySubject === ""
+                    ? "Select primary subject of teaching"
+                    : SubjectTeaches.primarySubject
+                  : ""}
             </option>
             {subjects.map((sub) => (
               <option key={sub.value} value={sub.value}>

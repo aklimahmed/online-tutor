@@ -12,7 +12,7 @@ import WorkExperience from "../../components/TutorProfileEdit/WorkExperience";
 import VideoUpload from "../../components/TutorProfileEdit/VideoUpload";
 import DocumentsUpload from "../../components/TutorProfileEdit/DocumentsUpload";
 import { useDispatch, useSelector } from "react-redux";
-import { createTutor } from "./../../actions/tutorActions";
+import { editTutor } from "../../actions/tutorActions";
 
 const TutorProfileEdit = () => {
   const [fetchTutorInfo, setFetchTutorInfo] = useState([]);
@@ -24,8 +24,6 @@ const TutorProfileEdit = () => {
       .then((res) => res.json())
       .then((data) => setFetchTutorInfo(data))
   }, [id]);
-
-  console.log(fetchTutorInfo);
 
   const dispatch = useDispatch();
 
@@ -40,7 +38,8 @@ const TutorProfileEdit = () => {
   const woExperience = useSelector(
     (state) => state.WorkExperienceForm.WorkExperience
   );
-  const weeklyTime = useSelector((state) => state.weeklyTimeForm.WeeklyTime);
+  const weeklyTime = useSelector((state) => state.weeklyTimeForm.weeklyTime);
+
   const subjectTeaches = useSelector(
     (state) => state.subjectTeachesForm.SubjectTeaches
   );
@@ -54,13 +53,12 @@ const TutorProfileEdit = () => {
     (state) => state.extraActivitiesForm.ExtraActivities
   );
   const aboutMe = useSelector((state) => state.aboutMeForm.AboutMe);
-  const user = useSelector((state) => state.userLogin.userInfo);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(
-      createTutor(
-        user,
+      editTutor(
+        id,
         basic,
         academic,
         exQualification,
@@ -81,7 +79,7 @@ const TutorProfileEdit = () => {
       <AcademicQualification academic={fetchTutorInfo.academic} />
       <ExtraQualifications exQualification={fetchTutorInfo.exQualification} />
       <WorkExperience woExperience={fetchTutorInfo.woExperience}/>
-      <WeeklyTime WeeklyTime={fetchTutorInfo.WeeklyTime} />
+      <WeeklyTime weeklyTime={fetchTutorInfo.weeklyTime} />
       <SubjectTeaches subjectTeaches={fetchTutorInfo.subjectTeaches} />
       <TeachesAndFees teachesAndFess={fetchTutorInfo.teachesAndFess} />
       <LessonInclude lessonInclude={fetchTutorInfo.lessonInclude} />
@@ -93,7 +91,7 @@ const TutorProfileEdit = () => {
         <button
           style={{ width: "150px" }}
           className="btn btn-primary mt-3 mb-5"
-          type="submit"
+          type="Update"
         >
           Submit
         </button>

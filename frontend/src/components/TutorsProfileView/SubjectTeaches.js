@@ -6,8 +6,7 @@ const SubjectTeaches = (props) => {
   useEffect(() => {
     setData(props.subjectTeaches);
   }, [props]);
-
-  const subject = data ? data.secondarySubjects : "";
+  
   return (
     <div className="mt-5">
       <h5 className="qtext">Subject Teaches</h5>

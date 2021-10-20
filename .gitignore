@@ -6,9 +6,11 @@ node_modules/
 
 # testing
 /coverage
+/package.json
 
 # production
 /frontend/build
+/frontend/package.json
 
 # misc
 # .DS_Store

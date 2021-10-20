@@ -5,7 +5,7 @@ const GeneralAvailability = (props) => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    setData(props.WeeklyTime);
+    setData(props.weeklyTime);
   }, [props]);
 
   const setTime = (val) => {

@@ -4,18 +4,23 @@ import { aboutMeForm } from "../../actions/tutorActions";
 import { useDispatch } from "react-redux";
 
 const AboutMe = (props) => {
-
   const [data, setData] = useState([]);
 
   useEffect(() => {
     setData(props.aboutMe);
   }, [props]);
 
+  useEffect(() => {
+    data
+      ? setAboutMe(data)
+      : setAboutMe({
+          aboutMe: "",
+          aboutSession: "",
+        });
+  }, [data]);
+
   const dispatch = useDispatch();
-  const [AboutMe, setAboutMe] = useState({
-    aboutMe: "",
-    aboutSession: "",
-  });
+  const [AboutMe, setAboutMe] = useState({});
 
   const handleChangeInput = (event) => {
     const inputs = { ...AboutMe };

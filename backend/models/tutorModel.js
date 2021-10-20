@@ -2,8 +2,8 @@ import mongoose from "mongoose";
 
 const tutorSchema = mongoose.Schema(
   {
-    user:{
-      type:String,
+    user: {
+      type: String,
       required: true,
       unique: true,
     },
@@ -23,7 +23,7 @@ const tutorSchema = mongoose.Schema(
       type: Array,
       required: true,
     },
-    WeeklyTime: {
+    weeklyTime: {
       type: Array,
       required: true,
     },
@@ -34,22 +34,18 @@ const tutorSchema = mongoose.Schema(
     teachesAndFess: {
       type: Object,
       required: true,
-      
     },
     lessonInclude: {
       type: Object,
       required: true,
-      
     },
     exActivities: {
       type: Object,
       required: true,
-      
     },
     aboutMe: {
       type: Object,
       required: true,
-      
     },
     DocumentUpload: {
       type: Object,

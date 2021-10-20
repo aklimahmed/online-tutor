@@ -10,35 +10,41 @@ const AcademicQualification = (props) => {
     setData(props.academic);
   }, [props]);
 
+  useEffect(() => {
+    data
+      ? setAcademicQualification(data)
+      : setAcademicQualification({
+          sscDegree: "",
+          sscPassingYear: 0,
+          sscResult: "",
+          sscInstitution: "",
+          sscStatus: "",
+          hscDegree: "",
+          hscPassingYear: 0,
+          hscResult: "",
+          hscInstitution: "",
+          hscStatus: "",
+          graduationDegree: "",
+          graduationPassingYear: 0,
+          graduationResult: "",
+          graduationInstitution: "",
+          graduationStatus: "",
+          postGraduationDegree: "",
+          postGraduationPassingYear: 0,
+          postGraduationResult: "",
+          postGraduationInstitution: "",
+          postGraduationStatus: "",
+          doctorateDegree: "",
+          doctoratePassingYear: 0,
+          doctorateResult: "",
+          doctorateInstitution: "",
+          doctorateStatus: "",
+        });
+  }, [data]);
+
   const dispatch = useDispatch();
 
-  const [AcademicQualification, setAcademicQualification] = useState({
-    sscDegree: "",
-    sscPassingYear: 0,
-    sscResult: "",
-    sscInstitution: "",
-    sscStatus: "",
-    hscDegree: "",
-    hscPassingYear: 0,
-    hscResult: "",
-    hscInstitution: "",
-    hscStatus: "",
-    graduationDegree: "",
-    graduationPassingYear: 0,
-    graduationResult: "",
-    graduationInstitution: "",
-    graduationStatus: "",
-    postGraduationDegree: "",
-    postGraduationPassingYear: 0,
-    postGraduationResult: "",
-    postGraduationInstitution: "",
-    postGraduationStatus: "",
-    doctorateDegree: "",
-    doctoratePassingYear: 0,
-    doctorateResult: "",
-    doctorateInstitution: "",
-    doctorateStatus: "",
-  });
+  const [AcademicQualification, setAcademicQualification] = useState({});
 
   const handleBlur = (event) => {
     const newAcademicQualification = { ...AcademicQualification };
@@ -72,7 +78,13 @@ const AcademicQualification = (props) => {
           <Form.Group className="mb-3" controlId="formBasicName">
             <input
               name="sscPassingYear"
-              defaultValue={data ? data.sscPassingYear : ""}
+              defaultValue={
+                data
+                  ? data.sscPassingYear === 0
+                    ? ""
+                    : data.sscPassingYear
+                  : ""
+              }
               className="form-control"
               type="Number"
               placeholder="Passing year"
@@ -87,7 +99,8 @@ const AcademicQualification = (props) => {
               name="sscResult"
               defaultValue={data ? data.sscResult : ""}
               className="form-control"
-              type="number" step="0.01"
+              type="number"
+              step="0.01"
               placeholder="Enter result or grade"
               onBlur={handleBlur}
             />
@@ -114,7 +127,13 @@ const AcademicQualification = (props) => {
               className="form-select"
               onBlur={handleBlur}
             >
-              <option style={{ display: "none" }}>{data ? (data.sscStatus === "" ? "Select Status":(data.sscStatus) ) : ""}</option>
+              <option style={{ display: "none" }}>
+                {data
+                  ? data.sscStatus === ""
+                    ? "Select Status"
+                    : data.sscStatus
+                  : ""}
+              </option>
               <option>Completed</option>
               <option>On going</option>
             </select>
@@ -141,7 +160,13 @@ const AcademicQualification = (props) => {
           <Form.Group className="mb-3" controlId="formBasicName">
             <input
               name="hscPassingYear"
-              defaultValue={data ? (data.hscPassingYear === 0 ? "":(data.hscPassingYear) ) : ""}
+              defaultValue={
+                data
+                  ? data.hscPassingYear === 0
+                    ? ""
+                    : data.hscPassingYear
+                  : ""
+              }
               className="form-control"
               type="number"
               placeholder="Passing year"
@@ -156,7 +181,8 @@ const AcademicQualification = (props) => {
               className="form-control"
               name="hscResult"
               defaultValue={data ? data.hscResult : ""}
-              type="number" step="0.01"
+              type="number"
+              step="0.01"
               placeholder="Enter result or grade"
               onBlur={handleBlur}
             />
@@ -183,7 +209,13 @@ const AcademicQualification = (props) => {
               className="form-select"
               onBlur={handleBlur}
             >
-              <option style={{ display: "none" }}>{data ? (data.hscStatus === "" ? "Select Status":(data.hscStatus) ) : ""}</option>
+              <option style={{ display: "none" }}>
+                {data
+                  ? data.hscStatus === ""
+                    ? "Select Status"
+                    : data.hscStatus
+                  : ""}
+              </option>
               <option>Completed</option>
               <option>On going</option>
             </select>
@@ -211,7 +243,13 @@ const AcademicQualification = (props) => {
             <input
               className="form-control"
               name="graduationPassingYear"
-              defaultValue={data ? (data.graduationPassingYear === 0 ? "":(data.graduationPassingYear) ) : ""}
+              defaultValue={
+                data
+                  ? data.graduationPassingYear === 0
+                    ? ""
+                    : data.graduationPassingYear
+                  : ""
+              }
               type="number"
               placeholder="Passing year"
               onBlur={handleBlur}
@@ -225,7 +263,8 @@ const AcademicQualification = (props) => {
               className="form-control"
               name="graduationResult"
               defaultValue={data ? data.graduationResult : ""}
-              type="number" step="0.01"
+              type="number"
+              step="0.01"
               placeholder="Enter result or grade"
               onBlur={handleBlur}
             />
@@ -252,7 +291,13 @@ const AcademicQualification = (props) => {
               className="form-select"
               onBlur={handleBlur}
             >
-              <option style={{ display: "none" }}>{data ? (data.graduationStatus === "" ? "Select Status":(data.graduationStatus) ) : ""}</option>
+              <option style={{ display: "none" }}>
+                {data
+                  ? data.graduationStatus === ""
+                    ? "Select Status"
+                    : data.graduationStatus
+                  : ""}
+              </option>
               <option>Completed</option>
               <option>On going</option>
             </select>
@@ -280,7 +325,13 @@ const AcademicQualification = (props) => {
             <input
               className="form-control"
               name="postGraduationPassingYear"
-              defaultValue={data ? (data.postGraduationPassingYear === 0 ? "":(data.postGraduationPassingYear) ) : ""}
+              defaultValue={
+                data
+                  ? data.postGraduationPassingYear === 0
+                    ? ""
+                    : data.postGraduationPassingYear
+                  : ""
+              }
               type="number"
               placeholder="Passing year"
               onBlur={handleBlur}
@@ -294,7 +345,8 @@ const AcademicQualification = (props) => {
               className="form-control"
               name="postGraduationResult"
               defaultValue={data ? data.postGraduationResult : ""}
-              type="number" step="0.01"
+              type="number"
+              step="0.01"
               placeholder="Enter result or grade"
               onBlur={handleBlur}
             />
@@ -322,7 +374,13 @@ const AcademicQualification = (props) => {
               className="form-select"
               onBlur={handleBlur}
             >
-              <option style={{ display: "none" }}>{data ? (data.postGraduationStatus === "" ? "Select status":(data.postGraduationStatus) ) : ""}</option>
+              <option style={{ display: "none" }}>
+                {data
+                  ? data.postGraduationStatus === ""
+                    ? "Select status"
+                    : data.postGraduationStatus
+                  : ""}
+              </option>
               <option>Completed</option>
               <option>On going</option>
             </select>
@@ -350,7 +408,13 @@ const AcademicQualification = (props) => {
             <input
               className="form-control"
               name="doctoratePassingYear"
-              defaultValue={data ? (data.doctoratePassingYear === 0 ? "":(data.doctoratePassingYear) ) : ""}
+              defaultValue={
+                data
+                  ? data.doctoratePassingYear === 0
+                    ? ""
+                    : data.doctoratePassingYear
+                  : ""
+              }
               type="number"
               placeholder="Passing year"
               onBlur={handleBlur}
@@ -364,7 +428,8 @@ const AcademicQualification = (props) => {
               className="form-control"
               name="doctorateResult"
               defaultValue={data ? data.doctorateResult : ""}
-              type="number" step="0.01"
+              type="number"
+              step="0.01"
               placeholder="Enter result or grade"
               onBlur={handleBlur}
             />
@@ -392,7 +457,13 @@ const AcademicQualification = (props) => {
               className="form-select"
               onBlur={handleBlur}
             >
-              <option style={{ display: "none" }}>{data ? (data.doctorateStatus === "" ? "Select status":(data.doctorateStatus) ) : ""}</option>
+              <option style={{ display: "none" }}>
+                {data
+                  ? data.doctorateStatus === ""
+                    ? "Select status"
+                    : data.doctorateStatus
+                  : ""}
+              </option>
               <option>Completed</option>
               <option>On going</option>
             </select>

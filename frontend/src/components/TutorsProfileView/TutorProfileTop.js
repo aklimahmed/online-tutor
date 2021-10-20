@@ -15,7 +15,7 @@ const TutorProfileTop = () => {
       <div className="d-flex">
         <div className="image_div">
           <div className="teacher_image">
-            <img src="https://cdn.shopify.com/s/files/1/0472/7118/2499/t/7/assets/pf-1f820dcf--Mens-ApparelCategory-Thumbnail.jpg?v=1629697226" alt="tutor picture" />
+            <img src="https://cdn.shopify.com/s/files/1/0472/7118/2499/t/7/assets/pf-1f820dcf--Mens-ApparelCategory-Thumbnail.jpg?v=1629697226" alt="tutor_picture" />
             <div className="dot"></div>
           </div>
           <div className="text-center">
