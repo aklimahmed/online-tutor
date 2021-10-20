@@ -26,7 +26,7 @@ const WeeklyTime = (props) => {
             wed: false,
             thu: false,
             fri: false,
-          },
+          }
         ]);
   }, [data]);
 
@@ -185,7 +185,7 @@ const WeeklyTime = (props) => {
                 <button
                   type="button"
                   className="btn-close"
-                  disabled={WeeklyTime.length === 1}
+                  disabled={weeklyTime.length === 1}
                   aria-label="Close"
                   onClick={() => handleRemoveFields(inputField.id)}
                 ></button>
