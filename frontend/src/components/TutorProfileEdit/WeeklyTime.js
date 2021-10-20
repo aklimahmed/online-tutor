@@ -5,34 +5,37 @@ import { useDispatch } from "react-redux";
 import { weeklyTimeForm } from "./../../actions/tutorActions";
 
 const WeeklyTime = (props) => {
-
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    setData(props.WeeklyTime);
+    setData(props.weeklyTime);
   }, [props]);
 
   useEffect(() => {
-    data ? setWeeklyTime(data): setWeeklyTime([{
-      id: uuidv4(),
-      from: "",
-      to: "",
-      sat: false,
-      sun: false,
-      mon: false,
-      tue: false,
-      wed: false,
-      thu: false,
-      fri: false,
-    }])
+    data
+      ? setWeeklyTime(data)
+      : setWeeklyTime([
+          {
+            id: uuidv4(),
+            from: "",
+            to: "",
+            sat: false,
+            sun: false,
+            mon: false,
+            tue: false,
+            wed: false,
+            thu: false,
+            fri: false,
+          },
+        ]);
   }, [data]);
 
   const dispatch = useDispatch();
 
-  const [WeeklyTime, setWeeklyTime] = useState([]);
+  const [weeklyTime, setWeeklyTime] = useState([]);
 
   const handleChangeInput = (id, event) => {
-    const newWeeklyTime = WeeklyTime.map((i) => {
+    const newWeeklyTime = weeklyTime.map((i) => {
       if (id === i.id) {
         if (event.target.name === "from" || event.target.name === "to") {
           i[event.target.name] = event.target.value;
@@ -49,7 +52,7 @@ const WeeklyTime = (props) => {
   const handleAddFields = (e) => {
     e.preventDefault();
     setWeeklyTime([
-      ...WeeklyTime,
+      ...weeklyTime,
       {
         id: uuidv4(),
         from: "",
@@ -66,7 +69,7 @@ const WeeklyTime = (props) => {
   };
 
   const handleRemoveFields = (id) => {
-    const values = [...WeeklyTime];
+    const values = [...weeklyTime];
     values.splice(
       values.findIndex((value) => value.id === id),
       1
@@ -75,7 +78,7 @@ const WeeklyTime = (props) => {
   };
 
   useEffect(() => {
-    dispatch(weeklyTimeForm(WeeklyTime));
+    dispatch(weeklyTimeForm(weeklyTime));
   });
 
   return (
@@ -102,7 +105,7 @@ const WeeklyTime = (props) => {
           </tr>
         </thead>
         <tbody id="addMoreTime">
-          {WeeklyTime.map((inputField) => (
+          {weeklyTime.map((inputField) => (
             <tr key={inputField.id}>
               <td colSpan="2" data-label="From">
                 <input

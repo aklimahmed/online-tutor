@@ -42,7 +42,7 @@ const RegisterScreen = ({ location, history }) => {
       {error && <Message variant='danger'>{error}</Message>}
       {loading && <Loader />}
       <Form onSubmit={submitHandler}>
-      <h7>I am a:</h7>
+      <h6>I am a:</h6>
       <br />
       <br />
       <Form.Group>

@@ -54,7 +54,7 @@ const LoginScreen = ({ location, history }) => {
 
   return (
     <div className="mt-5">
-      <div className="d-flex justify-content-center">
+      <div className="d-flex justify-content-center pb-2">
         <Link className="sign underline" to="/login">
           SIGN IN
         </Link>

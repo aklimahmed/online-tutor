@@ -156,7 +156,7 @@ const TeachesAndFees = (props) => {
                   type="number"
                   placeholder="Enter Amount e.g 350"
                   name="single"
-                  value={inputField.batch === 0 ? "" : inputField.single} 
+                  value={inputField.single === 0 ? "" : inputField.single} 
                   onChange={(event) => handleChangeInput(inputField.id, event)}
                 />
               </td>

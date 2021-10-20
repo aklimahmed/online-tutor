@@ -23,7 +23,7 @@ const tutorSchema = mongoose.Schema(
       type: Array,
       required: true,
     },
-    WeeklyTime: {
+    weeklyTime: {
       type: Array,
       required: true,
     },

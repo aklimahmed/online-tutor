@@ -39,7 +39,7 @@ const TutorProfileView = () => {
             exQualification={fetchTutorInfo.exQualification}
           />
           <WorkExperience WoExperience={fetchTutorInfo.woExperience} />
-          <GeneralAvailability WeeklyTime={fetchTutorInfo.WeeklyTime} />
+          <GeneralAvailability weeklyTime={fetchTutorInfo.weeklyTime} />
           <SubjectTeaches subjectTeaches={fetchTutorInfo.subjectTeaches} />
           <ClassTeaches teachesAndFess={fetchTutorInfo.teachesAndFess} />
           <LessonInclude lessonInclude={fetchTutorInfo.lessonInclude} />

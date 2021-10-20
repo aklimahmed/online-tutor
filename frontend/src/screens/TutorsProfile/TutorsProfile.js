@@ -79,7 +79,7 @@ const TutorsProfile = () => {
       <DocumentsUpload />
       <VideoUpload />
       <div className="d-flex justify-content-center">
-        <button className="form_button" className="btn btn-primary mt-3 mb-5" type="submit">
+        <button className="form_button btn btn-primary mt-3 mb-5" type="submit">
           Submit
         </button>
       </div>

@@ -15,7 +15,7 @@ import {
   ABOUT_ME
 } from '../constants/tutorConstants'
 
-export const createTutor = (user,basic, academic, exQualification, woExperience, WeeklyTime,
+export const createTutor = (user,basic, academic, exQualification, woExperience, weeklyTime,
   subjectTeaches, teachesAndFess, lessonInclude, exActivities, aboutMe, DocumentUpload, VideoUpload) => async (dispatch) => {
   try {
     dispatch({
@@ -30,7 +30,7 @@ export const createTutor = (user,basic, academic, exQualification, woExperience,
 
     const { data } = await axios.post(
       'http://localhost:5000/api/tutor',
-      { user,basic, academic, exQualification, woExperience, WeeklyTime, subjectTeaches, teachesAndFess,
+      { user,basic, academic, exQualification, woExperience, weeklyTime, subjectTeaches, teachesAndFess,
         lessonInclude, exActivities, aboutMe, DocumentUpload, VideoUpload},
       config
     )
@@ -53,6 +53,69 @@ export const createTutor = (user,basic, academic, exQualification, woExperience,
   }
 }
 
+
+export const editTutor = (
+  id,
+  basic,
+  academic,
+  exQualification,
+  woExperience,
+  weeklyTime,
+  subjectTeaches,
+  teachesAndFess,
+  lessonInclude,
+  exActivities,
+  aboutMe) => async (dispatch, getState) => {
+  try {
+    dispatch({
+      type: TUTOR_FORM_REQUEST,
+    })
+
+    const {
+      userLogin: { userInfo },
+    } = getState()
+
+      const config = {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${userInfo.token}`,
+        },
+    }
+
+    const update = {id,
+      basic,
+      academic,
+      exQualification,
+      woExperience,
+      weeklyTime,
+      subjectTeaches,
+      teachesAndFess,
+      lessonInclude,
+      exActivities,
+      aboutMe}
+    
+    const { data } = await axios.put(
+      `http://localhost:5000/api/tutor/profile/edit/${id}`,
+      update,
+      config
+    )
+
+    dispatch({
+      type: TUTOR_FORM_SUCCESS,
+      payload: data,
+    })
+  } catch (error) {
+    const message = error.response && error.response.data.message
+    ? error.response.data.message
+    : error.message
+
+    if(message === 'Not authorized, token failed')
+    dispatch({
+      type: TUTOR_FORM_FAIL,
+      payload: message,
+    })
+  }
+  }
 
 export const basicInfoForm = (info) =>{
   return{
@@ -128,4 +191,3 @@ export const aboutMeForm = (info) =>{
       payload: info
   };
 };
-

@@ -76,7 +76,7 @@ export const WorkExperienceReducer = (state = initialState, { type, payload }) =
 export const weeklyTimeReducer = (state = initialState, { type, payload }) => {
   switch (type) {
       case WEEKLY_TIME:
-          return { ...state, WeeklyTime: payload };
+          return { ...state, weeklyTime: payload };
 
       default:
           return state;
