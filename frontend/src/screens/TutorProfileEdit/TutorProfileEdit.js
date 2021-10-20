@@ -91,7 +91,7 @@ const TutorProfileEdit = () => {
         <button
           style={{ width: "150px" }}
           className="btn btn-primary mt-3 mb-5"
-          type="submit"
+          type="Update"
         >
           Submit
         </button>
