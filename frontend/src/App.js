@@ -9,8 +9,9 @@ import TutorProfileView from './screens/TutorProfileView/TutorProfileView';
 import TutorDashboard from './screens/TutorDashboard/TutorDashboard'
 import TutorsMessage from './screens/TutorsMessage/TutorsMessage'
 import StudentsForm from './screens/StudentsForm/StudentsForm'
-import TutorsCourses from './screens/TutorsCourses/TutorsCourses'
+import TutorsCourseAdd from './screens/TutorsCourses/TutorsCourseAdd'
 import TutorProfileEdit from './screens/TutorProfileEdit/TutorProfileEdit'
+import TutorsCoursesView from './screens/TutorsCourses/TutorsCoursesView'
 // awElJHf1SwmAYanM
 
 const App = () => {
@@ -27,7 +28,8 @@ const App = () => {
           <Route path='/tutorsdashboard/:id' component={TutorDashboard} />
           <Route path='/tutorsmessage/:id' component={TutorsMessage} />  
           <Route path='/studentsform/:id' component={StudentsForm} />
-          <Route path='/tutorscourses' component={TutorsCourses} />
+          <Route path='/course/tutor/:id' component={TutorsCourseAdd} />
+          <Route path='/courseview/tutor/:id' component={TutorsCoursesView} />
         </Container>
       </main>
      

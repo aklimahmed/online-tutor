@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Row, Col, Card, Container, Form, Button } from "react-bootstrap";
+import { useDispatch } from "react-redux";
+import { Row, Col, Card, Container, Form } from "react-bootstrap";
 import "./CreateNewCourse.scss";
 import { MultiSelect } from "react-multi-select-component";
 import { curriculum } from "../../jsonData/Curriculum";
@@ -12,6 +12,11 @@ import { classDuration } from "../../jsonData/classDuration";
 import { courseByTutorForm } from "./../../actions/courseActions"
 
 const CreateNewCourse = () => {
+
+  const monthNames = ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+  ];
+
   const [classDay, setClassDay] = useState([]);
 
   const [courseByTutor, SetCourseByTutor] = useState({
@@ -27,12 +32,51 @@ const CreateNewCourse = () => {
       classEndDateAndTime: "",
       enrollDueDate: "",
       tutionFee: 0,
-      feesTime: "",
+      feesTime: "Per Hour",
       courseDescription: "",
       courseVideoUrl: ""
   })
 
   console.log(courseByTutor)
+  // 2021-12-01T21:00
+  // const formateDateAndTime = (value) => {
+  //   const date = value.substring(0, 9)
+  //   const d = new Date(date);
+  //   let month = monthNames[d.getMonth()]
+  //   let formattedTime = "";
+  //   if(value[11] === "1" && value[12] === "3"){
+  //     formattedTime = "PM 01:"+value[14]+value[15]+" ";
+  //   }else if(value[11] === "1" && value[12] === "4"){
+  //     formattedTime = "PM 02:"+value[14]+value[15]+" ";
+  //   }else if(value[11] === "1" && value[12] === "5"){
+  //     formattedTime = "PM 03:"+value[14]+value[15]+" ";
+  //   }else if(value[11] === "1" && value[12] === "6"){
+  //     formattedTime = "PM 04:"+value[14]+value[15]+" ";
+  //   }else if(value[11] === "1" && value[12] === "7"){
+  //     formattedTime = "PM 05:"+value[14]+value[15]+" ";
+  //   }else if(value[11] === "1" && value[12] === "8"){
+  //     formattedTime = "PM 06:"+value[14]+value[15]+" ";
+  //   }else if(value[11] === "1" && value[12] === "9"){
+  //     formattedTime = "PM 07:"+value[14]+value[15]+" ";
+  //   }else if(value[11] === "2" && value[12] === "0"){
+  //     formattedTime = "PM 08:"+value[14]+value[15]+" ";
+  //   }else if(value[11] === "2" && value[12] === "1"){
+  //     formattedTime = "PM 09:"+value[14]+value[15]+" ";
+  //   }else if(value[11] === "2" && value[12] === "2"){
+  //     formattedTime = "PM 10:"+value[14]+value[15]+" ";
+  //   }else if(value[11] === "2" && value[12] === "3"){
+  //     formattedTime = "PM 11:"+value[14]+value[15]+" ";
+  //   }else if(value[11] === "0" && value[12] === "0"){
+  //     formattedTime = "AM 12:"+value[14]+value[15]+" ";
+  //   }else {
+  //     formattedTime = "AM "+value[11]+value[12]+":"+value[14]+value[15];
+  //   }
+
+  //   // value[11]+value[12]+":"+value[14]+value[15] 
+
+  //   let dateAndTime = formattedTime+value[8]+value[9]+" "+month+" "+value[0]+value[1]+value[2]+value[3];
+  //   return dateAndTime;
+  // }
 
   const handleBlur = (event) => {
     const newCourseByTutor = { ...courseByTutor };
@@ -51,11 +95,7 @@ const CreateNewCourse = () => {
   useEffect(() => { 
     dispatch(courseByTutorForm(courseByTutor));
   });
-
-
-
-
-
+  
   return (
     <Container className="course-add-container">
       
@@ -101,10 +141,10 @@ const CreateNewCourse = () => {
           </Form.Group>
         </Col>
         </Row>
-      <Row>
+      <Row className="d-flex justify-content-between">
       <Col md={3} className="columns">
           <Form.Group className="mb-3 card-align" controlId="formBasicDistrict">
-            <select className="form-select drop_down" 
+            <select className="form-select drop_down"
             onBlur={handleBlur}
             name="subject">
               <option style={{ display: "none" }}>Select Subject</option>
@@ -173,7 +213,7 @@ const CreateNewCourse = () => {
           </Form.Group>
         </Col>
         </Row>
-        <Row>
+        <Row className="d-flex justify-content-between">
         <Col md={3} className="columns">
           <Form.Group className="mb-3" controlId="formBasicLocalLanguage">
           <Form.Label className="form_label">Select Class Days</Form.Label>
@@ -294,7 +334,7 @@ const CreateNewCourse = () => {
         Add a video link:
             </Card.Header>
             <br />
-          <input style={{width: "100%"}}
+          <input
             className="form-control"
             onBlur={handleBlur}
             name="courseVideoUrl"

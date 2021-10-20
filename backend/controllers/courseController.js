@@ -21,6 +21,21 @@ const createCourse = asyncHandler(async (req, res) => {
   })
 
 
+  const getCourseDetails = asyncHandler(async (req, res) => {
+    const course = await Course.find({ tutor: req.params.id })
+
+    if(course) {
+      res.send({
+        course
+      })
+    }
+    else {
+      res.status(404)
+      throw new Error('Unable to get the courses')
+    }
+  })
+
   export {
-    createCourse
+    createCourse,
+    getCourseDetails
   }
