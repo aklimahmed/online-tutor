@@ -1,0 +1,34 @@
+.card_body {
+    background-color: #F3FDFB;
+    border-radius: 10px;
+    border-left: 7px solid #0DD8A7;
+}
+
+.badge_style {
+    background-color:rgb(191, 206, 235);
+    float: right;
+    color:#3C82FF;
+    font-weight: normal;
+}
+
+.card_header {
+    color: #008593;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.batch_style {
+    color: #B8B8B8;
+    font-size: 12px;
+}
+
+.time_style {
+    color: #FF7D48;
+    font-size: 12px;
+}
+
+.time_remaining_style {
+    color: #676767;
+    font-size: 12px;
+    font-style: Italic;
+}

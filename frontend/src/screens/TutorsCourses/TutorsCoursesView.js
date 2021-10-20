@@ -4,8 +4,9 @@ import axios from 'axios'
 import { BsFillEyeFill } from 'react-icons/bs'
 import { FaEdit } from 'react-icons/fa'
 import { AiFillDelete } from 'react-icons/ai'
+import CourseCarousel from '../../components/TutorsCourses/CourseCarousel';
 
-const AllCourses = () => {
+const TutorsCoursesView = () => {
 
     const [fetchCourseDetails, setFetchCourseDetails] = useState([]);
 
@@ -23,6 +24,7 @@ const AllCourses = () => {
 
     return (
         <div>
+          <CourseCarousel />
                     <table className="mt-2 batch_table">
           <thead>
             <tr>
@@ -160,4 +162,4 @@ const AllCourses = () => {
     )
 }
 
-export default AllCourses
+export default TutorsCoursesView
