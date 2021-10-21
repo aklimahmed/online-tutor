@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { IoCopyOutline } from "react-icons/io5";
 import { FcAlarmClock } from "react-icons/fc";
 import { GiShare } from "react-icons/gi";
@@ -9,13 +9,65 @@ import { MdOutlineVerifiedUser } from "react-icons/md";
 import "./TutorProfileTop.scss";
 import { Link } from "react-router-dom";
 
-const TutorProfileTop = () => {
+const TutorProfileTop = (props) => {
+  const [basicData, setBasicData] = useState({});
+  const [academic, setAcademic] = useState({});
+
+  useEffect(() => {
+    setBasicData(props.tutorInfo.basic);
+    setAcademic(props.tutorInfo.academic);
+  }, [props]);
+
+
+  const getDegree = () => {
+    if(academic){
+    if(academic.hscDegree === ""){
+      return {
+        degree: "SSC",
+        major: academic ? academic.sscDegree : "",
+        institute: academic ? academic.sscInstitution : ""
+      }
+    }
+    else if(academic.graduationDegree === ""){
+      return {
+        degree: "HSC",
+        major: academic ? academic.hscDegree : "",
+        institute: academic ? academic.hscInstitution : ""
+      }
+    }
+    else if(academic.postGraduationDegree === ""){
+      return {
+        degree: "Graduate",
+        major: academic.graduationDegree ? academic.graduationDegree : "",
+        institute: academic ? academic.graduationInstitution : ""
+      }
+    }
+    else if(academic.doctorateDegree === ""){
+        return {
+          degree: "Post Graduate",
+          major: academic ? academic.postGraduationDegree : "",
+          institute: academic ? academic.postGraduationInstitution : ""
+        }
+      }
+      else {
+        return {
+          degree: "Doctorate",
+          major: academic ? academic.doctorateDegree : "",
+          institute: academic ? academic.doctorateInstitution : ""
+        }
+      }
+    }
+  }
+
   return (
     <div className="d-flex tutor_profile_top_main">
       <div className="d-flex">
         <div className="image_div">
           <div className="teacher_image">
-            <img src="https://cdn.shopify.com/s/files/1/0472/7118/2499/t/7/assets/pf-1f820dcf--Mens-ApparelCategory-Thumbnail.jpg?v=1629697226" alt="tutor_picture" />
+            <img
+              src="https://cdn.shopify.com/s/files/1/0472/7118/2499/t/7/assets/pf-1f820dcf--Mens-ApparelCategory-Thumbnail.jpg?v=1629697226"
+              alt="tutor_picture"
+            />
             <div className="dot"></div>
           </div>
           <div className="text-center">
@@ -27,7 +79,7 @@ const TutorProfileTop = () => {
         </div>
         <div>
           <h4 className="teacher_name">
-            Md. Rasel-Ud-Jaman{" "}
+            {basicData ? basicData.tutorsName + " " : ""}
             <small className="verify">
               <MdOutlineVerifiedUser />
             </small>
@@ -39,12 +91,14 @@ const TutorProfileTop = () => {
             </small>
           </p>
           <p>
-            <small>Mathematics (Masters) – North South University</small>
+            <small>{academic ? getDegree().major+ " ("+getDegree().degree+") - "+getDegree().institute : ""}</small>
           </p>
           <p>
             <small>
-              <span className="tutor_top_primary">2+</span> years teaching
-              experience
+              <span className="tutor_top_primary">
+                {basicData ? basicData.experience + "+" : ""}
+              </span>{" "}
+              years teaching experience
             </small>
           </p>
           <div className="d-flex mt-3 mb-3">
@@ -87,20 +141,38 @@ const TutorProfileTop = () => {
               <small>
                 Speaks:{" "}
                 <span className="tutor_top_secondary">
-                  Bangla (Native), English (Advance)
+                  {basicData && basicData.languages
+                    ? basicData.languages.map((item, i, arr) => (
+                        <span key={i}>
+                          {item}
+                          {i !== arr.length - 1 ? ", " : ""}
+                        </span>
+                      ))
+                    : ""}
                 </span>
               </small>
             </p>
             <p>
               <small>
                 Local language understandable:{" "}
-                <span className="tutor_top_secondary"> Sylhet</span>
+                <span className="tutor_top_secondary">
+                  {basicData && basicData.locallanguage
+                    ? basicData.locallanguage.map((item, i, arr) => (
+                        <span key={i}>
+                          {item}
+                          {i !== arr.length - 1 ? ", " : ""}
+                        </span>
+                      ))
+                    : ""}
+                </span>
               </small>
             </p>
             <p>
               <small>
                 Current location:{" "}
-                <span className="tutor_top_secondary">Dhaka</span>
+                <span className="tutor_top_secondary">
+                  {basicData ? basicData.presentDistrict : ""}
+                </span>
               </small>
             </p>
           </div>

@@ -26,11 +26,9 @@ const TutorProfileView = () => {
       .then((data) => setFetchTutorInfo(data.data));
   }, [id]);
 
-  console.log(fetchTutorInfo);
-
   return (
     <div>
-      <TutorProfileTop />
+      <TutorProfileTop tutorInfo={fetchTutorInfo} />
       <BatchTable />
       <Row style={{ marginLeft: "-1%" }}>
         <Col md={8}>

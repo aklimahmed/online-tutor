@@ -99,8 +99,7 @@ const AcademicQualification = (props) => {
               name="sscResult"
               defaultValue={data ? data.sscResult : ""}
               className="form-control"
-              type="number"
-              step="0.01"
+              type="text"
               placeholder="Enter result or grade"
               onBlur={handleBlur}
             />
@@ -181,8 +180,7 @@ const AcademicQualification = (props) => {
               className="form-control"
               name="hscResult"
               defaultValue={data ? data.hscResult : ""}
-              type="number"
-              step="0.01"
+              type="text"
               placeholder="Enter result or grade"
               onBlur={handleBlur}
             />
@@ -263,8 +261,7 @@ const AcademicQualification = (props) => {
               className="form-control"
               name="graduationResult"
               defaultValue={data ? data.graduationResult : ""}
-              type="number"
-              step="0.01"
+              type="text"
               placeholder="Enter result or grade"
               onBlur={handleBlur}
             />
@@ -345,8 +342,7 @@ const AcademicQualification = (props) => {
               className="form-control"
               name="postGraduationResult"
               defaultValue={data ? data.postGraduationResult : ""}
-              type="number"
-              step="0.01"
+              type="text"
               placeholder="Enter result or grade"
               onBlur={handleBlur}
             />
@@ -428,8 +424,7 @@ const AcademicQualification = (props) => {
               className="form-control"
               name="doctorateResult"
               defaultValue={data ? data.doctorateResult : ""}
-              type="number"
-              step="0.01"
+              type="text"
               placeholder="Enter result or grade"
               onBlur={handleBlur}
             />

@@ -104,7 +104,7 @@ const CreateNewCourse = () => {
           <Form.Group className="mb-3 card-align" controlId="formBasicDistrict">
             <select className="form-select drop_down" 
             name="classTypes"
-            onBlur={handleBlur}
+            onChange={handleBlur}
             >
               <option style={{ display: "none" }}>Select Class Types</option>
                 <option>Free Class</option>
@@ -115,7 +115,7 @@ const CreateNewCourse = () => {
         <Col md={4} className="columns">
           <Form.Group className="mb-3 card-align" controlId="formBasicDistrict">
             <select className="form-select drop_down" 
-            onBlur={handleBlur}
+            onChange={handleBlur}
             name="curriculum">
               <option style={{ display: "none" }}>Select Curriculum</option>
               {curriculum.map((d) => (
@@ -129,7 +129,7 @@ const CreateNewCourse = () => {
         <Col md={4} className="columns">
           <Form.Group className="mb-3 card-align" controlId="formBasicDistrict">
             <select className="form-select drop_down" 
-            onBlur={handleBlur}
+            onChange={handleBlur}
             name="classLevel">
               <option style={{ display: "none" }}>Select Class</option>
               {classes.map((d) => (
@@ -145,7 +145,7 @@ const CreateNewCourse = () => {
       <Col md={3} className="columns">
           <Form.Group className="mb-3 card-align" controlId="formBasicDistrict">
             <select className="form-select drop_down"
-            onBlur={handleBlur}
+            onChange={handleBlur}
             name="subject">
               <option style={{ display: "none" }}>Select Subject</option>
               {subjects.map((d) => (
@@ -159,7 +159,7 @@ const CreateNewCourse = () => {
         <Col md={3} className="columns">
           <Form.Group className="mb-3 card-align" controlId="formBasicDistrict" style={{width: "100%"}}>
             <select className="form-select drop_down" 
-            onBlur={handleBlur}
+            onChange={handleBlur}
             name="batchType">
               <option style={{ display: "none" }}>Select Batch Type</option>
                 <option>Batch Class</option>
@@ -170,7 +170,7 @@ const CreateNewCourse = () => {
         <Col md={3} className="columns">
         <Form.Group className="mb-3" controlId="formBasicDistrict">
             <select className="form-select drop_down" 
-            onBlur={handleBlur}
+            onChange={handleBlur}
             name="noOfStudents">
 
             
@@ -201,7 +201,7 @@ const CreateNewCourse = () => {
         <Col md={3} className="columns">
           <Form.Group className="mb-3" controlId="formBasicDistrict">
             <select className="form-select drop_down" 
-            onBlur={handleBlur}
+            onChange={handleBlur}
             name="classDuration">
               <option style={{ display: "none" }}>Each Class Duration</option>
               {classDuration.map((d) => (
@@ -232,7 +232,7 @@ const CreateNewCourse = () => {
               type="datetime-local"
               id="birthdaytime"
               name="classStartDateAndTime"
-              onBlur={handleBlur}
+              onChange={handleBlur}
               placeholder="enter date and time"
               className="form-control date-time-input"
             ></input>
@@ -245,7 +245,7 @@ const CreateNewCourse = () => {
               type="datetime-local"
               id="birthdaytime"
               name="classEndDateAndTime"
-              onBlur={handleBlur}
+              onChange={handleBlur}
               placeholder="enter date and time"
               className="form-control date-time-input"
             ></input>
@@ -260,7 +260,7 @@ const CreateNewCourse = () => {
               type="date"
               id="start"
               name="enrollDueDate"
-              onBlur={handleBlur}
+              onChange={handleBlur}
               min="2021-10-10"
               max="2025-10-10"
             ></input>
@@ -275,7 +275,7 @@ const CreateNewCourse = () => {
           <input
             className="form-control"
             name="tutionFee"
-            onBlur={handleBlur}
+            onChange={handleBlur}
             type="number"
             placeholder="Enter amount e.g 100"
           />
@@ -284,7 +284,7 @@ const CreateNewCourse = () => {
       <Col md={4}>
         <Form.Group className="mb-3" controlId="formBasicDistrict">
           <select className="form-select drop_down"
-          onBlur={handleBlur} 
+          onChange={handleBlur} 
           name="feesTime">
             <option>Per Hour</option>
             <option>Per Month</option>
@@ -301,7 +301,7 @@ const CreateNewCourse = () => {
         <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
           <Form.Label>Enter course description if any:</Form.Label>
           <Form.Control as="textarea" 
-          onBlur={handleBlur}
+          onChange={handleBlur}
           name="courseDescription" rows={3} />
         </Form.Group>
       </Row>
@@ -336,7 +336,7 @@ const CreateNewCourse = () => {
             <br />
           <input
             className="form-control"
-            onBlur={handleBlur}
+            onChange={handleBlur}
             name="courseVideoUrl"
             type="url"
             placeholder="eg. www.youtube.com/kxYsdjkd"
