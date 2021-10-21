@@ -2,16 +2,16 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Message from "../../components/common/Message";
-import Loader from "../../components/common/Loader";
-import FormContainer from "../../components/common/FormContainer";
 import { register } from "../../actions/userActions";
 import "./RegisterScreen.scss";
 import { HiOutlineMail } from "react-icons/hi";
+import { RiLockLine } from "react-icons/ri";
 
 const RegisterScreen = ({ location, history }) => {
   const [role, setRole] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [retypePassword, setRetypePassword] = useState("");
   const [message, setMessage] = useState(null);
   const dispatch = useDispatch();
 
@@ -28,88 +28,15 @@ const RegisterScreen = ({ location, history }) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(register(role, email, password));
+    if (password === retypePassword) {
+      dispatch(register(role, email, password));
+      document.getElementById("signup_form").reset();
+    } else {
+      setMessage("Both Password Should Matched");
+    }
   };
 
   return (
-    // <Row>
-    //   <Col md={2}>
-    //   </Col>
-    //   <Col md={8} style={{border: '1px solid rgba(153, 150, 150, 0.671)', paddingTop: '60px', paddingBottom: '20px'}}>
-    //   <FormContainer>
-    //   {message && <Message variant='danger'>{message}</Message>}
-    //   {error && <Message variant='danger'>{error}</Message>}
-    //   {loading && <Loader />}
-    //   <Form onSubmit={submitHandler}>
-    //   <h6>I am a:</h6>
-    //   <Form.Group>
-    //   <Form.Check
-    //     inline
-    //     label={<span style={{color: '#1DB6C5'}}>Student</span>}
-    //     name="group1"
-    //     type='radio'
-    //     id='inline-radio'
-    //     value={role}
-    //     onChange={() => setRole('student')}
-    //   />
-    //   <Form.Check
-    //     inline
-    //     label={<span style={{color: '#1DB6C5'}}>Parent</span>}
-    //     name="group1"
-    //     type='radio'
-    //     id='inline-radio'
-    //     value={role}
-    //     onChange={() => setRole('parent')}
-    //   />
-    //   <Form.Check
-    //     inline
-    //     label={<span style={{color: '#1DB6C5'}}>Tutor</span>}
-    //     name="group1"
-    //     type='radio'
-    //     id='inline-radio'
-    //     value={role}
-    //     onChange={() => setRole('tutor')}
-    //   />
-    //   </Form.Group>
-
-    //     <Form.Group controlId='email'>
-    //       <Form.Control
-    //         type='email'
-    //         placeholder='Enter your email address'
-    //         value={email}
-    //         onChange={(e) => setEmail(e.target.value)}
-    //       ></Form.Control>
-    //     </Form.Group>
-
-    //     <Form.Group controlId='password'>
-    //       <Form.Control
-    //         type='password'
-    //         placeholder='Enter your password'
-    //         value={password}
-    //         onChange={(e) => setPassword(e.target.value)}
-    //       ></Form.Control>
-    //     </Form.Group>
-
-    //   <Row className='py-3'>
-    //     <Col>
-    //       Already have an account?{' '}
-    //       <Link to={redirect ? `/login?redirect=${redirect}` : '/login'}>
-    //         <span style={{color: '#1DB6C5', fontWeight: 'bold'}}>Sign in</span>
-    //       </Link>
-    //       <br/>
-    //       By creating an account, you agree to  Tutory's User <span style={{color: '#1DB6C5'}}>Privacy Policy</span> and <span style={{color: '#1DB6C5'}}>Terms and Conditions</span>.
-    //     </Col>
-    //   </Row>
-    //   <Button style={{float: 'right'}} type='submit' variant="info">
-    //       Sign up
-    //     </Button>
-    //   </Form>
-    // </FormContainer>
-    //   </Col>
-    //   <Col md={2}>
-    //   </Col>
-    // </Row>
-
     <div className="mt-5">
       <div className="d-flex justify-content-center pb-2">
         <Link className="sign underline" to="/login">
@@ -121,8 +48,8 @@ const RegisterScreen = ({ location, history }) => {
         </Link>
       </div>
       <div className="main_login mt-2 mx-auto">
-        <p className="pt-3 font_style radio_button pb-2">I am a:</p>
-        <form>
+        <form onSubmit={submitHandler} id="signup_form" className="signup_form">
+          <p className="pt-3 font_style radio_button pb-2">I am a:</p>
           <div className="d-flex">
             <div className="form-check">
               <input
@@ -141,18 +68,6 @@ const RegisterScreen = ({ location, history }) => {
                 className="form-check-input"
                 type="radio"
                 value={role}
-                onChange={() => setRole("parent")}
-                required
-              />
-              <label className="form-check-label font_style radio_button">
-                Parent
-              </label>
-            </div>
-            <div className="form-check">
-              <input
-                className="form-check-input"
-                type="radio"
-                value={role}
                 onChange={() => setRole("tutor")}
                 required
               />
@@ -160,6 +75,18 @@ const RegisterScreen = ({ location, history }) => {
                 Tutor
               </label>
             </div>
+            <div className="form-check">
+              <input
+                className="form-check-input"
+                type="radio"
+                value={role}
+                onChange={() => setRole("parent")}
+                required
+              />
+              <label className="form-check-label font_style radio_button">
+                Parent
+              </label>
+            </div>
           </div>
           <div className="email mt-2">
             <input
@@ -172,28 +99,51 @@ const RegisterScreen = ({ location, history }) => {
             />
             <HiOutlineMail className="i" />
           </div>
-          <div className="email mt-2">
+          <div className="password mt-2">
             <input
               className="form-control"
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter your email address"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Enter your password"
               required
             />
-            <HiOutlineMail className="i" />
+            <RiLockLine className="i" />
           </div>
-          <div className="email mt-2">
+          <div className="password mt-2">
             <input
               className="form-control"
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter your email address"
+              type="password"
+              value={retypePassword}
+              onChange={(e) => setRetypePassword(e.target.value)}
+              placeholder="Retype your password"
               required
             />
-            <HiOutlineMail className="i" />
+            <RiLockLine className="i" />
           </div>
+          <div className="mt-3">
+            {message && <Message variant="danger">{message}</Message>}
+            {error && <Message variant="danger">{error}</Message>}
+          </div>
+          <p className="pt-2 pb-2">
+            <small className="bottom_text">
+              Already have an account?
+              <Link className="link-style px-1" to="/login">
+                Sign in
+              </Link>
+            </small>
+          </p>
+          <small className="bottom_text">
+            By creating an account, you agree to
+          </small>
+          <br />
+          <small className="bottom_text">
+            Tutory's User <span>Privacy Policy</span> and{" "}
+            <span>Terms and Conditions.</span>
+          </small>
+          <button type="submit" className="btn btn-primary Sign_button">
+            Sign Up
+          </button>
         </form>
       </div>
     </div>
