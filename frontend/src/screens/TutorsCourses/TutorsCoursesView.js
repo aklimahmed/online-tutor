@@ -18,9 +18,11 @@ const TutorsCoursesView = () => {
   }, [id]);
 
   const getTime = (data) => {
-    const date = data.substring(0, data.length - 6);
-    const getTime = data.slice(data.length - 5);
-    const [h, m] = getTime.split(":");
+    const getDate = data.substring(0, data.length - 6);
+    const [y, mo, d] = getDate.split("-");
+    const date = d+"-"+mo+"-"+y;
+    const getTimeData = data.slice(data.length - 5);
+    const [h, m] = getTimeData.split(":");
     const time = `${(h % 12) + 12 * (h % 12 === 0)}:${m} ${
       h >= 12 ? "PM" : "AM"
     }`;
