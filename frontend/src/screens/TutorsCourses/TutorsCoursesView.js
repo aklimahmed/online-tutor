@@ -13,13 +13,10 @@ const TutorsCoursesView = () => {
   const id = useSelector((state) => state.userLogin.userInfo._id);
 
   useEffect(() => {
-    const getCourseDetails = () => {
       axios
       .get(`http://localhost:5000/api/course/tutor/view/${id}`)
       .then((data) => setFetchCourseDetails(data.data.course));
-    }
-    getCourseDetails();
-  }, [fetchCourseDetails]);
+  },[id, fetchCourseDetails]);
 
   const getTime = (data) => {
     const getDate = data.substring(0, data.length - 6);

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Row, Col, Card, Container, Form } from "react-bootstrap";
-import "./CreateNewCourse.scss";
 import { MultiSelect } from "react-multi-select-component";
 import { curriculum } from "../../jsonData/Curriculum";
 import { classes } from "../../jsonData/Classes";
@@ -9,12 +8,9 @@ import { subjects} from "../../jsonData/Subjects";
 import { numberOfStudents, numberOfStudentsInFreeClass } from "../../jsonData/NumberOfStudents"
 import { classDays } from "../../jsonData/ClassDays"
 import { classDuration } from "../../jsonData/classDuration";
-import { courseByTutorForm } from "./../../actions/courseActions"
+import { courseByTutorForm } from "../../actions/courseActions"
 
-const CreateNewCourse = () => {
-  const monthNames = ["January", "February", "March", "April", "May", "June",
-  "July", "August", "September", "October", "November", "December"
-  ];
+const TutorsCourseEditComponent = () => {
 
   const [classDay, setClassDay] = useState([]);
 
@@ -36,7 +32,7 @@ const CreateNewCourse = () => {
       courseVideoUrl: "",
       courseId: ""
   })
-  console.log(courseByTutor)
+
   const handleBlur = (event) => {
     const newCourseByTutor = { ...courseByTutor };
     newCourseByTutor[event.target.name] = event.target.value;
@@ -332,4 +328,4 @@ const CreateNewCourse = () => {
   );
 };
 
-export default CreateNewCourse;
+export default TutorsCourseEditComponent;

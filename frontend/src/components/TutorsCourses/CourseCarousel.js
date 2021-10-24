@@ -35,7 +35,7 @@ const CourseCarousel = () => {
     axios
       .get(`http://localhost:5000/api/course/tutor/view/${id}`)
       .then((data) => setFetchCourseDetails(data.data.course));
-  }, [id]);
+  }, [fetchCourseDetails]);
 
   let today = new Date();
   let dd = String(today.getDate()).padStart(2, "0");
