@@ -8,16 +8,29 @@
     font-weight: bold;
 }
 
-.card_body {
+.card_free {
     background-color: #F3FDFB;
     border-radius: 10px;
     border-left: 7px solid #0DD8A7;
 }
 
-.badge_style {
+.card_paid {
+    background-color: #F5FCFF;
+    border-radius: 10px;
+    border-left: 7px solid #00A4E7;
+}
+
+.badge_free {
     background-color:rgb(191, 206, 235);
     float: right;
     color:#3C82FF;
+    font-weight: normal;
+}
+
+.badge_paid {
+    background-color:#FF7D48;
+    float: right;
+    color:#ffffff;
     font-weight: normal;
 }
 
