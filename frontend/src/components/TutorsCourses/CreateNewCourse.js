@@ -311,14 +311,9 @@ const CreateNewCourse = () => {
             </Card.Header>
             <br />
           <input
-<<<<<<< HEAD
             className="form-control d-flex justify-content-center"
-            onBlur={handleBlur}
             style={{width :"90%", margin: "auto auto"}}
-=======
-            className="form-control"
             onChange={handleBlur}
->>>>>>> 2ba739838905c17316b60d538ff9d19b6436b4d8
             name="courseVideoUrl"
             type="url"
             placeholder="eg. www.youtube.com/kxYsdjkd"
