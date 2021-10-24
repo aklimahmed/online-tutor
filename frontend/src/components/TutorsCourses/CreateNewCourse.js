@@ -34,7 +34,8 @@ const CreateNewCourse = () => {
       tutionFee: 0,
       feesTime: "Per Hour",
       courseDescription: "",
-      courseVideoUrl: ""
+      courseVideoUrl: "",
+      courseId: ""
   })
 
   const handleBlur = (event) => {
@@ -54,6 +55,20 @@ const CreateNewCourse = () => {
   useEffect(() => { 
     dispatch(courseByTutorForm(courseByTutor));
   });
+
+  var todayDate = new Date().toISOString().slice(0, 10);
+
+  var da = new Date(); 
+
+  let currentHour = da.getHours();
+  let currentTime = "";
+  if(da.getMinutes() < 10){
+    currentTime = currentHour+":0"+da.getMinutes()
+  }else {
+    currentTime = currentHour+":"+da.getMinutes()
+  }
+  console.log(currentTime)
+
   
   return (
     <Container className="course-add-container">
@@ -133,9 +148,8 @@ const CreateNewCourse = () => {
             name="noOfStudents">
 
             
-              <option style={{ display: "none" }}>No of Students</option>
-
-              {courseByTutor.classTypes === "Free Class" ? 
+            <option style={{ display: "none" }}>No of Students</option>
+            {courseByTutor.classTypes === "Free Class" ? 
             <>
             {numberOfStudentsInFreeClass.map((d) => (
               <option key={d.numberOfStudents} value={d.numberOfStudents}>
@@ -143,7 +157,8 @@ const CreateNewCourse = () => {
               </option>
             ))} 
             </>
-            :
+            
+            : 
             <>
             {numberOfStudents.map((d) => (
               <option key={d.numberOfStudents} value={d.numberOfStudents}>
@@ -193,6 +208,7 @@ const CreateNewCourse = () => {
               name="classStartDateAndTime"
               onBlur={handleBlur}
               placeholder="enter date and time"
+              min={todayDate+"T"+currentTime}
               className="form-control date-time-input"
             ></input>
           </Form.Group>
@@ -206,6 +222,7 @@ const CreateNewCourse = () => {
               name="classEndDateAndTime"
               onBlur={handleBlur}
               placeholder="enter date and time"
+              min={courseByTutor.classStartDateAndTime}
               className="form-control date-time-input"
             ></input>
           </Form.Group>
@@ -294,8 +311,9 @@ const CreateNewCourse = () => {
             </Card.Header>
             <br />
           <input
-            className="form-control"
+            className="form-control d-flex justify-content-center"
             onBlur={handleBlur}
+            style={{width :"90%", margin: "auto auto"}}
             name="courseVideoUrl"
             type="url"
             placeholder="eg. www.youtube.com/kxYsdjkd"
