@@ -6,7 +6,7 @@ const SubjectTeaches = (props) => {
   useEffect(() => {
     setData(props.subjectTeaches);
   }, [props]);
-  
+
   return (
     <div className="mt-5">
       <h5 className="qtext">Subject Teaches</h5>
@@ -34,16 +34,23 @@ const SubjectTeaches = (props) => {
           ) : (
             <tr></tr>
           )}
-          {data ? (
-            <tr>
-              <td data-label="Focus">
-                <small>Secondary</small>
-              </td>
-              <td data-label="subjects"><small>{`${data.secondarySubjects}`}</small></td>
-            </tr>
-          ) : (
-            <tr></tr>
-          )}
+          <tr>
+            <td data-label="Focus">
+              <small>Secondary</small>
+            </td>
+            <td data-label="subjects">
+              <small>
+                {data && data.secondarySubjects
+                  ? data.secondarySubjects.map((item, i, arr) => (
+                      <span key={i}>
+                        {item}
+                        {i !== arr.length - 1 ? ", " : ""}
+                      </span>
+                    ))
+                  : ""}
+              </small>
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>

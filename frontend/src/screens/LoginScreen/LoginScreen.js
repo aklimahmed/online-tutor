@@ -6,6 +6,8 @@ import Message from "../../components/common/Message";
 import { login } from "../../actions/userActions";
 import { FaGooglePlusG, FaFacebookF, FaLinkedinIn } from "react-icons/fa";
 import "./LoginScreen.scss";
+import { HiOutlineMail } from "react-icons/hi";
+import { RiLockLine } from "react-icons/ri";
 
 const LoginScreen = ({ location, history }) => {
   const [email, setEmail] = useState("");
@@ -103,21 +105,23 @@ const LoginScreen = ({ location, history }) => {
         <Col md={5}>
           <p className="form_heading">Sign in with your email and password</p>
           <Form onSubmit={submitHandler}>
-            <Form.Group className="mb-3">
+            <Form.Group className="email mb-3">
               <Form.Control
                 type="email"
                 placeholder="Enter your email address"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
+              <HiOutlineMail className="i" />
             </Form.Group>
-            <Form.Group className="mb-3">
+            <Form.Group className="password mb-3">
               <Form.Control
                 type="password"
                 placeholder="Enter your password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
+              <RiLockLine className="i" />
             </Form.Group>
             {error && <Message variant="danger">{error}</Message>}
             <div className="d-flex justify-content-between">
