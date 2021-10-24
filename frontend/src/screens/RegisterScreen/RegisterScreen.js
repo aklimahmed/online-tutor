@@ -16,7 +16,7 @@ const RegisterScreen = ({ location, history }) => {
   const dispatch = useDispatch();
 
   const userRegister = useSelector((state) => state.userRegister);
-  const { loading, error, userInfo } = userRegister;
+  const { error, userInfo } = userRegister;
 
   const redirect = location.search ? location.search.split("=")[1] : "/";
 
@@ -29,6 +29,7 @@ const RegisterScreen = ({ location, history }) => {
   const submitHandler = (e) => {
     e.preventDefault();
     if (password === retypePassword) {
+      setMessage("");
       dispatch(register(role, email, password));
       document.getElementById("signup_form").reset();
     } else {
@@ -55,8 +56,9 @@ const RegisterScreen = ({ location, history }) => {
               <input
                 className="form-check-input"
                 type="radio"
-                value={role}
+                name="role"
                 onChange={() => setRole("student")}
+                checked={role === "student"}
                 required
               />
               <label className="form-check-label font_style radio_button">
@@ -66,8 +68,9 @@ const RegisterScreen = ({ location, history }) => {
             <div className="form-check">
               <input
                 className="form-check-input"
+                name="role"
                 type="radio"
-                value={role}
+                checked={role === "tutor"}
                 onChange={() => setRole("tutor")}
                 required
               />
@@ -79,7 +82,8 @@ const RegisterScreen = ({ location, history }) => {
               <input
                 className="form-check-input"
                 type="radio"
-                value={role}
+                name="role"
+                checked={role === "parent"}
                 onChange={() => setRole("parent")}
                 required
               />
@@ -95,7 +99,6 @@ const RegisterScreen = ({ location, history }) => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email address"
-              required
             />
             <HiOutlineMail className="i" />
           </div>
@@ -106,7 +109,6 @@ const RegisterScreen = ({ location, history }) => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Enter your password"
-              required
             />
             <RiLockLine className="i" />
           </div>
@@ -117,7 +119,6 @@ const RegisterScreen = ({ location, history }) => {
               value={retypePassword}
               onChange={(e) => setRetypePassword(e.target.value)}
               placeholder="Retype your password"
-              required
             />
             <RiLockLine className="i" />
           </div>
