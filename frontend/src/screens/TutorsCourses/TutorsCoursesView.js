@@ -5,6 +5,7 @@ import { BsFillEyeFill } from "react-icons/bs";
 import { FaEdit } from "react-icons/fa";
 import { AiFillDelete } from "react-icons/ai";
 import CourseCarousel from "../../components/TutorsCourses/CourseCarousel";
+import "./TutorsCoursesView.scss";
 
 const TutorsCoursesView = () => {
   const [fetchCourseDetails, setFetchCourseDetails] = useState([]);
@@ -117,7 +118,11 @@ const deleteCourseHandler = async (id) => {
                   </td>
                   <td data-label="Action">
                     <small>
-                      <BsFillEyeFill /> <FaEdit /> <AiFillDelete onClick={() => deleteCourseHandler(data._id)} />
+                      <BsFillEyeFill className="view_icon" /> 
+                      <FaEdit className="edit_icon" /> 
+                      <AiFillDelete
+                        className="delete_icon"
+                       onClick={() => deleteCourseHandler(data._id)} />
                     </small>
                   </td>
                 </tr>
