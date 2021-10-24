@@ -28,8 +28,8 @@ const App = () => {
           <Route path='/tutorsdashboard/:id' component={TutorDashboard} />
           <Route path='/tutorsmessage/:id' component={TutorsMessage} />  
           <Route path='/studentsform/:id' component={StudentsForm} />
-          <Route path='/course/tutor/:id' component={TutorsCourseAdd} />
-          <Route path='/courseview/tutor/:id' component={TutorsCoursesView} />
+          <Route exact path='/course/tutor/:id' component={TutorsCourseAdd} />
+          <Route path='/course/tutor/view/:id' component={TutorsCoursesView} />
         </Container>
       </main>
      

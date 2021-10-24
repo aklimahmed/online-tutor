@@ -89,6 +89,7 @@ const CreateNewCourse = () => {
         <Col md={4} className="columns">
           <Form.Group className="mb-3 card-align" controlId="formBasicDistrict">
             <select className="form-select drop_down" 
+            required
             onChange={handleBlur}
             name="curriculum">
               <option style={{ display: "none" }}>Select Curriculum</option>
@@ -149,7 +150,7 @@ const CreateNewCourse = () => {
 
             
             <option style={{ display: "none" }}>No of Students</option>
-            {courseByTutor.classTypes === "Free Class" ? 
+            {courseByTutor.classTypes === "Free Class" && courseByTutor.batchType === "Batch Class" ? 
             <>
             {numberOfStudentsInFreeClass.map((d) => (
               <option key={d.numberOfStudents} value={d.numberOfStudents}>
@@ -158,13 +159,19 @@ const CreateNewCourse = () => {
             ))} 
             </>
             
-            : 
+            :  courseByTutor.classTypes === "Paid Class" && courseByTutor.batchType === "Batch Class" ?
             <>
             {numberOfStudents.map((d) => (
               <option key={d.numberOfStudents} value={d.numberOfStudents}>
                 {d.numberOfStudents}
               </option>
             ))}
+          </>
+          :
+          <>
+            <option value={1}>
+                1 Student
+              </option>
           </>
           }
 

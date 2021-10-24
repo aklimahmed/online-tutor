@@ -12,10 +12,13 @@ const TutorsCoursesView = () => {
   const id = useSelector((state) => state.userLogin.userInfo._id);
 
   useEffect(() => {
-    axios
-      .get(`http://localhost:5000/api/course/tutor/${id}`)
+    const getCourseDetails = () => {
+      axios
+      .get(`http://localhost:5000/api/course/tutor/view/${id}`)
       .then((data) => setFetchCourseDetails(data.data.course));
-  }, [id]);
+    }
+    getCourseDetails();
+  }, [fetchCourseDetails]);
 
   const getTime = (data) => {
     const getDate = data.substring(0, data.length - 6);
@@ -30,6 +33,11 @@ const TutorsCoursesView = () => {
   };
 
   let serial = 1;
+
+const deleteCourseHandler = async (id) => {
+  console.log(id)
+  axios.delete(`http://localhost:5000/api/course/tutor/delete/${id}`, id)
+}
 
   return (
     <div>
@@ -109,7 +117,7 @@ const TutorsCoursesView = () => {
                   </td>
                   <td data-label="Action">
                     <small>
-                      <BsFillEyeFill /> <FaEdit /> <AiFillDelete />
+                      <BsFillEyeFill /> <FaEdit /> <AiFillDelete onClick={() => deleteCourseHandler(data._id)} />
                     </small>
                   </td>
                 </tr>
