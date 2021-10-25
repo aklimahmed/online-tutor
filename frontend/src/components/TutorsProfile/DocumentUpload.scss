@@ -16,13 +16,55 @@
   color: #6b6b6b;
 }
 
+.card_width {
+  width: 100%;
+  height: 180px;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.show_image {
+  position: relative;
+}
+
+.progress {
+  height: 180px;
+  display: flex;
+  background-color: white;
+  align-items: center;
+  justify-content: center;
+}
+
+.show_image img {
+  height: 180px;
+  width: 100%;
+  display: block;
+}
+
+.show_image .image_delete {
+  position: absolute;
+  font-size: 25px;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+
+.pic_upload {
+  border: none;
+  color: $UploadText;
+  font-weight: 700;
+  background-color: white;
+}
+
 .instruction-text {
   text-align: center;
   font-size: 15px;
   color: $InstructionClickUpload;
 }
 
-.text-regular{
+.text-regular {
   font-weight: 500;
 }
 
@@ -33,6 +75,6 @@
 
 @media screen and (max-width: 600px) {
   .card-align {
-      margin-bottom: 30px;
+    margin-bottom: 30px;
   }
 }

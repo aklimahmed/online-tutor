@@ -14,8 +14,8 @@ const createTutor = asyncHandler(async (req, res) => {
     lessonInclude,
     exActivities,
     aboutMe,
-    DocumentUpload,
-    VideoUpload,
+    documentsUpload,
+    videoUpload
   } = req.body;
 
   const tutor = await Tutor.create({
@@ -30,8 +30,8 @@ const createTutor = asyncHandler(async (req, res) => {
     lessonInclude,
     exActivities,
     aboutMe,
-    DocumentUpload,
-    VideoUpload,
+    documentsUpload,
+    videoUpload,
   });
 
   if (tutor) {
@@ -47,8 +47,8 @@ const createTutor = asyncHandler(async (req, res) => {
       lessonInclude: tutor.lessonInclude,
       exActivities: tutor.exActivities,
       aboutMe: tutor.aboutMe,
-      DocumentUpload: tutor.DocumentUpload,
-      VideoUpload: tutor.VideoUpload,
+      documentsUpload: tutor.documentsUpload,
+      videoUpload: tutor.videoUpload,
     });
   } else {
     res.status(400);
@@ -72,8 +72,8 @@ const getTutorProfile = asyncHandler(async (req, res) => {
       lessonInclude: tutor.lessonInclude,
       exActivities: tutor.exActivities,
       aboutMe: tutor.aboutMe,
-      DocumentUpload: tutor.DocumentUpload,
-      VideoUpload: tutor.VideoUpload,
+      documentsUpload: tutor.documentsUpload,
+      videoUpload: tutor.videoUpload,
     });
   } else {
     res.status(404);
@@ -96,8 +96,8 @@ const editTutor = asyncHandler(async (req, res) => {
     tutor.lessonInclude = req.body.lessonInclude || tutor.lessonInclude;
     tutor.exActivities = req.body.exActivities || tutor.exActivities;
     tutor.aboutMe = req.body.aboutMe || tutor.aboutMe;
-    tutor.DocumentUpload = req.body.DocumentUpload || tutor.DocumentUpload;
-    tutor.VideoUpload = req.body.VideoUpload || tutor.VideoUpload;
+    tutor.documentsUpload = req.body.documentsUpload || tutor.documentsUpload;
+    tutor.videoUpload = req.body.videoUpload || tutor.videoUpload;
 
     const updatedUser = await tutor.save();
 

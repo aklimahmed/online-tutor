@@ -91,7 +91,7 @@ const TutorProfileTop = (props) => {
             </small>
           </p>
           <p>
-            <small>{academic ? getDegree().major+ " ("+getDegree().degree+") - "+getDegree().institute : ""}</small>
+            <small>{academic ? getDegree().degree+ " ("+getDegree().major+") - "+getDegree().institute : ""}</small>
           </p>
           <p>
             <small>

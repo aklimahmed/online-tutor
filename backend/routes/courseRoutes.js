@@ -10,5 +10,4 @@ router.route('/tutor/delete/:id').delete(deleteCourse)
 router.route('/tutor/singlecourse/:id').get(getSingleCourse)
 router.route('/tutor/edit/:id').put(editCourse)
 
-
 export default router;

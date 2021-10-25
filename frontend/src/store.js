@@ -14,7 +14,9 @@ import {
   teachesAndFeesReducer,
   lessonIncludeReducer,
   extraActivitiesReducer,
-  aboutMeReducer
+  aboutMeReducer,
+  documentsUploadReducer,
+  videoUploadReducer
 } from "./reducers/tutorReducers";
 
 import { studentFormReducer, 
@@ -41,6 +43,8 @@ const reducer = combineReducers({
   lessonIncludeForm: lessonIncludeReducer,
   extraActivitiesForm: extraActivitiesReducer,
   aboutMeForm: aboutMeReducer,
+  documentsUploadForm: documentsUploadReducer,
+  videoUploadForm: videoUploadReducer,
   studentForm: studentFormReducer,
   studentBasicInfoForm: studentBasicInfoReducer,
   studentAcademicInfoForm: academicInfoReducer,

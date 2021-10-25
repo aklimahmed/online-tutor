@@ -53,6 +53,7 @@ const TutorProfileEdit = () => {
     (state) => state.extraActivitiesForm.ExtraActivities
   );
   const aboutMe = useSelector((state) => state.aboutMeForm.AboutMe);
+  const documentsUpload = useSelector((state) => state.documentsUploadForm.DocumentsUpload);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -68,7 +69,8 @@ const TutorProfileEdit = () => {
         teachesAndFess,
         lessonInclude,
         exActivities,
-        aboutMe
+        aboutMe,
+        documentsUpload
       )
     );
   };
@@ -85,15 +87,15 @@ const TutorProfileEdit = () => {
       <LessonInclude lessonInclude={fetchTutorInfo.lessonInclude} />
       <ExtraActivities exActivities={fetchTutorInfo.exActivities} />
       <AboutMe aboutMe={fetchTutorInfo.aboutMe} />
-      <DocumentsUpload />
+      <DocumentsUpload documentsUpload={fetchTutorInfo.documentsUpload} />
       <VideoUpload />
       <div className="d-flex justify-content-center">
         <button
           style={{ width: "150px" }}
           className="btn btn-primary mt-3 mb-5"
-          type="Update"
+          type="submit"
         >
-          Submit
+          Update
         </button>
       </div>
     </form>

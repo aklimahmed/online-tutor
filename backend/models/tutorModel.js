@@ -47,21 +47,17 @@ const tutorSchema = mongoose.Schema(
       type: Object,
       required: true,
     },
-    DocumentUpload: {
+    documentsUpload: {
       type: Object,
+      required: true,
     },
-    VideoUpload: {
-      type: String,
-      validate: {
-        validator: function (v) {
-          return /^https:\/\/www.youtube.com\/.*$/.test(v);
-        },
-        message: (props) => `${props.value} is not a valid youtube link.`,
-      },
+    videoUpload: {
+      type: Object,
     },
   },
   {
     timestamps: true,
+    required: true,
   }
 );
 
