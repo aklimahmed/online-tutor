@@ -45,15 +45,12 @@ const TutorsCourseEdit = () => {
         <TutorsCourseEditComponent singleCourse={singleCourse} />
         <div className="d-flex justify-content-center">
           
-
-          <Link to={`/course/tutor/singlecourse/${id}`}>
           <button
             className="form_button btn btn-primary mt-3 mb-5"
             type="submit"
           >
             Update
           </button>
-          </Link>
         </div>
       </form>
     </Container>
