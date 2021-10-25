@@ -12,29 +12,34 @@ const VideoUpload = () => {
         </small>
       </h6>
       <Row>
-        <Col md={6} className="card-align">
-          <Card style={{ width: "100%", height: "100%" }}>
+        <Col md={3} className="card-align">
+        <Card style={{ width: "100%" }}>
             <Card.Header className="card-header">
-              Upload video from computer
+              Current ID Card (Student/Job)
             </Card.Header>
-            <Card.Body>
-              <Card.Text className="instruction-text">
-                Max. video length 1 min
-              </Card.Text>
-              <br />
-              <Row style={{ textAlign: "center" }}>
-                <label>
-                  <Card.Title className="click-for-upload">
-                    Click for upload
-                  </Card.Title>
-                </label>
-                <input
-                  id="files"
-                  style={{ visibility: "hidden", textAlign: "center" }}
-                  type="file"
-                />
-              </Row>
-            </Card.Body>
+              <Card.Body>
+                <Card.Text className="instruction-text">
+                Max. photo size 400kb
+                  <br />
+                </Card.Text>
+                <br />
+                <Row style={{ textAlign: "center" }}>
+                  <label>
+                    <Card.Title className="click-for-upload">
+                      <input
+                        name="currentId"
+                        type="file"
+                      />Click for select
+                    </Card.Title>
+                    <button
+                      className="pic_upload"
+                      type="button"
+                    >
+                      Upload
+                    </button>
+                  </label>
+                </Row>
+              </Card.Body>
           </Card>
         </Col>
 
@@ -53,7 +58,7 @@ const VideoUpload = () => {
               <br />
               <Row style={{ textAlign: "center" }}>
                 <input
-                  id="files"
+                  name="videoUrl"
                   style={{ visibility: "hidden", textAlign: "center" }}
                   type="file"
                 />

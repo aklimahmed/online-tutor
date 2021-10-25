@@ -16,6 +16,11 @@
   color: #6b6b6b;
 }
 
+.card_width {
+  width: 100%;
+  height: 180px;
+}
+
 input[type="file"] {
   display: none;
 }
@@ -24,8 +29,8 @@ input[type="file"] {
   position: relative;
 }
 
-.progress{
-  height: 175px;
+.progress {
+  height: 180px;
   display: flex;
   background-color: white;
   align-items: center;
@@ -33,7 +38,7 @@ input[type="file"] {
 }
 
 .show_image img {
-  height: 175px;
+  height: 180px;
   width: 100%;
   display: block;
 }

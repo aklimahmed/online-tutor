@@ -119,7 +119,7 @@ const DocumentsUpload = (props) => {
       </h6>
       <Row>
         <Col md={4} className="card-align">
-          <Card style={{ width: "100%" }}>
+          <Card>
             <Card.Header className="card-header">
               Highest Academic Certificate
             </Card.Header>
@@ -140,7 +140,7 @@ const DocumentsUpload = (props) => {
                 </div>
               </div>
             ) : (
-              <Card.Body>
+              <Card.Body className="card_width">
                 <Card.Text className="instruction-text">
                   Upload the highest academic certificate. <br />
                   <br />
@@ -175,7 +175,7 @@ const DocumentsUpload = (props) => {
         </Col>
 
         <Col md={4} className="card-align">
-          <Card style={{ width: "100%" }}>
+          <Card>
             <Card.Header className="card-header">
               Current ID Card (Student/Job)
             </Card.Header>
@@ -196,7 +196,7 @@ const DocumentsUpload = (props) => {
                 </div>
               </div>
             ) : (
-              <Card.Body>
+              <Card.Body className="card_width">
                 <Card.Text className="instruction-text">
                   Upload the current institutional ID card.
                   <br />
@@ -232,7 +232,7 @@ const DocumentsUpload = (props) => {
         </Col>
 
         <Col md={4} className="card-align">
-          <Card style={{ width: "100%" }}>
+          <Card>
             <Card.Header className="card-header">
               Legal ID/Photo Validation
             </Card.Header>
@@ -253,7 +253,7 @@ const DocumentsUpload = (props) => {
                 </div>
               </div>
             ) : (
-              <Card.Body>
+              <Card.Body className="card_width">
                 <Card.Text className="instruction-text">
                   {" "}
                   <br />
