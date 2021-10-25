@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
+import { Link } from 'react-router-dom'
 import axios from "axios";
 import { BsFillEyeFill } from "react-icons/bs";
 import { FaEdit } from "react-icons/fa";
@@ -16,7 +17,7 @@ const TutorsCoursesView = () => {
       axios
       .get(`http://localhost:5000/api/course/tutor/view/${id}`)
       .then((data) => setFetchCourseDetails(data.data.course));
-  },[id, fetchCourseDetails]);
+  },[id]);
 
   const getTime = (data) => {
     const getDate = data.substring(0, data.length - 6);
@@ -33,7 +34,6 @@ const TutorsCoursesView = () => {
   let serial = 1;
 
 const deleteCourseHandler = async (id) => {
-  console.log(id)
   axios.delete(`http://localhost:5000/api/course/tutor/delete/${id}`, id)
 }
 
@@ -115,11 +115,21 @@ const deleteCourseHandler = async (id) => {
                   </td>
                   <td data-label="Action">
                     <small>
-                      <BsFillEyeFill className="view_icon" /> 
-                      <FaEdit className="edit_icon" /> 
+                    <Link to={`/course/tutor/singlecourse/${data._id}`}>
+                      <BsFillEyeFill 
+                      className="view_icon"
+                      />
+                    </Link>
+
+                    <Link to={`/course/tutor/edit/${data._id}`}>
+                      <FaEdit 
+                      className="edit_icon"
+                      /> 
+                    </Link>
+
                       <AiFillDelete
                         className="delete_icon"
-                       onClick={() => deleteCourseHandler(data._id)} />
+                        onClick={() => deleteCourseHandler(data._id)} />
                     </small>
                   </td>
                 </tr>

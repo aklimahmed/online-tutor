@@ -6,7 +6,7 @@ const createCourse = asyncHandler(async (req, res) => {
 
   const course = await Course.create({
     tutor,
-    courseByTutor,
+    courseByTutor
   });
 
   if (course) {
@@ -39,15 +39,48 @@ const deleteCourse = asyncHandler(async (req, res) => {
 
   if (course) {
     await course.remove()
-    res.json({ message: 'Product removed' })
+    res.json({ message: 'Course removed' })
   } else {
     res.status(404)
-    throw new Error('Product not found')
+    throw new Error('Course not found')
   }
 })
+
+const getSingleCourse = asyncHandler(async (req, res) => {
+  const course = await Course.findById(req.params.id)
+
+  if(course) {
+    res.send({course})
+  }else {
+    res.status(404)
+    throw new Error('Course not found')
+  }
+})
+
+const editCourse = asyncHandler(async (req, res) => {
+  console.log(req.body)
+  const course = await Course.findById( req.params.id );
+
+  if (course) {
+    course._id = req.body.id || tutor.id;
+    course.courseByTutor = req.body.courseByTutor || course.courseByTutor;
+
+    const updatedCourse = await course.save();
+
+    res.json({
+      updatedCourse,
+    });
+  } else {
+    res.status(404);
+    throw new Error("User not found");
+  }
+});
+
 
 
 export { createCourse,
          getCourseDetails, 
-         deleteCourse 
+         deleteCourse,
+         getSingleCourse,
+         editCourse
        };
