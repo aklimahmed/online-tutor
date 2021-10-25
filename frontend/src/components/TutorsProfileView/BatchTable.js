@@ -11,7 +11,7 @@ const BatchTable = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/course/tutor/${id}`)
+      .get(`http://localhost:5000/api/course/tutor/view/${id}`)
       .then((data) => setFetchCourseDetails(data.data.course));
   }, [id]);
 

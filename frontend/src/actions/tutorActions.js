@@ -12,11 +12,13 @@ import {
   TEACHES_AND_FEES,
   LESSON_INCLUDE,
   EXTRA_ACTIVITIES,
-  ABOUT_ME
+  ABOUT_ME,
+  DOCUMENTS_UPLOAD,
+  VIDEO_UPLOAD
 } from '../constants/tutorConstants'
 
 export const createTutor = (user,basic, academic, exQualification, woExperience, weeklyTime,
-  subjectTeaches, teachesAndFess, lessonInclude, exActivities, aboutMe, DocumentUpload, VideoUpload) => async (dispatch) => {
+  subjectTeaches, teachesAndFess, lessonInclude, exActivities, aboutMe, documentsUpload, videoUpload) => async (dispatch) => {
   try {
     dispatch({
       type: TUTOR_FORM_REQUEST,
@@ -31,7 +33,7 @@ export const createTutor = (user,basic, academic, exQualification, woExperience,
     const { data } = await axios.post(
       'http://localhost:5000/api/tutor',
       { user,basic, academic, exQualification, woExperience, weeklyTime, subjectTeaches, teachesAndFess,
-        lessonInclude, exActivities, aboutMe, DocumentUpload, VideoUpload},
+        lessonInclude, exActivities, aboutMe, documentsUpload, videoUpload},
       config
     )
 
@@ -65,7 +67,9 @@ export const editTutor = (
   teachesAndFess,
   lessonInclude,
   exActivities,
-  aboutMe) => async (dispatch, getState) => {
+  aboutMe,
+  documentsUpload,
+  videoUpload) => async (dispatch, getState) => {
   try {
     dispatch({
       type: TUTOR_FORM_REQUEST,
@@ -92,7 +96,9 @@ export const editTutor = (
       teachesAndFess,
       lessonInclude,
       exActivities,
-      aboutMe}
+      aboutMe,
+      documentsUpload, 
+      videoUpload}
     
     const { data } = await axios.put(
       `http://localhost:5000/api/tutor/profile/edit/${id}`,
@@ -188,6 +194,20 @@ export const extraActivitiesForm = (info) =>{
 export const aboutMeForm = (info) =>{
   return{
       type: ABOUT_ME,
+      payload: info
+  };
+};
+
+export const documentsUploadForm = (info) =>{
+  return{
+      type: DOCUMENTS_UPLOAD,
+      payload: info
+  };
+};
+
+export const videoUploadForm = (info) =>{
+  return{
+      type: VIDEO_UPLOAD,
       payload: info
   };
 };

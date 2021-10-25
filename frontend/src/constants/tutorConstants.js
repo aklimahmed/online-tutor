@@ -17,3 +17,5 @@ export const TEACHES_AND_FEES = "SET_TeachesAndFees";
 export const LESSON_INCLUDE = "SET_LessonInclude";
 export const EXTRA_ACTIVITIES = "SET_ExtraActivities";
 export const ABOUT_ME = "SET_AboutMe";
+export const DOCUMENTS_UPLOAD = "SET_DOCUMENTS_UPLOAD";
+export const VIDEO_UPLOAD = "SET_VIDEO_UPLOAD";

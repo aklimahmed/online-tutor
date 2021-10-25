@@ -11,7 +11,9 @@ import {
     TEACHES_AND_FEES,
     LESSON_INCLUDE,
     EXTRA_ACTIVITIES,
-    ABOUT_ME
+    ABOUT_ME,
+    DOCUMENTS_UPLOAD,
+    VIDEO_UPLOAD
   } from '../constants/tutorConstants'
 
   
@@ -130,6 +132,26 @@ export const aboutMeReducer = (state = initialState, { type, payload }) => {
   switch (type) {
       case ABOUT_ME:
           return { ...state, AboutMe: payload };
+
+      default:
+          return state;
+  }
+}
+
+export const documentsUploadReducer = (state = initialState, { type, payload }) => {
+  switch (type) {
+      case DOCUMENTS_UPLOAD:
+          return { ...state, DocumentsUpload: payload };
+
+      default:
+          return state;
+  }
+}
+
+export const videoUploadReducer = (state = initialState, { type, payload }) => {
+  switch (type) {
+      case VIDEO_UPLOAD:
+          return { ...state, VideoUpload: payload };
 
       default:
           return state;

@@ -47,10 +47,11 @@ const tutorSchema = mongoose.Schema(
       type: Object,
       required: true,
     },
-    DocumentUpload: {
+    documentsUpload: {
       type: Object,
+      required: true,
     },
-    VideoUpload: {
+    videoUpload: {
       type: String,
       validate: {
         validator: function (v) {

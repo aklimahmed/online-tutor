@@ -1,7 +1,8 @@
-import React from "react";
+import {React} from "react";
 import { Row, Col, Card, Container, Form } from "react-bootstrap";
 
 const VideoUpload = () => {
+
   return (
     <Container className="weeklyTime_div">
       <h6 className="time_heading">
