@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Container } from "react-bootstrap";
 import { editCourse } from "../../actions/courseActions";
 import { useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 const TutorsCourseEdit = () => {
@@ -43,12 +44,16 @@ const TutorsCourseEdit = () => {
       <form onSubmit={handleCourseFormUpdate}>
         <TutorsCourseEditComponent singleCourse={singleCourse} />
         <div className="d-flex justify-content-center">
+          
+
+          <Link to={`/course/tutor/singlecourse/${id}`}>
           <button
             className="form_button btn btn-primary mt-3 mb-5"
             type="submit"
           >
             Update
           </button>
+          </Link>
         </div>
       </form>
     </Container>
