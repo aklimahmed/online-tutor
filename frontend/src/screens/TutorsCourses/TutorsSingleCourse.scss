@@ -18,14 +18,22 @@
     font-weight: 550;
 }
 
-.close_button {
+.close_button_course_view {
     margin-right: 2px;
     background-color: #00A4E7;
     border: none;
+}
+
+.close_button_course_view:hover {
+    background-color: #0274a1;
 }
 
 .update_button {
     margin-left: 2px;
     background-color: #008593;
     border: none;
+}
+
+.update_button:hover {
+    background-color: #0d6c77;
 }

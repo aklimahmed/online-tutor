@@ -6,6 +6,7 @@ import { BsFillEyeFill } from "react-icons/bs";
 import { FaEdit } from "react-icons/fa";
 import { AiFillDelete } from "react-icons/ai";
 import CourseCarousel from "../../components/TutorsCourses/CourseCarousel";
+import Calender from './../../components/TutorsCourses/Calender'
 import "./TutorsCoursesView.scss";
 
 const TutorsCoursesView = () => {
@@ -17,7 +18,7 @@ const TutorsCoursesView = () => {
       axios
       .get(`http://localhost:5000/api/course/tutor/view/${id}`)
       .then((data) => setFetchCourseDetails(data.data.course));
-  },[id]);
+  },[fetchCourseDetails]);
 
   const getTime = (data) => {
     const getDate = data.substring(0, data.length - 6);
@@ -40,6 +41,7 @@ const deleteCourseHandler = async (id) => {
   return (
     <div>
       <CourseCarousel />
+      <Calender />
       <table className="mt-2 batch_table">
         <thead>
           <tr>

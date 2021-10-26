@@ -1,19 +1,28 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import axios from "axios";
 import { Row, Col, Form, Card } from "react-bootstrap";
 import "./TutorsSingleCourse.scss"
 
 const TutorsSingleCourse = () => {
-  const { id } = useParams();
+  const { id } = useParams()
+  const history = useHistory()
 
-  const [singleCourse, setSingleCourse] = useState({});
+  const [singleCourse, setSingleCourse] = useState({})
 
   useEffect(() => {
     axios
       .get(`http://localhost:5000/api/course/tutor/singlecourse/${id}`)
       .then((data) => setSingleCourse(data.data.course));
   }, [id]);
+
+  const onUpdateSubmit = () => {
+      history.replace(`/course/tutor/edit/${id}`)
+  }
+
+  const onCloseSubmit = () => {
+    history.replace(`/course/tutor/view/${id}`)
+  }
 
   const getTime = (data) => {
     if (data.length === 10) {
@@ -159,13 +168,13 @@ const TutorsSingleCourse = () => {
         </Row>
       </Col>
       <div className="d-flex justify-content-center">
-      <button
-            className="close_button form_button btn btn-primary mt-3 mb-5"
+      <button onClick={onCloseSubmit}
+            className="close_button_course_view form_button btn btn-primary mt-3 mb-5"
             type="submit"
           >
             Close
           </button>
-          <button
+          <button onClick={onUpdateSubmit}
             className="update_button form_button btn btn-primary mt-3 mb-5"
             type="submit"
           >
