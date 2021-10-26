@@ -12,9 +12,31 @@ import { classDuration } from "../../jsonData/classDuration";
 import { courseByTutorForm } from "./../../actions/courseActions"
 
 const CreateNewCourse = () => {
-  const monthNames = ["January", "February", "March", "April", "May", "June",
-  "July", "August", "September", "October", "November", "December"
-  ];
+
+  const courseIdGenerator = (curriculum, classLevel) => {
+    let uniqueCourseId = ""
+    if(curriculum === "National Curriculum (Bangla Ver)"){
+      uniqueCourseId += "NCB"
+    }else if(curriculum === "National Curriculum (English Ver)"){
+      uniqueCourseId += "NCE"
+    }else if(curriculum === "English Medium (Cambridge)"){
+      uniqueCourseId += "EMC"
+    }else if(curriculum === "English Medium (Edexcel)"){
+      uniqueCourseId += "EME"
+    }else if(curriculum === "Vocational"){
+      uniqueCourseId += "VOC"
+    }
+
+    if(classLevel === "PSC" || classLevel === "JSC" || classLevel === "SSC" || classLevel === "HSC") {
+      uniqueCourseId += classLevel;
+    }else if(classLevel === "O Level" || classLevel === "A Level"){
+      uniqueCourseId += classLevel[0];
+    }else {
+      uniqueCourseId += classLevel[classLevel.length-1]
+    }
+
+    return uniqueCourseId;
+  }
 
   const [classDay, setClassDay] = useState([]);
 
@@ -37,11 +59,20 @@ const CreateNewCourse = () => {
       courseId: ""
   })
   console.log(courseByTutor)
+
+
   const handleBlur = (event) => {
     const newCourseByTutor = { ...courseByTutor };
     newCourseByTutor[event.target.name] = event.target.value;
     SetCourseByTutor(newCourseByTutor);
   };
+
+  useEffect(() => {
+    if(courseByTutor.curriculum !== "" && courseByTutor.classLevel !== ""){
+      courseIdGenerator(courseByTutor.curriculum, courseByTutor.classLevel)
+    }
+  })
+  
 
   useEffect(() => {
     courseByTutor.classDay = [];
@@ -243,8 +274,8 @@ const CreateNewCourse = () => {
               id="start"
               name="enrollDueDate"
               onChange={handleBlur}
-              min="2021-10-10"
-              max="2025-10-10"
+              min={todayDate}
+              max={courseByTutor.classStartDateAndTime.substring(0,10)}
             ></input>
           </Form.Group>
         </Col>

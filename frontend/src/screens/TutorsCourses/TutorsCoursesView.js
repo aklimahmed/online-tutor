@@ -48,7 +48,8 @@ const onCreateNewCourseClick = () => {
       <CourseCarousel />
       <Calender />
       <div className="course_view_main">
-      <h4 className="card_header" onClick={onCreateNewCourseClick}>Create New Course +</h4>
+      <h4 className="header_class">All Courses | <span className="card_header create_new_course" onClick={onCreateNewCourseClick}>Create New Course +</span></h4>
+      
       <table className="mt-2 batch_table">
         <thead>
           <tr>

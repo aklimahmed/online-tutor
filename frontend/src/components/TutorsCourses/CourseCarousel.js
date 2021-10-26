@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import axios from "axios";
-import { Card, Badge } from "react-bootstrap";
+import { Card, Badge, Alert } from "react-bootstrap";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import "./CourseCarousel.scss";
@@ -28,6 +28,7 @@ const responsive = {
 
 const CourseCarousel = () => {
   const [fetchCourseDetails, setFetchCourseDetails] = useState([]);
+  const [liveFound, setLiveFound] = useState(false);
 
   const id = useSelector((state) => state.userLogin.userInfo._id);
 
@@ -89,11 +90,19 @@ const timeRemaining = (presentTime, classStartTime) => {
   }
 }
 
-console.log(new Date())
+
+const getTime = (data) => {
+  const getTimeData = data.slice(data.length - 5);
+  const [h, m] = getTimeData.split(":");
+  const time = `${(h % 12) + 12 * (h % 12 === 0)}:${m} ${
+    h >= 12 ? "pm" : "am"
+  }`;
+  return `${time}`;
+};
   return (
     <div className="course_carousel">
       <h5 className="component_header">Today's Live Class</h5>
-      <Carousel
+      {<Carousel
         responsive={responsive}
         removeArrowOnDeviceType={["tablet", "mobile"]}
       >
@@ -107,7 +116,6 @@ console.log(new Date())
                 (data.courseByTutor.classDay[0] === day || data.courseByTutor.classDay[1] === day || data.courseByTutor.classDay[2] === day || 
                  data.courseByTutor.classDay[3] === day || data.courseByTutor.classDay[4] === day ||         
                  data.courseByTutor.classDay[5] === day || data.courseByTutor.classDay[6] === day) &&
-                 
                  <div>
                   <Card
             bg="light"
@@ -134,201 +142,9 @@ console.log(new Date())
                 <br />
               </Card.Text>
               <Card.Text className="time_style">
-                {data.courseByTutor.classStartDateAndTime[11] +
-                  data.courseByTutor.classStartDateAndTime[12] ===
-                "12"
-                  ? "12:" +
-                    data.courseByTutor.classStartDateAndTime[14] +
-                    data.courseByTutor.classStartDateAndTime[15] +
-                    " PM"
-                  : data.courseByTutor.classStartDateAndTime[11] +
-                      data.courseByTutor.classStartDateAndTime[12] ===
-                    "13"
-                  ? "01:" +
-                    data.courseByTutor.classStartDateAndTime[14] +
-                    data.courseByTutor.classStartDateAndTime[15] +
-                    " PM"
-                  : data.courseByTutor.classStartDateAndTime[11] +
-                      data.courseByTutor.classStartDateAndTime[12] ===
-                    "14"
-                  ? "02:" +
-                    data.courseByTutor.classStartDateAndTime[14] +
-                    data.courseByTutor.classStartDateAndTime[15] +
-                    " PM"
-                  : data.courseByTutor.classStartDateAndTime[11] +
-                      data.courseByTutor.classStartDateAndTime[12] ===
-                    "15"
-                  ? "03:" +
-                    data.courseByTutor.classStartDateAndTime[14] +
-                    data.courseByTutor.classStartDateAndTime[15] +
-                    " PM"
-                  : data.courseByTutor.classStartDateAndTime[11] +
-                      data.courseByTutor.classStartDateAndTime[12] ===
-                    "16"
-                  ? "04:" +
-                    data.courseByTutor.classStartDateAndTime[14] +
-                    data.courseByTutor.classStartDateAndTime[15] +
-                    " PM"
-                  : data.courseByTutor.classStartDateAndTime[11] +
-                      data.courseByTutor.classStartDateAndTime[12] ===
-                    "17"
-                  ? "05:" +
-                    data.courseByTutor.classStartDateAndTime[14] +
-                    data.courseByTutor.classStartDateAndTime[15] +
-                    " PM"
-                  : data.courseByTutor.classStartDateAndTime[11] +
-                      data.courseByTutor.classStartDateAndTime[12] ===
-                    "18"
-                  ? "06:" +
-                    data.courseByTutor.classStartDateAndTime[14] +
-                    data.courseByTutor.classStartDateAndTime[15] +
-                    " PM"
-                  : data.courseByTutor.classStartDateAndTime[11] +
-                      data.courseByTutor.classStartDateAndTime[12] ===
-                    "19"
-                  ? "07:" +
-                    data.courseByTutor.classStartDateAndTime[14] +
-                    data.courseByTutor.classStartDateAndTime[15] +
-                    " PM"
-                  : data.courseByTutor.classStartDateAndTime[11] +
-                      data.courseByTutor.classStartDateAndTime[12] ===
-                    "20"
-                  ? "08:" +
-                    data.courseByTutor.classStartDateAndTime[14] +
-                    data.courseByTutor.classStartDateAndTime[15] +
-                    " PM"
-                  : data.courseByTutor.classStartDateAndTime[11] +
-                      data.courseByTutor.classStartDateAndTime[12] ===
-                    "21"
-                  ? "09:" +
-                    data.courseByTutor.classStartDateAndTime[14] +
-                    data.courseByTutor.classStartDateAndTime[15] +
-                    " PM"
-                  : data.courseByTutor.classStartDateAndTime[11] +
-                      data.courseByTutor.classStartDateAndTime[12] ===
-                    "22"
-                  ? "10:" +
-                    data.courseByTutor.classStartDateAndTime[14] +
-                    data.courseByTutor.classStartDateAndTime[15] +
-                    " PM"
-                  : data.courseByTutor.classStartDateAndTime[11] +
-                      data.courseByTutor.classStartDateAndTime[12] ===
-                    "23"
-                  ? "11:" +
-                    data.courseByTutor.classStartDateAndTime[14] +
-                    data.courseByTutor.classStartDateAndTime[15] +
-                    " PM"
-                  : data.courseByTutor.classStartDateAndTime[11] +
-                      data.courseByTutor.classStartDateAndTime[12] ===
-                    "00"
-                  ? "12:" +
-                    data.courseByTutor.classStartDateAndTime[14] +
-                    data.courseByTutor.classStartDateAndTime[15] +
-                    " AM"
-                  : data.courseByTutor.classStartDateAndTime[11] +
-                    data.courseByTutor.classStartDateAndTime[12] +
-                    data.courseByTutor.classStartDateAndTime[13] +
-                    data.courseByTutor.classStartDateAndTime[14] +
-                    data.courseByTutor.classStartDateAndTime[15] +
-                    " AM"}{" "}
+                {getTime(data.courseByTutor.classStartDateAndTime)}{" "}
                 to{" "}
-                {data.courseByTutor.classEndDateAndTime[11] +
-                  data.courseByTutor.classEndDateAndTime[12] ===
-                "12"
-                  ? "12:" +
-                    data.courseByTutor.classEndDateAndTime[14] +
-                    data.courseByTutor.classEndDateAndTime[15] +
-                    " PM"
-                  : data.courseByTutor.classEndDateAndTime[11] +
-                      data.courseByTutor.classEndDateAndTime[12] ===
-                    "13"
-                  ? "01:" +
-                    data.courseByTutor.classEndDateAndTime[14] +
-                    data.courseByTutor.classEndDateAndTime[15] +
-                    " PM"
-                  : data.courseByTutor.classEndDateAndTime[11] +
-                      data.courseByTutor.classEndDateAndTime[12] ===
-                    "14"
-                  ? "02:" +
-                    data.courseByTutor.classEndDateAndTime[14] +
-                    data.courseByTutor.classEndDateAndTime[15] +
-                    " PM"
-                  : data.courseByTutor.classEndDateAndTime[11] +
-                      data.courseByTutor.classEndDateAndTime[12] ===
-                    "15"
-                  ? "03:" +
-                    data.courseByTutor.classEndDateAndTime[14] +
-                    data.courseByTutor.classEndDateAndTime[15] +
-                    " PM"
-                  : data.courseByTutor.classEndDateAndTime[11] +
-                      data.courseByTutor.classEndDateAndTime[12] ===
-                    "16"
-                  ? "04:" +
-                    data.courseByTutor.classEndDateAndTime[14] +
-                    data.courseByTutor.classEndDateAndTime[15] +
-                    " PM"
-                  : data.courseByTutor.classEndDateAndTime[11] +
-                      data.courseByTutor.classEndDateAndTime[12] ===
-                    "17"
-                  ? "05:" +
-                    data.courseByTutor.classEndDateAndTime[14] +
-                    data.courseByTutor.classEndDateAndTime[15] +
-                    " PM"
-                  : data.courseByTutor.classEndDateAndTime[11] +
-                      data.courseByTutor.classEndDateAndTime[12] ===
-                    "18"
-                  ? "06:" +
-                    data.courseByTutor.classEndDateAndTime[14] +
-                    data.courseByTutor.classEndDateAndTime[15] +
-                    " PM"
-                  : data.courseByTutor.classEndDateAndTime[11] +
-                      data.courseByTutor.classEndDateAndTime[12] ===
-                    "19"
-                  ? "07:" +
-                    data.courseByTutor.classEndDateAndTime[14] +
-                    data.courseByTutor.classEndDateAndTime[15] +
-                    " PM"
-                  : data.courseByTutor.classEndDateAndTime[11] +
-                      data.courseByTutor.classEndDateAndTime[12] ===
-                    "20"
-                  ? "08:" +
-                    data.courseByTutor.classEndDateAndTime[14] +
-                    data.courseByTutor.classEndDateAndTime[15] +
-                    " PM"
-                  : data.courseByTutor.classEndDateAndTime[11] +
-                      data.courseByTutor.classEndDateAndTime[12] ===
-                    "21"
-                  ? "09:" +
-                    data.courseByTutor.classEndDateAndTime[14] +
-                    data.courseByTutor.classEndDateAndTime[15] +
-                    " PM"
-                  : data.courseByTutor.classEndDateAndTime[11] +
-                      data.courseByTutor.classEndDateAndTime[12] ===
-                    "22"
-                  ? "10:" +
-                    data.courseByTutor.classEndDateAndTime[14] +
-                    data.courseByTutor.classEndDateAndTime[15] +
-                    " PM"
-                  : data.courseByTutor.classEndDateAndTime[11] +
-                      data.courseByTutor.classEndDateAndTime[12] ===
-                    "23"
-                  ? "11:" +
-                    data.courseByTutor.classEndDateAndTime[14] +
-                    data.courseByTutor.classEndDateAndTime[15] +
-                    " PM"
-                  : data.courseByTutor.classEndDateAndTime[11] +
-                      data.courseByTutor.classEndDateAndTime[12] ===
-                    "00"
-                  ? "12:" +
-                    data.courseByTutor.classEndDateAndTime[14] +
-                    data.courseByTutor.classEndDateAndTime[15] +
-                    " AM"
-                  : data.courseByTutor.classEndDateAndTime[11] +
-                    data.courseByTutor.classEndDateAndTime[12] +
-                    data.courseByTutor.classEndDateAndTime[13] +
-                    data.courseByTutor.classEndDateAndTime[14] +
-                    data.courseByTutor.classEndDateAndTime[15] +
-                    " AM"}
+                {getTime(data.courseByTutor.classEndDateAndTime)}
               </Card.Text>
               <Card.Text className="time_remaining_style">
                 {timeRemaining(todaySlashYearFirstDate+" "+nowTime, data.courseByTutor.classStartDateAndTime.substring(0,4)+"/"+data.courseByTutor.classStartDateAndTime.substring(5,7)+"/"+data.courseByTutor.classStartDateAndTime.substring(8,10)+" "+data.courseByTutor.classStartDateAndTime.substring(11,16))}
@@ -337,7 +153,7 @@ console.log(new Date())
           </Card>
                   </div>
           ))}
-      </Carousel>
+      </Carousel>}
     </div>
   );
 };
