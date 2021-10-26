@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import axios from "axios";
 import { BsFillEyeFill } from "react-icons/bs";
 import { FaEdit } from "react-icons/fa";
@@ -38,10 +38,17 @@ const deleteCourseHandler = async (id) => {
   axios.delete(`http://localhost:5000/api/course/tutor/delete/${id}`, id)
 }
 
+const history = useHistory()
+const onCreateNewCourseClick = () => {
+    history.replace(`/course/tutor/${id}`)
+}
+
   return (
     <div>
       <CourseCarousel />
       <Calender />
+      <div className="course_view_main">
+      <h4 className="card_header" onClick={onCreateNewCourseClick}>Create New Course +</h4>
       <table className="mt-2 batch_table">
         <thead>
           <tr>
@@ -139,6 +146,7 @@ const deleteCourseHandler = async (id) => {
             : ""}
         </tbody>
       </table>
+      </div>
     </div>
   );
 };

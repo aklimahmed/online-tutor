@@ -3,6 +3,7 @@ import CreateNewCourse from "../../components/TutorsCourses/CreateNewCourse";
 import { useDispatch, useSelector } from "react-redux";
 import { Container } from "react-bootstrap";
 import { createCourse } from "../../actions/courseActions";
+import { useHistory } from "react-router-dom";
 
 const TutorsCourseAdd = () => {
   const dispatch = useDispatch();
@@ -10,10 +11,15 @@ const TutorsCourseAdd = () => {
     (state) => state.courseByTutorForm.courseByTutor
   );
 
+  const id = useSelector((state) => state.userLogin.userInfo._id);
+  const history = useHistory()
+
   const tutor = useSelector((state) => state.userLogin.userInfo);
   const handleCourseFormSubmit = (e) => {
     e.preventDefault();
     dispatch(createCourse(tutor, courseByTutor));
+
+    history.replace(`/course/tutor/view/${id}`)
   };
 
   return (
