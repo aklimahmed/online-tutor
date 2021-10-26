@@ -18,7 +18,7 @@
 
 .card_width {
   width: 100%;
-  height: 180px;
+  height: 190px;
 }
 
 input[type="file"] {
@@ -30,15 +30,26 @@ input[type="file"] {
 }
 
 .progress {
-  height: 180px;
+  height: 190px;
   display: flex;
   background-color: white;
   align-items: center;
   justify-content: center;
 }
 
+.profile_image{
+  width: 18rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.col-form-label small{
+  color: #00a4e7;
+  font-weight: 550;
+}
+
 .show_image img {
-  height: 180px;
+  height: 190px;
   width: 100%;
   display: block;
 }

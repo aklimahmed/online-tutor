@@ -1,11 +1,13 @@
 import { React, useState, useEffect } from "react";
 import { Row, Col, Card, Container, Form } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { deleteObject } from "firebase/storage";
 import { TiDelete } from "react-icons/ti";
 import { storage } from "../Firebase/FirebaseConfig";
+import { videoUploadForm } from "../../actions/tutorActions";
 
 const VideoUpload = () => {
+  const dispatch = useDispatch();
   const id = useSelector((state) => state.userLogin.userInfo._id);
 
   const [videoUpload, setVideoUpload] = useState({
@@ -13,61 +15,63 @@ const VideoUpload = () => {
     profilePhotoUrl: "",
     videoUrl: "",
   });
-
-  const [image, setImage] = useState(null);
   const [progress, setProgress] = useState(0);
-
-  console.log(videoUpload);
 
   //set image information
   const handleChange = (e) => {
     if (e.target.name === "profilePhoto" && e.target.files[0]) {
-      setImage(e.target.files[0]);
-      const newName = { ...videoUpload };
-      newName[e.target.name] = e.target.files[0].name;
-      setVideoUpload(newName);
+      handleUpload(e);
     } else {
       const newName = { ...videoUpload };
-      newName[e.target.name] = e.target.value;
+      newName[e.target.name] = getUrl(e.target.value);
       setVideoUpload(newName);
     }
   };
 
+  //youtube embed link
+  const getUrl = (url) => {
+    const regExp =
+      /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+    const match = url.match(regExp);
+
+    const id = match && match[2].length === 11 ? match[2] : null;
+
+    return `https://www.youtube.com/embed/${id}`;
+  };
+
   //image upload
   const handleUpload = (e) => {
-    if (image) {
-      if (image.size <= 400000) {
-        const uploadTask = storage.ref(`${id}/${image.name}`).put(image);
-        uploadTask.on(
-          "state_changed",
-          (snapshot) => {
-            const progress = Math.round(
-              (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-            );
-            setProgress(progress);
-          },
-          (error) => {
-            console.log(error);
-          },
-          () => {
-            storage
-              .ref(id)
-              .child(image.name)
-              .getDownloadURL()
-              .then((url) => {
-                const newUpload = { ...videoUpload };
-                newUpload[e] = url;
-                setVideoUpload(newUpload);
-                setProgress(0);
-                setImage(null);
-              });
-          }
-        );
-      } else {
-        alert("File size should be less or equal 400kb");
-      }
+    if (e.target.files[0].size <= 400000) {
+      const uploadTask = storage
+        .ref(`${id}/${e.target.files[0].name}`)
+        .put(e.target.files[0]);
+      uploadTask.on(
+        "state_changed",
+        (snapshot) => {
+          const progress = Math.round(
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+          );
+          setProgress(progress);
+        },
+        (error) => {
+          console.log(error);
+        },
+        () => {
+          storage
+            .ref(id)
+            .child(e.target.files[0].name)
+            .getDownloadURL()
+            .then((url) => {
+              const newUpload = { ...videoUpload };
+              newUpload[e.target.name] = e.target.files[0].name;
+              newUpload[e.target.name + "Url"] = url;
+              setVideoUpload(newUpload);
+              setProgress(0);
+            });
+        }
+      );
     } else {
-      alert("Select your document first");
+      alert("File size should be less or equal 400kb");
     }
   };
 
@@ -87,24 +91,66 @@ const VideoUpload = () => {
       });
   };
 
+  useEffect(() => {
+    dispatch(videoUploadForm(videoUpload));
+  });
+
   return (
-    <Container className="weeklyTime_div">
-      <h6 className="time_heading">
-        Profile Photo{" "}
-        <small className="text-regular">
-          (upload your photo which will appear on your profile):
-        </small>
-      </h6>
-      <Row>
-        <Col md={6} className="card-align">
-          <Card>
-            <Card.Header className="card-header">
-              Upload Photo from computer:
-            </Card.Header>
+    <div>
+      <div className="weeklyTime_div">
+        <h6 className="time_heading">
+          YouTube Link{" "}
+          <small className="text-regular">
+            (upload your Youtube link which will appear on your profile):
+          </small>
+        </h6>
+        <div className="form-group row ">
+          <label className="col-md-2 col-form-label text-nowrap">
+            <small> YouTube URL</small>
+          </label>
+          <div className="col-md-10">
+            <input
+              name="videoUrl"
+              className="form-control"
+              type="url"
+              onChange={handleChange}
+              placeholder="https://www.youtube.com/embed/J1yuU06Xkwk"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div className="weeklyTime_div">
+        <h6 className="time_heading">
+          Profile Photo{" "}
+          <small className="text-regular">
+            (upload your photo which will appear on your profile):
+          </small>
+        </h6>
+        <Card className="profile_image">
+          <Card.Header className="card-header">
+            Upload Photo from computer:
+          </Card.Header>
+          {videoUpload && videoUpload.profilePhotoUrl !== "" ? (
+            <div className="show_image">
+              <img src={videoUpload.profilePhotoUrl} alt="Certificate" />
+              <TiDelete
+                onClick={() =>
+                  deleteImage(videoUpload.profilePhoto, "profilePhoto")
+                }
+                className="image_delete"
+              />
+            </div>
+          ) : progress !== 0 ? (
+            <div className="progress">
+              <div className="spinner-border text-primary">
+                <span className="sr-only"></span>
+              </div>
+            </div>
+          ) : (
             <Card.Body className="card_width">
               <Card.Text className="instruction-text">
-                Max. photo size 400kb
-                <br />
+                Upload the highest academic certificate. <br />
                 <br />
               </Card.Text>
               <br />
@@ -118,47 +164,13 @@ const VideoUpload = () => {
                     />
                     Click for select
                   </Card.Title>
-                  <button className="pic_upload" type="button">
-                    Upload
-                  </button>
                 </label>
               </Row>
             </Card.Body>
-          </Card>
-        </Col>
-
-        <Col md={6} className="card-align">
-          <Card>
-            <Card.Header className="card-header">
-              Upload video from YouTube or others
-            </Card.Header>
-            <Card.Body className="card_width">
-              <Card.Text className="instruction-text">Input URL:</Card.Text>
-              <Form.Group className="mb-3" controlId="formBasicName">
-                <br />
-                <br />
-                <input
-                  name="videoUrl"
-                  className="form-control"
-                  type="url"
-                  onChange={handleChange}
-                  placeholder="https://youtu.be/8r1Pb6Ja90o"
-                />
-              </Form.Group>
-
-              <br />
-              <Row style={{ textAlign: "center" }}>
-                <input
-                  id="files"
-                  style={{ visibility: "hidden", textAlign: "center" }}
-                  type="file"
-                />
-              </Row>
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
-    </Container>
+          )}
+        </Card>
+      </div>
+    </div>
   );
 };
 

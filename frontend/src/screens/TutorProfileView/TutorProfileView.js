@@ -45,7 +45,7 @@ const TutorProfileView = () => {
           <AboutMe aboutMe={fetchTutorInfo.aboutMe} />
         </Col>
         <Col md={4}>
-          <VideoIntro />
+          <VideoIntro videoUpload={fetchTutorInfo.videoUpload} />
         </Col>
       </Row>
     </div>

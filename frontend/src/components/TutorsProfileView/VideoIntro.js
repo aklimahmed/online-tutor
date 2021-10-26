@@ -1,8 +1,15 @@
-import React from "react";
+import {React, useEffect, useState} from "react";
 import "./VideoIntro.scss";
 import { Link } from "react-router-dom";
 
-const VideoIntro = () => {
+const VideoIntro = (props) => {
+
+  const [data, setData] = useState({})
+
+  useEffect(()=>{
+    setData(props.videoUpload)
+  },[props])
+
   return (
     <div className="sticky-top">
       <div className="video_intro_main">
@@ -10,7 +17,7 @@ const VideoIntro = () => {
         <iframe
           title="Video Intro"
           className="video"
-          src="https://www.youtube.com/embed/tgbNymZ7vqY"
+          src={data ? data.videoUrl : ""}
         ></iframe>
         <div className="d-flex justify-content-between class_list">
           <Link className="link_style" to="/">

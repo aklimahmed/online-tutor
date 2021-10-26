@@ -22,54 +22,47 @@ const DocumentsUpload = () => {
     legalIdUrl: "",
   });
 
-  const [image, setImage] = useState(null);
-  const [progress, setProgress] = useState(0);
+  const [progress, setProgress] = useState({
+    name: "",
+    value: 0,
+  });
 
-  //set image information
-  const handleChange = (e) => {
-    if (e.target.files[0]) {
-      setImage(e.target.files[0]);
-      const newName = { ...DocumentsUpload };
-      newName[e.target.name] = e.target.files[0].name;
-      setDocumentsUpload(newName);
-    }
-  };
+  //set image information && firestore upload
+  const handleChange = async (e) => {
+    if (e.target.files[0] && e.target.files[0].size <= 400000) {
+      const uploadTask = storage
+        .ref(`${id}/${e.target.files[0].name}`)
+        .put(e.target.files[0]);
+      uploadTask.on(
+        "state_changed",
+        (snapshot) => {
+          const progress = Math.round(
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+          );
 
-  //image upload
-  const handleUpload = (e) => {
-    if (image) {
-      if (image.size <= 400000) {
-        const uploadTask = storage.ref(`${id}/${image.name}`).put(image);
-        uploadTask.on(
-          "state_changed",
-          (snapshot) => {
-            const progress = Math.round(
-              (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-            );
-            setProgress(progress);
-          },
-          (error) => {
-            console.log(error);
-          },
-          () => {
-            storage
-              .ref(id)
-              .child(image.name)
-              .getDownloadURL()
-              .then((url) => {
-                const newUpload = { ...DocumentsUpload };
-                newUpload[e] = url;
-                setDocumentsUpload(newUpload);
-                setProgress(0);
-                setImage(null);
-              });
-          }
-        );
-      } else {
-        alert("File size should be less or equal 400kb");
-      }
+          const newProgress = { ...progress };
+          newProgress["name"] = e.target.name;
+          newProgress["value"] = progress;
+          setProgress(newProgress);
+        },
+        (error) => {
+          console.log(error);
+        },
+        () => {
+          storage
+            .ref(id)
+            .child(e.target.files[0].name)
+            .getDownloadURL()
+            .then((url) => {
+              const newUpload = { ...DocumentsUpload };
+              newUpload[e.target.name] = e.target.files[0].name;
+              newUpload[e.target.name + "Url"] = url;
+              setDocumentsUpload(newUpload);
+            });
+        }
+      );
     } else {
-      alert("Select your document first");
+      alert("File size should be less or equal 400kb");
     }
   };
 
@@ -83,6 +76,7 @@ const DocumentsUpload = () => {
         newName[file] = "";
         newName[file + "Url"] = "";
         setDocumentsUpload(newName);
+        progress.value = 0;
       })
       .catch((error) => {
         console.log(error);
@@ -118,7 +112,7 @@ const DocumentsUpload = () => {
                   className="image_delete"
                 />
               </div>
-            ) : DocumentsUpload.certificate !== "" && progress !== 0 ? (
+            ) : progress.name === "certificate" && progress.value !== 0 ? (
               <div className="progress">
                 <div className="spinner-border text-primary">
                   <span className="sr-only"></span>
@@ -141,17 +135,8 @@ const DocumentsUpload = () => {
                         type="file"
                         onChange={handleChange}
                       />
-                      {DocumentsUpload.certificate !== ""
-                        ? DocumentsUpload.certificate
-                        : "Click for select"}
+                      Click for select
                     </Card.Title>
-                    <button
-                      onClick={() => handleUpload("certificateUrl")}
-                      className="pic_upload"
-                      type="button"
-                    >
-                      Upload
-                    </button>
                   </label>
                 </Row>
               </Card.Body>
@@ -174,7 +159,7 @@ const DocumentsUpload = () => {
                   className="image_delete"
                 />
               </div>
-            ) : DocumentsUpload.currentId !== "" && progress !== 0 ? (
+            ) : progress.name === "currentId" && progress.value !== 0 ? (
               <div className="progress">
                 <div className="spinner-border text-primary">
                   <span className="sr-only"></span>
@@ -198,17 +183,8 @@ const DocumentsUpload = () => {
                         type="file"
                         onChange={handleChange}
                       />
-                      {DocumentsUpload.currentId !== ""
-                        ? DocumentsUpload.currentId
-                        : "Click for select"}
+                      Click for select
                     </Card.Title>
-                    <button
-                      onClick={() => handleUpload("currentIdUrl")}
-                      className="pic_upload"
-                      type="button"
-                    >
-                      Upload
-                    </button>
                   </label>
                 </Row>
               </Card.Body>
@@ -231,7 +207,7 @@ const DocumentsUpload = () => {
                   className="image_delete"
                 />
               </div>
-            ) : DocumentsUpload.legalId !== "" && progress !== 0 ? (
+            ) : progress.name === "legalId" && progress.value !== 0 ? (
               <div className="progress">
                 <div className="spinner-border text-primary">
                   <span className="sr-only"></span>
@@ -255,17 +231,8 @@ const DocumentsUpload = () => {
                         type="file"
                         onChange={handleChange}
                       />
-                      {DocumentsUpload.legalId !== ""
-                        ? DocumentsUpload.legalId
-                        : "Click for select"}
+                      Click for select
                     </Card.Title>
-                    <button
-                      onClick={() => handleUpload("legalIdUrl")}
-                      className="pic_upload"
-                      type="button"
-                    >
-                      Upload
-                    </button>
                   </label>
                 </Row>
               </Card.Body>
