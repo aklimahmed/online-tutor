@@ -58,7 +58,6 @@ const getSingleCourse = asyncHandler(async (req, res) => {
 })
 
 const editCourse = asyncHandler(async (req, res) => {
-  console.log(req.body)
   const course = await Course.findById( req.params.id );
 
   if (course) {
@@ -83,4 +82,4 @@ export { createCourse,
          deleteCourse,
          getSingleCourse,
          editCourse
-       };
+  };

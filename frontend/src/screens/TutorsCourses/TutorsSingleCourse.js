@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { Row, Col, Form, Card } from "react-bootstrap";
+import "./TutorsSingleCourse.scss"
 
 const TutorsSingleCourse = () => {
   const { id } = useParams();
@@ -33,47 +34,48 @@ const TutorsSingleCourse = () => {
 
   return (
     <Row>
+      <h4 style={{marginBottom: '20px', marginTop: '20px'}} className="card_header">Course ID: BMC52021101234</h4>
       <Col>
         <Row>
-          <Col>Class Type</Col>
-          <Col>
-            <Card.Header>{singleCourse.courseByTutor && singleCourse.courseByTutor.classTypes}</Card.Header>
+          <Col md={4}><span className="course_info_label">Class Type</span></Col>
+          <Col md={8} className="info_col">
+          <Card.Header className="single_course_info">{singleCourse.courseByTutor && singleCourse.courseByTutor.classTypes}</Card.Header>
           </Col>
         </Row>
         <Row>
-          <Col>Curriculum</Col>
-          <Col>
-            <Card.Header>{singleCourse.courseByTutor && singleCourse.courseByTutor.curriculum}</Card.Header>
+          <Col md={4}><span className="course_info_label">Curriculum</span></Col>
+          <Col md={8} className="info_col">
+            <Card.Header className="single_course_info">{singleCourse.courseByTutor && singleCourse.courseByTutor.curriculum}</Card.Header>
           </Col>
         </Row>
         <Row>
-          <Col>Class</Col>
-          <Col>
-            <Card.Header>{singleCourse.courseByTutor && singleCourse.courseByTutor.classLevel}</Card.Header>
+          <Col md={4}><span className="course_info_label">Class</span></Col>
+          <Col md={8} className="info_col">
+            <Card.Header className="single_course_info">{singleCourse.courseByTutor && singleCourse.courseByTutor.classLevel}</Card.Header>
           </Col>
         </Row>
         <Row>
-          <Col>Subject</Col>
-          <Col>
-            <Card.Header>{singleCourse.courseByTutor && singleCourse.courseByTutor.subject}</Card.Header>
+          <Col md={4}><span className="course_info_label">Subject</span></Col>
+          <Col md={8} className="info_col">
+            <Card.Header className="single_course_info">{singleCourse.courseByTutor && singleCourse.courseByTutor.subject}</Card.Header>
           </Col>
         </Row>
         <Row>
-          <Col>Batch Type</Col>
-          <Col>
-            <Card.Header>{singleCourse.courseByTutor && singleCourse.courseByTutor.batchType}</Card.Header>
+          <Col md={4}><span className="course_info_label">Batch Type</span></Col>
+          <Col md={8} className="info_col">
+            <Card.Header className="single_course_info">{singleCourse.courseByTutor && singleCourse.courseByTutor.batchType}</Card.Header>
           </Col>
         </Row>
         <Row>
-          <Col>No of Students</Col>
-          <Col>
-            <Card.Header>{singleCourse.courseByTutor && singleCourse.courseByTutor.noOfStudents}</Card.Header>
+          <Col md={4}><span className="course_info_label">No of Students</span></Col>
+          <Col md={8} className="info_col">
+            <Card.Header className="single_course_info">{singleCourse.courseByTutor && singleCourse.courseByTutor.noOfStudents}</Card.Header>
           </Col>
         </Row>
         <Row>
-          <Col>Class Days</Col>
-          <Col>
-            <Card.Header>
+          <Col md={4}><span className="course_info_label">Class Days</span></Col>
+          <Col md={8} className="info_col">
+            <Card.Header className="single_course_info">
               {singleCourse && singleCourse.courseByTutor &&
                 singleCourse.courseByTutor.classDay &&
                 singleCourse.courseByTutor.classDay.map((d) => <>{d} </>)}
@@ -81,24 +83,24 @@ const TutorsSingleCourse = () => {
           </Col>
         </Row>
         <Row>
-          <Col>Class Duration</Col>
-          <Col>
-            <Card.Header>{singleCourse.courseByTutor && singleCourse.courseByTutor.classDuration} minutes</Card.Header>
+          <Col md={4}><span className="course_info_label">Class Duration</span></Col>
+          <Col md={8} className="info_col">
+            <Card.Header className="single_course_info">{singleCourse.courseByTutor && singleCourse.courseByTutor.classDuration} minutes</Card.Header>
           </Col>
         </Row>
         <Row>
-          <Col>Course Description</Col>
-          <Col>
-            <Card.Header>{singleCourse.courseByTutor && singleCourse.courseByTutor.courseDescription}</Card.Header>
+          <Col md={4}><span className="course_info_label">Course Description</span></Col>
+          <Col md={8} className="info_col">
+            <Card.Header className="single_course_info">{singleCourse.courseByTutor && singleCourse.courseByTutor.courseDescription}</Card.Header>
           </Col>
         </Row>
       </Col>
 
       <Col>
         <Row>
-          <Col>Class Start Date & Time</Col>
-          <Col>
-            <Card.Header>
+          <Col md={4}><span className="course_info_label">Class Start Date & Time</span></Col>
+          <Col md={8} className="info_col">
+            <Card.Header className="single_course_info">
               {singleCourse && singleCourse.courseByTutor &&
                 singleCourse.courseByTutor.classStartDateAndTime &&
                 getTime(singleCourse.courseByTutor.classStartDateAndTime)}
@@ -106,9 +108,9 @@ const TutorsSingleCourse = () => {
           </Col>
         </Row>
         <Row>
-          <Col>Class End Date & Time</Col>
-          <Col>
-            <Card.Header>
+          <Col md={4}><span className="course_info_label">Class End Date & Time</span></Col>
+          <Col md={8} className="info_col">
+            <Card.Header className="single_course_info">
               {singleCourse && singleCourse.courseByTutor &&
                 singleCourse.courseByTutor.classEndDateAndTime &&
                 getTime(singleCourse.courseByTutor.classEndDateAndTime)}
@@ -116,9 +118,9 @@ const TutorsSingleCourse = () => {
           </Col>
         </Row>
         <Row>
-          <Col>Enroll Due Date</Col>
-          <Col>
-            <Card.Header>
+          <Col md={4}><span className="course_info_label">Enroll Due Date</span></Col>
+          <Col md={8} className="info_col">
+            <Card.Header className="single_course_info">
               {singleCourse && singleCourse.courseByTutor &&
                 singleCourse.courseByTutor.enrollDueDate &&
                 getTime(singleCourse.courseByTutor.enrollDueDate)}
@@ -126,36 +128,50 @@ const TutorsSingleCourse = () => {
           </Col>
         </Row>
         <Row>
-          <Col>Fees</Col>
-          <Col>
-            <Card.Header>{singleCourse.courseByTutor && singleCourse.courseByTutor.tutionFee} /{singleCourse.courseByTutor && singleCourse.courseByTutor.feesTime}</Card.Header>
+          <Col md={4}><span className="course_info_label">Fees</span></Col>
+          <Col md={8} className="info_col">
+            <Card.Header className="single_course_info">{singleCourse.courseByTutor && singleCourse.courseByTutor.tutionFee} /{singleCourse.courseByTutor && singleCourse.courseByTutor.feesTime}</Card.Header>
           </Col>
         </Row>
         <Row>
-          <Col>Course Create Date & Time</Col>
-          <Col>
-            <Card.Header>{singleCourse && singleCourse.createdAt && getTime(singleCourse.createdAt.substring(0, 16))}</Card.Header>
+          <Col md={4}><span className="course_info_label">Course Create Date & Time</span></Col>
+          <Col md={8} className="info_col">
+            <Card.Header className="single_course_info">{singleCourse && singleCourse.createdAt && getTime(singleCourse.createdAt.substring(0, 16))}</Card.Header>
           </Col>
         </Row>
         <Row>
-          <Col>Last Update Date & Time</Col>
-          <Col>
-            <Card.Header>{singleCourse && singleCourse.createdAt && getTime(singleCourse.updatedAt.substring(0, 16))}</Card.Header>
+          <Col md={4}><span className="course_info_label">Last Update Date & Time</span></Col>
+          <Col md={8} className="info_col">
+            <Card.Header className="single_course_info">{singleCourse && singleCourse.createdAt && getTime(singleCourse.updatedAt.substring(0, 16))}</Card.Header>
           </Col>
         </Row>
         <Row>
-          <Col>YouTube URL</Col>
-          <Col>
-            <Card.Header>{singleCourse && singleCourse.courseByTutor && singleCourse.courseByTutor.courseVideoUrl}</Card.Header>
+          <Col md={4}><span className="course_info_label">YouTube URL</span></Col>
+          <Col md={8} className="info_col"> 
+            <Card.Header className="single_course_info">{singleCourse && singleCourse.courseByTutor && singleCourse.courseByTutor.courseVideoUrl}</Card.Header>
           </Col>
         </Row>
         <Row>
-          <Col>Course Image</Col>
-          <Col>
-            <Card.Header></Card.Header>
+          <Col md={4}><span className="course_info_label">Course File</span></Col>
+          <Col md={8} className="info_col">
+            <Card.Header className="single_course_info">{singleCourse && singleCourse.courseByTutor && singleCourse.courseByTutor.file ? singleCourse.courseByTutor.file : "No file attached"}</Card.Header>
           </Col>
         </Row>
       </Col>
+      <div className="d-flex justify-content-center">
+      <button
+            className="close_button form_button btn btn-primary mt-3 mb-5"
+            type="submit"
+          >
+            Close
+          </button>
+          <button
+            className="update_button form_button btn btn-primary mt-3 mb-5"
+            type="submit"
+          >
+            Update
+          </button>
+        </div>
     </Row>
   );
 };

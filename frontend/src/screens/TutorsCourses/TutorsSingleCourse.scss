@@ -1,0 +1,31 @@
+.single_course_info {
+    width: 100%;
+    border: none;
+    color: black;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-weight: normal;
+    float: left;
+}
+
+.info_col {
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.course_info_label {
+    font-size: 13px;
+    font-weight: 550;
+}
+
+.close_button {
+    margin-right: 2px;
+    background-color: #00A4E7;
+    border: none;
+}
+
+.update_button {
+    margin-left: 2px;
+    background-color: #008593;
+    border: none;
+}
