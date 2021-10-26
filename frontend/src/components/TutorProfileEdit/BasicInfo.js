@@ -128,7 +128,6 @@ const BasicInfo = (props) => {
               defaultValue={data ? data.birthDate : ""}
               min="1901-01-01"
               max="2015-12-31"
-              required
             ></input>
           </Form.Group>
         </Col>

@@ -53,6 +53,7 @@ const tutorSchema = mongoose.Schema(
     },
     videoUpload: {
       type: Object,
+      required: true,
     },
   },
   {

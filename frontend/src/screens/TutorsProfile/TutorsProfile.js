@@ -30,7 +30,6 @@ const TutorsProfile = () => {
     (state) => state.WorkExperienceForm.WorkExperience
   );
   const weeklyTime = useSelector((state) => state.weeklyTimeForm.weeklyTime);
-  console.log(weeklyTime);
   const subjectTeaches = useSelector(
     (state) => state.subjectTeachesForm.SubjectTeaches
   );
@@ -46,6 +45,8 @@ const TutorsProfile = () => {
   const aboutMe = useSelector((state) => state.aboutMeForm.AboutMe);
   const user = useSelector((state) => state.userLogin.userInfo);
   const documentsUpload = useSelector((state) => state.documentsUploadForm.DocumentsUpload);
+  const videoUpload = useSelector((state) => state.videoUploadForm.VideoUpload);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(
@@ -62,6 +63,7 @@ const TutorsProfile = () => {
         exActivities,
         aboutMe,
         documentsUpload,
+        videoUpload
       )
     );
   };

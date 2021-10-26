@@ -12,10 +12,12 @@ import { Link } from "react-router-dom";
 const TutorProfileTop = (props) => {
   const [basicData, setBasicData] = useState({});
   const [academic, setAcademic] = useState({});
+  const [videoUpload, setVideoUpload] = useState({});
 
   useEffect(() => {
     setBasicData(props.tutorInfo.basic);
     setAcademic(props.tutorInfo.academic);
+    setVideoUpload(props.tutorInfo.videoUpload);
   }, [props]);
 
 
@@ -65,7 +67,7 @@ const TutorProfileTop = (props) => {
         <div className="image_div">
           <div className="teacher_image">
             <img
-              src="https://cdn.shopify.com/s/files/1/0472/7118/2499/t/7/assets/pf-1f820dcf--Mens-ApparelCategory-Thumbnail.jpg?v=1629697226"
+              src={videoUpload ? videoUpload.profilePhotoUrl : ""}
               alt="tutor_picture"
             />
             <div className="dot"></div>
