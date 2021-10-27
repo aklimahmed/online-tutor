@@ -28,16 +28,12 @@ const VideoUpload = (props) => {
 
   const [videoUpload, setVideoUpload] = useState({});
 
-  const [image, setImage] = useState(null);
   const [progress, setProgress] = useState(0);
 
   //set image information
   const handleChange = (e) => {
     if (e.target.name === "profilePhoto" && e.target.files[0]) {
-      setImage(e.target.files[0]);
-      const newName = { ...videoUpload };
-      newName[e.target.name] = e.target.files[0].name;
-      setVideoUpload(newName);
+      handleUpload(e);
     } else {
       const newName = { ...videoUpload };
       newName[e.target.name] = getUrl(e.target.value);
@@ -53,44 +49,42 @@ const VideoUpload = (props) => {
 
     const id = match && match[2].length === 11 ? match[2] : null;
 
-    return( `https://www.youtube.com/embed/${id}`);
+    return `https://www.youtube.com/embed/${id}`;
   };
 
   //image upload
   const handleUpload = (e) => {
-    if (image) {
-      if (image.size <= 400000) {
-        const uploadTask = storage.ref(`${id}/${image.name}`).put(image);
-        uploadTask.on(
-          "state_changed",
-          (snapshot) => {
-            const progress = Math.round(
-              (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-            );
-            setProgress(progress);
-          },
-          (error) => {
-            console.log(error);
-          },
-          () => {
-            storage
-              .ref(id)
-              .child(image.name)
-              .getDownloadURL()
-              .then((url) => {
-                const newUpload = { ...videoUpload };
-                newUpload[e] = url;
-                setVideoUpload(newUpload);
-                setProgress(0);
-                setImage(null);
-              });
-          }
-        );
-      } else {
-        alert("File size should be less or equal 400kb");
-      }
+    if (e.target.files[0].size <= 400000) {
+      const uploadTask = storage
+        .ref(`${id}/${e.target.files[0].name}`)
+        .put(e.target.files[0]);
+      uploadTask.on(
+        "state_changed",
+        (snapshot) => {
+          const progress = Math.round(
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+          );
+          setProgress(progress);
+        },
+        (error) => {
+          console.log(error);
+        },
+        () => {
+          storage
+            .ref(id)
+            .child(e.target.files[0].name)
+            .getDownloadURL()
+            .then((url) => {
+              const newUpload = { ...videoUpload };
+              newUpload[e.target.name] = e.target.files[0].name;
+              newUpload[e.target.name + "Url"] = url;
+              setVideoUpload(newUpload);
+              setProgress(0);
+            });
+        }
+      );
     } else {
-      alert("Select your document first");
+      alert("File size should be less or equal 400kb");
     }
   };
 
@@ -121,9 +115,9 @@ const VideoUpload = (props) => {
     <div>
       <div className="weeklyTime_div">
         <h6 className="time_heading">
-          YouTube Link{" "}
+          Into Video{" "}
           <small className="text-regular">
-            (upload your Youtube link which will appear on your profile):
+            (upload your introductory video for better appearance to students
           </small>
         </h6>
         <div className="form-group row ">

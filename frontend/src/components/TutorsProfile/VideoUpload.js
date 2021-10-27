@@ -99,9 +99,10 @@ const VideoUpload = () => {
     <div>
       <div className="weeklyTime_div">
         <h6 className="time_heading">
-          YouTube Link{" "}
+          Intro Video{" "}
           <small className="text-regular">
-            (upload your Youtube link which will appear on your profile):
+            (upload your introductory video for better appearance to students
+            and parents):
           </small>
         </h6>
         <div className="form-group row ">

@@ -1,45 +1,111 @@
-@import"../../../style/Color.scss";
-@import"../../../style/FontSize.scss";
+@import "../../../style/Color.scss";
+@import "../../../style/FontSize.scss";
 
-.logo{
-    height: 80px;
+.logo {
+  height: 50px !important;
+  width: 65px !important;
 }
+@media (min-width: 992px) {
+  .header_width {
+    width: 95%;
+  }
+  .navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+  .navbar-nav .btn {
+    padding-right: 1rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    margin-bottom: none;
+    padding-left: 1rem;
+  }
 
-.header_button{
-    border-radius: 30px;
-    padding: 10px;
-}
-
-.dropdown_style{
-    padding: 0;
-    margin: 0;
-}
-
-.header_text{
-    font-size: $headerText;
-    font-weight: $headerWeight;
-    text-transform: none;
-    letter-spacing: 0px;
-}
-
-.nav-link {
-    display: inline;
-}
-
-.effect:after {
-    content: '';
+  .effect:after {
+    content: "";
     display: block;
-    width: 100%;
+    width: 65%;
     transform: scaleX(0);
     height: 2px;
-    bottom: -5px;
-    left: 0;
+    margin-left: 13%;
     background-color: #0087ca;
     transform-origin: bottom right;
     transition: transform 0.25s ease-out;
-}
+  }
 
-.effect:hover:after {
+  .effect:hover:after {
     transform: scaleX(1);
     transform-origin: bottom left;
+  }
+
+  .effect_single {
+    display: inline-block;
+    position: relative;
+  }
+
+  .effect_single:after {
+    content: "";
+    position: absolute;
+    width: 70%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 15%;
+    background-color: #0087ca;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+
+  .effect_single:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+}
+
+.navbar-nav .btn {
+  color: #00a4e7;
+  background-color: white;
+  border-radius: 10px;
+  border-color: #00a4e7;
+}
+
+.navbar-nav .btn:hover {
+  color: white;
+  background-color: #00a4e7;
+  border-radius: 10px;
+  border-color: 00a4e7;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: #008593;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.nav_background {
+  background-color: #f0eeee;
+}
+
+.header_image {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+@media screen and (max-width: 600px) {
+  .navbar-nav .btn {
+    width: 35%;
+    margin-bottom: 10px;
+  }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  .navbar-nav .btn {
+    width: 15%;
+    margin-bottom: 10px;
+  }
 }
