@@ -15,6 +15,15 @@ const CreateNewCourse = () => {
 
   const courseIdGenerator = (curriculum, classLevel) => {
     let uniqueCourseId = ""
+
+    if(classLevel !== "" && (classLevel === "PSC" || classLevel === "JSC" || classLevel === "SSC" || classLevel === "HSC")) {
+      uniqueCourseId += classLevel;
+    }else if(classLevel === "O Level" || classLevel === "A Level"){
+      uniqueCourseId += classLevel[0];
+    }else {
+      uniqueCourseId += classLevel[6]
+    }
+
     if(curriculum === "National Curriculum (Bangla Ver)"){
       uniqueCourseId += "NCB"
     }else if(curriculum === "National Curriculum (English Ver)"){
@@ -27,16 +36,17 @@ const CreateNewCourse = () => {
       uniqueCourseId += "VOC"
     }
 
-    if(classLevel === "PSC" || classLevel === "JSC" || classLevel === "SSC" || classLevel === "HSC") {
-      uniqueCourseId += classLevel;
-    }else if(classLevel === "O Level" || classLevel === "A Level"){
-      uniqueCourseId += classLevel[0];
-    }else {
-      uniqueCourseId += classLevel[classLevel.length-1]
-    }
-
-    return uniqueCourseId;
+    const today = new Date();
+    uniqueCourseId += today.getFullYear()
+    uniqueCourseId += (today.getMonth()+1)
+    uniqueCourseId += Math.floor(Math.random() * (999 - 100) ) + 100;
+    uniqueCourseId += today.getSeconds();
+    const setCourseId = {...courseByTutor};
+    setCourseId["courseId"] = uniqueCourseId;
+    SetCourseByTutor(setCourseId);
   }
+
+
 
   const [classDay, setClassDay] = useState([]);
 
@@ -58,7 +68,11 @@ const CreateNewCourse = () => {
       courseVideoUrl: "",
       courseId: ""
   })
+<<<<<<< HEAD
   console.log(courseByTutor.courseId)
+=======
+
+>>>>>>> 6746f27308de53f71f36e97148b56ccd6128b9d5
 
 
   const handleBlur = (event) => {
@@ -72,7 +86,7 @@ const CreateNewCourse = () => {
       courseIdGenerator(courseByTutor.curriculum, courseByTutor.classLevel)
     }
   })
-  
+
 
   useEffect(() => {
     courseByTutor.classDay = [];
@@ -97,7 +111,6 @@ const CreateNewCourse = () => {
   }else {
     currentTime = currentHour+":"+da.getMinutes()
   }
-  console.log(currentTime)
 
   
   return (
