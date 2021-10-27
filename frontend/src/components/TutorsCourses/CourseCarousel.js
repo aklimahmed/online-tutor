@@ -46,7 +46,6 @@ const CourseCarousel = () => {
   today = yyyy + "-" + mm + "-" + dd;
   let todaySlashFormatDate = dd + "/" + mm + "/" + yyyy;
   let todaySlashYearFirstDate = yyyy+"/"+mm+"/"+dd
-  console.log(today);
 
   const daysArray = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"] 
   const d = new Date();
@@ -99,6 +98,7 @@ const getTime = (data) => {
   }`;
   return `${time}`;
 };
+const serial = 1;
   return (
     <div className="course_carousel">
       <h5 className="component_header">Today's Live Class</h5>
@@ -116,7 +116,7 @@ const getTime = (data) => {
                 (data.courseByTutor.classDay[0] === day || data.courseByTutor.classDay[1] === day || data.courseByTutor.classDay[2] === day || 
                  data.courseByTutor.classDay[3] === day || data.courseByTutor.classDay[4] === day ||         
                  data.courseByTutor.classDay[5] === day || data.courseByTutor.classDay[6] === day) &&
-                 <div>
+                 <div key={data.createdAt}>
                   <Card
             bg="light"
             text="dark"
