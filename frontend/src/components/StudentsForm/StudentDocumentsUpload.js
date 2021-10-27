@@ -1,12 +1,12 @@
-import { React, useState, useEffect } from "react";
+import { React, useState} from "react";
 import { Row, Col, Card, Container } from "react-bootstrap";
 import { storage } from "../Firebase/FirebaseConfig";
 import { deleteObject } from "firebase/storage";
 import { TiDelete } from "react-icons/ti";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector} from "react-redux";
 
 const StudentDocumentsUpload = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const id = useSelector((state) => state.userLogin.userInfo._id);
 

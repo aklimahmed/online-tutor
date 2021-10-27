@@ -1,5 +1,5 @@
 import { React, useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Navbar, Nav, Container, NavDropdown, Button } from "react-bootstrap";
 import { logout } from "../../../actions/userActions";
 import logo from "../../../Asset/logo.png";
@@ -14,7 +14,7 @@ const Header = () => {
   let id = localStorage.getItem("userInfo")
     ? JSON.parse(localStorage.getItem("userInfo"))._id
     : "";
-    
+
   useEffect(() => {
     if (id !== "") {
       axios
@@ -31,7 +31,7 @@ const Header = () => {
     <Navbar className="nav_background" expand="lg">
       <Container fluid className="header_width">
         <Navbar.Brand>
-          <img className="logo" src={logo} alt="" />
+          <img className="logo" src={logo} alt="Tutory Club" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
@@ -87,6 +87,7 @@ const Header = () => {
                   <img
                     className="header_image"
                     src={fetchProfile.videoUpload.profilePhotoUrl}
+                    alt="Profile"
                   />
                 ) : (
                   <>{fetchProfile.basic && fetchProfile.basic.tutorsName}</>

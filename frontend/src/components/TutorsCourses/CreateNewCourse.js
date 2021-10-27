@@ -5,75 +5,77 @@ import "./CreateNewCourse.scss";
 import { MultiSelect } from "react-multi-select-component";
 import { curriculum } from "../../jsonData/Curriculum";
 import { classes } from "../../jsonData/Classes";
-import { subjects} from "../../jsonData/Subjects";
-import { numberOfStudents, numberOfStudentsInFreeClass } from "../../jsonData/NumberOfStudents"
-import { classDays } from "../../jsonData/ClassDays"
+import { subjects } from "../../jsonData/Subjects";
+import {
+  numberOfStudents,
+  numberOfStudentsInFreeClass,
+} from "../../jsonData/NumberOfStudents";
+import { classDays } from "../../jsonData/ClassDays";
 import { classDuration } from "../../jsonData/classDuration";
-import { courseByTutorForm } from "./../../actions/courseActions"
+import { courseByTutorForm } from "./../../actions/courseActions";
 
 const CreateNewCourse = () => {
-
   const courseIdGenerator = (curriculum, classLevel) => {
-    let uniqueCourseId = ""
+    let uniqueCourseId = "";
+    if (curriculum !== "" && classLevel !== "") {
+      if (
+        classLevel !== "" &&
+        (classLevel === "PSC" ||
+          classLevel === "JSC" ||
+          classLevel === "SSC" ||
+          classLevel === "HSC")
+      ) {
+        uniqueCourseId += classLevel;
+      } else if (classLevel === "O Level" || classLevel === "A Level") {
+        uniqueCourseId += classLevel[0];
+      } else {
+        uniqueCourseId += classLevel[6];
+      }
 
-    if(classLevel !== "" && (classLevel === "PSC" || classLevel === "JSC" || classLevel === "SSC" || classLevel === "HSC")) {
-      uniqueCourseId += classLevel;
-    }else if(classLevel === "O Level" || classLevel === "A Level"){
-      uniqueCourseId += classLevel[0];
-    }else {
-      uniqueCourseId += classLevel[6]
+      if (curriculum === "National Curriculum (Bangla Ver)") {
+        uniqueCourseId += "NCB";
+      } else if (curriculum === "National Curriculum (English Ver)") {
+        uniqueCourseId += "NCE";
+      } else if (curriculum === "English Medium (Cambridge)") {
+        uniqueCourseId += "EMC";
+      } else if (curriculum === "English Medium (Edexcel)") {
+        uniqueCourseId += "EME";
+      } else if (curriculum === "Vocational") {
+        uniqueCourseId += "VOC";
+      }
+
+      const today = new Date();
+      uniqueCourseId += today.getFullYear();
+      uniqueCourseId += today.getMonth() + 1;
+      uniqueCourseId += Math.floor(Math.random() * (999 - 100)) + 100;
+      uniqueCourseId += today.getSeconds();
+
+      const setCourseId = { ...courseByTutor };
+      setCourseId["courseId"] = uniqueCourseId;
+      SetCourseByTutor(setCourseId);
     }
-
-    if(curriculum === "National Curriculum (Bangla Ver)"){
-      uniqueCourseId += "NCB"
-    }else if(curriculum === "National Curriculum (English Ver)"){
-      uniqueCourseId += "NCE"
-    }else if(curriculum === "English Medium (Cambridge)"){
-      uniqueCourseId += "EMC"
-    }else if(curriculum === "English Medium (Edexcel)"){
-      uniqueCourseId += "EME"
-    }else if(curriculum === "Vocational"){
-      uniqueCourseId += "VOC"
-    }
-
-    const today = new Date();
-    uniqueCourseId += today.getFullYear()
-    uniqueCourseId += (today.getMonth()+1)
-    uniqueCourseId += Math.floor(Math.random() * (999 - 100) ) + 100;
-    uniqueCourseId += today.getSeconds();
-    const setCourseId = {...courseByTutor};
-    setCourseId["courseId"] = uniqueCourseId;
-    SetCourseByTutor(setCourseId);
-  }
-
-
+  };
 
   const [classDay, setClassDay] = useState([]);
 
   const [courseByTutor, SetCourseByTutor] = useState({
-      classTypes: "",
-      curriculum: "",
-      classLevel: "",
-      subject: "",
-      batchType: "",
-      noOfStudents: "",
-      classDuration: "",
-      classDay: [],
-      classStartDateAndTime: "",
-      classEndDateAndTime: "",
-      enrollDueDate: "",
-      tutionFee: 0,
-      feesTime: "Per Hour",
-      courseDescription: "",
-      courseVideoUrl: "",
-      courseId: ""
-  })
-<<<<<<< HEAD
-  console.log(courseByTutor.courseId)
-=======
-
->>>>>>> 6746f27308de53f71f36e97148b56ccd6128b9d5
-
+    classTypes: "",
+    curriculum: "",
+    classLevel: "",
+    subject: "",
+    batchType: "",
+    noOfStudents: "",
+    classDuration: "",
+    classDay: [],
+    classStartDateAndTime: "",
+    classEndDateAndTime: "",
+    enrollDueDate: "",
+    tutionFee: 0,
+    feesTime: "Per Hour",
+    courseDescription: "",
+    courseVideoUrl: "",
+    courseId: "",
+  });
 
   const handleBlur = (event) => {
     const newCourseByTutor = { ...courseByTutor };
@@ -82,11 +84,9 @@ const CreateNewCourse = () => {
   };
 
   useEffect(() => {
-    if(courseByTutor.curriculum !== "" && courseByTutor.classLevel !== ""){
-      courseIdGenerator(courseByTutor.curriculum, courseByTutor.classLevel)
-    }
-  })
-
+    courseIdGenerator(courseByTutor.curriculum, courseByTutor.classLevel);
+    // eslint-disable-next-line
+  }, [courseByTutor.curriculum, courseByTutor.classLevel]);
 
   useEffect(() => {
     courseByTutor.classDay = [];
@@ -96,45 +96,46 @@ const CreateNewCourse = () => {
 
   const dispatch = useDispatch();
 
-  useEffect(() => { 
+  useEffect(() => {
     dispatch(courseByTutorForm(courseByTutor));
   });
 
-  var todayDate = new Date().toISOString().slice(0, 10);
+  const todayDate = new Date().toISOString().slice(0, 10);
 
-  var da = new Date(); 
+  const da = new Date();
 
   let currentHour = da.getHours();
   let currentTime = "";
-  if(da.getMinutes() < 10){
-    currentTime = currentHour+":0"+da.getMinutes()
-  }else {
-    currentTime = currentHour+":"+da.getMinutes()
+  if (da.getMinutes() < 10) {
+    currentTime = currentHour + ":0" + da.getMinutes();
+  } else {
+    currentTime = currentHour + ":" + da.getMinutes();
   }
 
-  
   return (
     <Container className="course-add-container">
-      
       <Row>
-      <Col md={4} className="columns">
+        <Col md={4} className="columns">
           <Form.Group className="mb-3 card-align" controlId="formBasicDistrict">
-            <select className="form-select drop_down" 
-            name="classTypes"
-            onChange={handleBlur}
+            <select
+              className="form-select drop_down"
+              name="classTypes"
+              onChange={handleBlur}
             >
               <option style={{ display: "none" }}>Select Class Types</option>
-                <option>Free Class</option>
-                <option>Paid Class</option>
+              <option>Free Class</option>
+              <option>Paid Class</option>
             </select>
           </Form.Group>
         </Col>
         <Col md={4} className="columns">
           <Form.Group className="mb-3 card-align" controlId="formBasicDistrict">
-            <select className="form-select drop_down" 
-            required
-            onChange={handleBlur}
-            name="curriculum">
+            <select
+              className="form-select drop_down"
+              required
+              onChange={handleBlur}
+              name="curriculum"
+            >
               <option style={{ display: "none" }}>Select Curriculum</option>
               {curriculum.map((d) => (
                 <option key={d.curriculum} value={d.curriculum}>
@@ -146,9 +147,11 @@ const CreateNewCourse = () => {
         </Col>
         <Col md={4} className="columns">
           <Form.Group className="mb-3 card-align" controlId="formBasicDistrict">
-            <select className="form-select drop_down" 
-            onChange={handleBlur}
-            name="classLevel">
+            <select
+              className="form-select drop_down"
+              onChange={handleBlur}
+              name="classLevel"
+            >
               <option style={{ display: "none" }}>Select Class</option>
               {classes.map((d) => (
                 <option key={d.class} value={d.class}>
@@ -158,13 +161,15 @@ const CreateNewCourse = () => {
             </select>
           </Form.Group>
         </Col>
-        </Row>
+      </Row>
       <Row className="d-flex justify-content-between">
-      <Col md={3} className="columns">
+        <Col md={3} className="columns">
           <Form.Group className="mb-3 card-align" controlId="formBasicDistrict">
-            <select className="form-select drop_down"
-            onChange={handleBlur}
-            name="subject">
+            <select
+              className="form-select drop_down"
+              onChange={handleBlur}
+              name="subject"
+            >
               <option style={{ display: "none" }}>Select Subject</option>
               {subjects.map((d) => (
                 <option key={d.value} value={d.value}>
@@ -175,58 +180,63 @@ const CreateNewCourse = () => {
           </Form.Group>
         </Col>
         <Col md={3} className="columns">
-          <Form.Group className="mb-3 card-align" controlId="formBasicDistrict" style={{width: "100%"}}>
-            <select className="form-select drop_down" 
-            onChange={handleBlur}
-            name="batchType">
+          <Form.Group
+            className="mb-3 card-align"
+            controlId="formBasicDistrict"
+            style={{ width: "100%" }}
+          >
+            <select
+              className="form-select drop_down"
+              onChange={handleBlur}
+              name="batchType"
+            >
               <option style={{ display: "none" }}>Select Batch Type</option>
-                <option>Batch Class</option>
-                <option>One-to-One Class</option>
-            </select>
-          </Form.Group>
-        </Col>
-        <Col md={3} className="columns">
-        <Form.Group className="mb-3" controlId="formBasicDistrict">
-            <select className="form-select drop_down" 
-            onChange={handleBlur}
-            name="noOfStudents">
-
-            
-            <option style={{ display: "none" }}>No of Students</option>
-            {courseByTutor.classTypes === "Free Class" && courseByTutor.batchType === "Batch Class" ? 
-            <>
-            {numberOfStudentsInFreeClass.map((d) => (
-              <option key={d.numberOfStudents} value={d.numberOfStudents}>
-                {d.numberOfStudents}
-              </option>
-            ))} 
-            </>
-            
-            :  courseByTutor.classTypes === "Paid Class" && courseByTutor.batchType === "Batch Class" ?
-            <>
-            {numberOfStudents.map((d) => (
-              <option key={d.numberOfStudents} value={d.numberOfStudents}>
-                {d.numberOfStudents}
-              </option>
-            ))}
-          </>
-          :
-          <>
-            <option value={1}>
-                1 Student
-              </option>
-          </>
-          }
-
-              
+              <option>Batch Class</option>
+              <option>One-to-One Class</option>
             </select>
           </Form.Group>
         </Col>
         <Col md={3} className="columns">
           <Form.Group className="mb-3" controlId="formBasicDistrict">
-            <select className="form-select drop_down" 
-            onChange={handleBlur}
-            name="classDuration">
+            <select
+              className="form-select drop_down"
+              onChange={handleBlur}
+              name="noOfStudents"
+            >
+              <option style={{ display: "none" }}>No of Students</option>
+              {courseByTutor.classTypes === "Free Class" &&
+              courseByTutor.batchType === "Batch Class" ? (
+                <>
+                  {numberOfStudentsInFreeClass.map((d) => (
+                    <option key={d.numberOfStudents} value={d.numberOfStudents}>
+                      {d.numberOfStudents}
+                    </option>
+                  ))}
+                </>
+              ) : courseByTutor.classTypes === "Paid Class" &&
+                courseByTutor.batchType === "Batch Class" ? (
+                <>
+                  {numberOfStudents.map((d) => (
+                    <option key={d.numberOfStudents} value={d.numberOfStudents}>
+                      {d.numberOfStudents}
+                    </option>
+                  ))}
+                </>
+              ) : (
+                <>
+                  <option value={1}>1 Student</option>
+                </>
+              )}
+            </select>
+          </Form.Group>
+        </Col>
+        <Col md={3} className="columns">
+          <Form.Group className="mb-3" controlId="formBasicDistrict">
+            <select
+              className="form-select drop_down"
+              onChange={handleBlur}
+              name="classDuration"
+            >
               <option style={{ display: "none" }}>Each Class Duration</option>
               {classDuration.map((d) => (
                 <option key={d.value} value={d.value}>
@@ -236,12 +246,13 @@ const CreateNewCourse = () => {
             </select>
           </Form.Group>
         </Col>
-        </Row>
-        <Row className="d-flex justify-content-between">
+      </Row>
+      <Row className="d-flex justify-content-between">
         <Col md={3} className="columns">
           <Form.Group className="mb-3" controlId="formBasicLocalLanguage">
-          <Form.Label className="form_label">Select Class Days</Form.Label>
-            <MultiSelect className="multiSelect"
+            <Form.Label className="form_label">Select Class Days</Form.Label>
+            <MultiSelect
+              className="multiSelect"
               options={classDays}
               value={classDay}
               onChange={setClassDay}
@@ -251,21 +262,25 @@ const CreateNewCourse = () => {
         </Col>
         <Col md={3} className="columns">
           <Form.Group>
-            <Form.Label className="form_label">Class Start Date & Time</Form.Label>
+            <Form.Label className="form_label">
+              Class Start Date & Time
+            </Form.Label>
             <input
               type="datetime-local"
               id="birthdaytime"
               name="classStartDateAndTime"
               onChange={handleBlur}
               placeholder="enter date and time"
-              min={todayDate+"T"+currentTime}
+              min={todayDate + "T" + currentTime}
               className="form-control date-time-input"
             ></input>
           </Form.Group>
         </Col>
         <Col md={3}>
           <Form.Group>
-            <Form.Label className="form_label">Class End Date & Time</Form.Label>
+            <Form.Label className="form_label">
+              Class End Date & Time
+            </Form.Label>
             <input
               type="datetime-local"
               id="birthdaytime"
@@ -278,7 +293,7 @@ const CreateNewCourse = () => {
           </Form.Group>
         </Col>
         <Col md={3} className="columns">
-        <Form.Group className="mb-3" controlId="formBasicDob">
+          <Form.Group className="mb-3" controlId="formBasicDob">
             <Form.Label className="form_label">Enroll Due Date:</Form.Label>
             <br />
             <input
@@ -288,52 +303,67 @@ const CreateNewCourse = () => {
               name="enrollDueDate"
               onChange={handleBlur}
               min={todayDate}
-              max={courseByTutor.classStartDateAndTime.substring(0,10)}
+              max={courseByTutor.classStartDateAndTime.substring(0, 10)}
             ></input>
           </Form.Group>
         </Col>
       </Row>
-      {courseByTutor.classTypes === "Free Class" ? '' : 
-      <Row style={{ paddingTop: "15px" }}>
-      <Col md={1}><label style={{paddingTop: '11px', paddingRight: '10px'}}>Fee:</label></Col>
-      <Col md={3}>
-        <Form.Group className="mb-3" controlId="formBasicFee">
-          <input
-            className="form-control"
-            name="tutionFee"
-            onChange={handleBlur}
-            type="number"
-            placeholder="Enter amount e.g 100"
-          />
-        </Form.Group>
-      </Col>
-      <Col md={4}>
-        <Form.Group className="mb-3" controlId="formBasicDistrict">
-          <select className="form-select drop_down"
-          onChange={handleBlur} 
-          name="feesTime">
-            <option>Per Hour</option>
-            <option>Per Month</option>
-            <option>Per Course</option>
-          </select>
-        </Form.Group>
-      </Col>
-    </Row>
-      
-      
-      }
-      
+      {courseByTutor.classTypes === "Free Class" ? (
+        ""
+      ) : (
+        <Row style={{ paddingTop: "15px" }}>
+          <Col md={1}>
+            <label style={{ paddingTop: "11px", paddingRight: "10px" }}>
+              Fee:
+            </label>
+          </Col>
+          <Col md={3}>
+            <Form.Group className="mb-3" controlId="formBasicFee">
+              <input
+                className="form-control"
+                name="tutionFee"
+                onChange={handleBlur}
+                type="number"
+                placeholder="Enter amount e.g 100"
+              />
+            </Form.Group>
+          </Col>
+          <Col md={4}>
+            <Form.Group className="mb-3" controlId="formBasicDistrict">
+              <select
+                className="form-select drop_down"
+                onChange={handleBlur}
+                name="feesTime"
+              >
+                <option>Per Hour</option>
+                <option>Per Month</option>
+                <option>Per Course</option>
+              </select>
+            </Form.Group>
+          </Col>
+        </Row>
+      )}
+
       <Row>
         <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
           <Form.Label>Enter course description if any:</Form.Label>
-          <Form.Control as="textarea" 
-          onChange={handleBlur}
-          name="courseDescription" rows={3} />
+          <Form.Control
+            as="textarea"
+            onChange={handleBlur}
+            name="courseDescription"
+            rows={3}
+          />
         </Form.Group>
       </Row>
       <Row>
         <Col md={6}>
-        <Card style={{ width: "100%",height:"140px", border: '1px solid #B8B8B8'}}>
+          <Card
+            style={{
+              width: "100%",
+              height: "140px",
+              border: "1px solid #B8B8B8",
+            }}
+          >
             <Card.Header className="card-header">
               Attach a file (course plan/curriculum/syllabus)
             </Card.Header>
@@ -355,19 +385,23 @@ const CreateNewCourse = () => {
           </Card>
         </Col>
         <Col md={6}>
-          <Card style={{ width: "100%",height:"140px", border: '1px solid #B8B8B8'}}>
-        <Card.Header className="card-header">
-        Add a video link:
-            </Card.Header>
+          <Card
+            style={{
+              width: "100%",
+              height: "140px",
+              border: "1px solid #B8B8B8",
+            }}
+          >
+            <Card.Header className="card-header">Add a video link:</Card.Header>
             <br />
-          <input
-            className="form-control d-flex justify-content-center"
-            style={{width :"90%", margin: "auto auto"}}
-            onChange={handleBlur}
-            name="courseVideoUrl"
-            type="url"
-            placeholder="eg. www.youtube.com/kxYsdjkd"
-          />
+            <input
+              className="form-control d-flex justify-content-center"
+              style={{ width: "90%", margin: "auto auto" }}
+              onChange={handleBlur}
+              name="courseVideoUrl"
+              type="url"
+              placeholder="eg. www.youtube.com/kxYsdjkd"
+            />
           </Card>
         </Col>
       </Row>

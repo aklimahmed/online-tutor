@@ -21,15 +21,11 @@ const TutorsCourseEdit = () => {
       .then((data) => setSingleCourse(data.data.course));
   },[id]);
 
-  //console.log(singleCourse)
-
   const dispatch = useDispatch();
 
   const courseByTutor = useSelector (
     (state) => state.courseByTutorForm.courseByTutor
   );
-
-  const tutor = useSelector((state) => state.userLogin.userInfo);
 
   const handleCourseFormUpdate = (e) => {
     e.preventDefault();

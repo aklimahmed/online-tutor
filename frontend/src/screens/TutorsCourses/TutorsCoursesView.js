@@ -22,8 +22,9 @@ const TutorsCoursesView = () => {
 
   useEffect(() => {
     getData();
-  },[]);
-  console.log(fetchCourseDetails);
+    // eslint-disable-next-line
+  }, []);
+
   const getTime = (data) => {
     const getDate = data.substring(0, data.length - 6);
     const [y, mo, d] = getDate.split("-");
@@ -38,9 +39,14 @@ const TutorsCoursesView = () => {
 
   let serial = 1;
 
-  const deleteCourseHandler = (id) => {
-    axios.delete(`http://localhost:5000/api/course/tutor/delete/${id}`, id);
-    getData();
+  const deleteCourseHandler = async (id) => {
+    axios
+      .delete(`http://localhost:5000/api/course/tutor/delete/${id}`, id)
+      .then((data) => {
+        if (data) {
+          getData();
+        }
+      });
   };
 
   const history = useHistory();

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import axios from "axios";
-import { Row, Col, Form, Card } from "react-bootstrap";
+import { Row, Col, Card } from "react-bootstrap";
 import "./TutorsSingleCourse.scss"
 
 const TutorsSingleCourse = () => {

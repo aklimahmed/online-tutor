@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import axios from "axios";
-import { Card, Badge, Alert } from "react-bootstrap";
+import { Card, Badge } from "react-bootstrap";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import "./CourseCarousel.scss";
@@ -28,7 +28,6 @@ const responsive = {
 
 const CourseCarousel = () => {
   const [fetchCourseDetails, setFetchCourseDetails] = useState([]);
-  const [liveFound, setLiveFound] = useState(false);
 
   const id = useSelector((state) => state.userLogin.userInfo._id);
 
@@ -45,115 +44,158 @@ const CourseCarousel = () => {
 
   today = yyyy + "-" + mm + "-" + dd;
   let todaySlashFormatDate = dd + "/" + mm + "/" + yyyy;
-  let todaySlashYearFirstDate = yyyy+"/"+mm+"/"+dd
+  let todaySlashYearFirstDate = yyyy + "/" + mm + "/" + dd;
 
-  const daysArray = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"] 
+  const daysArray = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   const d = new Date();
   let dayNo = d.getDay();
-  let day = daysArray[dayNo]
+  let day = daysArray[dayNo];
 
   d.getHours(); // => 9
   d.getMinutes(); // =>  30
-  const nowTime = d.getHours()+":"+d.getMinutes();
-  
-const isDateBetweenStartAndEndDate = (dateFrom, dateTo, dateCheck) => {
+  const nowTime = d.getHours() + ":" + d.getMinutes();
 
+  const isDateBetweenStartAndEndDate = (dateFrom, dateTo, dateCheck) => {
     let d1 = dateFrom.split("/");
     let d2 = dateTo.split("/");
     let c = dateCheck.split("/");
 
-    let from = new Date(d1[2], parseInt(d1[1])-1, d1[0]);  // -1 because months are from 0 to 11
-    let to   = new Date(d2[2], parseInt(d2[1])-1, d2[0]);
-    let check = new Date(c[2], parseInt(c[1])-1, c[0]);
+    let from = new Date(d1[2], parseInt(d1[1]) - 1, d1[0]); // -1 because months are from 0 to 11
+    let to = new Date(d2[2], parseInt(d2[1]) - 1, d2[0]);
+    let check = new Date(c[2], parseInt(c[1]) - 1, c[0]);
 
-    if(check >= from && check <= to){
-        return true
+    if (check >= from && check <= to) {
+      return true;
     } else {
-      return false
+      return false;
     }
-}
+  };
 
-const timeRemaining = (presentTime, classStartTime) => {
-  console.log(presentTime, classStartTime)
-  var startTime = new Date(presentTime); 
-  var endTime = new Date(classStartTime);
-  var difference = endTime.getTime() - startTime.getTime(); // This will give difference in milliseconds
-  var resultInMinutes = Math.round(difference / 60000);
+  const timeRemaining = (presentTime, classStartTime) => {
+    console.log(presentTime, classStartTime);
+    var startTime = new Date(presentTime);
+    var endTime = new Date(classStartTime);
+    var difference = endTime.getTime() - startTime.getTime(); // This will give difference in milliseconds
+    var resultInMinutes = Math.round(difference / 60000);
 
-  let hours = (resultInMinutes / 60);
+    let hours = resultInMinutes / 60;
 
-  if(hours > 1){
-    return `${~~hours} h and ${resultInMinutes%60} m remaining`
-  }else {
-    return `${resultInMinutes} m remaining`
-  }
-}
+    if (hours > 1) {
+      return `${~~hours} h and ${resultInMinutes % 60} m remaining`;
+    } else {
+      return `${resultInMinutes} m remaining`;
+    }
+  };
 
-
-const getTime = (data) => {
-  const getTimeData = data.slice(data.length - 5);
-  const [h, m] = getTimeData.split(":");
-  const time = `${(h % 12) + 12 * (h % 12 === 0)}:${m} ${
-    h >= 12 ? "pm" : "am"
-  }`;
-  return `${time}`;
-};
-const serial = 1;
+  const getTime = (data) => {
+    const getTimeData = data.slice(data.length - 5);
+    const [h, m] = getTimeData.split(":");
+    const time = `${(h % 12) + 12 * (h % 12 === 0)}:${m} ${
+      h >= 12 ? "pm" : "am"
+    }`;
+    return `${time}`;
+  };
   return (
     <div className="course_carousel">
       <h5 className="component_header">Today's Live Class</h5>
-      {<Carousel
-        responsive={responsive}
-        removeArrowOnDeviceType={["tablet", "mobile"]}
-      >
-        {fetchCourseDetails    
-        .filter(
-            (data) =>( data.courseByTutor.classStartDateAndTime.substring(0, 10) === today &&
-            isDateBetweenStartAndEndDate(data.courseByTutor.classStartDateAndTime.substring(8,10)+"/"+data.courseByTutor.classStartDateAndTime.substring(5,7)+"/"+data.courseByTutor.classStartDateAndTime.substring(0,4), 
-            data.courseByTutor.classEndDateAndTime.substring(8,10)+"/"+data.courseByTutor.classEndDateAndTime.substring(5,7)+"/"+data.courseByTutor.classEndDateAndTime.substring(0,4), todaySlashFormatDate) === true
-          ))
-          .map((data) => (
-                (data.courseByTutor.classDay[0] === day || data.courseByTutor.classDay[1] === day || data.courseByTutor.classDay[2] === day || 
-                 data.courseByTutor.classDay[3] === day || data.courseByTutor.classDay[4] === day ||         
-                 data.courseByTutor.classDay[5] === day || data.courseByTutor.classDay[6] === day) &&
-                 <div key={data.createdAt}>
-                  <Card
-            bg="light"
-            text="dark"
-            style={{ width: "90%" }}
-            className="mb-4"
-          >
-            <Card.Body className={`card_${data.courseByTutor.tutionFee === 0 ? `free` : `paid`}`}>
-              <Card.Title className="card_header">
-                {data.courseByTutor.subject},{" "}
-                {data.courseByTutor.classLevel}{" "}
-                {data.courseByTutor.tutionFee === 0 ? (
-                  <Badge className="badge_free" bg="secondary">
-                    Free
-                  </Badge>
-                ) : (
-                  <Badge className="badge_paid" bg="secondary">
-                    Paid
-                  </Badge>
-                )}
-              </Card.Title>
-              <Card.Text className="batch_style">
-                Batch: {data.courseByTutor.classStartDateAndTime} <br />
-                <br />
-              </Card.Text>
-              <Card.Text className="time_style">
-                {getTime(data.courseByTutor.classStartDateAndTime)}{" "}
-                to{" "}
-                {getTime(data.courseByTutor.classEndDateAndTime)}
-              </Card.Text>
-              <Card.Text className="time_remaining_style">
-                {timeRemaining(todaySlashYearFirstDate+" "+nowTime, data.courseByTutor.classStartDateAndTime.substring(0,4)+"/"+data.courseByTutor.classStartDateAndTime.substring(5,7)+"/"+data.courseByTutor.classStartDateAndTime.substring(8,10)+" "+data.courseByTutor.classStartDateAndTime.substring(11,16))}
-              </Card.Text>
-            </Card.Body>
-          </Card>
+      {
+        <Carousel
+          responsive={responsive}
+          removeArrowOnDeviceType={["tablet", "mobile"]}
+        >
+          {fetchCourseDetails
+            .filter(
+              (data) =>
+                data.courseByTutor.classStartDateAndTime.substring(0, 10) ===
+                  today &&
+                isDateBetweenStartAndEndDate(
+                  data.courseByTutor.classStartDateAndTime.substring(8, 10) +
+                    "/" +
+                    data.courseByTutor.classStartDateAndTime.substring(5, 7) +
+                    "/" +
+                    data.courseByTutor.classStartDateAndTime.substring(0, 4),
+                  data.courseByTutor.classEndDateAndTime.substring(8, 10) +
+                    "/" +
+                    data.courseByTutor.classEndDateAndTime.substring(5, 7) +
+                    "/" +
+                    data.courseByTutor.classEndDateAndTime.substring(0, 4),
+                  todaySlashFormatDate
+                ) === true
+            )
+            .map(
+              (data) =>
+                (data.courseByTutor.classDay[0] === day ||
+                  data.courseByTutor.classDay[1] === day ||
+                  data.courseByTutor.classDay[2] === day ||
+                  data.courseByTutor.classDay[3] === day ||
+                  data.courseByTutor.classDay[4] === day ||
+                  data.courseByTutor.classDay[5] === day ||
+                  data.courseByTutor.classDay[6] === day) && (
+                  <div key={data.createdAt}>
+                    <Card
+                      bg="light"
+                      text="dark"
+                      style={{ width: "90%" }}
+                      className="mb-4"
+                    >
+                      <Card.Body
+                        className={`card_${
+                          data.courseByTutor.tutionFee === 0 ? `free` : `paid`
+                        }`}
+                      >
+                        <Card.Title className="card_header">
+                          {data.courseByTutor.subject},{" "}
+                          {data.courseByTutor.classLevel}{" "}
+                          {data.courseByTutor.tutionFee === 0 ? (
+                            <Badge className="badge_free" bg="secondary">
+                              Free
+                            </Badge>
+                          ) : (
+                            <Badge className="badge_paid" bg="secondary">
+                              Paid
+                            </Badge>
+                          )}
+                        </Card.Title>
+                        <Card.Text className="batch_style">
+                          Batch: {data.courseByTutor.classStartDateAndTime}{" "}
+                          <br />
+                          <br />
+                        </Card.Text>
+                        <Card.Text className="time_style">
+                          {getTime(data.courseByTutor.classStartDateAndTime)} to{" "}
+                          {getTime(data.courseByTutor.classEndDateAndTime)}
+                        </Card.Text>
+                        <Card.Text className="time_remaining_style">
+                          {timeRemaining(
+                            todaySlashYearFirstDate + " " + nowTime,
+                            data.courseByTutor.classStartDateAndTime.substring(
+                              0,
+                              4
+                            ) +
+                              "/" +
+                              data.courseByTutor.classStartDateAndTime.substring(
+                                5,
+                                7
+                              ) +
+                              "/" +
+                              data.courseByTutor.classStartDateAndTime.substring(
+                                8,
+                                10
+                              ) +
+                              " " +
+                              data.courseByTutor.classStartDateAndTime.substring(
+                                11,
+                                16
+                              )
+                          )}
+                        </Card.Text>
+                      </Card.Body>
+                    </Card>
                   </div>
-          ))}
-      </Carousel>}
+                )
+            )}
+        </Carousel>
+      }
     </div>
   );
 };

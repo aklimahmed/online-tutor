@@ -1,5 +1,5 @@
 import { React, useState, useEffect } from "react";
-import { Row, Col, Card, Container, Form } from "react-bootstrap";
+import { Row, Card } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteObject } from "firebase/storage";
 import { TiDelete } from "react-icons/ti";

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Row, Col, Card, Container, Form } from "react-bootstrap";
 import { MultiSelect } from "react-multi-select-component";
 import { curriculum } from "../../jsonData/Curriculum";
@@ -12,20 +12,15 @@ import {
 import { classDays } from "../../jsonData/ClassDays";
 import { classDuration } from "../../jsonData/classDuration";
 import { courseByTutorForm } from "../../actions/courseActions";
-import axios from "axios";
 
 // data = fetchCourseDetails
 // basicInfo = courseByTutor
-const TutorsCourseEditComponent = ( props ) => {
+const TutorsCourseEditComponent = (props) => {
   const [fetchCourseDetails, setFetchCourseDetails] = useState([]);
 
   useEffect(() => {
     setFetchCourseDetails(props.singleCourse.courseByTutor);
   }, [props]);
-
-  console.log(fetchCourseDetails)
-
-  const id = useSelector((state) => state.userLogin.userInfo._id);
 
   useEffect(() => {
     fetchCourseDetails
@@ -129,7 +124,9 @@ const TutorsCourseEditComponent = ( props ) => {
               onChange={handleBlur}
             >
               <option style={{ display: "none" }}>
-                {fetchCourseDetails ? fetchCourseDetails.classTypes : "Select Class Types"}
+                {fetchCourseDetails
+                  ? fetchCourseDetails.classTypes
+                  : "Select Class Types"}
               </option>
               <option>Free Class</option>
               <option>Paid Class</option>
@@ -145,7 +142,9 @@ const TutorsCourseEditComponent = ( props ) => {
               name="curriculum"
             >
               <option style={{ display: "none" }}>
-              {fetchCourseDetails ? fetchCourseDetails.curriculum : "Select Curriculum"}
+                {fetchCourseDetails
+                  ? fetchCourseDetails.curriculum
+                  : "Select Curriculum"}
               </option>
               {curriculum.map((d) => (
                 <option key={curriculum.name} value={d.curriculum}>
@@ -163,7 +162,9 @@ const TutorsCourseEditComponent = ( props ) => {
               name="classLevel"
             >
               <option style={{ display: "none" }}>
-              {fetchCourseDetails ? fetchCourseDetails.classLevel : "Select Class"}
+                {fetchCourseDetails
+                  ? fetchCourseDetails.classLevel
+                  : "Select Class"}
               </option>
               {classes.map((d) => (
                 <option key={d.class} value={d.class}>
@@ -183,7 +184,9 @@ const TutorsCourseEditComponent = ( props ) => {
               name="subject"
             >
               <option style={{ display: "none" }}>
-              {fetchCourseDetails ? fetchCourseDetails.subject : "Select Subject"}
+                {fetchCourseDetails
+                  ? fetchCourseDetails.subject
+                  : "Select Subject"}
               </option>
               {subjects.map((d) => (
                 <option key={d.value} value={d.value}>
@@ -205,7 +208,9 @@ const TutorsCourseEditComponent = ( props ) => {
               name="batchType"
             >
               <option style={{ display: "none" }}>
-              {fetchCourseDetails ? fetchCourseDetails.batchType : "Batch Type"}
+                {fetchCourseDetails
+                  ? fetchCourseDetails.batchType
+                  : "Batch Type"}
               </option>
               <option>Batch Class</option>
               <option>One-to-One Class</option>
@@ -220,8 +225,10 @@ const TutorsCourseEditComponent = ( props ) => {
               name="noOfStudents"
             >
               <option style={{ display: "none" }}>
-              {fetchCourseDetails ? fetchCourseDetails.noOfStudents : "No of Students"}
-                </option>
+                {fetchCourseDetails
+                  ? fetchCourseDetails.noOfStudents
+                  : "No of Students"}
+              </option>
               {courseByTutor.classTypes === "Free Class" &&
               courseByTutor.batchType === "Batch Class" ? (
                 <>
@@ -256,8 +263,10 @@ const TutorsCourseEditComponent = ( props ) => {
               name="classDuration"
             >
               <option style={{ display: "none" }}>
-                {fetchCourseDetails ? `${fetchCourseDetails.classDuration} minutes` : "Each Class Duration"}
-                </option>
+                {fetchCourseDetails
+                  ? `${fetchCourseDetails.classDuration} minutes`
+                  : "Each Class Duration"}
+              </option>
               {classDuration.map((d) => (
                 <option key={classDuration.value} value={d.value}>
                   {d.value} minutes
@@ -292,7 +301,11 @@ const TutorsCourseEditComponent = ( props ) => {
               onChange={handleBlur}
               placeholder="enter date and time"
               min={todayDate + "T" + currentTime}
-              defaultValue={fetchCourseDetails ? fetchCourseDetails.classStartDateAndTime : ""}
+              defaultValue={
+                fetchCourseDetails
+                  ? fetchCourseDetails.classStartDateAndTime
+                  : ""
+              }
               className="form-control date-time-input"
             ></input>
           </Form.Group>
@@ -309,7 +322,9 @@ const TutorsCourseEditComponent = ( props ) => {
               onChange={handleBlur}
               placeholder="enter date and time"
               min={courseByTutor.classStartDateAndTime}
-              defaultValue={fetchCourseDetails ? fetchCourseDetails.classEndDateAndTime : ""}
+              defaultValue={
+                fetchCourseDetails ? fetchCourseDetails.classEndDateAndTime : ""
+              }
               className="form-control date-time-input"
             ></input>
           </Form.Group>
@@ -324,7 +339,9 @@ const TutorsCourseEditComponent = ( props ) => {
               id="start"
               name="enrollDueDate"
               onChange={handleBlur}
-              defaultValue={fetchCourseDetails ? fetchCourseDetails.enrollDueDate : ""}
+              defaultValue={
+                fetchCourseDetails ? fetchCourseDetails.enrollDueDate : ""
+              }
               min="2021-10-10"
               max="2025-10-10"
             ></input>
@@ -345,7 +362,9 @@ const TutorsCourseEditComponent = ( props ) => {
               <input
                 className="form-control"
                 name="tutionFee"
-                defaultValue={fetchCourseDetails ? fetchCourseDetails.tutionFee : ""}
+                defaultValue={
+                  fetchCourseDetails ? fetchCourseDetails.tutionFee : ""
+                }
                 onChange={handleBlur}
                 type="number"
                 placeholder="Enter amount e.g 100"
@@ -359,7 +378,11 @@ const TutorsCourseEditComponent = ( props ) => {
                 onChange={handleBlur}
                 name="feesTime"
               >
-                <option>{fetchCourseDetails ? fetchCourseDetails.feesTime : "Per Hour"}</option>
+                <option>
+                  {fetchCourseDetails
+                    ? fetchCourseDetails.feesTime
+                    : "Per Hour"}
+                </option>
                 <option>Per Month</option>
                 <option>Per Course</option>
               </select>
@@ -375,7 +398,9 @@ const TutorsCourseEditComponent = ( props ) => {
             as="textarea"
             onChange={handleBlur}
             name="courseDescription"
-            defaultValue={fetchCourseDetails ? fetchCourseDetails.courseDescription : ""}
+            defaultValue={
+              fetchCourseDetails ? fetchCourseDetails.courseDescription : ""
+            }
             rows={3}
           />
         </Form.Group>
@@ -423,7 +448,9 @@ const TutorsCourseEditComponent = ( props ) => {
               className="form-control d-flex justify-content-center"
               style={{ width: "90%", margin: "auto auto" }}
               onChange={handleBlur}
-              defaultValue={fetchCourseDetails ? fetchCourseDetails.courseVideoUrl : ""}
+              defaultValue={
+                fetchCourseDetails ? fetchCourseDetails.courseVideoUrl : ""
+              }
               name="courseVideoUrl"
               type="url"
               placeholder="eg. www.youtube.com/kxYsdjkd"
