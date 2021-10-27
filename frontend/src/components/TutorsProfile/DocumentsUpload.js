@@ -88,7 +88,7 @@ const DocumentsUpload = () => {
   });
 
   return (
-    <Container className="weeklyTime_div">
+    <div className="weeklyTime_div">
       <h6 className="time_heading">
         Documents Upload{" "}
         <small className="text-regular">
@@ -240,7 +240,7 @@ const DocumentsUpload = () => {
           </Card>
         </Col>
       </Row>
-    </Container>
+    </div>
   );
 };
 

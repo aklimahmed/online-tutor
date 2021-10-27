@@ -133,7 +133,7 @@ const CreateNewCourse = () => {
             name="curriculum">
               <option style={{ display: "none" }}>Select Curriculum</option>
               {curriculum.map((d) => (
-                <option key={curriculum.name} value={d.curriculum}>
+                <option key={d.curriculum} value={d.curriculum}>
                   {d.curriculum}
                 </option>
               ))}
@@ -225,7 +225,7 @@ const CreateNewCourse = () => {
             name="classDuration">
               <option style={{ display: "none" }}>Each Class Duration</option>
               {classDuration.map((d) => (
-                <option key={classDuration.value} value={d.value}>
+                <option key={d.value} value={d.value}>
                   {d.value} Minutes
                 </option>
               ))}
