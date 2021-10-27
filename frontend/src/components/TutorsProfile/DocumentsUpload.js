@@ -72,11 +72,11 @@ const DocumentsUpload = () => {
 
     deleteObject(desertRef)
       .then(() => {
+        progress.value = 0;
         const newName = { ...DocumentsUpload };
         newName[file] = "";
         newName[file + "Url"] = "";
         setDocumentsUpload(newName);
-        progress.value = 0;
       })
       .catch((error) => {
         console.log(error);

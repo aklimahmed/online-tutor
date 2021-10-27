@@ -83,17 +83,18 @@ const DocumentsUpload = (props) => {
 
     deleteObject(desertRef)
       .then(() => {
+        progress.value = 0;
         const newName = { ...DocumentsUpload };
         newName[file] = "";
         newName[file + "Url"] = "";
         setDocumentsUpload(newName);
       })
       .catch((error) => {
+        progress.value = 0;
         const newName = { ...DocumentsUpload };
         newName[file] = "";
         newName[file + "Url"] = "";
         setDocumentsUpload(newName);
-        progress.value = 0;
       });
   };
 
