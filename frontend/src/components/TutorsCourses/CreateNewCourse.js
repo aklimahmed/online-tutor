@@ -113,7 +113,7 @@ const CreateNewCourse = () => {
   }
 
   return (
-    <Container className="course-add-container">
+    <Container className="course-add-container mt-3">
       <Row>
         <Col md={4} className="columns">
           <Form.Group className="mb-3 card-align" controlId="formBasicDistrict">
