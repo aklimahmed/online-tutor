@@ -58,7 +58,7 @@ const CreateNewCourse = () => {
       courseVideoUrl: "",
       courseId: ""
   })
-  console.log(courseByTutor)
+  console.log(courseByTutor.courseId)
 
 
   const handleBlur = (event) => {
