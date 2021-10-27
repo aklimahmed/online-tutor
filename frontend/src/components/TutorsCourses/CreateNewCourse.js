@@ -119,6 +119,7 @@ const CreateNewCourse = () => {
               newUpload[e.target.name] = e.target.files[0].name;
               newUpload[e.target.name + "Url"] = url;
               SetCourseByTutor(newUpload);
+              setProgress(0);
             });
         }
       );
@@ -428,19 +429,41 @@ const CreateNewCourse = () => {
             <Card.Header className="card-header">
               Attach a file (course plan/curriculum/syllabus)
             </Card.Header>
-            <Card.Body>
-              <br />
-              <Row style={{ textAlign: "center" }}>
-                <label>
-                  <Card.Title className="click-for-upload">
-                    <input name="docName" type="file" onChange={handleChange} />
-                    {courseByTutor && courseByTutor.docName !== ""
-                      ? courseByTutor.docName
-                      : "Click for select"}
-                  </Card.Title>
-                </label>
-              </Row>
-            </Card.Body>
+            {progress !== 0 ? (
+              <div className="progress">
+                <div className="spinner-border text-primary">
+                  <span className="sr-only"></span>
+                </div>
+              </div>
+            ) : (
+              <Card.Body>
+                <br />
+                <Row style={{ textAlign: "center" }}>
+                  {courseByTutor && courseByTutor.docName !== "" ? (
+                    <TiDelete
+                      onClick={() =>
+                        deleteImage(courseByTutor.docName, "docName")
+                      }
+                      className="doc_delete"
+                    />
+                  ) : (
+                    ""
+                  )}
+                  <label>
+                    <Card.Title className="click-for-upload">
+                      <input
+                        name="docName"
+                        type="file"
+                        onChange={handleChange}
+                      />
+                      {courseByTutor && courseByTutor.docName !== ""
+                        ? courseByTutor.docName
+                        : "Click for select"}
+                    </Card.Title>
+                  </label>
+                </Row>
+              </Card.Body>
+            )}
           </Card>
         </Col>
         <Col md={6}>
