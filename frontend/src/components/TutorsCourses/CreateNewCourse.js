@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Row, Col, Card, Container, Form } from "react-bootstrap";
 import "./CreateNewCourse.scss";
 import { MultiSelect } from "react-multi-select-component";
@@ -13,8 +13,13 @@ import {
 import { classDays } from "../../jsonData/ClassDays";
 import { classDuration } from "../../jsonData/classDuration";
 import { courseByTutorForm } from "./../../actions/courseActions";
+import { storage } from "../Firebase/FirebaseConfig";
+import { deleteObject } from "firebase/storage";
+import { TiDelete } from "react-icons/ti";
 
 const CreateNewCourse = () => {
+  const id = useSelector((state) => state.userLogin.userInfo._id);
+
   const courseIdGenerator = (curriculum, classLevel) => {
     let uniqueCourseId = "";
     if (curriculum !== "" && classLevel !== "") {
@@ -114,6 +119,8 @@ const CreateNewCourse = () => {
     courseVideoUrl: "",
     courseId: "",
     courseTitle: "",
+    docName: "",
+    docUrl: "",
   });
 
   console.log(courseByTutor);
@@ -129,6 +136,61 @@ const CreateNewCourse = () => {
       newCourseByTutor["tutionFee"] = 0;
       SetCourseByTutor(newCourseByTutor);
     }
+  };
+
+  const [progress, setProgress] = useState(0);
+
+  //set image information && firestore upload
+  const handleChange = async (e) => {
+    if (e.target.files[0] && e.target.files[0].size <= 400000) {
+      const uploadTask = storage
+        .ref(`${id}/${e.target.files[0].name}`)
+        .put(e.target.files[0]);
+      uploadTask.on(
+        "state_changed",
+        (snapshot) => {
+          const progress = Math.round(
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+          );
+          setProgress(progress);
+        },
+        (error) => {
+          console.log(error);
+        },
+        () => {
+          storage
+            .ref(id)
+            .child(e.target.files[0].name)
+            .getDownloadURL()
+            .then((url) => {
+              const newUpload = { ...courseByTutor };
+              newUpload[e.target.name] = e.target.files[0].name;
+              newUpload[e.target.name + "Url"] = url;
+              SetCourseByTutor(newUpload);
+              setProgress(0);
+            });
+        }
+      );
+    } else {
+      alert("File size should be less or equal 400kb");
+    }
+  };
+
+  //delete firestore image
+  const deleteImage = (name, file) => {
+    const desertRef = storage.ref(`${id}/${name}`);
+
+    deleteObject(desertRef)
+      .then(() => {
+        setProgress(0);
+        const newName = { ...courseByTutor };
+        newName[file] = "";
+        newName[file + "Url"] = "";
+        SetCourseByTutor(newName);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   useEffect(() => {
@@ -428,21 +490,41 @@ const CreateNewCourse = () => {
             <Card.Header className="card-header">
               Attach a file (course plan/curriculum/syllabus)
             </Card.Header>
-            <Card.Body>
-              <br />
-              <Row style={{ textAlign: "center" }}>
-                <label>
-                  <Card.Title className="click-for-upload">
-                    Click for upload
-                  </Card.Title>
-                </label>
-                <input
-                  id="files"
-                  style={{ visibility: "hidden", textAlign: "center" }}
-                  type="file"
-                />
-              </Row>
-            </Card.Body>
+            {progress !== 0 ? (
+              <div className="progress">
+                <div className="spinner-border text-primary">
+                  <span className="sr-only"></span>
+                </div>
+              </div>
+            ) : (
+              <Card.Body>
+                <br />
+                <Row style={{ textAlign: "center" }}>
+                  {courseByTutor && courseByTutor.docName !== "" ? (
+                    <TiDelete
+                      onClick={() =>
+                        deleteImage(courseByTutor.docName, "docName")
+                      }
+                      className="doc_delete"
+                    />
+                  ) : (
+                    ""
+                  )}
+                  <label>
+                    <Card.Title className="click-for-upload">
+                      <input
+                        name="docName"
+                        type="file"
+                        onChange={handleChange}
+                      />
+                      {courseByTutor && courseByTutor.docName !== ""
+                        ? courseByTutor.docName
+                        : "Click for select"}
+                    </Card.Title>
+                  </label>
+                </Row>
+              </Card.Body>
+            )}
           </Card>
         </Col>
         <Col md={6}>

@@ -2,62 +2,70 @@
 @import "../../style/FontSize.scss";
 
 .drop_down {
-    width: 100%;
-    background-color: #E8E8E8;
-    color: #000000;
-    border-color: #E8E8E8;
-    border-radius: 10px;
+  width: 100%;
+  background-color: #e8e8e8;
+  color: #000000;
+  border-color: #e8e8e8;
+  border-radius: 10px;
+}
 
+.doc_delete {
+  cursor: pointer;
+  position: absolute;
+  font-size: 25px;
+  top: 49%;
+  left: 45%;
+  cursor: pointer;
 }
 
 .four_colum {
-    width: 100%;
+  width: 100%;
 }
 
-.main_dropdown{
-    padding-top: 7px;
+.main_dropdown {
+  padding-top: 7px;
 }
 
 .paragraph-label {
-    padding-top: 5px;
-    text-align: center;
+  padding-top: 5px;
+  text-align: center;
 }
 
 .check-class {
-    padding-top: 10px;
+  padding-top: 10px;
 }
 
 .course-add-container {
-    border: 1px solid #E8E8E8;
-    padding: 20px;
-    border-radius: 10px;
-    width: 80%;
-    color: #4e4d4d;
+  border: 1px solid #e8e8e8;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  color: #4e4d4d;
 }
 
 .free_class_label {
-    padding-top: 12px;
-    color: $freeClass;
-    font-weight: bold;
+  padding-top: 12px;
+  color: $freeClass;
+  font-weight: bold;
 }
 
 .form_label {
-    padding-top: 8px;
+  padding-top: 8px;
 }
 
 @media all and (device-width: 768px) and (device-height: 1024px) {
-    .columns {
-        width: 50%;
-    }
+  .columns {
+    width: 50%;
+  }
 }
 
 @media all and (device-width: 1024px) and (device-height: 1366px) {
-    .columns {
-        width: 50%;
-    }
+  .columns {
+    width: 50%;
+  }
 }
 
 .three_columns {
-    margin-left: auto;
-    margin-right: auto;
+  margin-left: auto;
+  margin-right: auto;
 }
