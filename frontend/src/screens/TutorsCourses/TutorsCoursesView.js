@@ -56,8 +56,8 @@ const TutorsCoursesView = () => {
 
   return (
     <div>
-      <CourseCarousel />
-      <Calender />
+     <CourseCarousel />
+      {/* <Calender /> */}
       <div className="course_view_main">
         <h4 className="header_class">
           All Courses |{" "}
@@ -97,10 +97,13 @@ const TutorsCoursesView = () => {
                 <small>Vacant Seats</small>
               </th>
               <th>
-                <small>Start Date & Time</small>
+                <small>Course Start Date</small>
               </th>
               <th>
-                <small>End Time</small>
+                <small>Course End Date</small>
+              </th>
+              <th>
+                <small>Class Time</small>
               </th>
               <th>
                 <small>Fees in BDT</small>
@@ -138,14 +141,19 @@ const TutorsCoursesView = () => {
                     <td data-label="Vacant Seats">
                       <small>{data.courseByTutor.noOfStudents}</small>
                     </td>
-                    <td data-label="Start Date & Time">
+                    <td data-label="Course Start Date">
                       <small>
-                        {getTime(data.courseByTutor.classStartDateAndTime)}
+                        {data.courseByTutor.courseStartDate}
                       </small>
                     </td>
-                    <td data-label="End Time">
+                    <td data-label="Course End Date">
                       <small>
-                        {getTime(data.courseByTutor.classEndDateAndTime)}
+                        {data.courseByTutor.courseEndDate}
+                      </small>
+                    </td>
+                    <td data-label="Class Time">
+                      <small>
+                        {data.courseByTutor.classStartTime}
                       </small>
                     </td>
                     <td data-label="Fees in BDT">

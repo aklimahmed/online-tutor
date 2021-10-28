@@ -372,8 +372,8 @@ const CreateNewCourse = () => {
               type="date"
               id="start"
               name="courseStartDate"
-              min={todayDate}
-              max="2015-12-31"
+              // min={todayDate}
+              // max="2015-12-31"
             ></input>
           </Form.Group>
         </Col>
@@ -387,8 +387,8 @@ const CreateNewCourse = () => {
               type="date"
               id="start"
               name="courseEndDate"
-              min={todayDate}
-              max="2015-12-31"
+              // min={todayDate}
+              // max="2015-12-31"
             ></input>
           </Form.Group>
         </Col>

@@ -88,13 +88,23 @@ const CourseCarousel = () => {
   };
 
   const getTime = (data) => {
-    const getTimeData = data.slice(data.length - 5);
-    const [h, m] = getTimeData.split(":");
+    const [h, m] = data.split(":");
     const time = `${(h % 12) + 12 * (h % 12 === 0)}:${m} ${
       h >= 12 ? "pm" : "am"
     }`;
     return `${time}`;
   };
+
+  const getClassEndTime = (startTime, classDuration) => {
+    let hours = (startTime[0]+startTime[1])*1;
+    let minutes = (startTime[3]+startTime[4])*1;
+    let totalMinutes = hours*60 + minutes*60 + classDuration;
+    let finalHour = ~~(totalMinutes/60) 
+    let finalMinutes = totalMinutes - finalHour*60
+    console.log(`Time after class duration: ${finalHour}:${finalMinutes}`)
+  }
+
+  getClassEndTime("16:00", 90)
   return (
     <div className="course_carousel">
       <h5 className="component_header">Today's Live Class</h5>
@@ -106,19 +116,19 @@ const CourseCarousel = () => {
           {fetchCourseDetails
             .filter(
               (data) =>
-                data.courseByTutor.classStartDateAndTime.substring(0, 10) ===
+                data.courseByTutor.courseStartDate ===
                   today &&
                 isDateBetweenStartAndEndDate(
-                  data.courseByTutor.classStartDateAndTime.substring(8, 10) +
+                  data.courseByTutor.courseStartDate.substring(8, 10) +
                     "/" +
-                    data.courseByTutor.classStartDateAndTime.substring(5, 7) +
+                    data.courseByTutor.courseStartDate.substring(5, 7) +
                     "/" +
-                    data.courseByTutor.classStartDateAndTime.substring(0, 4),
-                  data.courseByTutor.classEndDateAndTime.substring(8, 10) +
+                    data.courseByTutor.courseStartDate.substring(0, 4),
+                  data.courseByTutor.courseEndDate.substring(8, 10) +
                     "/" +
-                    data.courseByTutor.classEndDateAndTime.substring(5, 7) +
+                    data.courseByTutor.courseEndDate.substring(5, 7) +
                     "/" +
-                    data.courseByTutor.classEndDateAndTime.substring(0, 4),
+                    data.courseByTutor.courseEndDate.substring(0, 4),
                   todaySlashFormatDate
                 ) === true
             )
@@ -157,36 +167,33 @@ const CourseCarousel = () => {
                           )}
                         </Card.Title>
                         <Card.Text className="batch_style">
-                          Batch: {data.courseByTutor.classStartDateAndTime}{" "}
+                          Batch: {data.courseByTutor.courseStartDate}{" "}
                           <br />
                           <br />
                         </Card.Text>
                         <Card.Text className="time_style">
-                          {getTime(data.courseByTutor.classStartDateAndTime)} to{" "}
-                          {getTime(data.courseByTutor.classEndDateAndTime)}
+                          {getTime(data.courseByTutor.classStartTime)} to{" "}
+                          {getTime(data.courseByTutor.classStartTime)}
                         </Card.Text>
                         <Card.Text className="time_remaining_style">
                           {timeRemaining(
                             todaySlashYearFirstDate + " " + nowTime,
-                            data.courseByTutor.classStartDateAndTime.substring(
+                            data.courseByTutor.courseStartDate.substring(
                               0,
                               4
                             ) +
                               "/" +
-                              data.courseByTutor.classStartDateAndTime.substring(
+                              data.courseByTutor.courseStartDate.substring(
                                 5,
                                 7
                               ) +
                               "/" +
-                              data.courseByTutor.classStartDateAndTime.substring(
+                              data.courseByTutor.courseStartDate.substring(
                                 8,
                                 10
                               ) +
                               " " +
-                              data.courseByTutor.classStartDateAndTime.substring(
-                                11,
-                                16
-                              )
+                              data.courseByTutor.classStartTime
                           )}
                         </Card.Text>
                       </Card.Body>
