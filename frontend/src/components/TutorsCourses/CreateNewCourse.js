@@ -114,8 +114,8 @@ const CreateNewCourse = () => {
     noOfStudents: "",
     classDuration: "",
     classDay: [],
-    classStartDate: "",
-    classEndDate: "",
+    courseStartDate: "",
+    courseEndDate: "",
     enrollDueDate: "",
     classStartTime: "",
     tutionFee: 0,
@@ -403,7 +403,6 @@ const CreateNewCourse = () => {
               name="enrollDueDate"
               onChange={handleBlur}
               min={todayDate}
-              max={courseByTutor.classStartDateAndTime.substring(0, 10)}
             ></input>
           </Form.Group>
         </Col>
@@ -416,9 +415,10 @@ const CreateNewCourse = () => {
             <br />
             <input 
              className="form-control"
+             onChange={handleBlur}
              type="time"
              id="appt" 
-             name="appt"></input>
+             name="classStartTime"></input>
             
           </Form.Group>
         </Col>

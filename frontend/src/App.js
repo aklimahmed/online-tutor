@@ -11,9 +11,9 @@ import TutorsMessage from './screens/TutorsMessage/TutorsMessage'
 import StudentsForm from './screens/StudentsForm/StudentsForm'
 import TutorsCourseAdd from './screens/TutorsCourses/TutorsCourseAdd'
 import TutorProfileEdit from './screens/TutorProfileEdit/TutorProfileEdit'
-import TutorsCoursesView from './screens/TutorsCourses/TutorsCoursesView'
-import TutorsCourseEdit from './screens/TutorsCourseEdit/TutorsCourseEdit'
-import TutorsSingleCourse from './screens/TutorsCourses/TutorsSingleCourse'
+// import TutorsCoursesView from './screens/TutorsCourses/TutorsCoursesView'
+// import TutorsCourseEdit from './screens/TutorsCourseEdit/TutorsCourseEdit'
+// import TutorsSingleCourse from './screens/TutorsCourses/TutorsSingleCourse'
 import StudentsInfoView from './screens/StudentsInfoView/StudentsInfoView'
 // import StudentsFormEdit from './screens/StudentsFormEdit/StudentsFormEdit'
 // awElJHf1SwmAYanM
@@ -34,9 +34,9 @@ const App = () => {
           <Route path='/studentsform/:id' component={StudentsForm} />
           
           <Route exact path='/course/tutor/:id' component={TutorsCourseAdd} />
-          <Route path='/course/tutor/view/:id' component={TutorsCoursesView} />
-          <Route path='/course/tutor/edit/:id' component={TutorsCourseEdit} />
-          <Route path='/course/tutor/singlecourse/:id' component={TutorsSingleCourse} />
+          {/* <Route path='/course/tutor/view/:id' component={TutorsCoursesView} /> */}
+          {/* <Route path='/course/tutor/edit/:id' component={TutorsCourseEdit} /> */}
+          {/* <Route path='/course/tutor/singlecourse/:id' component={TutorsSingleCourse} /> */}
           <Route path='/student/view/:id' component={StudentsInfoView} />
         </Container>
       </main>
