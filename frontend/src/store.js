@@ -22,7 +22,8 @@ import {
 import { studentFormReducer, 
   studentBasicInfoReducer, 
   academicInfoReducer,
-  studentExtraActivitiesReducer
+  studentExtraActivitiesReducer,
+  studentDocumentsUploadReducer
 } from "./reducers/studentReducers"
 
 import { courseFormReducer, 
@@ -49,6 +50,7 @@ const reducer = combineReducers({
   studentBasicInfoForm: studentBasicInfoReducer,
   studentAcademicInfoForm: academicInfoReducer,
   studentExtraActivitiesForm: studentExtraActivitiesReducer,
+  studentDocumentsUploadForm: studentDocumentsUploadReducer,
   courseForm: courseFormReducer,
   courseByTutorForm: courseByTutorReducer
 });

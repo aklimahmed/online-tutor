@@ -15,6 +15,9 @@ const studentSchema = mongoose.Schema(
     },
     studentExtraActivities: {
       type: Object
+    },
+    studentDocumentsUpload: {
+      type: Object
     }
   },
   {

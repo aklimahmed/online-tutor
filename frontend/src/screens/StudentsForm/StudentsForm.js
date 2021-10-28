@@ -21,8 +21,13 @@ const StudentsForm = () => {
     (state) => state.studentExtraActivitiesForm.studentExtraActivities
   );
 
+  const studentDocumentsUpload = useSelector(
+    (state) => state.studentDocumentsUploadForm.studentDocumentsUpload
+  );
+
   const user = useSelector((state) => state.userLogin.userInfo);
   const id = useSelector((state) => state.userLogin.userInfo._id);
+  console.log(id)
   const history = useHistory()
 
   const handleStudentFormSubmit = (e) => {
@@ -32,11 +37,12 @@ const StudentsForm = () => {
         user,
         studentBasicInfo,
         studentAcademicInfo,
-        studentExtraActivities
+        studentExtraActivities,
+        studentDocumentsUpload
       )
     );
 
-    history.replace(`/student/form/edit/${id}`)
+    //history.replace(`/student/form/view/${id}`)
   };
 
   return (
@@ -45,8 +51,8 @@ const StudentsForm = () => {
       <AcademicInfo />
       <StudentDocumentsUpload />
       <StudentsExtraActivities />
-      <div className="d-flex justify-content-end">
-        <button className="btn btn-secondary mt-3 mb-5" type="submit">
+      <div className="d-flex justify-content-center">
+        <button className="update_button form_button btn btn-secondary mt-3 mb-5" type="submit">
           Submit
         </button>
       </div>

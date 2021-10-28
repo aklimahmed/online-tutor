@@ -55,7 +55,7 @@ export const studentExtraActivitiesReducer = (state = initialState, { type, payl
 
 export const studentDocumentsUploadReducer = (state = initialState, { type, payload }) => {
   switch (type) {
-      case STUDENT_EXTRA_ACTIVITIES:
+      case STUDENT_DOCUMENTS_UPLOAD:
           return { ...state, studentDocumentsUpload: payload };
 
       default:

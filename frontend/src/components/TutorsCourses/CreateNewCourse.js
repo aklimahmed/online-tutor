@@ -114,9 +114,10 @@ const CreateNewCourse = () => {
     noOfStudents: "",
     classDuration: "",
     classDay: [],
-    classStartDateAndTime: "",
-    classEndDateAndTime: "",
+    classStartDate: "",
+    classEndDate: "",
     enrollDueDate: "",
+    classStartTime: "",
     tutionFee: 0,
     feesTime: "Per Hour",
     courseDescription: "",
@@ -290,7 +291,7 @@ const CreateNewCourse = () => {
         </Col>
       </Row>
       <Row className="d-flex justify-content-between">
-        <Col md={3} className="columns">
+        <Col md={4} className="columns">
           <Form.Group className="mb-3 card-align" controlId="formBasicDistrict">
             <select
               className="form-select drop_down"
@@ -306,7 +307,7 @@ const CreateNewCourse = () => {
             </select>
           </Form.Group>
         </Col>
-        <Col md={3} className="columns">
+        <Col md={4} className="columns">
           <Form.Group
             className="mb-3 card-align"
             controlId="formBasicDistrict"
@@ -323,7 +324,7 @@ const CreateNewCourse = () => {
             </select>
           </Form.Group>
         </Col>
-        <Col md={3} className="columns">
+        <Col md={4} className="columns">
           <Form.Group className="mb-3" controlId="formBasicDistrict">
             <select
               className="form-select drop_down"
@@ -357,69 +358,41 @@ const CreateNewCourse = () => {
             </select>
           </Form.Group>
         </Col>
-        <Col md={3} className="columns">
-          <Form.Group className="mb-3" controlId="formBasicDistrict">
-            <select
-              className="form-select drop_down"
-              onChange={handleBlur}
-              name="classDuration"
-            >
-              <option style={{ display: "none" }}>Each Class Duration</option>
-              {classDuration.map((d) => (
-                <option key={d.value} value={d.value}>
-                  {d.value} Minutes
-                </option>
-              ))}
-            </select>
-          </Form.Group>
-        </Col>
+        
       </Row>
       <Row className="d-flex justify-content-between">
-        <Col md={3} className="columns">
-          <Form.Group className="mb-3" controlId="formBasicLocalLanguage">
-            <Form.Label className="form_label">Select Class Days</Form.Label>
-            <MultiSelect
-              className="multiSelect"
-              options={classDays}
-              value={classDay}
-              onChange={setClassDay}
-              labelledBy={`Select Class Days`}
-            />
-          </Form.Group>
-        </Col>
-        <Col md={3} className="columns">
-          <Form.Group>
-            <Form.Label className="form_label">
-              Class Start Date & Time
-            </Form.Label>
+        
+        <Col md={4} className="columns">
+        <Form.Group className="mb-3" controlId="formBasicCourseStart">
+            <Form.Label className="form_label">Course Start Date:</Form.Label>
+            <br />
             <input
-              type="datetime-local"
-              id="birthdaytime"
-              name="classStartDateAndTime"
-              onChange={handleBlur}
-              placeholder="enter date and time"
-              min={todayDate + "T" + currentTime}
-              className="form-control date-time-input"
+              onBlur={handleBlur}
+              className="form-control"
+              type="date"
+              id="start"
+              name="courseStartDate"
+              min={todayDate}
+              max="2015-12-31"
             ></input>
           </Form.Group>
         </Col>
-        <Col md={3}>
-          <Form.Group>
-            <Form.Label className="form_label">
-              Class End Date & Time
-            </Form.Label>
+        <Col md={4}>
+        <Form.Group className="mb-3" controlId="formBasicCourseEnd">
+            <Form.Label className="form_label">Course End Date:</Form.Label>
+            <br />
             <input
-              type="datetime-local"
-              id="birthdaytime"
-              name="classEndDateAndTime"
-              onChange={handleBlur}
-              placeholder="enter date and time"
-              min={courseByTutor.classStartDateAndTime}
-              className="form-control date-time-input"
+              onBlur={handleBlur}
+              className="form-control"
+              type="date"
+              id="start"
+              name="courseEndDate"
+              min={todayDate}
+              max="2015-12-31"
             ></input>
           </Form.Group>
         </Col>
-        <Col md={3} className="columns">
+        <Col md={4} className="columns">
           <Form.Group className="mb-3" controlId="formBasicDob">
             <Form.Label className="form_label">Enroll Due Date:</Form.Label>
             <br />
@@ -435,6 +408,51 @@ const CreateNewCourse = () => {
           </Form.Group>
         </Col>
       </Row>
+
+      <Row>
+        <Col md={4}>
+        <Form.Group className="mb-3" controlId="formBasicDob">
+            <Form.Label className="form_label">Select Class Start Time:</Form.Label>
+            <br />
+            <input 
+             className="form-control"
+             type="time"
+             id="appt" 
+             name="appt"></input>
+            
+          </Form.Group>
+        </Col>
+        <Col md={4} className="columns">
+          <Form.Group className="mb-3 form_select_duration" controlId="formBasicDistrict">
+            <select
+              className="form-select drop_down"
+              onChange={handleBlur}
+              name="classDuration"
+            >
+              <option style={{ display: "none" }}>Each Class Duration</option>
+              {classDuration.map((d) => (
+                <option key={d.value} value={d.value}>
+                  {d.value} Minutes
+                </option>
+              ))}
+            </select>
+          </Form.Group>
+        </Col>
+        <Col md={4} className="columns">
+          <Form.Group className="mb-3" controlId="formBasicLocalLanguage">
+            <Form.Label className="form_label">Select Class Days</Form.Label>
+            <MultiSelect
+              className="multiSelect"
+              options={classDays}
+              value={classDay}
+              onChange={setClassDay}
+              labelledBy={`Select Class Days`}
+            />
+          </Form.Group>
+        </Col>
+
+      </Row>
+    
       {courseByTutor.classTypes === "Free Class" ? (
         ""
       ) : (
