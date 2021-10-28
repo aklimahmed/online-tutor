@@ -5,6 +5,7 @@ import StudentDocumentsUpload from "../../components/StudentsForm/StudentDocumen
 import { useDispatch, useSelector } from "react-redux";
 import { createStudent } from "../../actions/studentActions";
 import StudentsExtraActivities from "../../components/StudentsForm/StudentsExtraActivities";
+import { useHistory } from 'react-router-dom'
 const StudentsForm = () => {
   const dispatch = useDispatch();
 
@@ -21,6 +22,8 @@ const StudentsForm = () => {
   );
 
   const user = useSelector((state) => state.userLogin.userInfo);
+  const id = useSelector((state) => state.userLogin.userInfo._id);
+  const history = useHistory()
 
   const handleStudentFormSubmit = (e) => {
     e.preventDefault();
@@ -32,6 +35,8 @@ const StudentsForm = () => {
         studentExtraActivities
       )
     );
+
+    history.replace(`/student/form/edit/${id}`)
   };
 
   return (

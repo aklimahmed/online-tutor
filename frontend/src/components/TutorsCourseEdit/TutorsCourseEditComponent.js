@@ -48,6 +48,8 @@ const TutorsCourseEditComponent = (props) => {
         });
   }, [fetchCourseDetails]);
 
+  console.log(fetchCourseDetails)
+
   const muliselectFetch = (data) => {
     const arr = [];
     if (data) {
@@ -89,6 +91,8 @@ const TutorsCourseEditComponent = (props) => {
     SetCourseByTutor(newCourseByTutor);
   };
 
+  // const changeFre
+
   useEffect(() => {
     courseByTutor.classDay = [];
     const hold = [...classDay];
@@ -123,13 +127,15 @@ const TutorsCourseEditComponent = (props) => {
               name="classTypes"
               onChange={handleBlur}
             >
-              <option style={{ display: "none" }}>
+              <option style={{ display: "none" }}
+              
+              >
                 {fetchCourseDetails
                   ? fetchCourseDetails.classTypes
                   : "Select Class Types"}
               </option>
-              <option>Free Class</option>
-              <option>Paid Class</option>
+              <option disabled>Free Class</option>
+              <option disabled>Paid Class</option>
             </select>
           </Form.Group>
         </Col>
@@ -362,12 +368,12 @@ const TutorsCourseEditComponent = (props) => {
               <input
                 className="form-control"
                 name="tutionFee"
-                defaultValue={
-                  fetchCourseDetails ? fetchCourseDetails.tutionFee : ""
-                }
                 onChange={handleBlur}
                 type="number"
                 placeholder="Enter amount e.g 100"
+                defaultValue={
+                  fetchCourseDetails && courseByTutor.classTypes === "Paid Class" ? fetchCourseDetails.tutionFee : ""
+                }
               />
             </Form.Group>
           </Col>
@@ -377,12 +383,14 @@ const TutorsCourseEditComponent = (props) => {
                 className="form-select drop_down"
                 onChange={handleBlur}
                 name="feesTime"
+                
               >
-                <option>
-                  {fetchCourseDetails
-                    ? fetchCourseDetails.feesTime
-                    : "Per Hour"}
-                </option>
+                <option style={{ display: "none" }}>
+                {fetchCourseDetails
+                  ? fetchCourseDetails.feesTime
+                  : "Select Payment Time"}
+              </option>
+                <option>Per Hour</option>
                 <option>Per Month</option>
                 <option>Per Course</option>
               </select>

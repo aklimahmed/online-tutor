@@ -18,6 +18,18 @@ const CreateNewCourse = () => {
   const courseIdGenerator = (curriculum, classLevel) => {
     let uniqueCourseId = "";
     if (curriculum !== "" && classLevel !== "") {
+      if (curriculum === "National Curriculum (Bangla Ver)") {
+        uniqueCourseId += "NCB";
+      } else if (curriculum === "National Curriculum (English Ver)") {
+        uniqueCourseId += "NCE";
+      } else if (curriculum === "English Medium (Cambridge)") {
+        uniqueCourseId += "EMC";
+      } else if (curriculum === "English Medium (Edexcel)") {
+        uniqueCourseId += "EME";
+      } else if (curriculum === "Vocational") {
+        uniqueCourseId += "VOC";
+      }
+
       if (
         classLevel !== "" &&
         (classLevel === "PSC" ||
@@ -32,24 +44,50 @@ const CreateNewCourse = () => {
         uniqueCourseId += classLevel[6];
       }
 
-      if (curriculum === "National Curriculum (Bangla Ver)") {
-        uniqueCourseId += "NCB";
-      } else if (curriculum === "National Curriculum (English Ver)") {
-        uniqueCourseId += "NCE";
-      } else if (curriculum === "English Medium (Cambridge)") {
-        uniqueCourseId += "EMC";
-      } else if (curriculum === "English Medium (Edexcel)") {
-        uniqueCourseId += "EME";
-      } else if (curriculum === "Vocational") {
-        uniqueCourseId += "VOC";
-      }
-
       const today = new Date();
       uniqueCourseId += today.getFullYear();
       uniqueCourseId += today.getMonth() + 1;
-      uniqueCourseId += Math.floor(Math.random() * (999 - 100)) + 100;
-      uniqueCourseId += today.getSeconds();
+      uniqueCourseId += Math.floor(Math.random() * (99999 - 10000)) + 10000;
 
+      const setCourseId = { ...courseByTutor };
+      setCourseId["courseId"] = uniqueCourseId;
+      SetCourseByTutor(setCourseId);
+    }
+  };
+
+  const courseTitleGenerator = (curriculum, classLevel, subject) => {
+    let uniqueCourseId = "";
+    if (curriculum !== "" && classLevel !== "" && subject !== "") {
+      // subject
+      uniqueCourseId += subject + "-";
+      // class
+      if (
+        classLevel !== "" &&
+        (classLevel === "PSC-" ||
+          classLevel === "JSC-" ||
+          classLevel === "SSC-" ||
+          classLevel === "HSC-")
+      ) {
+        uniqueCourseId += classLevel;
+      } else if (classLevel === "O-Level-" || classLevel === "A-Level-") {
+        uniqueCourseId += classLevel + "-";
+      } else {
+        uniqueCourseId += classLevel + "-";
+      }
+
+      // curriculum
+
+      if (curriculum === "National Curriculum (Bangla Ver)") {
+        uniqueCourseId += "-NCB";
+      } else if (curriculum === "National Curriculum (English Ver)") {
+        uniqueCourseId += "-NCE";
+      } else if (curriculum === "English Medium (Cambridge)") {
+        uniqueCourseId += "-EMC";
+      } else if (curriculum === "English Medium (Edexcel)") {
+        uniqueCourseId += "-EME";
+      } else if (curriculum === "Vocational") {
+        uniqueCourseId += "-VOC";
+      }
       const setCourseId = { ...courseByTutor };
       setCourseId["courseId"] = uniqueCourseId;
       SetCourseByTutor(setCourseId);
@@ -75,18 +113,41 @@ const CreateNewCourse = () => {
     courseDescription: "",
     courseVideoUrl: "",
     courseId: "",
+    courseTitle: "",
   });
+
+  console.log(courseByTutor);
 
   const handleBlur = (event) => {
     const newCourseByTutor = { ...courseByTutor };
     newCourseByTutor[event.target.name] = event.target.value;
     SetCourseByTutor(newCourseByTutor);
+
+    if (event.target.name === "classTypes") {
+      const newCourseByTutor = { ...courseByTutor };
+      newCourseByTutor[event.target.name] = event.target.value;
+      newCourseByTutor["tutionFee"] = 0;
+      SetCourseByTutor(newCourseByTutor);
+    }
   };
 
   useEffect(() => {
     courseIdGenerator(courseByTutor.curriculum, courseByTutor.classLevel);
     // eslint-disable-next-line
   }, [courseByTutor.curriculum, courseByTutor.classLevel]);
+
+  useEffect(() => {
+    courseTitleGenerator(
+      courseByTutor.curriculum,
+      courseByTutor.classLevel,
+      courseByTutor.subject
+    );
+    // eslint-disable-next-line
+  }, [
+    courseByTutor.curriculum,
+    courseByTutor.classLevel,
+    courseByTutor.subject,
+  ]);
 
   useEffect(() => {
     courseByTutor.classDay = [];

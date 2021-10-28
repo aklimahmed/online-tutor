@@ -14,6 +14,7 @@ import TutorProfileEdit from './screens/TutorProfileEdit/TutorProfileEdit'
 import TutorsCoursesView from './screens/TutorsCourses/TutorsCoursesView'
 import TutorsCourseEdit from './screens/TutorsCourseEdit/TutorsCourseEdit'
 import TutorsSingleCourse from './screens/TutorsCourses/TutorsSingleCourse'
+// import StudentsFormEdit from './screens/StudentsFormEdit/StudentsFormEdit'
 // awElJHf1SwmAYanM
 
 const App = () => {
@@ -30,6 +31,7 @@ const App = () => {
           <Route path='/tutorsdashboard/:id' component={TutorDashboard} />
           <Route path='/tutorsmessage/:id' component={TutorsMessage} />  
           <Route path='/studentsform/:id' component={StudentsForm} />
+          
           <Route exact path='/course/tutor/:id' component={TutorsCourseAdd} />
           <Route path='/course/tutor/view/:id' component={TutorsCoursesView} />
           <Route path='/course/tutor/edit/:id' component={TutorsCourseEdit} />
