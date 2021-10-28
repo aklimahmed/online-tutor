@@ -28,7 +28,7 @@ const TutorsCourseAdd = () => {
         <CreateNewCourse />
         <div className="d-flex justify-content-center">
           <button
-            className="form_button btn btn-primary mt-3 mb-5"
+            className="update_button form_button btn btn-primary mt-3 mb-5"
             type="submit"
           >
             Submit

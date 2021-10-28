@@ -61,41 +61,41 @@ const CreateNewCourse = () => {
   };
 
   const courseTitleGenerator = (curriculum, classLevel, subject) => {
-    let uniqueCourseId = "";
+    let CourseTitle = "";
     if (curriculum !== "" && classLevel !== "" && subject !== "") {
       // subject
-      uniqueCourseId += subject + "-";
+      CourseTitle += subject + "-";
       // class
       if (
         classLevel !== "" &&
-        (classLevel === "PSC-" ||
-          classLevel === "JSC-" ||
+        (classLevel === "PSC" ||
+          classLevel === "JSC" ||
           classLevel === "SSC-" ||
           classLevel === "HSC-")
       ) {
-        uniqueCourseId += classLevel;
-      } else if (classLevel === "O-Level-" || classLevel === "A-Level-") {
-        uniqueCourseId += classLevel + "-";
+        CourseTitle += classLevel;
+      } else if (classLevel === "O-Level" || classLevel === "A-Level") {
+        CourseTitle += classLevel;
       } else {
-        uniqueCourseId += classLevel + "-";
+        CourseTitle += classLevel;
       }
 
       // curriculum
 
       if (curriculum === "National Curriculum (Bangla Ver)") {
-        uniqueCourseId += "-NCB";
+        CourseTitle += "-NCB";
       } else if (curriculum === "National Curriculum (English Ver)") {
-        uniqueCourseId += "-NCE";
+        CourseTitle += "-NCE";
       } else if (curriculum === "English Medium (Cambridge)") {
-        uniqueCourseId += "-EMC";
+        CourseTitle += "-EMC";
       } else if (curriculum === "English Medium (Edexcel)") {
-        uniqueCourseId += "-EME";
+        CourseTitle += "-EME";
       } else if (curriculum === "Vocational") {
-        uniqueCourseId += "-VOC";
+        CourseTitle += "-VOC";
       }
-      const setCourseId = { ...courseByTutor };
-      setCourseId["courseId"] = uniqueCourseId;
-      SetCourseByTutor(setCourseId);
+      const setCourseTitle = { ...courseByTutor };
+      setCourseTitle["courseTitle"] = CourseTitle;
+      SetCourseByTutor(setCourseTitle);
     }
   };
 

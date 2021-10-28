@@ -43,7 +43,7 @@ const TutorsSingleCourse = () => {
 
   return (
     <Row>
-      <h4 style={{marginBottom: '20px', marginTop: '20px'}} className="card_header">Course ID: BMC52021101234</h4>
+      <h4 style={{marginBottom: '20px', marginTop: '20px'}} className="card_header">Course ID: {singleCourse.courseByTutor && singleCourse.courseByTutor.courseId}</h4>
       <Col>
         <Row>
           <Col md={4}><span className="course_info_label">Class Type</span></Col>
