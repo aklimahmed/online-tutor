@@ -45,6 +45,8 @@ const CreateNewCourse = () => {
         uniqueCourseId += classLevel;
       } else if (classLevel === "O Level" || classLevel === "A Level") {
         uniqueCourseId += classLevel[0];
+      }else if (classLevel === "Class-10" || classLevel === "Class-11" || classLevel === "Class-12") {
+        uniqueCourseId += classLevel[6]+classLevel[7];
       } else {
         uniqueCourseId += classLevel[6];
       }
@@ -52,7 +54,7 @@ const CreateNewCourse = () => {
       const today = new Date();
       uniqueCourseId += today.getFullYear();
       uniqueCourseId += today.getMonth() + 1;
-      uniqueCourseId += Math.floor(Math.random() * (99999 - 10000)) + 10000;
+      uniqueCourseId += Math.floor(Math.random() * (10000 - 99999)) + 10000;
 
       const setCourseId = { ...courseByTutor };
       setCourseId["courseId"] = uniqueCourseId;
@@ -60,6 +62,8 @@ const CreateNewCourse = () => {
     }
   };
 
+  let ddd = new Date()
+  console.log(ddd.getMilliseconds())
   const courseTitleGenerator = (curriculum, classLevel, subject) => {
     let CourseTitle = "";
     if (curriculum !== "" && classLevel !== "" && subject !== "") {
@@ -76,7 +80,7 @@ const CreateNewCourse = () => {
         CourseTitle += classLevel;
       } else if (classLevel === "O-Level" || classLevel === "A-Level") {
         CourseTitle += classLevel;
-      } else {
+      }else {
         CourseTitle += classLevel;
       }
 
@@ -120,7 +124,7 @@ const CreateNewCourse = () => {
     courseId: "",
     courseTitle: "",
     docName: "",
-    docUrl: "",
+    docNameUrl: "",
   });
 
   console.log(courseByTutor);

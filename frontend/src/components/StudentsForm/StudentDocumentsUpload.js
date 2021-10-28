@@ -1,13 +1,15 @@
-import { React, useState} from "react";
+import { React, useState, useEffect} from "react";
 import { Row, Col, Card, Container } from "react-bootstrap";
+import { useDispatch } from "react-redux";
 import { storage } from "../Firebase/FirebaseConfig";
 import { deleteObject } from "firebase/storage";
 import { TiDelete } from "react-icons/ti";
 import { useSelector} from "react-redux";
+import { studentDocumentsUploadForm } from "../../actions/studentActions";
 
 const StudentDocumentsUpload = () => {
   // const dispatch = useDispatch();
-
+  const dispatch = useDispatch();
   const id = useSelector((state) => state.userLogin.userInfo._id);
 
   const [DocumentsUpload, setDocumentsUpload] = useState({
@@ -82,9 +84,9 @@ const StudentDocumentsUpload = () => {
       });
   };
 
-  // useEffect(() => {
-  //   dispatch(documentsUploadForm(DocumentsUpload));
-  // });
+  useEffect(() => {
+    dispatch(studentDocumentsUploadForm(DocumentsUpload));
+  });
 
   return (
     <Container className="weeklyTime_div">

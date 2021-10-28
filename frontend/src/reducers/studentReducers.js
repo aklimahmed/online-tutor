@@ -4,7 +4,8 @@ import {
     STUDENT_FORM_FAIL,
     STUDENT_BASIC_INFO,
     STUDENT_ACADEMIC_INFO,
-    STUDENT_EXTRA_ACTIVITIES
+    STUDENT_EXTRA_ACTIVITIES,
+    STUDENT_DOCUMENTS_UPLOAD
 } from '../constants/studentConstants'
 
 export const studentFormReducer = (state = {}, action) => {
@@ -46,6 +47,16 @@ export const studentExtraActivitiesReducer = (state = initialState, { type, payl
   switch (type) {
       case STUDENT_EXTRA_ACTIVITIES:
           return { ...state, studentExtraActivities: payload };
+
+      default:
+          return state;
+  }
+}
+
+export const studentDocumentsUploadReducer = (state = initialState, { type, payload }) => {
+  switch (type) {
+      case STUDENT_EXTRA_ACTIVITIES:
+          return { ...state, studentDocumentsUpload: payload };
 
       default:
           return state;

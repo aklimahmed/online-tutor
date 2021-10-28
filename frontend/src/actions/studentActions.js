@@ -6,10 +6,11 @@ import {
     STUDENT_FORM_FAIL,
     STUDENT_BASIC_INFO,
     STUDENT_ACADEMIC_INFO,
-    STUDENT_EXTRA_ACTIVITIES
+    STUDENT_EXTRA_ACTIVITIES,
+    STUDENT_DOCUMENTS_UPLOAD
 } from '../constants/studentConstants'
 
-export const createStudent = (user, studentBasic, studentAcademic, studentExtraActivities) => async (dispatch) => {
+export const createStudent = (user, studentBasic, studentAcademic, studentExtraActivities, studentDocumentsUpload) => async (dispatch) => {
     try {
       dispatch({
         type: STUDENT_FORM_REQUEST,
@@ -23,7 +24,7 @@ export const createStudent = (user, studentBasic, studentAcademic, studentExtraA
   
       const { data } = await axios.post(
         'http://localhost:5000/api/student',
-        { user, studentBasic, studentAcademic, studentExtraActivities},
+        { user, studentBasic, studentAcademic, studentExtraActivities, studentDocumentsUpload},
         config
       )
   
@@ -62,6 +63,13 @@ export const createStudent = (user, studentBasic, studentAcademic, studentExtraA
   export const studentExtraActivitiesForm = (info) =>{
     return{
         type: STUDENT_EXTRA_ACTIVITIES,
+        payload: info
+    };
+  };
+
+  export const studentDocumentsUploadForm = (info) =>{
+    return{
+        type: STUDENT_DOCUMENTS_UPLOAD,
         payload: info
     };
   };

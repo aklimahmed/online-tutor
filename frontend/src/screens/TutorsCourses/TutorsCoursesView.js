@@ -76,6 +76,12 @@ const TutorsCoursesView = () => {
                 <small>Sl</small>
               </th>
               <th>
+                <small>Course Title</small>
+              </th>
+              <th>
+                <small>Course ID</small>
+              </th>
+              <th>
                 <small>Curriculum</small>
               </th>
               <th>
@@ -110,6 +116,12 @@ const TutorsCoursesView = () => {
                   <tr key={serial++}>
                     <td data-label="Sl">
                       <small>{serial++}</small>
+                    </td>
+                    <td data-label="Course Title">
+                      <small>{data.courseByTutor.courseTitle}</small>
+                    </td>
+                    <td data-label="Course ID">
+                      <small>{data.courseByTutor.courseId}</small>
                     </td>
                     <td data-label="Curriculum">
                       <small>{data.courseByTutor.curriculum}</small>
